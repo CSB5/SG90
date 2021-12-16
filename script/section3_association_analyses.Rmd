@@ -1,0 +1,211 @@
+---
+title: "firmenich_final_presentation"
+author: "Aarthi Ravikrishnan"
+output: pdf_document
+chunk_output_type: console
+---
+```{r setup, include=FALSE}
+rm(list=ls())
+pacman::p_load(tidyverse,
+               tibble,
+               GGally,
+               caret,
+               skimr,
+               readxl,
+               metagenomeSeq,
+               boot, mikropml, furrr,
+               reshape2)
+```
+
+Functions to use
+```{r}
+param_with_age_correction_grip_mat <- function(org_list_to_use, resultssum, fname){
+  pval <- NULL
+  org_list <- NULL
+  estimate <- NULL
+  stderror <- NULL
+  betaestimate <- NULL
+  stderror <- NULL
+  for (i in seq_along(1:length(resultssum)))
+  {
+    #print(paste0(org_list_to_use[i], ' ', resultssum[[i]][35]))
+    if ("x" %in% rownames(resultssum[[i]])){
+      pval <-
+        rbind(pval, resultssum[[i]]["x",][4])
+      org_list <- rbind(org_list, org_list_to_use[i])
+      betaestimate <-
+        rbind(betaestimate, resultssum[[i]]["x",][1])
+      stderror <-
+        rbind(stderror, resultssum[[i]]["x",][2])
+    }
+    else{
+      
+      print(org_list_to_use[i])}
+  }
+  
+  all_df <- data.frame(org_list, pval, betaestimate, stderror)
+  colnames(all_df) <- c('org_list', 'pval', 'betaestimate', 'stderror')
+  all_df$padj <- p.adjust(all_df$pval, 'fdr')
+  
+  write.csv(all_df, fname, row.names = FALSE)
+  return(all_df)
+}
+
+```
+```{r}
+#Reading in Data
+mydata = read.csv("../data/taxa_profiles_with_associations.csv")
+org_list_to_use <- readRDS('../data/org_list_for_association.RDS')
+
+#HSCRP without age correction
+HSCRP_Age_gender_ALT_AST_others2_woage <-
+  lapply(mydata[, org_list_to_use], function(x)          coefficients(summary(glm(mydata$HSCRP ~ x + mydata$ALT + mydata$AST + mydata$FBGlu +  mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data = mydata))))
+hscrp_woage <- param_with_age_correction_grip_mat(org_list_to_use, HSCRP_Age_gender_ALT_AST_others2_woage, '../results/HSCRP_without_age_correction1.csv')
+
+#HSCRP with age correction
+HSCRP_Age_gender_ALT_AST_others2_withage <-
+  lapply(mydata[, org_list_to_use], function(x)          coefficients(summary(glm(mydata$HSCRP ~ x + mydata$Age + mydata$ALT + mydata$AST + mydata$FBGlu +  mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data = mydata))))
+
+hscrp_withage <- param_with_age_correction_grip_mat(org_list_to_use, HSCRP_Age_gender_ALT_AST_others2_withage, '../results/HSCRP_with_age_correction1.csv')
+
+
+#ALT without age correction
+ALT_Age_gender_HSCRP_AST_woagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$ALT~ x + mydata$HSCRP + mydata$AST + mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+alt_woage <- param_with_age_correction_grip_mat(org_list_to_use, ALT_Age_gender_HSCRP_AST_woagecorrection,  '../results/ALT_without_age_correction1.csv')
+
+#ALT with age correction
+ALT_Age_gender_HSCRP_AST_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$ALT~ x + mydata$HSCRP + mydata$Age+ mydata$AST + mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+alt_withage <- param_with_age_correction_grip_mat(org_list_to_use, ALT_Age_gender_HSCRP_AST_withagecorrection,  '../results/ALT_with_age_correction1.csv')
+
+
+#AST without age correction
+AST_Age_gender_HSCRP_AST_woagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$AST~ x + mydata$HSCRP + mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+ast_woage <- param_with_age_correction_grip_mat(org_list_to_use, AST_Age_gender_HSCRP_AST_woagecorrection,  '../results/AST_without_age_correction1.csv')
+
+#AST with age correction
+AST_Age_gender_HSCRP_AST_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$AST~ x + mydata$Age + mydata$HSCRP + mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+ast_withage <- param_with_age_correction_grip_mat(org_list_to_use, AST_Age_gender_HSCRP_AST_withagecorrection,  '../results/AST_with_age_correction1.csv')
+
+
+#LeftHandgrip without age correction
+leftgrip_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$HandgripL1 ~ x + mydata$HSCRP + mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+leftgrip_woage <- param_with_age_correction_grip_mat(org_list_to_use,leftgrip_withoutagecorrection,  '../results/Leftgripwithout_age_correction1.csv')
+
+#LeftHandgrip with age correction
+leftgrip_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$HandgripL1 ~ x + mydata$Age +mydata$HSCRP + mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+leftgrip_withage <- param_with_age_correction_grip_mat(org_list_to_use,leftgrip_withagecorrection,  '../results/Leftgripwith_age_correction1.csv')
+
+
+#RightHandgrip (formula deduced from Eileen resutls) without age correction
+rightgrip_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$HandgripR1 ~ x + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+rightgrip_woage <- param_with_age_correction_grip_mat(org_list_to_use, rightgrip_withoutagecorrection,  '../results/Rightgripwithout_age_correction.csv')
+
+#RightHandgrip (formula deduced from Eileen resutls) without age correction
+rightgrip_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$HandgripR1 ~ x + mydata$Age +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+rightgrip_withage <- param_with_age_correction_grip_mat(org_list_to_use, rightgrip_withagecorrection,  '../results/Rightgripwith_age_correction.csv')
+
+
+#Gait speed without age correction
+gaitspeed_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$GaitT1 ~ x + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+gaitspeed_woage <- param_with_age_correction_grip_mat(org_list_to_use, gaitspeed_withoutagecorrection,  '../results/gaitspeedwithout_age_correction.csv')
+
+#Gait speed with age correction
+gaitspeed_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$GaitT1 ~ x + mydata$Age + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+gaitspeed_withage <- param_with_age_correction_grip_mat(org_list_to_use, gaitspeed_withagecorrection,  '../results/gaitspeedwith_age_correction.csv')
+
+
+#Triglycerides with age correction
+tgly_withagecorrection <- lapply(mydata[,org_list_to_use],function(x)coefficients (summary (glm(mydata$Tgly ~ x + mydata$Age + mydata$FBGlu + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+tgly_withage <- param_with_age_correction_grip_mat(org_list_to_use, tgly_withagecorrection,  '../results/tgly_age_correction.csv')
+
+#Triglycerides without age correction
+tgly_withoutagecorrection <- lapply(mydata[,org_list_to_use],function(x)coefficients (summary (glm(mydata$Tgly ~ x + mydata$FBGlu + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+tgly_woage <- param_with_age_correction_grip_mat(org_list_to_use,
+                                                 tgly_withoutagecorrection,
+                                                 '../results/tgly_woage_correction.csv')
+
+
+# Fasting blood glucose with age correction
+fb_withagecorrection <- lapply(mydata[,org_list_to_use],function(x)coefficients
+                               (summary (glm(mydata$FBGlu ~ x + mydata$Age + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender,data = mydata))))
+fb_withage <- param_with_age_correction_grip_mat(org_list_to_use, fb_withagecorrection,  '../results/fb_withage_correction1.csv')
+
+# Fasting blood glucose without age correction
+fb_woagecorrection <- lapply(mydata[,org_list_to_use],function(x)coefficients
+                             (summary (glm(mydata$FBGlu ~ x + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender,data = mydata))))
+fb_woage <- param_with_age_correction_grip_mat(org_list_to_use, fb_woagecorrection,  '../results/fb_woage_correction.csv')
+
+#Total cholesterol with age correction
+tchol_withagecorrection <-
+  lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$TCHOL ~ x + mydata$Age + mydata$FBGlu + mydata$Tgly + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+tchol_withage <- param_with_age_correction_grip_mat(org_list_to_use, tchol_withagecorrection,  '../results/tchol_withage_correction1.csv')
+
+#Total cholesterol without age correction
+tchol_withoutagecorrection <-
+  lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$TCHOL ~ x + mydata$FBGlu + mydata$Tgly + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+tchol_woage <- param_with_age_correction_grip_mat(org_list_to_use, tchol_withoutagecorrection,  '../results/tchol_woage_correction1.csv')
+
+
+#HDL with age correction
+hdl_withagecorrection <- lapply(mydata[, org_list_to_use], function(x)coefficients (summary (glm(mydata$HDL ~ x + mydata$Age + mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+hdl_withage <- param_with_age_correction_grip_mat(org_list_to_use, hdl_withagecorrection,  '../results/hdl_withage_correction1.csv')
+
+#HDL without age correction
+hdl_withoutagecorrection <- lapply(mydata[, org_list_to_use], function(x)coefficients (summary (glm(mydata$HDL ~ x  + mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+hdl_withoutage <- param_with_age_correction_grip_mat(org_list_to_use, hdl_withoutagecorrection,  '../results/hdl_withoutage_correction1.csv')
+
+#LDL with age correction
+ldl_withagecorrection <- lapply(mydata[, org_list_to_use], function(x)coefficients (summary (glm(mydata$LDL ~ x + mydata$Age + mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$BMI + mydata$gender, data=mydata))))
+ldl_withage <- param_with_age_correction_grip_mat(org_list_to_use, ldl_withagecorrection,  '../results/ldl_withage_correction1.csv')
+
+#LDL without age correction
+ldl_withoutagecorrection <- lapply(mydata[, org_list_to_use], function(x)coefficients (summary (glm(mydata$LDL ~ x + mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$BMI + mydata$gender, data=mydata))))
+ldl_withoutage <- param_with_age_correction_grip_mat(org_list_to_use, ldl_withoutagecorrection,  '../results/ldl_withoutage_correction1.csv')
+
+
+```
+New associations (Vitamin B, Folate, MMSE, homocysteine, FT4, Sleep)
+```{r}
+
+# Vitamin B
+vitaminb_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$VB12 ~ x + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+vitaminbwoagecorr_woage <- param_with_age_correction_grip_mat(org_list_to_use, vitaminb_withoutagecorrection,  '../results/vitb_without_age_correction.csv')
+
+vitaminb_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$VB12 ~ x + mydata$Age + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+vitaminbwithagecorr <- param_with_age_correction_grip_mat(org_list_to_use, vitaminb_withagecorrection,  '../results/VitaminB_with_age_correction.csv')
+
+# Folate
+folate_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$FOL ~ x + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+folatewoagecorr_woage <- param_with_age_correction_grip_mat(org_list_to_use, folate_withoutagecorrection,  '../results/folate_without_age_correction.csv')
+
+folate_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$FOL ~ x + mydata$Age + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+folatewithagecorr <- param_with_age_correction_grip_mat(org_list_to_use, folate_withagecorrection,  '../results/folate_with_age_correction.csv')
+
+#MMSE (have 224 NA values, 91 actual values)
+mmse_withage <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$mmse ~ x + mydata$Age + mydata$gender, data=mydata))))
+mmsewithagecorr <- param_with_age_correction_grip_mat(org_list_to_use, mmse_withage,  '../results/mmse_with_age_correction.csv')
+
+mmse_withoutage <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$mmse ~ x  + mydata$gender, data=mydata))))
+mmsewithoutagecorr <- param_with_age_correction_grip_mat(org_list_to_use, mmse_withoutage,  '../results/mmse_without_age_correction.csv')
+
+#Sleep (have 224 NA values, 91 actual values)
+sleep_withage <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$sleep ~ x + mydata$Age + mydata$gender, data=mydata))))
+sleepwithagecorr <- param_with_age_correction_grip_mat(org_list_to_use, sleep_withage,  '../results/sleep_with_age_correction.csv')
+
+sleep_withoutage <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$sleep ~ x  + mydata$gender, data=mydata))))
+sleepwithoutagecorr <- param_with_age_correction_grip_mat(org_list_to_use, sleep_withoutage,  '../results/sleep_without_age_correction.csv')
+
+# Homocysteine (have 193 values)
+homocys_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$HCY ~ x + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+hcywoagecorr_woage <- param_with_age_correction_grip_mat(org_list_to_use, homocys_withoutagecorrection,  '../results/hcy_without_age_correction.csv')
+
+homocys_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$HCY ~ x + mydata$Age + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+hcywoagecorr <- param_with_age_correction_grip_mat(org_list_to_use, homocys_withagecorrection,  '../results/homocys_with_age_correction.csv')
+
+#FT4
+ftfour_withoutagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$FT4 ~ x + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+ftfourwoagecorr_woage <- param_with_age_correction_grip_mat(org_list_to_use, ftfour_withoutagecorrection,  '../results/ft4_without_age_correction.csv')
+
+ftfour_withagecorrection <- lapply(mydata[,org_list_to_use], function(x)coefficients (summary (glm(mydata$FT4 ~ x + mydata$Age + mydata$HSCRP+ mydata$ALT +  mydata$FBGlu + mydata$Tgly + mydata$TCHOL + mydata$HDL + mydata$LDL + mydata$BMI + mydata$gender, data=mydata))))
+ftfourwithagecorr <- param_with_age_correction_grip_mat(org_list_to_use, ftfour_withagecorrection,  '../results/ft4_with_age_correction.csv')
+```
