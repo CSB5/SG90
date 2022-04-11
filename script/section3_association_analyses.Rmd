@@ -1,5 +1,5 @@
 ---
-title: "firmenich_final_presentation"
+title: "SG90-association"
 author: "Aarthi Ravikrishnan"
 output: pdf_document
 chunk_output_type: console
