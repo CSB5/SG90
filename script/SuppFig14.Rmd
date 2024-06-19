@@ -1,0 +1,59 @@
+---
+title: "SuppFig14"
+output: html_document
+date: '2024-04-12'
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setupparam}
+pacman::p_load(tidyverse, here, magrittr)
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','fig_plot.R'))
+```
+
+## Load profiles
+```{r}
+metadata <- read.csv(here('data', 'metadata.csv'))
+
+```
+
+## Plot age
+```{r}
+ageg_plot <- metadata %>% 
+  dplyr::count(Cohort, AgeG) %>% 
+  ggplot(aes(x = n, y = AgeG, fill = Cohort)) +
+  geom_bar(stat = 'identity') + 
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), size = 5) + 
+  labs(x = 'Count', y = 'Age Group') +
+  theme_bw() + 
+  theme(text = element_text(size = 14))
+print(ageg_plot)
+template_to_save(ageg_plot, 'Supp_Fig14.png', 18,10)
+```
+
+## Plot in editable ppt
+```{r}
+library(officer)
+ageg_dml <- rvg::dml(ggobj = ageg_plot)  
+# Write the document to a file
+
+officer::read_pptx() %>%
+  # add slide ----
+  officer::add_slide() %>%
+  # specify object and location of object ----
+  officer::ph_with(ageg_dml, ph_location(width = 6, height = 4.5)) %>%
+  # export slide -----
+  base::print(here(editablepptfname, "Supp_Fig14.pptx")
+  )
+
+```
+

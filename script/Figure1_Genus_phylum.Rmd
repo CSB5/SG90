@@ -1,0 +1,337 @@
+---
+title: "Figure 1 Genus Phylum"
+author: "Aarthi Ravikrishnan"
+date: "2024-02-21"
+editor_options: 
+  chunk_output_type: console
+chunk_output_type: console
+output: 
+  
+  rmdformats::downcute:
+    
+    downcute_theme: "chaos"
+    use_bookdown: true
+    self_contained: true
+    lightbox: true
+    gallery: true
+    toc_depth: 5
+  pdf_document:
+    toc_depth: 5
+---
+
+This script does GLM and reports the associations of genus and phylum. 
+
+#Packages  
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, cache.lazy = FALSE, 
+                      collapse = TRUE, warning = FALSE, message = FALSE)
+
+rm(list=ls())
+pacman::p_load(tidyverse, janitor,
+               knitr,
+               tibble,
+               here,
+               MMUPHin)
+
+```
+#Setup parameters
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs", "_", species_thr)
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results", "_", species_thr)
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+```
+#Genus profiles 
+
+## Reading in profiles
+```{r genus}
+base_genus_profiles <-
+  read.csv(
+    here("data", "genus_abundances.csv"),
+    encoding =  "UTF-8-BOM") 
+
+cre_genus_profiles <- read.csv(here("data", 'merged_all_genus_abundances.csv')) %>% 
+  dplyr::select(-X)
+
+#metadata <- read.csv(here('data','metadata_with_clinical_data_updated_age.csv'))
+
+metadata <- read.csv(here("data", "metadata.csv")) %>% 
+  # convert CRE to SG90
+  mutate(Cohort = ifelse(Cohort == 'CRE', 'SG90', Cohort))
+metadata <- metadata[order(metadata$LibraryID),] 
+
+genus_profiles <- left_join(base_genus_profiles, cre_genus_profiles, by='Index') %>%
+  column_to_rownames('Index') %>% 
+  dplyr::select(metadata %>% pull(LibraryID)) %>% 
+  replace(is.na(.), 0)
+```
+## Filtering profiles
+**Filter criterion**
+
+We employ a two-step filtering criterion:
+1. Filtering the profiles by setting abundance < 0.1 as 0 and, 
+2. Removing the organisms which are zero across all samples
+
+We then renormalise the profiles to 1.
+```{r genusfilter}
+genus_thr <- 0.1
+genus_profiles_copy <- genus_profiles
+genus_profiles[genus_profiles < genus_thr] <- 0
+genus_profiles_filtered <-
+  genus_profiles[rowSums(genus_profiles) != 0, ]
+
+genus_profiles_prop <-
+  genus_profiles_filtered %>% apply(2, function(x)
+    x / sum(x))
+
+genus_profiles_prop <-
+  genus_profiles_prop[, order(colnames(genus_profiles_prop))]
+
+```
+## Batch adjustment
+```{r genusbatch}
+rownames(metadata) <- metadata$LibraryID
+genus_fit_adjust_batch_decade <-
+  adjust_batch(
+    feature_abd = genus_profiles_prop,
+    batch = "Cohort",
+    covariates = "AgeG",
+    data = metadata
+  )
+#
+genus_profiles_adj_decade <- genus_fit_adjust_batch_decade$feature_abd_adj
+genus_profiles_adj_scaled_to_100 <- 100 * genus_profiles_adj_decade
+```
+## Genus Association
+```{r genusasscn}
+genus_nonzero_in_samples <- 
+  data.frame(nnzorg = colSums(t(genus_profiles_adj_scaled_to_100)!=0))
+
+genus_hist <- ggplot(genus_nonzero_in_samples, aes(x=nnzorg)) +
+  geom_histogram(color="darkblue", fill="lightblue") + 
+  scale_x_continuous(breaks = scales::pretty_breaks(n=7)) +
+  xlab('Number of samples') + 
+  ylab('Count of organisms with non-zero abundances') + 
+  ggtitle('Genus histogram')
+
+print(genus_hist)
+
+genusinmorethanfiftysamples <-
+  genus_nonzero_in_samples %>% filter(nnzorg >= hist_filter)
+
+genus_needed <- genus_profiles_adj_scaled_to_100 %>%
+  t() %>% as.data.frame() %>%
+  dplyr::select(rownames(genusinmorethanfiftysamples)) %>%
+  rownames_to_column('LibraryID')
+```
+
+## Read metadata and prepare data
+```{r readmetadata}
+metadata_with_clinicalparam <- read.csv(here('data', 'metadata_with_imputed_updatedage_allInfo.csv'))
+
+genus_data_for_association <-
+  merge(genus_needed, metadata_with_clinicalparam, by = 'LibraryID')
+
+genus_data_for_association <- left_join(genus_data_for_association,
+                                        metadata %>% 
+                                          dplyr::select('LibraryID',
+                                                        'AgeG'),
+                                        by='LibraryID')
+dim(genus_data_for_association)
+dim(metadata)
+dim(genus_needed)
+genus_list_to_use <-colnames(genus_needed)[grepl('g__',colnames(genus_needed))]
+length(genus_list_to_use)
+```
+## Age association
+### GLM
+```{r genusglm}
+genus_with_age <-
+  lapply(genus_data_for_association[, genus_list_to_use], function(x)
+    coefficients(summary(
+      glm(Age ~ x +  FBGlu +  Tgly + TCHOL + HDL + BMI + Gender,
+        data = genus_data_for_association))))
+
+genus_fname <- 'genus_associations_noldl.csv'
+genus_results <- param_with_age_correction(genus_list_to_use, genus_with_age,resultsfoldername, genus_fname, genus_data_for_association)
+
+# genus_maaslin2 <- run_maaslin2(genus_data_for_association, 'NONE', 'NONE', 'results_0.1')
+# genus_maaslin2_glm <- genus_maaslin2 %>% 
+#   dplyr::select(org_list, pval, coef, stderr, padj) %>% 
+#   dplyr::rename(betaestimate = coef, stderror = stderr) %>% 
+#   # add 95% confint
+#   mutate(`2.5%` = betaestimate - 1.96 * stderror, 
+#          `97.5%` = betaestimate + 1.96 * stderror)
+
+
+```
+### Preparing data to plot
+```{r datapreptoplot}
+median_of_genus <- genus_needed %>%
+  dplyr::select(rownames(genusinmorethanfiftysamples)) %>% 
+  as.matrix() %>% 
+  matrixStats::colMedians()
+
+median_of_genus_with_name <- data.frame(rownames(genusinmorethanfiftysamples), median_of_genus)
+colnames(median_of_genus_with_name)[1] <- c('org_list')
+
+genus_results$Significant <-
+  ifelse(genus_results$padj < 0.05, "FDR < 0.05", "Not Sig")
+
+genus_results_merge <-
+  merge(genus_results, median_of_genus_with_name, by = 'org_list')
+  #merge(genus_maaslin2_glm, median_of_genus_with_name, by = 'org_list')
+
+genus_results_merge$highlight1 <-
+  ifelse(genus_results_merge$median_of_genus > 0 &
+           genus_results$padj < 0.05, "2",
+         ifelse(genus_results_merge$median_of_genus == 0 &
+                  genus_results$padj < 0.05 |
+                  genus_results$padj == 0.05 , "1", "0"))
+
+genus_results_merge$org_list <- str_replace_all(genus_results_merge$org_list, 'g__', '')
+genus_results_merge$org_list <- str_replace_all(genus_results_merge$org_list, '_', ' ')
+
+write.csv(genus_results_merge, here(resultsfoldername, genus_fname))
+
+```
+
+### Genus boxplot
+```{r}
+bacteroides_genus <- plotbox(genus_data_for_association, 'AgeG.x', 'g__Bacteroides', 'Bacteroides genus', figsfoldername, 'Fig1D_genus.png',ylimitplot=100,genus_results)
+bacteroides_genus
+template_to_save(bacteroides_genus, fname = 'Fig1D_genus.png', width=10, height=10)
+
+makeedtiableppt(bacteroides_genus, fname = 'Fig1D_genus.pptx', width = 4, height = 4)
+```
+# Phylum profiles
+## Reading in profiles
+```{r phylumtaxaread}
+# Reading data
+base_phylum_profiles <-
+  read.csv(
+    here("data", "phylum_abundances.csv"),
+    encoding =  "UTF-8-BOM")
+
+
+cre_phylum_profiles <- read.csv(here("data", 'phylum_cre_profiles.csv')) %>%  dplyr::select(-X)
+
+phylum_profiles <- left_join(base_phylum_profiles, cre_phylum_profiles, by='Index') %>%
+  column_to_rownames('Index') %>% 
+  dplyr::select(metadata %>% pull(LibraryID)) %>% 
+  replace(is.na(.), 0)
+```
+## Filtering profiles
+```{r phylumtaxafilter}
+phylum_thr <- 0.1
+phylum_profiles_copy <- phylum_profiles
+phylum_profiles[phylum_profiles < phylum_thr] <- 0
+phylum_profiles_filtered <-
+  phylum_profiles[rowSums(phylum_profiles) != 0, ]
+phylum_profiles_prop <-
+  phylum_profiles_filtered %>% apply(2, function(x)
+    x / sum(x))
+phylum_profiles_prop <-
+  phylum_profiles_prop[, order(colnames(phylum_profiles_prop))]
+```
+## Batch adjustment
+```{r phylumbatchadj}
+phylum_fit_adjust_batch_decade <-
+  adjust_batch(
+    feature_abd = phylum_profiles_prop,
+    batch = "Cohort",
+    covariates = "AgeG",
+    data = metadata
+  )
+#
+phylum_profiles_adj_decade <- phylum_fit_adjust_batch_decade$feature_abd_adj
+phylum_profiles_adj_scaled_to_100 <- 100 * phylum_profiles_adj_decade
+```
+## Phylum Association
+```{r phylumasscn}
+
+phylum_nonzero_in_samples <- data.frame(nnzorg = colSums(t(phylum_profiles_adj_scaled_to_100) !=0))
+
+phylum_hist <- ggplot(phylum_nonzero_in_samples, aes(x=nnzorg)) + 
+  geom_histogram(color="darkblue", fill="lightblue") +
+  scale_x_continuous(breaks = scales::pretty_breaks(n=7)) + 
+  xlab('Number of samples') +
+  ylab('Count of organisms with non-zero abundances') + 
+  ggtitle('phylum histogram')
+
+phyluminmorethanfiftysamples <-
+  phylum_nonzero_in_samples %>% filter(nnzorg >= hist_filter)
+
+phylum_needed <- phylum_profiles_adj_scaled_to_100 %>% t() %>% as.data.frame() %>% dplyr::select(rownames(phyluminmorethanfiftysamples)) %>% rownames_to_column('LibraryID')
+
+phylum_data_for_association <-
+  merge(phylum_needed, metadata_with_clinicalparam, by = 'LibraryID')
+dim(phylum_data_for_association)
+dim(metadata_with_clinicalparam)
+dim(phylum_needed)
+phylum_list_to_use <-colnames(phylum_needed)[grepl('p__',colnames(phylum_needed))]
+```
+### GLM
+```{r phylumglm}
+phylum_with_age <-
+  lapply(phylum_data_for_association[, phylum_list_to_use], function(x)
+    coefficients(summary(
+      glm(
+        Age ~ x +  FBGlu +  Tgly + TCHOL + HDL +  BMI + Gender,
+        data = phylum_data_for_association))))
+
+phylum_fname <- 'phylum_associations_noldl.csv'
+phylum_results <- param_with_age_correction(phylum_list_to_use, phylum_with_age, resultsfoldername, phylum_fname, phylum_data_for_association)
+
+# phylum_maaslin2 <- run_maaslin2(phylum_data_for_association, 'NONE', 'NONE', 'results_0.1')
+# phylum_maaslin2_glm <- phylum_maaslin2 %>% 
+#   dplyr::select(org_list, pval, coef, stderr, padj) %>% 
+#   dplyr::rename(betaestimate = coef, stderror = stderr) %>% 
+#   # add 95% confint
+#   mutate(`2.5%` = betaestimate - 1.96 * stderror, 
+#          `97.5%` = betaestimate + 1.96 * stderror)
+
+```
+### Preparing data to plot
+```{r }
+
+median_of_phylum <- phylum_needed %>% 
+  dplyr::select(rownames(phyluminmorethanfiftysamples)) %>%
+  as.matrix() %>%
+  matrixStats::colMedians()
+
+median_of_phylum_with_name <- data.frame(rownames(phyluminmorethanfiftysamples), median_of_phylum)
+
+phylum_results$Significant <-
+  ifelse(phylum_results$padj < 0.05, "FDR < 0.05", "Not Sig")
+
+colnames(median_of_phylum_with_name)[1] <- c('org_list')
+
+phylum_results_merge <-
+  merge(phylum_results, 
+        #phylum_maaslin2_glm,
+        median_of_phylum_with_name, 
+        by = 'org_list')
+
+phylum_results_merge$highlight1 <-
+  ifelse(phylum_results_merge$median_of_phylum > 0 &
+           phylum_results$padj < 0.05, "2",
+         ifelse(phylum_results_merge$median_of_phylum == 0 &
+                  phylum_results$padj < 0.05 |phylum_results$padj == 0.05,
+                "1", "0"))
+
+phylum_results_merge$org_list <- str_replace_all(phylum_results_merge$org_list, 'p__', '')
+
+phylum_results_merge$org_list <- str_replace_all(phylum_results_merge$org_list, '_', ' ')
+
+write.csv(phylum_results_merge, here(resultsfoldername, phylum_fname))
+
+print(phylum_results_merge)
+```

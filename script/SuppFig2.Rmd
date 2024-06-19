@@ -1,0 +1,116 @@
+---
+title: "Supplementary Figure 2"
+author: "Indrik Wijaya"
+date: "2024-02-21"
+editor_options: 
+  chunk_output_type: inline
+chunk_output_type: console
+output: 
+  
+  rmdformats::downcute:
+    
+    downcute_theme: "chaos"
+    use_bookdown: true
+    self_contained: true
+    lightbox: true
+    gallery: true
+    toc_depth: 5
+  pdf_document:
+    toc_depth: 5
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+pacman::p_load(ggordiplots, vegan, ggrepel, tidyverse, here, phyloseq, magrittr)
+
+```
+#Setup parameters
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_SuppFig2.R'))
+```
+
+## Load data
+```{r}
+metadata <- read.csv(here('data','metadata.csv')) %>% 
+   mutate(Age = as.numeric(Age)) 
+metadata <- metadata[order(metadata$LibraryID),] 
+metadata_for_reads <- read.csv(here('data','metadata_order.csv')) %>%
+  dplyr::select(c("LibraryID", "Kit", "Demographics", "before_filtering",
+                  "after_filtering", "total_reads", "fq_readcount", "human_reads"))
+metadata_for_reads <- metadata_for_reads[order(metadata_for_reads$LibraryID),] 
+
+metadata <- left_join(metadata, metadata_for_reads, by='LibraryID') %>% 
+  mutate(Age = as.numeric(Age))
+
+# Modify so that SG90 + CPE are the same
+
+metadata <- metadata %>% 
+  mutate(Cohort = ifelse(Cohort=='CRE', 'SG90', Cohort))
+
+combined_profiles <- 
+  read.csv(here('data', 'taxonomic_profiles_filtered.csv')) %>%
+  tibble::column_to_rownames('X')
+combined_profiles_adj <- 
+  read.csv(here('data', 'taxonomic_profiles_batch_adjusted.csv')) %>% 
+  tibble::column_to_rownames('X')
+```
+
+# NMDS with arrows
+```{r, echo=T, results='hide'}
+set.seed(1)
+nmds_bray_before <- get_nmds(combined_profiles, metadata , 'bray')
+nmds_bray_after <- get_nmds(combined_profiles_adj, metadata, 'bray')
+
+# change total_reads column
+metadata <- metadata %>% 
+  rename(Reads = total_reads, 
+         Host = human_reads)
+
+# metadata_order <- metadata_order %>% 
+#   rename(Reads = total_reads, 
+#          Host = human_reads)
+
+envfit_before <- envfit(nmds_bray_before$nmds_bray ~ Cohort + Age + Gender + Reads + Host, 
+                        metadata)
+
+envfit_after <- envfit(nmds_bray_after$nmds_bray ~ Cohort + Age + Gender + Reads + Host, 
+                       metadata)
+
+envfit_scores_before <- get_envfit_score(envfit_before)
+envfit_scores_after <- get_envfit_score(envfit_after)
+
+envfit_factors_before <- get_envfit_factor(envfit_before)
+envfit_factors_after <- get_envfit_factor(envfit_after)
+
+original_envfit_ellipse_data <- get_ellipse_data(nmds_bray_before$nmds_bray, metadata,
+                                                 kind = 'sd', conf = 0.95)
+ord_original <- plot_ord(nmds_bray_before$ps_ts, nmds_bray_before$nmds_bray, 
+         envfit_scores_before$coord, 
+         envfit_factors_before$coord, 
+         original_envfit_ellipse_data$df_ellipse) + ggtitle('Before Batch Correction')
+print(ord_original)
+
+original_adj_envfit_ellipse_data <- get_ellipse_data(nmds_bray_after$nmds_bray, metadata,
+                                                     kind = 'sd', conf = 0.95)
+ord_original_adj <- plot_ord(nmds_bray_after$ps_ts, nmds_bray_after$nmds_bray, 
+         envfit_scores_after$coord, 
+         envfit_factors_after$coord,
+         original_adj_envfit_ellipse_data$df_ellipse) + ggtitle('After Batch Correction')
+print(ord_original_adj)
+
+```
+
+## PERMANOVA R2
+```{r}
+combined_no_bc <- get_adonis(combined_profiles, metadata)
+combined_bc <- get_adonis(combined_profiles_adj, metadata)
+```

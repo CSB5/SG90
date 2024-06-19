@@ -1,0 +1,146 @@
+---
+title: "SG90 correlation analysis"
+author: "Aarthi Ravikrishnan"
+date: "18/09/2020"
+output: html_document
+---
+
+# Load packages
+```{r setup}
+rm(list=ls())
+pacman::p_load(tidyverse, ggpubr, here, magrittr, tibble, ccrepe)
+
+```
+#Setup parameters
+
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+set.seed(1)
+```
+
+# Taxonomic profiles 
+## Reading taxonomic profiles
+```{r dataset}
+taxa <- read.csv(here('data', 'taxonomic_profiles.csv')) %>% 
+   dplyr::rename(org_list = 'X')
+taxa[is.na(taxa)] <- 0
+taxa$org_list <- str_replace_all(taxa$org_list,'s__','')
+taxa$org_list <- str_replace_all(taxa$org_list,'_',' ')
+
+taxa <- taxa %>% column_to_rownames('org_list')
+dat <- taxa[rowMeans(taxa>0)>0.3 & rowMeans(taxa) > 1,]
+dat <- dat[, colSums(dat)>10] %>% rownames_to_column('X')
+```
+## Metadata
+```{r}
+# metadata with imputed values, updated age for SG90
+metadata <- read.csv(here('data', 'metadata_with_imputed_updatedage_allInfo.csv'))
+```
+## Helper functions
+```{r helper}
+abbreviateOrganism <- function(organism_name) {
+  words <- strsplit(organism_name, " ")[[1]]
+  
+  if (length(words) >= 2) {
+    initials <- paste0(substr(words[-1], 1, nchar(words[-1])), collapse = ". ")
+    abbreviated <- paste0(substr(words[1], 1, 1), ". ", initials)
+    return(abbreviated)
+  } else {
+    return(organism_name)
+  }
+}
+```
+# CCREPE Analysis
+## Young
+```{r}
+young_profiles <- dat %>%
+  dplyr::select('X' , any_of(
+                metadata %>%
+                filter(Twogroups == 'Young') %>%
+                pull(LibraryID))) %>% rename('#OTU_ID' = 'X') %>%
+                column_to_rownames('#OTU_ID') %>% t()
+print(dim(young_profiles)) #289*25
+young_profiles_fraction <- young_profiles/100
+ccrepe_young <- ccrepe(young_profiles_fraction)
+
+
+mdf_q_young <- reshape2::melt(ccrepe_young$q.values) %>% 
+  rename('q_val'='value')
+mdf_p_young <- reshape2::melt(ccrepe_young$p.values) %>% 
+  rename('p_val'='value')
+mdf_cor_young <- reshape2::melt(ccrepe_young$sim.score) %>% 
+  rename('corr_val'='value') %>% 
+  left_join(mdf_q_young) %>% 
+  left_join(mdf_p_young) %>% 
+  rename('Org1'='Var1', 'Org2'='Var2')
+
+
+mdf_young_filterd <- mdf_cor_young %>% dplyr::filter(p_val < 0.05)
+mdf_young_filterd$Org1 <- as.character(mdf_young_filterd$Org1)
+mdf_young_filterd$Org2 <- as.character(mdf_young_filterd$Org2)
+
+mdf_young_filterd$Organism1 <- sapply(mdf_young_filterd$Org1, abbreviateOrganism)
+mdf_young_filterd$Organism2 <- sapply(mdf_young_filterd$Org2, abbreviateOrganism)
+
+mdf_young_filterd$abscorr <- abs(mdf_young_filterd$corr_val)
+mdf_young_filterd$corrvalround <- round(mdf_young_filterd$corr_val,2)
+mdf_young_filterd$corrvalposneg <- ifelse(mdf_young_filterd$corr_val<0, 'Neg', 'Pos')
+
+write.table(mdf_young_filterd, here(resultsfoldername, 'young_ccrepe.tsv'), sep='\t', row.names=FALSE)
+mdf_young_filterd.highcor <- mdf_young_filterd %>% dplyr::filter(abscorr >=0.1)
+
+write.csv(x=mdf_young_filterd.highcor, file=here(resultsfoldername,'young_ccrepe_filtered.csv'))
+```
+
+##Elderly
+
+```{r elderly}
+elderly_profiles <- dat %>%
+  dplyr::select('X' , any_of(
+                metadata %>%
+                filter(Twogroups == 'Elderly') %>%
+                pull(LibraryID))) %>% rename('#OTU_ID' = 'X') %>%
+                column_to_rownames('#OTU_ID') %>% t()
+print(dim(elderly_profiles)) #220*25
+elderly_profiles_fraction <- elderly_profiles/100
+ccrepe_elderly <- ccrepe(elderly_profiles_fraction)
+
+
+mdf_q_elderly <- reshape2::melt(ccrepe_elderly$q.values) %>% 
+  rename('q_val'='value')
+mdf_p_elderly <- reshape2::melt(ccrepe_elderly$p.values) %>% 
+  rename('p_val'='value')
+mdf_cor_elderly <- reshape2::melt(ccrepe_elderly$sim.score) %>% 
+  rename('corr_val'='value') %>% 
+  left_join(mdf_q_elderly) %>% 
+  left_join(mdf_p_elderly) %>% 
+  rename('Org1'='Var1', 'Org2'='Var2')
+
+
+mdf_elderly_filterd <- mdf_cor_elderly %>% dplyr::filter(p_val < 0.05)
+mdf_elderly_filterd$Org1 <- as.character(mdf_elderly_filterd$Org1)
+mdf_elderly_filterd$Org2 <- as.character(mdf_elderly_filterd$Org2)
+
+mdf_elderly_filterd$Organism1 <- sapply(mdf_elderly_filterd$Org1, abbreviateOrganism)
+mdf_elderly_filterd$Organism2 <- sapply(mdf_elderly_filterd$Org2, abbreviateOrganism)
+
+mdf_elderly_filterd$abscorr <- abs(mdf_elderly_filterd$corr_val)
+mdf_elderly_filterd$corrvalround <- round(mdf_elderly_filterd$corr_val,2)
+mdf_elderly_filterd$corrvalposneg <- ifelse(mdf_elderly_filterd$corr_val<0, 'Neg', 'Pos')
+
+write.table(mdf_elderly_filterd, here(resultsfoldername, 'elderly_ccrepe.tsv'), sep='\t', row.names=FALSE)
+mdf_elderly_filterd.highcor <- mdf_elderly_filterd %>% dplyr::filter(abscorr >=0.1)
+
+write.csv(x=mdf_elderly_filterd.highcor, file=here(resultsfoldername,'elderly_ccrepe_filtered.csv'))
+
+```

@@ -1,0 +1,183 @@
+---
+title: "Supp Figure 15 Effectiveness of batch correction"
+author: "Aarthi Ravikrishnan"
+date: "29/05/2023"
+output: html_document
+chunk_output_type: console
+---
+  
+```{r setup, include=FALSE}
+rm(list=ls())
+#knitr::opts_chunk$set(echo = TRUE)
+pacman::p_load(tidyverse, knitr,
+               tibble,
+               GGally,
+               caret,
+               skimr,
+               readxl, cowplot,
+               metagenomeSeq, ggrepel,
+               boot, mikropml, furrr, RColorBrewer,
+               reshape2, vegan, MMUPHin, MASS, here,officer,rvg)
+knitr::opts_chunk$set(error = TRUE)
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
+installed.packages()[names(sessionInfo()$otherPkgs), "Version"]
+#source(here('script', 'pcoa_plotting_function_batch_effect_comp.R'))
+```
+
+# Setup parameters
+
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+set.seed(1)
+```
+
+
+```{r readfilterbatchcorrectdata}
+# Reading data
+original_profiles <-
+  read.csv(
+    here("data", "taxonomic_profiles.csv"),
+    encoding =  "UTF-8-BOM"
+  ) %>% dplyr::rename('Index'='X')
+metadata <-
+  read.csv(here("data", "metadata.csv"), encoding = "UTF-8-BOM")
+
+adjusted_profiles <- read.csv(here("data", "taxonomic_profiles_batch_adjusted.csv"))%>% dplyr::rename('Index'='X')
+
+original_profiles[is.na(original_profiles)] <- 0
+adjusted_profiles[is.na(adjusted_profiles)] <- 0
+original_profiles <- original_profiles %>% column_to_rownames('Index')
+adjusted_profiles <- adjusted_profiles %>% column_to_rownames('Index')
+
+original_profiles_needed <- original_profiles %>% 
+  dplyr::select(metadata %>% filter(Cohort=='SPMP' | Cohort =='T2D') %>% pull('LibraryID'))
+adjusted_profiles_needed <- adjusted_profiles %>% 
+  dplyr::select(metadata %>% filter(Cohort=='SPMP' | Cohort =='T2D') %>% pull('LibraryID'))
+metadata_needed <- metadata %>% filter(Cohort=='SPMP' | Cohort =='T2D')
+```
+
+```{r}
+original_pcoa <- performpcoa(original_profiles_needed, metadata_needed)
+adjusted_pcoa <- performpcoa(adjusted_profiles_needed, metadata_needed)
+#plotpcoa_colorbyage(original_pcoa)
+original_pcoa$dat_merged_all <- janitor::clean_names(original_pcoa$dat_merged_all)
+adjusted_pcoa$dat_merged_all <- janitor::clean_names(adjusted_pcoa$dat_merged_all)
+#plotpcoa_bycohort(original_pcoa$dat_merged_all,original_pcoa$eigen, 'Original' )
+
+#agegroup = '71-80'
+plotpcoa_filter <- function(original_pcoa, eigen, agegroup, title, cohortr2){
+ # browser()
+if (!is.na(agegroup)){
+  filtered <- original_pcoa$dat_merged_all %>% filter(age_g == agegroup, cohort=='SPMP'| cohort =='T2D')}
+  else{
+    filtered <- original_pcoa$dat_merged_all}
+  permanovar2 <- paste0("'PERMANOVA Cohort '*italic(R) ^ 2 == ", as.character(cohortr2))
+  #, '\n', "PERMANOVA Age italic(R) ^ 2 == ", as.character(ager2))
+  #browser()
+  pcoa_plot <- ggplot(filtered, aes(x = v1, y=v2, 
+        color = cohort)) + 
+    geom_point(
+      data = subset(filtered, cohort == 'SPMP'),
+      aes(color = cohort),
+      size = 4,
+    ) +geom_point(
+      data = subset(filtered, cohort == 'SG90'),
+      aes(color = cohort),
+      size = 4,
+    )+
+    geom_point(
+      data = subset(filtered, cohort == 'CRE'),
+      aes(color = cohort),
+      size = 4,
+    ) + 
+    geom_point(
+      data = subset(filtered, cohort == 'T2D'),
+      aes(color = cohort),
+      size = 4,
+    ) + ggtitle(title) + 
+    labs(
+      x = paste0('PCoA1 (', round(eigen[1], 1), '%)'),
+      y = paste0('PCoA2 (', round(eigen[2], 1), '%)'),
+      shape = 'Age in decades',
+      ) + stat_ellipse(level=0.98) +
+    theme_bw() +
+    theme(
+      legend.background = element_blank(),
+      legend.position = "right",
+      legend.key = element_blank(),
+      legend.text = element_text(size = 11),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.title       = element_text(face = "bold", size = 14),
+      axis.text.x = element_text(size = 14),
+      axis.text.y = element_text(size = 14)
+    ) + scale_colour_manual(values = c(
+      "#a50023",
+      "#f47d4a",
+      "#fed98a",
+      "#add39f",
+      '#6da5cb',
+      "#354a99"
+    )) + annotate("text", x=Inf, y = Inf, vjust=1, hjust=1, label = permanovar2,parse = TRUE)
+  
+  return(pcoa_plot)
+}
+
+plot_grid_pcoa_before_after <- function(original_pcoa, adjusted_pcoa, agegroup, title1, title2, figsfoldername, figsfname, metadata){
+# Original plot
+set.seed(1000)
+#browser()
+D_before <- original_pcoa$distmetric
+adonis_before <- adonis2(D_before ~ Cohort/Age, metadata)
+before_r2 <- round(adonis_before['Cohort',]$R2*100, 2)
+#before_age_r2 <- round(adonis_before['Cohort:Age',]$R2, 2)
+originalpcoaplot <- plotpcoa_filter(original_pcoa,original_pcoa$eigen, agegroup, title1, before_r2)#, before_age_r2)
+
+#Adjusted plot
+#set.seed(1000)
+D_after <- adjusted_pcoa$distmetric
+adonis_after <- adonis2(D_after ~ Cohort/Age, metadata)
+after_r2 <- round(adonis_after['Cohort',]$R2*100, 2)
+#after_age_r2 <- round(adonis_after['Cohort:Age',]$R2, 2)
+
+adjustedpcoaplot <- plotpcoa_filter(adjusted_pcoa, adjusted_pcoa$eigen, agegroup, title2, after_r2)#, after_age_r2)
+#cowplot::plot_grid(originalpcoaplotall, adjustedpcoaplot)
+#browser()
+grobs <- ggplotGrob(adjustedpcoaplot)$grobs
+legend <- grobs[[which(sapply(grobs, function(x) x$name) == "guide-box")]]
+prowplot <- plot_grid(
+  originalpcoaplot+ theme(legend.position="none"),
+  adjustedpcoaplot + theme(legend.position="none"),
+  labels = c("A", "B"))
+grid_plots <- plot_grid(prowplot, legend, rel_widths = c(3, .4))
+cowplot::save_plot(
+  here(figsfoldername, figsfname),
+  grid_plots,
+  base_height = 10,
+  base_width = 25,
+  units = c("cm")
+)
+return(grid_plots)
+}
+
+# plot_grid_pcoa_before_after(original_pcoa, adjusted_pcoa, NA, 'Original', 'Adjusted', figsfoldername , 'PCOA_before_After_adj_all.png', metadata_needed)
+sixtyone <- plot_grid_pcoa_before_after(original_pcoa, adjusted_pcoa, '61-70', 'Original 61-70', 'Adjusted 61-70', figsfoldername , 'SuppFig15B.png', metadata_needed)
+fortyone <- plot_grid_pcoa_before_after(original_pcoa, adjusted_pcoa, '41-60', 'Original 41-60', 'Adjusted 41-60', figsfoldername , 'SuppFig15A.png', metadata_needed)
+print(sixtyone)
+print(fortyone)
+```
+## Editable PPT
+```{r editableppt}
+listofpics <- list(fortyone, sixtyone)
+makeedtiableppt_manyobj(listofpics,   "Supp_Fig15.pptx", 5,5)
+```  

@@ -1,0 +1,898 @@
+---
+title: "Figure 1"
+author: "Aarthi Ravikrishnan"
+date: "2024-02-21"
+editor_options: 
+  chunk_output_type: console
+chunk_output_type: console
+output: 
+  rmdformats::downcute:
+    downcute_theme: "chaos"
+    use_bookdown: true
+    self_contained: true
+    lightbox: true
+    gallery: true
+    toc_depth: 5
+  pdf_document:
+    toc_depth: 5
+---
+
+#Packages  
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, cache.lazy = FALSE, 
+                      collapse = TRUE, warning = FALSE, message = FALSE)
+
+rm(list=ls())
+pacman::p_load(tidyverse, janitor, knitr, tibble, GGally,
+               skimr, readxl, cowplot, metagenomeSeq, ggrepel,
+               boot, furrr, RColorBrewer, reshape2, vegan, MMUPHin, 
+               MASS, here, officer, rvg)
+installed.packages()[names(sessionInfo()$otherPkgs), "Version"]
+set.seed(100)
+```
+#Setup parameters
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+```
+# Metadata
+```{r metadata}
+metadata <- read.csv(here("data", "metadata.csv"), encoding =  "UTF-8-BOM")
+```
+# Taxonomic profiles 
+## Reading taxonomic profiles
+```{r readtaxa}
+taxonomic_profiles <- read.csv(here("data", "taxonomic_profiles.csv")) %>% 
+  column_to_rownames('X')
+```
+## Filtering taxonomic profiles
+Since some organisms are not present in CRE, there will be NA introduced in such cases. 
+We substitute NA for 0.
+
+**Filter criterion**
+We employ a two-step filtering criterion:
+1. Filtering the profiles by setting abundance < 0.1 as 0 and, 
+2. Removing the organisms which are zero across all samples
+
+We then renormalise the profiles to 1.
+
+```{r filtertaxa}
+taxonomic_profiles[is.na(taxonomic_profiles)] <- 0
+taxonomic_profiles[taxonomic_profiles < species_thr] <- 0
+taxonomic_profiles_filtered <-
+  taxonomic_profiles[rowSums(taxonomic_profiles) != 0,]
+print(dim(taxonomic_profiles_filtered))
+taxonomic_profiles_filtered <- taxonomic_profiles_filtered %>%
+  apply(2, function(x)
+    x / sum(x))
+# write.csv(taxonomic_profiles_filtered, here(
+#   "data",
+#   paste0("taxonomic_profiles_filtered", ".csv")
+# ))
+```
+
+# Batch adjustment
+
+We use MMUPHin for batch adjustment [https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02753-4]
+```{r batchadjustment}
+tax_profiles_prop <- taxonomic_profiles_filtered
+metadata <- metadata[order(metadata$LibraryID),] 
+rownames(metadata) <- metadata$LibraryID
+tax_profiles_prop <-
+  tax_profiles_prop[, order(colnames(tax_profiles_prop))]
+
+#Adding in Kit details, demographics
+
+metadata <- metadata %>% 
+  mutate(Kit = case_when((Cohort == 'CRE')~ 'PowerSoil', 
+                         (Cohort == 'SG90')~'PowerSoil',
+                         (Cohort == 'iOMICS')~'PowerFecalPro',
+                         (Cohort == 'T2D')~ 'Manual'),
+         Demographics = case_when((Cohort == 'CRE')~'SG', 
+                                  (Cohort == 'SG90')~'SG',
+                                  (Cohort == 'iOMICS')~'SG',
+                                  (Cohort == 'T2D')~ 'CN'))
+
+my_list <- list(diagnostic_plot = 'results/cohort_adj_plot_age_1.pdf')
+# Considering CRE and SG90 as same batch
+
+metadata <- metadata %>% mutate(Cohort=ifelse(Cohort=='CRE', 'SG90', Cohort))
+#cohort_adj_plot_ageg.pdf
+fit_adjust_batch_decade_ageG <-
+  adjust_batch(
+    feature_abd = tax_profiles_prop,
+    batch = "Cohort",
+    covariates = "AgeG",
+    data = metadata,
+    control = my_list)
+# with seq depth and host reads -> multicollinearity issue https://www.projectpro.io/recipes/check-multicollinearity-r
+tax_profiles_adj_decade <- fit_adjust_batch_decade_ageG$feature_abd_adj
+tax_profiles_adj_scaled_to_100 <- 100 * tax_profiles_adj_decade
+
+write.csv(tax_profiles_adj_scaled_to_100, here('data', paste0("taxonomic_profiles_batch_adjusted",".csv")))
+```
+
+## Batch correction assessment
+
+
+```{r batchcorrassessment}
+
+#Checking if batch correction worked fine
+D_before <- vegdist(t(tax_profiles_prop), method = 'bray')
+D_after <- vegdist(t(tax_profiles_adj_decade), method = 'bray')
+
+
+set.seed(10)
+fit_adonis_before <- adonis2(D_before ~ Cohort , data = metadata, by = 'margin')
+fit_adonis_after <- adonis2(D_after ~ Cohort , data = metadata, by = 'margin')
+
+print(fit_adonis_before)
+print(fit_adonis_after)
+```
+From this, we see that there is a reduction from 6.56% to 3.85% in the R2 value of Cohort. From the diagnostic plots, we see that the adjusted values have shrunk to zero.
+
+# Diversities
+## Beta diversity
+### PCoA on adjusted dataset
+PCoA (Figure 1A, 1B, Supp Figure 1A)
+```{r plotpcoa}
+#Adjusted profiles with decades
+pcoa_metadata_merged <-
+  performpcoa(tax_profiles_adj_scaled_to_100, metadata)
+number_per_age_group <-
+  pcoa_metadata_merged$dat_merged_all %>%
+  dplyr::mutate(AgeG = as.factor(AgeG)) %>%
+  dplyr::group_by(AgeG) %>%
+  dplyr::summarise(n = n()) %>%
+  mutate(AgeGNum = paste(AgeG, ' (n = ', n, ')', sep='')) 
+
+pcoa_metadata_merged$dat_merged_all <- left_join(pcoa_metadata_merged$dat_merged_all, number_per_age_group) 
+decadeadjpcoa <-
+  plotpcoa(
+    pcoa_metadata_merged$dat_merged_all,
+    pcoa_metadata_merged$eigen,
+    'Decade adjusted', legendneed = 'bottom', pointnum=2
+  ) 
+decadeadjpcoawolegend <-
+  plotpcoa(
+    pcoa_metadata_merged$dat_merged_all,
+    pcoa_metadata_merged$eigen,
+    'Decade adjusted', legendneed = 'none',pointnum=2
+  )
+
+print(decadeadjpcoa)
+template_to_save(decadeadjpcoa, fname = "Fig1A.png", width =15, height = 15)
+makeedtiableppt(decadeadjpcoa, "Fig1A.pptx", width=4.72, height=3.14)
+
+```
+### Violin PCoA Plot (y = x)
+Projecting PCoA1 and PCoA2 coordinates on y = x
+```{r}
+# Calculate coordinates on this new axis
+pcoa_metadata_merged$dat_merged_all <- pcoa_metadata_merged$dat_merged_all %>% mutate(V_yx = (V1 + V2)/(2))
+
+# v_yx
+vyx <- polr(as.factor(AgeG) ~ (V_yx), Hess=TRUE, data=pcoa_metadata_merged$dat_merged_all)
+(ctable <- coef(summary(vyx)))
+(ci <- confint(vyx))
+p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+(ctable <- cbind(ctable, "p value" = p))
+
+violin_pcoa_vyx <- violin_plot_pcoa(pcoa_metadata_merged, 'V_yx', 'PCoA (y=x)')
+ylimit_viol <- layer_scales(violin_pcoa_vyx)$y$range$range
+xlimit_viol <- layer_scales(violin_pcoa_vyx)$x$range$range
+
+if(p[1] <  0.001){
+  violin_pcoa_vyx <- violin_pcoa_vyx + annotate("text", x = 0.5+length(xlimit_viol)/2, y = ylimit_viol[2] + 0.05, label = "***", size=8)
+}else if(p[1] <= 0.01){
+    violin_pcoa_vyx <- violin_pcoa_vyx + annotate("text", x = 0.5+length(xlimit_viol)/2, y = ylimit_viol[2] + 0.05, label = "**", size=8)
+}
+
+print(violin_pcoa_vyx)
+template_to_save(violin_pcoa_vyx, fname = "Fig1B.png", width =10, height = 10)
+makeedtiableppt(violin_pcoa_vyx, "Fig1B.pptx", width=3, height=3)
+
+```
+
+### Violin PCoA Plot (y = -x)
+Projecting PCoA1 and PCoA2 coordinates on y = -x
+```{r}
+# Calculate coordinates on this new axis
+dat_merged_all <- pcoa_metadata_merged$dat_merged_all
+dat_merged_all <- dat_merged_all %>% 
+  mutate(V_y_x = (V1 - V2)/(2))
+pcoa_metadata_merged$dat_merged_all <- dat_merged_all
+
+# v_yx
+vy_x <- polr(as.factor(AgeG) ~ (V_y_x), Hess=TRUE, data=pcoa_metadata_merged$dat_merged_all)
+(ctable <- coef(summary(vy_x)))
+(ci <- confint(vy_x))
+p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+(ctable <- cbind(ctable, "p value" = p))
+
+# Violin plot PCoA V1 (Fig 1B)
+violin_pcoa_vy_x <- violin_plot_pcoa(pcoa_metadata_merged, 'V_y_x', 'PCoA (y=-x)')
+ylimit_viol <- layer_scales(violin_pcoa_vy_x)$y$range$range
+xlimit_viol <- layer_scales(violin_pcoa_vy_x)$x$range$range
+
+if(p[1] <  0.001){
+  violin_pcoa_vy_x <- violin_pcoa_vy_x + annotate("text", x = 0.5+length(xlimit_viol)/2, y = ylimit_viol[2] + 0.05, label = "***", size=8)
+}else if(p[1] <= 0.01){
+    violin_pcoa_vy_x <- violin_pcoa_vy_x + annotate("text", x = 0.5+length(xlimit_viol)/2, y = ylimit_viol[2] + 0.05, label = "**", size=8)
+}else {
+    violin_pcoa_vy_x <- violin_pcoa_vy_x + annotate("text", x = 0.5+length(xlimit_viol)/2, y = ylimit_viol[2] + 0.05, label = "n.s.", size=8)
+}
+
+print(violin_pcoa_vy_x)
+
+template_to_save(violin_pcoa_vy_x, fname = "Supp_Fig1A.png", width =10, height = 10)
+makeedtiableppt(violin_pcoa_vy_x, "Supp_Fig1A.pptx", width=3.5, height=3.5)
+```
+### Plotting BC values
+
+```{r plotbraycutisbox}
+dist <- vegdist(t(tax_profiles_adj_scaled_to_100), method = 'bray')
+distmat <- as.matrix(dist)
+
+distmat_copy <- data.frame(distmat)
+#distmat[lower.tri(distmat)] <- 0
+distmat[lower.tri(distmat, diag=TRUE)] <- NA
+distmat <- as.data.frame(distmat)
+
+ageG_21_40_libs <- metadata %>% filter(AgeG == '21-40') %>% pull(LibraryID)
+ageG_41_60_libs <- metadata %>% filter(AgeG == '41-60') %>% pull(LibraryID)
+ageG_61_70_libs <- metadata %>% filter(AgeG == '61-70') %>% pull(LibraryID)
+ageG_71_80_libs <- metadata %>% filter(AgeG == '71-80') %>% pull(LibraryID)
+ageG_81_90_libs <- metadata %>% filter(AgeG == '81-90') %>% pull(LibraryID)
+ageG_91_100_libs <- metadata %>% filter(AgeG == '91-100') %>% pull(LibraryID)
+
+dist_21_40 <- distmat %>% dplyr::select(ageG_21_40_libs) %>% 
+  filter(row.names(.) %in% ageG_21_40_libs) %>% 
+  mutate(Group = '21-40') %>% 
+    pivot_longer(-Group) %>% 
+    na.omit()
+
+dist_41_60 <- distmat %>% dplyr::select(ageG_41_60_libs) %>% 
+  filter(row.names(.) %in% ageG_41_60_libs) %>% 
+  mutate(Group = '41-60') %>% 
+    pivot_longer(-Group) %>% 
+    na.omit()
+
+dist_61_70 <- distmat %>% dplyr::select(ageG_61_70_libs) %>% 
+  filter(row.names(.) %in% ageG_61_70_libs) %>% 
+  mutate(Group = '61-70') %>% 
+    pivot_longer(-Group) %>% 
+    na.omit()
+
+dist_71_80 <- distmat %>% dplyr::select(ageG_71_80_libs) %>% 
+  filter(row.names(.) %in% ageG_71_80_libs) %>% 
+  mutate(Group = '71-80') %>% 
+    pivot_longer(-Group) %>% 
+    na.omit()
+
+dist_81_90 <- distmat %>% dplyr::select(ageG_81_90_libs) %>% 
+  filter(row.names(.) %in% ageG_81_90_libs) %>% 
+  mutate(Group = '81-90') %>% 
+    pivot_longer(-Group) %>% 
+    na.omit()
+
+dist_91_100 <- distmat %>% dplyr::select(ageG_91_100_libs) %>% 
+  filter(row.names(.) %in% ageG_91_100_libs) %>% 
+  mutate(Group = '91-100') %>% 
+    pivot_longer(-Group) %>% 
+    na.omit()
+
+combined_dist <- rbind(dist_21_40, dist_41_60, dist_61_70, dist_71_80,
+                       dist_81_90, dist_91_100)
+#Median values
+med_bray <- combined_dist %>% group_by(Group) %>% 
+  summarize(median = median(value))
+
+bray_plot <- plot_bray_curtis(combined_dist)
+
+
+vjust_values <- c(-12,-11,-12,-12.5,-10,-12)
+bray_plot <- bray_plot + geom_text(data=med_bray, aes(x=Group, y=median, label=round(median,2)), position = position_identity(), vjust=-0.5 , fontface='bold')
+print(bray_plot)
+
+template_to_save(bray_plot, 'Supp_Fig2B_1.png', width = 10,height = 10)
+makeedtiableppt(bray_plot, 'Supp_Fig2B_1.pptx', width = 6, height = 4)
+```
+### Uniqueness from Wilmanski
+
+```{r uniqueness}
+#Calculate uniqueness using Bray-Curtis at the genus level
+w<-as.matrix(dist)
+w<-as.data.frame(w)
+#check dimensions
+dim(w)
+#convert 0 (comparison of each sample with itself) to NA for downstream extraction of the minimum value
+w[w==0]<-NA
+#extract minimum dissimilarity value
+min<-sapply(w,min,na.rm=TRUE)
+#save to dataframe
+
+uniqueness <- min %>% data.frame() %>% 
+  rownames_to_column('LibraryID') %>% 
+  dplyr::rename('Uniqueness'='.') %>% 
+  left_join(metadata, by='LibraryID')
+
+uniqueness_plot <- plot_uniqueness(uniqueness, 'Uniqueness', 'Uniqueness')
+print(uniqueness_plot)
+
+# Median values
+med_uniqueness <- uniqueness %>% group_by(AgeG) %>% 
+  summarize(median = median(Uniqueness))
+vjust_values <- c(-12,-11,-12,-12.5,-10,-12)
+uniqueness_plot <- uniqueness_plot + geom_text(data=med_uniqueness, aes(x=AgeG, y=median, label=round(median,2)), position = position_identity(), vjust=-0.5 , fontface='bold')
+
+template_to_save(uniqueness_plot, fname = 'Supp_Fig2B_2.png', width = 10,height = 10)
+makeedtiableppt(uniqueness_plot, 'Supp_Fig2B_2.pptx', width = 6, height = 4)
+
+
+```
+## Alpha diversity
+We compute Shannon index, Simpson index, Evenness and Richness
+### Shannon
+```{r shannon}
+shannon_diversity <-
+  vegan::diversity(t(tax_profiles_adj_scaled_to_100),
+                   index = "shannon")
+shannon_to_plot <- shannon_diversity %>%
+  as.data.frame() %>%
+  setNames(c('Shannon')) %>%
+  rownames_to_column("LibraryID") %>%
+  merge(metadata, by='LibraryID')
+
+shannon_plot <- plot_alpha(shannon_to_plot, 'Shannon diversity', 'Shannon')
+shannon_olr <- polr(as.factor(AgeG) ~ Shannon, Hess = TRUE, data = shannon_to_plot)
+ctable_shannon <- coef(summary(shannon_olr))
+p_shannon <- pnorm(abs(ctable_shannon[, "t value"]), lower.tail = FALSE) * 2
+ctable_shannon <- cbind(ctable_shannon, "p value" = p_shannon)
+ylimit_shannon <- layer_scales(shannon_plot)$y$range$range
+xlimit_shannon <- layer_scales(shannon_plot)$x$range$range
+
+if(p_shannon[1] <  0.001){
+  shannon_plot <- shannon_plot + annotate("text", x = 0.5+length(xlimit_shannon)/2, y = ylimit_shannon[2] + 0.05, label = "***", size=8)
+}else if(p_shannon[1] <= 0.01){
+    shannon_plot <- shannon_plot + annotate("text", x = 0.5+length(xlimit_shannon)/2, y = ylimit_shannon[2] + 0.05, label = "**", size=8)
+}
+
+# shannon_plot <- shannon_plot + 
+#   theme(axis.title.x = element_text(size = 12,face = 'bold'),
+#       axis.title.y = element_text(size = 12, face = 'bold'),
+#       axis.title = element_text(size=12))
+print(shannon_plot)
+template_to_save(shannon_plot, fname = 'Fig1C.png',10,10)
+makeedtiableppt(shannon_plot, fname = 'Fig1C.pptx',3.5,3.5)
+
+```
+### Richness
+```{r richness}
+richness <- apply(t(tax_profiles_adj_scaled_to_100)>0,1,sum) %>% as.data.frame() %>% setNames(c('Richness')) %>% rownames_to_column("LibraryID")
+
+richness_to_plot <- merge(richness, metadata, by = "LibraryID")
+richness_plot <- plot_alpha(richness_to_plot, 'Richness', 'Richness')
+richness_olr <- polr(as.factor(AgeG) ~ Richness, Hess = TRUE, data = richness_to_plot)
+ctable_richness <- coef(summary(richness_olr))
+p_richness <- pnorm(abs(ctable_richness[, "t value"]), lower.tail = FALSE) * 2
+ctable_richness <- cbind(ctable_richness, "p value" = p_richness)
+
+ylimit_richness <- layer_scales(richness_plot)$y$range$range
+xlimit_richness <- layer_scales(richness_plot)$x$range$range
+
+if(p_richness[1] <  0.001){
+  richness_plot<- richness_plot + annotate("text", x = 0.5+length(xlimit_richness)/2, y = ylimit_richness[2] + 0.05, label = "***", size=8)
+}else if(p_richness[1] <= 0.01){
+    richness_plot<- richness_plot + annotate("text", x = 0.5+length(xlimit_richness)/2, y = ylimit_richness[2] + 0.05, label = "**", size=8)
+}
+print(richness_plot)
+template_to_save(richness_plot, fname = 'Supp_Fig1B.png',10,10)
+makeedtiableppt(richness_plot, fname = 'Supp_Fig1B.pptx',3.5,3.5)
+```
+
+###Evenness
+
+```{r evenness}
+evenness <-
+  shannon_diversity/log(vegan::specnumber(t(tax_profiles_adj_scaled_to_100))) %>% 
+  data.frame()
+evenness <- evenness %>% rownames_to_column('LibraryID')
+colnames(evenness)[2] <- c('Evenness')
+evenness_to_plot <-
+  merge(evenness, metadata, by = "LibraryID")
+evenness_plot <- plot_alpha(evenness_to_plot, 'Evenness', 'Evenness')
+evenness_olr <- polr(as.factor(AgeG) ~ Evenness, Hess = TRUE, data = evenness_to_plot)
+ctable_evenness <- coef(summary(evenness_olr))
+p_evenness <- pnorm(abs(ctable_evenness[, "t value"]), lower.tail = FALSE) * 2
+ctable_evenness <- cbind(ctable_evenness, "p value" = p_evenness)
+ylimit_evenness <- layer_scales(evenness_plot)$y$range$range
+xlimit_evenness <- layer_scales(evenness_plot)$x$range$range
+if(p_evenness[1] <  0.001){
+  evenness_plot<- evenness_plot + annotate("text", x = 0.5+length(xlimit_evenness)/2, y = ylimit_evenness[2] + 0.05, label = "***", size=8)
+}else if(p_evenness[1] <= 0.01){
+    evenness_plot<- evenness_plot + annotate("text", x = 0.5+length(xlimit_evenness)/2, y = ylimit_evenness[2] + 0.05, label = "**", size=8)
+}else if(p_evenness[1] <= 0.05){
+    evenness_plot<- evenness_plot + annotate("text", x = 0.5+length(xlimit_evenness)/2, y = ylimit_evenness[2] + 0.05, label = "*", size=8)
+}
+print(evenness_plot)
+template_to_save(evenness_plot, fname = 'Supp_Fig1C.png',10,10)
+makeedtiableppt(evenness_plot, fname = 'Supp_Fig1C.pptx',3.5,3.5)
+```
+
+### Simpson
+
+```{r simpson}
+simpson_diversity <-
+  vegan::diversity(t(tax_profiles_adj_scaled_to_100), index = "simpson") %>%
+  as.data.frame() %>% 
+  setNames(c('Simpson')) %>% 
+  rownames_to_column("LibraryID")
+
+simpson_to_plot <-
+  merge(simpson_diversity, metadata, by = "LibraryID")
+simpson_plot <-plot_alpha(simpson_to_plot, 'Simpson', 'Simpson')
+
+simpson_olr <-
+  polr(as.factor(AgeG) ~ Simpson, Hess = TRUE, data = simpson_to_plot)
+ctable_simpson <- coef(summary(simpson_olr))
+p_simpson <-
+  pnorm(abs(ctable_simpson[, "t value"]), lower.tail = FALSE) * 2
+ctable_simpson <- cbind(ctable_simpson, "p value" = p_simpson)
+
+ylimit_simpson <- layer_scales(simpson_plot)$y$range$range
+xlimit_simpson <- layer_scales(simpson_plot)$x$range$range
+
+if(p_simpson[1] <  0.001){
+  simpson_plot<- simpson_plot + annotate("text", x = 0.5+length(xlimit_simpson)/2, y = ylimit_simpson[2] + 0.05, label = "***", size=8)
+}else if(p_simpson[1] <= 0.01){
+    simpson_plot<- simpson_plot + annotate("text", x = 0.5+length(xlimit_simpson)/2, y = ylimit_simpson[2] + 0.05, label = "**", size=8)
+}
+print(simpson_plot)
+template_to_save(simpson_plot, fname = 'Supp_Fig1D.png',10,10)
+makeedtiableppt(simpson_plot, fname = 'Supp_Fig1D.pptx',3.5,3.5)
+
+```
+# Microbial associations
+
+## Merged taxa
+```{r mergedtaxa}
+metadata <- read.csv(here('data', 'metadata_with_imputed_updatedage_allInfo.csv'))
+
+taxa_to_merge <- tax_profiles_adj_scaled_to_100 %>%
+  t() %>%
+  as.data.frame() %>%
+  rownames_to_column('LibraryID')
+data_to_plot <- merge(taxa_to_merge, metadata , by='LibraryID')
+dim(data_to_plot) #516*422
+```
+## Filtering for associations
+```{r fig1e}
+nonzero_in_samples <-
+  data.frame(nnzorg = colSums(t(tax_profiles_adj_scaled_to_100) != 0))
+
+species_hist <- ggplot(nonzero_in_samples, aes(x = nnzorg)) +
+  geom_histogram(color = "darkblue", fill = "lightblue") +
+  scale_x_continuous(breaks = 
+                       scales::pretty_breaks(n = 7)) +
+  xlab('Number of samples') +
+  ylab('Count of organisms with non-zero abundances') +
+  ggtitle('Species histogram')
+
+print(species_hist)
+
+orgsinmorethanfiftysamples <- nonzero_in_samples %>%
+  filter(nnzorg >= hist_filter)
+```
+## Preparing metadata for assocations
+
+```{r preparingmetadata}
+# metadata <-
+#   left_join(metadata, (read.csv(here("data",
+#                                      "metadata_with_clinical_data.csv"), 
+#             encoding = "UTF-8-BOM") %>%
+#   rename('LibraryID'='Index') %>% 
+#   dplyr::select(-c("Patient.ID", "group", "AgeG", "pheno", "Age", 
+#             "Gender", "race", "SG80vs90", "Cohort", "country"))), 
+#   by='LibraryID')
+#write.csv(metadata, here('data','metadata_with_clinical_data_updated_age.csv'))
+
+taxa_with_morethan50 <-
+  tax_profiles_adj_scaled_to_100 %>% t() %>%
+  as.data.frame() %>%
+  dplyr::select(rownames(orgsinmorethanfiftysamples)) %>%
+  rownames_to_column('LibraryID')
+
+median_of_taxa <- taxa_with_morethan50 %>% 
+  dplyr::select(rownames(orgsinmorethanfiftysamples)) %>% 
+  as.matrix() %>%
+  matrixStats::colMedians()
+
+median_of_taxa_with_name <- data.frame(rownames(orgsinmorethanfiftysamples), median_of_taxa)
+colnames(median_of_taxa_with_name)[1] <- c('org_list')
+#taxa_with_morethan50$LibraryID <- str_replace_all(taxa_with_morethan50$LibraryID, 'CON.', 'CON')
+```
+
+### Median abundance based on SG90 alone
+We are doing this here since the new metadata also has 
+```{r}
+# old metadata with no imputed values - to get patient id
+old_metadata <- read.csv(here('data', 'metadata_with_clinical_data.csv')) %>% 
+  dplyr::rename(LibraryID = 'Index')
+
+# update metadata with new sg90 age
+sg90_metadata <- old_metadata %>% dplyr::select(LibraryID, Cohort, HandgripL1, HandgripR1, GaitT1,
+                                            ALT, AST, FOL, VB12, HCY, FT4, TSH, HSCRP, sleep,
+                                            mmse, FBGlu, Tgly, TCHOL, HDL, LDL, BMI) %>%
+  filter(Cohort == 'SG90') %>% 
+  # metadata with new age
+  left_join(metadata %>% dplyr::select(LibraryID, Age, Gender),
+            by = 'LibraryID')
+sg90_profiles <- tax_profiles_adj_scaled_to_100 %>% 
+  data.frame() %>% 
+  dplyr::select(sg90_metadata %>% pull(LibraryID))
+
+# remove taxa with all zeros
+sg90_profiles_filt <- sg90_profiles[rowSums(sg90_profiles) != 0, ]
+
+## renormalize to 100%
+sg90_profiles_filt <- data.frame(apply(sg90_profiles_filt, 2, function(x) x/sum(x)) * 100) 
+
+median_of_taxa <- sg90_profiles_filt %>% t() %>% 
+  as.data.frame() %>% 
+  #dplyr::select(rownames(orgsinmorethanfiftysamples)) %>% 
+  as.matrix() %>%
+  matrixStats::colMedians()
+
+median_of_taxa_with_name <- data.frame(rownames(sg90_profiles_filt), median_of_taxa)
+colnames(median_of_taxa_with_name)[1] <- c('org_list')
+
+```
+### Imputation for missing values using EM
+SPMP
+```{r imputationforspmp}
+n_seed <- 3
+metadata_for_spmp <- metadata %>% 
+  column_to_rownames('LibraryID') %>% 
+  filter(Cohort %in% c('SPMP', 'T2D')) %>% 
+  dplyr::select(Age, FBGlu, Tgly, TCHOL, HDL, LDL, BMI, Gender)
+
+metadata_for_spmp <- metadata_for_spmp %>% 
+  mutate(Gender = case_when(Gender == 'male' ~ 0,
+                            Gender == 'female' ~ 1))
+# transform clinical variables into log to avoid negative imputation
+metadata_for_spmp_em <- metadata_for_spmp %>% 
+  mutate(across(.cols=2:7, .fns=log1p))
+
+# run EM to estimate parameters
+x <- metadata_for_spmp_em %>% dplyr::select(-Age)
+y <- metadata_for_spmp_em %>% dplyr::select(Age)
+
+s <- norm::prelim.norm(as.matrix(cbind(y, x)))
+norm::rngseed(n_seed)
+theta <- norm::em.norm(s)
+param <- norm::getparam.norm(s, theta)
+
+# impute the estimated values for missing rows
+norm::rngseed(n_seed)
+metadata_spmp_imputed <- norm::imp.norm(s, theta, as.matrix(cbind(y, x))) %>% 
+  as.data.frame() %>% tibble::rownames_to_column('LibraryID') %>% 
+#  mutate(across(.cols =108:113, .fns = expm1))
+  mutate(across(.cols=3:8, .fns=expm1)) %>% 
+  left_join(metadata %>% dplyr::select(LibraryID, Cohort),
+            by = 'LibraryID')
+```
+CRE
+```{r imputationforcre}
+metadata_for_cre <- metadata %>% 
+  column_to_rownames('LibraryID') %>% 
+  filter(Cohort %in% c('CRE', 'T2D', 'SG90')) %>% 
+  dplyr::select(Age, FBGlu, Tgly, TCHOL, HDL, LDL, BMI, Gender)
+metadata_for_cre <- metadata_for_cre %>% 
+  mutate(Gender = case_when(Gender == 'male' ~ 0,
+                            Gender == 'female' ~ 1))
+  
+# transform clinical variables into log to avoid negative imputation
+metadata_for_cre_em <- metadata_for_cre %>% 
+  mutate(across(.cols=2:7, .fns=log1p))
+
+# run EM to estimate parameters
+x <- metadata_for_cre_em %>% dplyr::select(-Age)
+y <- metadata_for_cre_em %>% dplyr::select(Age)
+
+#norm::rngseed(n_seed)
+s <- norm::prelim.norm(as.matrix(cbind(y, x)))
+norm::rngseed(n_seed)
+theta <- norm::em.norm(s)
+param <- norm::getparam.norm(s, theta)
+
+# impute the estimated values for missing rows
+norm::rngseed(n_seed)
+metadata_cre_imputed <- norm::imp.norm(s, theta, as.matrix(cbind(y, x))) %>%
+  as.data.frame() %>%
+  rownames_to_column('LibraryID') %>% 
+  mutate(across(.cols=3:8, .fns=expm1)) %>% 
+  left_join(metadata %>% dplyr::select(LibraryID, Cohort),
+            by = 'LibraryID')
+
+metadata_imputed <- rbind(metadata_spmp_imputed %>%
+                            filter(Cohort == 'SPMP'),
+                            metadata_cre_imputed)
+write_tsv(metadata_imputed, here(resultsfoldername,'metadata_all_cohorts_imputed_same_ageG.tsv'))
+```
+
+## Age association - based on all cohorts
+```{r ageasscn}
+data_for_association <- merge(taxa_with_morethan50, metadata_imputed, by='LibraryID')
+
+dim(data_for_association)
+
+org_list_to_use <-
+  colnames(taxa_with_morethan50)[grepl('s__', colnames(taxa_with_morethan50))]
+
+species_with_age <-
+  lapply(data_for_association[, org_list_to_use],
+         function(x)
+           coefficients(summary(
+             glm(Age ~ x + FBGlu + Tgly + TCHOL + HDL + LDL + BMI +
+                   Gender, data = data_for_association))))
+
+
+assocn_fname <- paste0('species_associations_test', '.csv')
+species_results <- param_with_age_correction(org_list_to_use, species_with_age,resultsfoldername, assocn_fname, data_for_association) 
+species_results <- species_results %>% 
+  mutate(org_list = paste('s__', org_list, sep = ''))
+# clean names
+species_results <- species_results %>% 
+  mutate(org_list = str_remove_all(org_list, 's__'),
+         org_list = str_replace_all(org_list, '_', ' '))
+```
+## Volcano plot
+
+### Highlight high stringency results on volcano plots
+- padj used is median p-adj across 3 methods
+```{r}
+high_stringency_res <-
+  read_tsv(here('results_0.1', 'species_associations_high_stringency.tsv')) %>%
+  mutate(org_list = str_replace_all(org_list, '_', ' '))
+species_results <-
+  read_tsv(here('results_0.1', 'species_associations.tsv')) %>%
+  mutate(org_list = str_replace_all(org_list, '_', ' '))
+```
+
+### Highlight significant taxa
+```{r preparedataforvol}
+median_of_taxa_with_name <- median_of_taxa_with_name %>% 
+  mutate(org_list = str_remove_all(org_list, 's__'),
+         org_list = str_replace_all(org_list, '_', ' '))
+species_results$Significant <-
+  ifelse(species_results$padj < 0.05, "FDR < 0.05", "Not Sig")
+
+species_results <-
+  merge(species_results, median_of_taxa_with_name, by = 'org_list')
+species_results$highlight1 <-
+  ifelse(
+    species_results$median_of_taxa > 0 &
+      species_results$padj < 0.05,
+    "2",
+    ifelse(
+      species_results$median_of_taxa == 0 &
+        species_results$padj < 0.05 |
+        species_results$padj == 0.05 ,
+      "1",
+      "0"
+    )
+  )
+
+#species_to_mark <- c('s__Ruminococcus_obeum','s__Coprococcus_catus', 's__Alistipes_senegalensis', 's__Dorea_formicigenerans')    
+species_results$highlight2 <-  ifelse(species_results$betaestimate < -12 , "3", "0")
+            
+species_results$highlight3 <- ifelse(species_results$org_list == 'Alistipes senegalensis', '-1', 0)            
+
+species_results_to_plot <- species_results %>% 
+  left_join(high_stringency_res %>% dplyr::select(org_list, HighStringency) %>% dplyr::filter(HighStringency =='Y'), by = 'org_list')
+
+#write_tsv(species_results, here(resultsfoldername, 'species_associations_with_medianabund.tsv'))
+```
+
+
+### Plot volcano
+```{r volcanoplot}
+# volcanoplot <- plot_volcano_asscn(species_results_merge)
+# print(volcanoplot)
+
+volcanoplot <- species_results_to_plot %>% 
+  ggplot(aes(x = betaestimate, y = -log10(padj))) +
+    geom_point(aes(color = highlight1), size=3) +
+    geom_vline(
+      xintercept = c(0),
+      col = "black",
+      linetype = "solid",
+      size = 0.5
+    ) +
+    theme_bw() + theme(legend.position = "bottom") +
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          axis.title = element_text(face="bold", size=12),
+          axis.text.x = element_text(face="bold",size=14),
+          axis.text.y = element_text(face="bold",size=14),
+          axis.text = element_text(face="bold",size=14),
+          legend.position="none",
+          plot.title = element_text(hjust = 0.5, size=14),
+          legend.text = element_text(size=10)) +
+    geom_text_repel(
+      data = subset(species_results_to_plot, HighStringency == 'Y' ),
+      aes(label = org_list),
+      size = 3.1,
+      #xlim=c(-45, 20),ylim=c(0,10),
+      #box.padding = unit(0.75, "lines"),
+      point.padding = unit(0.35, "lines"), 
+      max.overlaps = 30, fontface = 'italic',
+      #nudge_x = .15,
+      nudge_y = .5
+    )  +
+  geom_text_repel(
+      data = subset(species_results_to_plot, highlight2 >2),
+      aes(label = org_list),
+      size = 3.1,
+      #ylim=c(0,10), xlim=c(-45, 20),
+      box.padding = unit(0.65, "lines"),
+      point.padding = unit(0.65, "lines"), max.overlaps = 30, fontface = 'italic',nudge_x = .15,
+      nudge_y = .5
+    )+
+  geom_text_repel(
+    data = subset(species_results_to_plot, highlight3 < 0),
+    aes(label = org_list),
+    size = 3.1,
+    #ylim=c(0,10), xlim=c( 20,0),
+    box.padding = unit(0.65, "lines"),
+    point.padding = unit(0.65, "lines"), max.overlaps = 30, fontface = 'italic', nudge_x = .15,
+    nudge_y = .65) +
+  geom_hline(
+      yintercept = -log10(0.05),
+      col = "black",
+      linetype = "dashed",
+      size = 0.5
+    ) + geom_hline(
+      yintercept = -log10(0.1),
+      col = "black",
+      linetype = "dashed",
+      size = 0.5
+    ) + scale_y_continuous(breaks = scales::pretty_breaks(5)) +
+    scale_x_continuous(breaks = scales::pretty_breaks(5))+
+    labs(x= "\u03b2 coefficient", y= expression(paste(-log[10]," p-value")))+ scale_color_manual('', values = c("0"="grey","1"="green", "2"= "red"), labels = c('p-value>0.05', 'p-value \u2264 0.05 (med = 0)', 'p-value \u2264 0.05 (med > 0)' ))
+
+print(volcanoplot)
+template_to_save(volcanoplot, fname = 'Fig1E.png', 24, 13)
+makeedtiableppt(volcanoplot, fname='Fig1E_noldl.pptx',width = 8.72, height = 4)
+
+```
+## Examples of microbial associations
+### Figure 1D
+```{r fig1d}
+species_results <- species_results %>% 
+  mutate(org_list = str_replace_all(org_list, ' ', '_'))
+taxa_to_merge <- tax_profiles_adj_scaled_to_100 %>%
+  data.frame() %>% 
+  tibble::rownames_to_column('org_list') %>% 
+  # clean org_list
+  mutate(org_list = str_remove(org_list, 's__')) %>% 
+  tibble::column_to_rownames('org_list') %>% 
+  t() %>%
+  as.data.frame() %>%
+  rownames_to_column('LibraryID')
+colnames(metadata)
+data_to_plot <- merge(taxa_to_merge, metadata , by='LibraryID')
+dim(data_to_plot)
+bdorei <- plotbox(data_to_plot, 'AgeG', 
+                  'Bacteroides_dorei', 'Bacteroides dorei',
+                  figsfoldername, 'Fig1D_bdorei',
+                  12, species_results)
+
+print(bdorei)
+
+bmass <- plotbox(data_to_plot, 'AgeG',
+                 'Bacteroides_massiliensis',
+                 'Bacteroides massiliensis',
+                 figsfoldername, 'Fig1D_bmass',
+                 10, species_results)
+print(bmass)
+bovat <- plotbox(data_to_plot, 'AgeG',
+                 'Bacteroides_ovatus',
+                 'Bacteroides ovatus',
+                 figsfoldername, 'Fig1D_bovat',
+                 10, species_results)
+print(bovat)
+bxyl <- plotbox(data_to_plot, 'AgeG',
+                 'Bacteroides_xylanisolvens',
+                 'Bacteroides xylanisolvens',
+                 figsfoldername, 'Fig1D_xyla',
+                 2, species_results)
+
+print(bxyl)
+
+print(list(bdorei, bmass, bovat, bxyl))
+# makeedtiableppt_manyobj(list(bdorei, bxyl),
+#                         fname = 'Fig1D.pptx', 
+#                         width = 4.5, height = 4.5)
+makeedtiableppt(bxyl, fname='Fig1D_bxyl.pptx',width = 4.5, height = 3.5)
+makeedtiableppt(bmass, fname='Fig1D_bmass.pptx',width = 4.5, height = 3.5)
+
+# plot genus
+# genus_profile <- read.csv(here('data', 'genus_abundances.csv'))
+# genus_results <- read.csv(here('results_0.1', 'genus_associations.csv')) %>% 
+# mutate(org_list = paste('g__', org_list, sep = ''))
+# genus_to_merge <- genus_profile %>% 
+#   tibble::column_to_rownames('Index') %>% 
+#   t() %>% 
+#   as.data.frame() %>% 
+#   rownames_to_column('LibraryID')
+# genus_to_plot <- merge(genus_to_merge, metadata, by = 'LibraryID')
+# bact <- plotbox(genus_to_plot, 'AgeG',
+#                 'g__Bacteroides',
+#                 'Bacteroides',
+#                 figsfoldername, 'Fig1D_Bacteroides',
+#                 100, genus_results)
+# bact
+# makeedtiableppt(bact, fname='Fig1D_bact.pptx',width = 3.5, height = 3.5)
+
+```
+## Suppl Fig 6
+### 6A - Increase with age
+```{r bacincwithage}
+asha <- plotbox(data_to_plot, 'AgeG',
+                'Alistipes_shahii', 'Alistipes shahii',
+                figsfoldername, 'Supp_Fig6A_asha',
+                7, species_results)
+aond <- plotbox(data_to_plot, 'AgeG',
+                'Alistipes_onderdonkii', 'Alistipes onderdonkii',
+                figsfoldername, 'Supp_Fig6A_aond', 
+                10, species_results)
+ecoli <- plotbox(data_to_plot, 'AgeG', 
+                 'Escherichia_coli', 'Escherichia coli',
+                 figsfoldername, 'Supp_Fig6A_ecoli',
+                 30, species_results)
+pmerdae <- plotbox(data_to_plot, 'AgeG',
+                  'Parabacteroides_merdae', 
+                  'Parabacteroides merdae',
+                  figsfoldername, 'Supp_Fig6A_parmerd',
+                  6.2, species_results)
+print(list(asha, aond, ecoli, pmerdae))
+# makeedtiableppt_manyobj(list(asha, aond, ecoli, pardis),
+#                         fname = 'Supp_Fig5A.pptx', 
+#                         width = 3.5, height = 3.5)
+```
+### 6B - Decrease with age
+```{r bacredwithage}
+
+faecali <- plotbox(data_to_plot, 'AgeG',
+                   'Faecalibacterium_prausnitzii', 
+                   'Faecalibacterium prausnitzii', figsfoldername,
+                   'Supp_Fig6B_faecali', 25, species_results)
+rosein <- plotbox(data_to_plot, 'AgeG', 
+                  'Roseburia_inulinivorans',
+                  'Roseburia inulinivorans', figsfoldername,
+                  'Supp_Fig6B_roseinu', 5, species_results)
+roseint <- plotbox(data_to_plot, 'AgeG',
+                   'Roseburia_intestinalis',
+                   'Roseburia intestinalis', figsfoldername, 
+                   'Supp_Fig6B_roseint', 4, species_results)
+rbrom <- plotbox(data_to_plot, 'AgeG',
+                 'Ruminococcus_bromii',
+                 'Ruminococcus bromii', figsfoldername,
+                 'Supp_Fig6B_rumibrom', 6, species_results)
+print(list(faecali, rosein, roseint, rbrom))
+# makeedtiableppt_manyobj(list(faecali, rosein, roseint, rbrom),
+#                         fname = 'Supp_Fig5B.pptx',
+#                         width = 3.5, height = 3.5)
+```
+

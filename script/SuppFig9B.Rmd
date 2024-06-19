@@ -1,0 +1,125 @@
+---
+title: "Supplementary Figure 9"
+author: "Aarthi Ravikrishnan"
+date: "2024-05-06"
+output: html_document
+---
+# Load packages
+```{r setup}
+rm(list=ls())
+pacman::p_load(tidyverse, ggpubr, here, magrittr, tibble)
+library(ggplot2)
+library(ggpubr)
+```
+#Setup parameters
+
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+set.seed(1)
+
+```
+
+# Taxonomic profiles 
+## Reading taxonomic profiles
+```{r dataset}
+taxa <- read.csv(here('data', 'taxonomic_profiles.csv')) %>% 
+  dplyr::rename(org_list = 'X')
+
+taxa$org_list <- str_replace_all(taxa$org_list,'s__','')
+taxa$org_list <- str_replace_all(taxa$org_list,'_',' ')
+
+taxa <- taxa %>% column_to_rownames('org_list')
+taxa <- taxa %>% rownames_to_column('org_list')
+```
+## List of required organisms
+```{r requiredorgs}
+req_organisms = c('Acidaminococcus fermentans', 'Alistipes finegoldii', 'Alistipes putredinis', 'Bacteroides caccae', 'Bacteroides coprocola', 'Bacteroides eggerthii', 'Bacteroides intestinalis', 'Bacteroides stercoris', 'Bacteroides thetaiotaomicron', 'Bacteroides uniformis', 'Bifidobacterium adolescentis', 'Bifidobacterium bifidum', 'Bifidobacterium longum', 'Bilophila wadsworthia', 'Blautia wexlerae', 'Citrobacter amalonaticus', 'Clostridium clostridioforme', 'Desulfovibrio desulfuricans', 'Desulfovibrio piger', 'Dorea longicatena', 'Enterobacter cloacae', 'Escherichia coli', 'Eubacterium rectale', 'Faecalibacterium prausnitzii', 'Fusobacterium varium', 'Lactobacillus reuteri', 'Megasphaera elsdenii', 'Parabacteroides distasonis', 'Parabacteroides johnsonii', 'Phascolarctobacterium succinatutens', 'Prevotella ruminicola', 'Pseudoflavonifractor capillosus', 'Roseburia intestinalis', 'Roseburia inulinivorans', 'Ruminococcus callidus', 'Shigella flexneri', 'Subdoligranulum variabile', 'Veillonella atypica')
+
+print(length(req_organisms))
+
+# metadata with imputed values, updated age for SG90
+metadata <- read.csv(here('data', 'metadata_with_imputed_updatedage_allInfo.csv'))
+
+taxa_required <- taxa %>% 
+  dplyr::filter(org_list %in% req_organisms) %>% 
+  column_to_rownames('org_list') %>% 
+  t() %>% 
+  as.data.frame() %>% 
+  rowSums() %>% as.data.frame() %>% 
+  rename('sum_total'='.') %>% 
+  rownames_to_column('LibraryID') %>% 
+  left_join(metadata, by = 'LibraryID')
+```
+## Plotting boxplot
+```{r box}
+pairwise_combinations <- combn(unique(taxa_required$AgeG),2)
+pairwise_combinations_list <- split(pairwise_combinations, seq_len(ncol(pairwise_combinations)))
+
+p <- ggplot(taxa_required, aes(x = AgeG, y = sum_total, outline = FALSE,
+                               fill = AgeG)) + 
+  geom_boxplot(width = 1.0, outlier.shape = NA) +
+  ggtitle("Supporters of butyrate producers") + 
+  theme_bw() + 
+  theme(panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(colour = "black")) + 
+  labs(x = "Age group",
+       y = "Relative abundance",
+       face = "bold",
+       size = 14) +
+  theme(plot.title = element_text(color = "black", size = 26, face = "bold",
+                                  hjust = 0.5),
+        axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.position = 'NA') + 
+  scale_fill_manual(values = c("#a50023", "#f47d4a", "#fed98a", "#add39f", 
+                               '#6da5cb', "#354a99")) +
+  stat_compare_means(label = "p.signif", 
+                     comparisons = pairwise_combinations_list,
+                     size=6, hide.ns = TRUE)
+  
+# Since other pairwise combinations said ns, we just restrict to ones that 
+# showed a value
+my_comparisons = list(c("71-80", "81-90"), c("71-80", "91-100"))#,
+supporters_but <- ggplot(taxa_required, aes(x = AgeG,
+                                            y = sum_total, outline = FALSE,
+                                            fill = AgeG)) +
+  geom_boxplot(width = 1.0, outlier.shape = NA) +
+  ggtitle("Supporters of butyrate producers") + 
+  theme_bw() + 
+  theme(panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.line = element_line(colour = "black")) + 
+  labs(x = "Age group",
+       y = "Relative abundance",
+       face = "bold",
+       size = 13) +
+  theme(plot.title = element_text(color = "black", size = 18, face = "bold",
+                                  hjust = 0.5),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 16),
+        axis.text.y = element_text(size = 16),
+        legend.position = 'NA') + 
+  scale_fill_manual(values = c("#a50023", "#f47d4a", "#fed98a", "#add39f", 
+                               '#6da5cb', "#354a99")) +
+  stat_compare_means(label = "p.signif", comparisons = my_comparisons,
+                     size=6, hide.ns = TRUE)
+
+print(supporters_but)
+
+template_to_save(supporters_but, 'Supp_Fig9B.png', 15,15)
+makeedtiableppt(supporters_but, 'Supp_Fig9B.pptx', 6,4)
+```

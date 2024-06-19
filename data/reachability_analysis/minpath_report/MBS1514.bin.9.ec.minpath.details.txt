@@ -1,0 +1,289 @@
+3.1.3.- hits 1 # ecdysteroid-phosphate phosphatase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+6.2.1.3 hits 2 # long-chain-fatty-acid-CoA ligase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.7.1.23 hits 1 # NAD kinase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+3.2.1.- hits 1 # glucosyl-oleandomycin glucohydrolase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+4.1.1.- hits 1 # UDP-D-apiose synthase
+4.1.1.- hits 1 # UDP-D-apiose synthase
+3.5.3.24 hits 1 # N1-aminopropylagmatine ureohydrolase
+1.2.1.11 hits 1 # aspartate-semialdehyde dehydrogenase
+4.1.1.96 hits 1 # carboxynorspermidine decarboxylase
+1.2.1.11 hits 1 # aspartate-semialdehyde dehydrogenase
+4.1.1.96 hits 1 # carboxynorspermidine decarboxylase
+4.1.1.- hits 1 # UDP-D-apiose synthase
+5.1.1.1 hits 1 # alanine racemase
+2.7.2.4 hits 1 # aspartate kinase
+1.2.1.11 hits 1 # aspartate-semialdehyde dehydrogenase
+2.2.1.6 hits 2 # acetolactate synthase
+2.3.3.13 hits 1 # 2-isopropylmalate synthase
+6.1.1.20 hits 2 # phenylalanine--tRNA ligase
+6.1.1.2 hits 1 # tryptophan--tRNA ligase
+6.1.1.9 hits 1 # valine--tRNA ligase
+6.1.1.4 hits 1 # leucine--tRNA ligase
+6.1.1.5 hits 1 # isoleucine--tRNA ligase
+6.1.1.17 hits 1 # glutamate--tRNA ligase
+6.1.1.18 hits 1 # glutamine--tRNA ligase
+6.1.1.16 hits 1 # cysteine--tRNA ligase
+6.1.1.19 hits 1 # arginine--tRNA ligase
+4.2.3.4 hits 1 # 3-dehydroquinate synthase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.7.2.4 hits 1 # aspartate kinase
+1.2.1.11 hits 1 # aspartate-semialdehyde dehydrogenase
+4.2.1.10 hits 1 # 3-dehydroquinate dehydratase
+2.3.1.- hits 8 # pyoluteorin synthase
+1.2.1.- hits 1 # acyl-CoA reductase (NADH)
+3.2.1.28 hits 1 # trehalase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.291 hits 1 # N-acetylgalactosamine-N,N'-diacetylbacillosaminyl-diphospho-undecaprenol 4-alpha-N-acetylgalactosaminyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.7.1.- hits 1 # lipopolysaccharide core heptose (I) kinase
+3.5.1.108 hits 1 # UDP-3-O-acyl-N-acetylglucosamine deacetylase
+3.6.1.54 hits 1 # UDP-2,3-diacylglucosamine diphosphatase
+2.4.1.182 hits 1 # lipid A disaccharide synthase
+2.7.1.130 hits 1 # tetraacyldisaccharide 4'-kinase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.8.1.7 hits 1 # cysteine desulfurase
+3.6.4.- hits 2 # non-chaperonin molecular chaperone ATPase
+4.1.1.11 hits 1 # aspartate 1-decarboxylase
+6.3.2.1 hits 1 # pantothenate synthetase
+2.7.7.3 hits 1 # pantetheine-phosphate adenylyltransferase
+2.7.1.24 hits 1 # dephospho-CoA kinase
+2.7.1.107 hits 1 # diacylglycerol kinase
+4.1.1.65 hits 1 # phosphatidylserine decarboxylase
+2.3.1.- hits 8 # pyoluteorin synthase
+6.2.1.3 hits 2 # long-chain-fatty-acid-CoA ligase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+3.5.1.108 hits 1 # UDP-3-O-acyl-N-acetylglucosamine deacetylase
+3.6.1.54 hits 1 # UDP-2,3-diacylglucosamine diphosphatase
+2.4.1.182 hits 1 # lipid A disaccharide synthase
+2.7.1.130 hits 1 # tetraacyldisaccharide 4'-kinase
+2.4.99.12 hits 1 # 3-deoxy-D-manno-octulosonic acid transferase
+2.3.1.241 hits 1 # lauroyl acyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.7.1.- hits 1 # lipopolysaccharide core heptose (I) kinase
+2.7.6.5 hits 1 # GTP pyrophosphokinase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.2.1.6 hits 2 # acetolactate synthase
+2.5.1.31 hits 1 # ditrans,polycis-undecaprenyl-diphosphate synthase [(2E,6E)-farnesyl-diphosphate specific]
+3.6.1.- hits 1 # decaprenyl diphosphate phosphatase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+1.2.1.- hits 1 # acyl-CoA reductase (NADH)
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+1.3.1.- hits 1 # dechloro-dehydrogriseofulvin reductase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+1.3.1.- hits 1 # dechloro-dehydrogriseofulvin reductase
+3.1.3.- hits 1 # ecdysteroid-phosphate phosphatase
+4.1.1.- hits 1 # UDP-D-apiose synthase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+3.5.1.- hits 1 # N-hydroxyornithine acylase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+3.1.3.- hits 1 # ecdysteroid-phosphate phosphatase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+4.3.99.3 hits 1 # 7-carboxy-7-deazaguanine synthase
+1.3.1.- hits 1 # dechloro-dehydrogriseofulvin reductase
+1.2.7.1 hits 1 # pyruvate synthase
+4.2.1.11 hits 1 # enolase
+5.4.2.12 hits 1 # 2,3-bisphosphoglycerate-independent phosphoglycerate mutase
+2.7.1.30 hits 1 # glycerol kinase
+2.7.1.30 hits 1 # glycerol kinase
+1.1.1.77 hits 1 # glycolaldehyde reductase
+1.1.1.77 hits 1 # glycolaldehyde reductase
+4.4.1.5 hits 1 # glyoxalase I
+3.1.2.6 hits 1 # hydroxyacylglutathione hydrolase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+3.1.2.6 hits 1 # hydroxyacylglutathione hydrolase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+3.1.2.6 hits 1 # hydroxyacylglutathione hydrolase
+4.1.1.15 hits 1 # glutamate decarboxylase
+3.5.99.6 hits 2 # glucosamine-6-phosphate deaminase
+4.1.1.- hits 1 # UDP-D-apiose synthase
+1.8.1.4 hits 1 # lipoate acetyltransferase N6-(dihydrolipoyl)lysine:NAD+ oxidoreductase
+1.1.99.- hits 1 # preandiloid A dehydrogenase
+6.2.1.3 hits 2 # long-chain-fatty-acid-CoA ligase
+3.6.1.- hits 1 # decaprenyl diphosphate phosphatase
+4.1.1.15 hits 1 # glutamate decarboxylase
+3.4.16.4 hits 2 # peptidoglycan D,D transpeptidase
+2.7.1.6 hits 1 # galactokinase
+5.1.3.2 hits 1 # UDP-glucose 4-epimerase
+1.3.1.- hits 1 # dechloro-dehydrogriseofulvin reductase
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+1.3.5.4 hits 1 # fumarate reductase
+1.3.5.4 hits 1 # fumarate reductase
+7.1.1.7 hits 2 # cytochrome bd-I ubiquinol oxidase
+7.1.1.7 hits 2 # cytochrome bd-I ubiquinol oxidase
+1.3.5.4 hits 1 # fumarate reductase
+1.18.1.2 hits 1 # ferredoxin-NADP oxidoreductase
+1.3.5.1 hits 1 # succinate-ubiquinone reductase
+7.1.1.7 hits 2 # cytochrome bd-I ubiquinol oxidase
+1.3.5.1 hits 1 # succinate-ubiquinone reductase
+1.1.1.40 hits 1 # malate dehydrogenase (oxaloacetate-decarboxylating) (NADP+)
+2.7.9.1 hits 1 # pyruvate orthophosphate dikinase
+1.1.1.40 hits 1 # malate dehydrogenase (oxaloacetate-decarboxylating) (NADP+)
+2.7.9.1 hits 1 # pyruvate orthophosphate dikinase
+3.1.3.18 hits 1 # phosphoglycolate phosphatase
+1.2.7.3 hits 2 # 2-oxoglutarate:ferredoxin oxidoreductase
+1.3.5.1 hits 1 # succinate-ubiquinone reductase
+4.2.1.2 hits 1 # fumarase
+5.4.2.12 hits 1 # 2,3-bisphosphoglycerate-independent phosphoglycerate mutase
+4.2.1.11 hits 1 # enolase
+3.2.1.37 hits 1 # 1,4-beta-xylosidase
+3.2.1.- hits 1 # glucosyl-oleandomycin glucohydrolase
+4.2.2.- hits 1 # digalacturonate lyase
+3.2.1.- hits 1 # glucosyl-oleandomycin glucohydrolase
+3.2.1.1 hits 1 # starch glucanohydrolase
+3.2.1.40 hits 2 # rutin alpha-L-rhamnosidase
+3.2.1.31 hits 2 # beta-glucuronidase
+3.2.1.37 hits 1 # 1,4-beta-xylosidase
+3.2.1.23 hits 2 # XLXG xyloglucan oligosaccharide beta-galactosidase
+2.1.1.228 hits 1 # tRNA (guanine37-N1)-methyltransferase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.3.1.234 hits 1 # N6-L-threonylcarbamoyladenine synthase
+3.1.13.1 hits 1 # RNase BN ribonuclease
+3.1.13.5 hits 1 # RNase T exonuclease
+3.4.21.- hits 1 # signal peptide peptidase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.1.1.45 hits 1 # thymidylate synthase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+1.4.3.16 hits 1 # L-aspartate oxidase
+2.4.2.19 hits 1 # quinolinate phosphoribosyltransferase (decarboxylating)
+2.7.7.18 hits 1 # nicotinate-mononucleotide adenylyltransferase
+6.3.5.1 hits 2 # NAD+ synthetase, glutamine dependent
+2.7.2.4 hits 1 # aspartate kinase
+1.2.1.11 hits 1 # aspartate-semialdehyde dehydrogenase
+1.17.1.8 hits 1 # 4-hydroxy-tetrahydrodipicolinate reductase
+4.1.1.20 hits 1 # diaminopimelate decarboxylase
+2.1.1.13 hits 1 # cobalamin-dependent methionine synthase
+2.5.1.6 hits 1 # methionine adenosyltransferase
+1.1.1.17 hits 2 # mannitol-1-phosphate 5-dehydrogenase
+4.2.1.11 hits 1 # enolase
+2.7.1.40 hits 1 # pyruvate kinase
+1.1.1.369 hits 1 # 1D-chiro-inositol 1-dehydrogenase
+6.3.2.4 hits 1 # D-alanine--D-alanine ligase
+6.3.2.9 hits 1 # UDP-N-acetylmuramoyl-L-alanine--D-glutamate ligase
+6.3.2.13 hits 1 # UDP-N-acetylmuramoyl-L-alanyl-D-glutamate--2,6-diaminopimelate ligase
+6.3.2.10 hits 1 # D-alanyl-D-alanine-adding enzyme
+2.7.8.13 hits 1 # phospho-N-acetylmuramoyl-pentapeptide-transferase
+6.3.2.4 hits 1 # D-alanine--D-alanine ligase
+6.3.2.9 hits 1 # UDP-N-acetylmuramoyl-L-alanine--D-glutamate ligase
+6.3.2.10 hits 1 # D-alanyl-D-alanine-adding enzyme
+2.7.8.13 hits 1 # phospho-N-acetylmuramoyl-pentapeptide-transferase
+2.4.1.129 hits 2 # peptidoglycan glycosyltransferase
+3.4.16.4 hits 2 # peptidoglycan D,D transpeptidase
+6.3.2.4 hits 1 # D-alanine--D-alanine ligase
+6.3.2.9 hits 1 # UDP-N-acetylmuramoyl-L-alanine--D-glutamate ligase
+6.3.2.13 hits 1 # UDP-N-acetylmuramoyl-L-alanyl-D-glutamate--2,6-diaminopimelate ligase
+6.3.2.10 hits 1 # D-alanyl-D-alanine-adding enzyme
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+2.4.1.129 hits 2 # peptidoglycan glycosyltransferase
+3.1.3.5 hits 3 # AMP 5'-nucleotidase
+1.1.1.205 hits 1 # IMP dehydrogenase
+1.2.7.1 hits 1 # pyruvate synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.4.1.- hits 1 # brassinolide 23-O-glucosyltransferase
+4.2.3.4 hits 1 # 3-dehydroquinate synthase
+4.2.1.10 hits 1 # 3-dehydroquinate dehydratase
+2.5.1.15 hits 1 # dihydropteroate synthase
+2.5.1.39 hits 1 # 4-hydroxybenzoate octaprenyltransferase
+2.7.7.24 hits 1 # dTDP-glucose pyrophosphorylase
+4.2.1.46 hits 1 # dTDP-glucose 4,6-dehydratase
+2.3.1.- hits 8 # pyoluteorin synthase
+5.1.3.13 hits 1 # dTDP-4-dehydrorhamnose 3,5-epimerase
+1.1.1.133 hits 1 # dTDP-4-dehydrorhamnose reductase
+5.3.1.14 hits 1 # L-rhamnose isomerase
+2.7.1.5 hits 1 # rhamnulokinase
+1.1.1.77 hits 1 # glycolaldehyde reductase
+2.4.2.8 hits 1 # guanine phosphoribosyltransferase
+2.7.1.11 hits 2 # 6-phosphofructokinase
+1.1.1.251 hits 1 # galactitol-1-phosphate 5-dehydrogenase
+4.1.2.40 hits 1 # tagatose-1,6-bisphosphate aldolase
+5.4.2.12 hits 1 # 2,3-bisphosphoglycerate-independent phosphoglycerate mutase
+4.2.1.11 hits 1 # enolase
+2.7.1.40 hits 1 # pyruvate kinase
+6.3.5.4 hits 1 # L-aspartate:L-glutamine amido-ligase (AMP-forming)
+2.5.1.6 hits 1 # methionine adenosyltransferase
+3.3.1.1 hits 1 # adenosylhomocysteinase
+2.1.1.13 hits 1 # cobalamin-dependent methionine synthase
+2.5.1.6 hits 1 # methionine adenosyltransferase
+3.3.1.1 hits 1 # adenosylhomocysteinase
+5.4.99.2 hits 1 # methylmalonyl-CoA mutase
+1.1.1.103 hits 1 # threonine dehydrogenase
+2.2.1.6 hits 2 # acetolactate synthase
+2.3.1.- hits 8 # pyoluteorin synthase
+2.5.1.120 hits 1 # aminodeoxyfutalosine synthase
+1.21.98.1 hits 1 # dehypoxanthinylfutalosine cyclase
+2.4.2.19 hits 1 # quinolinate phosphoribosyltransferase (decarboxylating)
+1.1.1.- hits 1 # 3-dehydroecdysone-3alpha-reductase
+2.7.1.16 hits 1 # ribulokinase
+2.1.1.- hits 3 # GA4 carboxyl methyltransferase
+2.4.2.14 hits 1 # amidophosphoribosyltransferase
+2.1.2.2 hits 1 # phosphoribosylglycinamide formyltransferase 1
+6.3.3.1 hits 1 # phosphoribosylformylglycinamide cyclo-ligase
+1.1.1.205 hits 1 # IMP dehydrogenase
+2.7.4.8 hits 1 # guanylate kinase
+2.7.4.3 hits 1 # adenylate kinase
+1.1.1.290 hits 2 # erythronate-4-phosphate dehydrogenase
+2.6.99.2 hits 1 # pyridoxine 5'-phosphate synthase
+2.7.1.74 hits 1 # 2'-deoxycytidine kinase
+2.1.1.45 hits 1 # thymidylate synthase
+6.3.5.5 hits 2 # carbamoyl phosphate synthetase
+1.3.5.2 hits 1 # dihydroorotate dehydrogenase
+2.7.4.22 hits 1 # UMP kinase
+6.3.4.2 hits 1 # CTP synthetase
+3.1.3.3 hits 1 # phosphoserine phosphatase
+2.5.1.47 hits 1 # O-acetylserine sulfhydrylase
+2.7.4.16 hits 1 # thiamine monophosphate kinase
+1.1.1.267 hits 1 # 1-deoxy-D-xylulose 5-phosphate reductoisomerase
+1.17.7.4 hits 1 # isopentenyl-diphosphate:NAD(P)+ oxidoreductase
+5.3.3.2 hits 1 # isopentenyl-diphosphate delta-isomerase
+5.1.3.2 hits 1 # UDP-glucose 4-epimerase

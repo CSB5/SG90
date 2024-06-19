@@ -1,0 +1,292 @@
+---
+title: "SuppFig16"
+output: html_document
+date: '2024-04-22'
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pacman::p_load(here, tidyverse, reshape2, magrittr, ggpubr)
+```
+#Setup parameters
+
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+#source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+set.seed(1)
+```
+# Load data
+```{r}
+metadata <- read.csv(here('data', 'metadata.csv'))
+metadata <- metadata[order(metadata$LibraryID),]
+
+tax.s.7m <- read_tsv(here('data', 'subsampled', 'merged_7m.tsv')) %>% 
+  tibble::column_to_rownames('org_list')
+
+tax.s.14m <- read_tsv(here('data', 'subsampled', 'merged_14m.tsv')) %>% 
+  tibble::column_to_rownames('org_list')
+
+tax.s.21m <- read_tsv(here('data', 'subsampled', 'merged_21m.tsv')) %>% 
+  tibble::column_to_rownames('org_list')
+
+tax.s.28m <- read_tsv(here('data', 'subsampled', 'merged_28m.tsv')) %>% 
+  tibble::column_to_rownames('org_list')
+
+
+subsampled_libs <- readxl::read_xlsx(here('data', 'subsampled', 'subsampled_libraries.xlsx'))
+
+## Load profiles - combine original SG90 + SPMP + T2D with CRE profiles
+taxonomic_profiles <- read.csv(here('data', 'taxonomic_profiles.csv')) %>%   dplyr::select('X', subsampled_libs$LibraryID) %>% column_to_rownames('X')
+
+## Remove low abundance for original profiles
+taxonomic_profiles[is.na(taxonomic_profiles)| taxonomic_profiles < 0.1] <- 0 
+  
+## remove taxa with 0s in all samples
+taxonomic_profiles <- taxonomic_profiles[rowSums(taxonomic_profiles) != 0, ] 
+
+## renormalize to 100%
+taxonomic_profiles <- data.frame(apply(taxonomic_profiles, 2, function(x) x/sum(x)) * 100)
+## clean rownames
+rownames(taxonomic_profiles) %<>% substring(4)
+rownames(taxonomic_profiles) %<>% str_replace_all(c("_"=" "))
+```
+
+
+# Alpha Diversity
+
+## Shannon
+```{r}
+shannon_7m <- data.frame(shannon_7 = vegan::diversity(t(tax.s.7m), index='shannon')) %>%
+  tibble::rownames_to_column('LibraryID')
+shannon_14m <- data.frame(shannon_14 = vegan::diversity(t(tax.s.14m), index='shannon')) %>% tibble::rownames_to_column('LibraryID')
+shannon_21m <- data.frame(shannon_21 = vegan::diversity(t(tax.s.21m), index='shannon')) %>% tibble::rownames_to_column('LibraryID')
+shannon_28m <- data.frame(shannon_28 = vegan::diversity(t(tax.s.28m), index='shannon')) %>% tibble::rownames_to_column('LibraryID')
+shannon_ori <- data.frame(shannon_40 = vegan::diversity(t(taxonomic_profiles), index='shannon')) %>% tibble::rownames_to_column('LibraryID')
+
+combined_shannon <- Reduce(function(x, y) merge(x, y, by = 'LibraryID', all = T), 
+                           list(shannon_7m, shannon_14m, shannon_21m, shannon_28m,
+                                shannon_ori))
+```
+
+## Richness
+```{r}
+## richness
+
+richness_7m <- data.frame(richness_7 = apply(t(tax.s.7m) > 0, 1, sum)) %>%
+  tibble::rownames_to_column('LibraryID')
+richness_14m <- data.frame(richness_14 = apply(t(tax.s.14m) > 0, 1, sum)) %>% tibble::rownames_to_column('LibraryID')
+richness_21m <- data.frame(richness_21 = apply(t(tax.s.21m) > 0, 1, sum)) %>% tibble::rownames_to_column('LibraryID')
+richness_28m <- data.frame(richness_28 = apply(t(tax.s.28m) > 0, 1, sum)) %>% tibble::rownames_to_column('LibraryID')
+richness_ori <- data.frame(richness_40 = apply(t(taxonomic_profiles) > 0, 1, sum)) %>% tibble::rownames_to_column('LibraryID')
+
+combined_richness <- Reduce(function(x, y) merge(x, y, by = 'LibraryID', all = T), 
+                           list(richness_7m, richness_14m, richness_21m, richness_28m,
+                                richness_ori))
+```
+
+## Simpson
+```{r}
+## Simpson
+simpson_7m <- data.frame(simpson_7 = vegan::diversity(t(tax.s.7m), index='simpson')) %>%
+  tibble::rownames_to_column('LibraryID')
+simpson_14m <- data.frame(simpson_14 = vegan::diversity(t(tax.s.14m), index='simpson')) %>% tibble::rownames_to_column('LibraryID')
+simpson_21m <- data.frame(simpson_21 = vegan::diversity(t(tax.s.21m), index='simpson')) %>% tibble::rownames_to_column('LibraryID')
+simpson_28m <- data.frame(simpson_28 = vegan::diversity(t(tax.s.28m), index='simpson')) %>% tibble::rownames_to_column('LibraryID')
+simpson_ori <- data.frame(simpson_40 = vegan::diversity(t(taxonomic_profiles), index='simpson')) %>% tibble::rownames_to_column('LibraryID')
+
+combined_simpson <- Reduce(function(x, y) merge(x, y, by = 'LibraryID', all = T), 
+                           list(simpson_7m, simpson_14m, simpson_21m, simpson_28m,
+                                simpson_ori))
+```
+
+## Evenness
+```{r}
+evenness_7m <- data.frame(evenness_7 = vegan::diversity(t(tax.s.7m), index = "shannon") /
+                            log(vegan::specnumber(t(tax.s.7m)))) %>%
+  tibble::rownames_to_column('LibraryID')
+
+evenness_14m <- data.frame(evenness_14 = vegan::diversity(t(tax.s.14m), index = "shannon") /
+                            log(vegan::specnumber(t(tax.s.14m)))) %>%
+  tibble::rownames_to_column('LibraryID')
+
+evenness_21m <- data.frame(evenness_21 = vegan::diversity(t(tax.s.21m), index = "shannon") /
+                            log(vegan::specnumber(t(tax.s.21m)))) %>%
+  tibble::rownames_to_column('LibraryID')
+
+evenness_28m <- data.frame(evenness_28 = vegan::diversity(t(tax.s.28m), index = "shannon") /
+                            log(vegan::specnumber(t(tax.s.28m)))) %>%
+  tibble::rownames_to_column('LibraryID')
+
+evenness_ori <- data.frame(evenness_40 = vegan::diversity(t(taxonomic_profiles), index = "shannon") /
+                            log(vegan::specnumber(t(taxonomic_profiles)))) %>%
+  tibble::rownames_to_column('LibraryID')
+
+combined_evenness <- Reduce(function(x, y) merge(x, y, by = 'LibraryID', all = T), 
+                           list(evenness_7m, evenness_14m, evenness_21m, evenness_28m,
+                                evenness_ori))
+```
+## Combine everyhing
+
+```{r combine}
+
+  # convert wide alpha table to long alpha table
+convert_to_long_alpha <- function(alpha_table, original_column, alpha_measure) {
+  alpha_table_long <- alpha_table %>% pivot_longer(-c('LibraryID', original_column)) %>% 
+    rename(Original = original_column) %>% 
+    mutate(Alpha = alpha_measure)
+  return(alpha_table_long)
+}
+combined_alpha <- rbind(convert_to_long_alpha(combined_shannon, 'shannon_40', 'Shannon'),
+      convert_to_long_alpha(combined_richness, 'richness_40', 'Richness'),
+      convert_to_long_alpha(combined_evenness, 'evenness_40', 'Evenness'),
+      convert_to_long_alpha(combined_simpson, 'simpson_40', 'Simpson')) %>%
+  na.omit() %>% 
+  separate(name, c('alpha', 'read')) %>% dplyr::select(-alpha)
+```
+
+
+## Plot individual alpha metric
+```{r}
+# plot correlation plot for alpha diversity (original vs subsampled)
+plot_cor_alpha_multiple <- function(combined_alpha, alpha_measure) {
+  combined_alpha %>% filter(Alpha == alpha_measure) %>%  
+    mutate(read = factor(read, levels = c('7', '14', '21', '28'))) %>% 
+    ggplot(aes(x = value, y = Original, color = read)) + 
+    geom_point(show.legend = F) + 
+    geom_smooth(method = 'lm', ) + 
+    stat_cor(method = 'spearman', cor.coef.name = 'rho',
+             show.legend = F, size = 4) + 
+    # remove grey background in legend
+    #https://stackoverflow.com/questions/21066077/remove-fill-around-legend-key-in-ggplot
+    guides(color = guide_legend(override.aes=list(fill=NA))) +
+    theme_bw() + ggtitle(alpha_measure) +
+    labs(x = 'Subsampled', color = 'Sequencing Depth (m)') +
+    scale_colour_manual(values = c(
+      '#e6194B', #red
+      '#3cb44b', #green
+      '#354a99', # blue
+      '#ccad51')) + 
+    theme(
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      plot.title = element_text(
+        color = "black",
+        size = 14,
+        hjust = 0.5,
+        face = 'bold'
+      ),
+      axis.title = element_text(face='bold', size=16),
+      axis.title.x = element_text(size = 14),
+      axis.title.y = element_text(size = 14),
+      axis.text.x = element_text(
+        size = 14
+      ),
+      axis.text.y = element_text(size = 14),
+      text = element_text(family = 'Arial'), 
+      legend.title = element_text(size = 14, face = 'bold'),
+      legend.text = element_text(size = 14))
+}
+
+shannon_plot <- plot_cor_alpha_multiple(combined_alpha, 'Shannon')
+richness_plot <- plot_cor_alpha_multiple(combined_alpha, 'Richness')
+simpson_plot <- plot_cor_alpha_multiple(combined_alpha, 'Simpson')
+evenness_plot <- plot_cor_alpha_multiple(combined_alpha, 'Evenness')
+
+template_to_save(shannon_plot,'Supp_fig16A.png',20,height = 12)
+template_to_save(richness_plot,'Supp_fig16B.png',20,height = 12)
+template_to_save(simpson_plot,'Supp_fig16C.png',20,height = 12)
+template_to_save(evenness_plot,'Supp_fig16D.png',20,height = 12)
+```
+### Plot in editable ppt
+```{r}
+listofpics <- list(shannon_plot, richness_plot, evenness_plot, simpson_plot)
+
+small_dml <- purrr::map(listofpics, create_dml)
+
+create_pptx <- function(plot, path, width = 3.5, height = 3.5){
+  
+    # if file does not yet exist, create new PowerPoint ----
+    if (!file.exists(path)) {
+        out <- officer::read_pptx()
+    }
+    # if file exist, append slides to exisiting file ----
+    else {
+        out <- officer::read_pptx(path)
+    }
+  
+    out %>% 
+      officer::add_slide() %>% 
+      officer::ph_with(plot, location = officer::ph_location(
+        width = width, height = height)) %>% 
+      base::print(target = path)
+}
+
+purrr::map(
+  # dml plots to export ----
+  small_dml, 
+  # exporting function ----
+  create_pptx, 
+  width = 6, height = 3.5,
+  # additional fixed arguments in create_pptx ----
+  path = here(editablepptfname,'Supp_Fig16.pptx')
+  )
+```
+
+#Pathway
+
+```{r auxfunc}
+do_count_per_sample_seq_depth <- function(file_names, libraries_needed)
+{
+seven_mil <- read.csv(file_names[4])  %>% column_to_rownames('Index')
+fourteen_mil <- read.csv(file_names[1]) %>% column_to_rownames('Index')
+twentyone_mil <- read.csv(file_names[2]) %>% column_to_rownames('Index')
+twentyeight_mil <- read.csv(file_names[3]) %>% column_to_rownames('Index')
+original_mil <- read.csv(file_names[5]) %>% column_to_rownames('Index')
+  
+  
+seven_mil_count <-  colSums(seven_mil !=0) %>% data.frame() %>% dplyr::rename("7"='.') %>% rownames_to_column('LibraryID')
+fourteen_mil_count  <- colSums(fourteen_mil !=0) %>% data.frame() %>% 
+  dplyr::rename("14"='.')%>% rownames_to_column('LibraryID')
+twentyone_mil_count <- colSums(twentyone_mil !=0) %>% data.frame()  %>% dplyr::rename("21"='.')%>% rownames_to_column('LibraryID')
+twentyeight_mil_count <- colSums(twentyeight_mil !=0) %>% data.frame() %>%
+dplyr::rename("28"='.')%>% rownames_to_column('LibraryID')
+original_mil_count <- colSums(original_mil !=0) %>% data.frame() %>%
+dplyr::rename('Original'='.')%>% rownames_to_column('LibraryID')
+
+
+all_entries <- list(seven_mil_count, fourteen_mil_count, 
+                     twentyone_mil_count, twentyeight_mil_count) %>% reduce(full_join, by = "LibraryID")
+original_mil_count
+all_entries %<>% filter(LibraryID %in% libraries_needed)%>% melt()
+
+all_entries_all <- merge(all_entries, original_mil_count, by='LibraryID')
+all_entries_all$Alpha <- 'Pathway Count'
+return(all_entries_all)
+}
+```
+#Get data and code
+```{r}
+filesdest <- here("data", "subsampled", "pathways_combined")
+allfiles <-
+  list.files(here("data", "subsampled", "pathways_combined")) %>% sort()
+file_names <- paste0(here("data"),"/subsampled/", "/pathways_combined/", allfiles)
+libraries_needed <- c("MHS238", "MHS279", "MBE036", "MHS276", "MBM135", "MBE037", "MBM137", "MHS266", "MHS287", "MHS243", "MHS236", "MHS232", "MHS246", "MHS267", "MHS289", "MHS239", "MBE038", "MHS253", "MHS283", "MBE035")
+
+all_entries_all <- do_count_per_sample_seq_depth(file_names, libraries_needed)
+all_entries_all %<>%  rename("read"= "variable")
+pathway_plot <- plot_cor_alpha_multiple(all_entries_all,'Pathway Count')#, 'Pathway Count')
+
+template_to_save(pathway_plot,'Supp_fig16E.png',20,height = 12)
+makeedtiableppt(pathway_plot,'Supp_fig16E.pptx',3.5,height = 6)
+```

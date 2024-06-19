@@ -1,0 +1,751 @@
+---
+title: "Supplementary Figure 3"
+author: "Indrik Wijaya"
+date: "2024-02-25"
+editor_options: 
+  chunk_output_type: console
+chunk_output_type: console
+output: 
+  
+  rmdformats::downcute:
+    
+    downcute_theme: "chaos"
+    use_bookdown: true
+    self_contained: true
+    lightbox: true
+    gallery: true
+    toc_depth: 5
+  pdf_document:
+    toc_depth: 5
+---
+
+# Load libraries
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, cache.lazy = FALSE, 
+                      collapse = TRUE, warning = FALSE, message = FALSE)
+
+library(here)
+
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs")
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results")
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figs_ppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script', 'utils_DA.R'))
+source(here('script', 'utils_prev.R'))
+source(here('script','utils_highsens.R'))
+source(here('script','fig_plot.R'))
+conflicted::conflict_prefer('desc', 'dplyr')
+conflicted::conflict_prefer('rename', 'dplyr')
+conflicted::conflict_prefer('filter', 'dplyr')
+
+set.seed(100)
+```
+
+Run validation tests based on different analyses, normalization and thresholds
+- Analyses: GLM on ALL cohorts, GLM on SG90 + CPE only, Prevalence Test (CA) on ALL cohorts
+- Methods: GLM, ANCOM-BC, Maaslin2
+- Normalization: TSS & CSS 
+- % filtering threshold: 0.05%, 0.1%, 0.5%, 1%
+
+# Load data & metadata
+```{r}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+n_nonzero <- 50
+
+# metadata with imputed values, updated age for SG90
+metadata <- read.csv(here('data', 'metadata_with_imputed_updatedage_allInfo.csv'))
+
+# load all profiles with cre & filtered with 0.1% threshold - unadjusted
+all_profiles <- read.csv(here('data', 'taxonomic_profiles_filtered.csv')) %>% 
+  dplyr::rename(org_list = 'X')
+
+# get SG90 + CPE profiles only
+sg90_cpe_metadata <- metadata %>% 
+  filter(Cohort == 'SG90') %>% 
+  mutate(LibraryID = str_remove(LibraryID, '[.]'))
+sg90_cpe_profiles <- all_profiles %>% 
+  dplyr::select(org_list, sg90_cpe_metadata$LibraryID) %>% 
+  tibble::column_to_rownames('org_list') #382 * 295
+
+# remove all zeros
+sg90_cpe_profiles <- sg90_cpe_profiles[rowSums(sg90_cpe_profiles) != 0, ]
+sg90_cpe_profiles <- sg90_cpe_profiles %>% 
+  tibble::rownames_to_column('org_list') #330 * 296
+
+# remove sg90 samples with no date for blood collection - 18 samples
+no_blood_date <- read.csv(here('data', 'no_blood_date.csv'))
+
+# old metadata with no imputed values - to get patient id
+old_metadata <- read.csv(here('data', 'metadata_with_clinical_data.csv')) %>% 
+  dplyr::rename(LibraryID = 'Index')
+
+# get libraryid - 17 samples, 1 sample doesn't have a libraryID
+no_blood_date <- no_blood_date %>% 
+  mutate(Patient.ID = as.character(Patient.ID)) %>% 
+  left_join(old_metadata, by = 'Patient.ID') %>% 
+  dplyr::filter(!is.na(LibraryID))
+
+
+
+```
+
+## Convert relative abundance into estimated read count by multiplying through sequencing depth
+```{r}
+combined_sanity <- read.csv(here('data', 'combined_sanity.csv'))
+
+read_count <- combined_sanity %>% 
+  filter(LibraryID %in% names(all_profiles)[-1]) %>% 
+  mutate(fq_readcount = fq_readcount/2) %>% 
+  dplyr::select(LibraryID, fq_readcount)
+
+# load all profiles with cre & filtered with 0.1% threshold - adjusted
+all_profiles_adj <- read.csv(here('data', 'taxonomic_profiles_batch_adjusted.csv')) %>% 
+  dplyr::rename(org_list = 'X')
+
+all_profiles_count <- all_profiles_adj
+for (lib in read_count$LibraryID) {
+  #print(lib)
+  seq_depth <- read_count %>% 
+    filter(LibraryID == lib) %>% 
+    pull(fq_readcount)
+  #print(seq_depth)
+  all_profiles_count[[lib]] <- all_profiles_count[[lib]] * seq_depth 
+}
+
+all_profiles_count_assoc <- transform_tax_profiles(all_profiles_count, 
+                                                    metadata, 50)
+
+```
+
+# Original + CPE
+
+## EM
+```{r}
+all_profiles_assoc <- transform_tax_profiles(all_profiles_adj, metadata, 50)
+all_glm <- run_glm(all_profiles_assoc)
+```
+
+## ANCOM-BC
+
+```{r, results='hide'}
+# run ancom-bc
+tax_ps_all <- build_ps(all_profiles_count_assoc)
+
+ancombc_all_count_out <- ancombc(phyloseq = tax_ps_all,
+                                  formula = 'Age + Gender + FBGlu + Tgly + TCHOL + HDL + BMI',
+                                  p_adj_method = 'fdr', prv_cut = 0, lib_cut = 0,
+                                  neg_lb = F, tol = 1e-5,
+                                  max_iter = 100, conserve = T, alpha = 0.05)
+
+ancombc_all_da <- get_ancombc_da(ancombc_all_count_out)
+names(ancombc_all_da)[1] <- 'org_list'
+plot_ancombc_da(ancombc_all_da)
+
+ancombc_all_out_glm <- convert_ancombc_to_glm(ancombc_all_count_out)
+# reorder columns
+ancombc_all_out_glm <- ancombc_all_out_glm[, c('org_list', 'pval', 'betaestimate', 
+                                                 'stderror', 'padj')]
+
+```
+
+## Maaslin2
+
+```{r, results='hide'}
+maaslin2_all_res <- run_maaslin2(all_profiles_assoc, 'NONE', 'NONE', 'association_with_age')
+maaslin2_all_res_glm <- maaslin2_all_res %>% 
+  dplyr::select(org_list, pval, coef, stderr, padj) %>% 
+  dplyr::rename(betaestimate = coef, stderror = stderr)
+
+```
+
+## CSS
+```{r}
+all_profiles_css <- CSSnorm(all_profiles_adj)
+all_profiles_css_assoc <- transform_tax_profiles(all_profiles_css, metadata, 50)
+all_css_glm <- run_glm(all_profiles_css_assoc)
+# all_css_maaslin2 <- run_maaslin2(all_profiles_assoc, 'NONE', 'NONE', 
+#                                  'association_with_age_css')
+# maaslin2_all_res_css <- all_css_maaslin2 %>% 
+#   dplyr::select(org_list, pval, coef, stderr, padj) %>% 
+#   dplyr::rename(betaestimate = coef, stderror = stderr)
+
+```
+
+# SG90 + CPE only
+
+## EM
+```{r}
+sg90_cpe_association <- transform_tax_profiles(sg90_cpe_profiles, sg90_cpe_metadata, 50)
+
+sg90_cpe_glm <- run_glm(sg90_cpe_association)
+
+```
+
+## Get count
+```{r}
+read_count_sg90_cpe <- combined_sanity %>% 
+  filter(LibraryID %in% names(sg90_cpe_profiles)[-1]) %>% 
+  mutate(fq_readcount = fq_readcount/2) %>% 
+  dplyr::select(LibraryID, fq_readcount)
+
+sg90_cpe_profiles_count <- sg90_cpe_profiles
+for (lib in read_count_sg90_cpe$LibraryID) {
+  #print(lib)
+  seq_depth <- read_count_sg90_cpe %>% 
+    filter(LibraryID == lib) %>% 
+    pull(fq_readcount)
+  #print(seq_depth)
+  sg90_cpe_profiles_count[[lib]] <- sg90_cpe_profiles_count[[lib]] * seq_depth 
+}
+
+sg90_cpe_association_count <- transform_tax_profiles(sg90_cpe_profiles_count, 
+                                                    sg90_cpe_metadata, 50)
+
+```
+
+## ANCOM-BC
+```{r, results='hide'}
+# run ancom-bc
+tax_ps_sg90_cpe <- build_ps(sg90_cpe_association_count)
+
+ancombc_sg90_cpe_count_out <- ancombc(phyloseq = tax_ps_sg90_cpe,
+                                  formula = 'Age + Gender + FBGlu + Tgly + TCHOL + HDL + BMI',
+                                  p_adj_method = 'fdr', prv_cut = 0, lib_cut = 0,
+                                  neg_lb = F, tol = 1e-5,
+                                  max_iter = 100, conserve = T, alpha = 0.05)
+
+ancombc_sg90_cpe_da <- get_ancombc_da(ancombc_sg90_cpe_count_out)
+names(ancombc_sg90_cpe_da)[1] <- 'org_list'
+plot_ancombc_da(ancombc_sg90_cpe_da)
+
+ancombc_sg90_cpe_out_glm <- convert_ancombc_to_glm(ancombc_sg90_cpe_count_out)
+# reorder columns
+ancombc_sg90_cpe_out_glm <- ancombc_sg90_cpe_out_glm[, c('org_list', 'pval', 'betaestimate', 'stderror', 'padj')]
+```
+
+## Maaslin2
+
+```{r, results='hide'}
+maaslin2_sg90_cpe_res <- run_maaslin2(sg90_cpe_association, 'NONE', 'NONE', 'association_with_age')
+maaslin2_sg90_cpe_res_glm <- maaslin2_sg90_cpe_res %>% 
+  dplyr::select(org_list, pval, coef, stderr, padj) %>% 
+  dplyr::rename(betaestimate = coef, stderror = stderr)
+```
+
+## CSS
+```{r}
+# filter zero species
+sg90_cpe_css <- CSSnorm(sg90_cpe_profiles)
+sg90_cpe_css_assoc <- transform_tax_profiles(sg90_cpe_css, sg90_cpe_metadata, 50)
+
+sg90_cpe_css_glm <- run_glm(sg90_cpe_css_assoc)
+
+# sg90_cpe_css_maaslin2 <- run_maaslin2(sg90_cpe_association, 'NONE', 'NONE', 
+#                                       'association_with_age_css')
+# maaslin2_sg90_cpe_res_css <- sg90_cpe_css_maaslin2 %>% 
+#   dplyr::select(org_list, pval, coef, stderr, padj) %>% 
+#   dplyr::rename(betaestimate = coef, stderror = stderr)
+```
+
+# Prevalence Test - Cochran Armitage
+
+## Apply Different thresholds
+```{r, results='hide'}
+# load all profiles with cre & filtered with 0.1% threshold - unadjusted
+all_profiles_unfilt <- read.csv(here('data', 'taxonomic_profiles.csv')) %>% 
+  tibble::column_to_rownames('X') %>% 
+  replace(is.na(.), 0) 
+## renormalize to 100%
+all_profiles_unfilt <- data.frame(apply(all_profiles_unfilt, 2, function(x) x/sum(x)) * 100) %>% 
+  tibble::rownames_to_column('org_list')
+combined_profiles_filt_0.01 <- remove_low_abund(all_profiles_unfilt, 0.01) #535 taxa
+combined_profiles_filt_0.05 <- remove_low_abund(all_profiles_unfilt, 0.05) #434 taxa
+combined_profiles_filt_0.1 <- remove_low_abund(all_profiles_unfilt, 0.1) #382 taxa
+combined_profiles_filt_0.5 <- remove_low_abund(all_profiles_unfilt, 0.5) #284 taxa
+combined_profiles_filt_1 <- remove_low_abund(all_profiles_unfilt, 1) #234 taxa
+combined_profiles_filt_2 <- remove_low_abund(all_profiles_unfilt, 2) #186 taxa
+
+```
+
+## Only use taxa that have prevalence in >= 50 samples
+- to shrink the list and match according to original list of taxa used
+```{r}
+## 0.1%
+combined_profiles_filt_0.1_association <- 
+  transform_tax_profiles(combined_profiles_filt_0.1 %>% 
+                           tibble::rownames_to_column('org_list'),
+                                                                  metadata, 50)
+org_list_to_use_0.1 <- colnames(combined_profiles_filt_0.1_association)[grepl('__', colnames(combined_profiles_filt_0.1_association))]
+
+combined_for_test_0.1 <- get_profiles_for_test(combined_profiles_filt_0.1, org_list_to_use_0.1)
+
+combined_count_age_group_0.1 <- get_count_age_group(combined_for_test_0.1, metadata) #104 taxa
+
+## 0.01%
+combined_profiles_filt_0.01_association <- 
+  transform_tax_profiles(combined_profiles_filt_0.01 %>% 
+                           tibble::rownames_to_column('org_list'),
+                                                                  metadata, 50)
+org_list_to_use_0.01 <- colnames(combined_profiles_filt_0.01_association)[grepl('__', colnames(combined_profiles_filt_0.01_association))]
+
+combined_for_test_0.01 <- get_profiles_for_test(combined_profiles_filt_0.01, org_list_to_use_0.01)
+
+combined_count_age_group_0.01 <- get_count_age_group(combined_for_test_0.01, metadata) #162 taxa
+
+## 0.05%
+combined_profiles_filt_0.05_association <- 
+  transform_tax_profiles(combined_profiles_filt_0.05 %>% 
+                           tibble::rownames_to_column('org_list'),
+                         metadata, 50)
+org_list_to_use_0.05 <- 
+  colnames(combined_profiles_filt_0.05_association)[grepl('__', colnames(combined_profiles_filt_0.05_association))]
+
+combined_for_test_0.05 <- get_profiles_for_test(combined_profiles_filt_0.05, org_list_to_use_0.05)
+
+combined_count_age_group_0.05 <- get_count_age_group(combined_for_test_0.05, metadata) #128 taxa
+
+
+## 0.5%
+combined_profiles_filt_0.5_association <- transform_tax_profiles(combined_profiles_filt_0.5 %>% 
+                                                                    tibble::rownames_to_column('org_list'),
+                                                                  metadata, 50)
+org_list_to_use_0.5 <- colnames(combined_profiles_filt_0.5_association)[grepl('__', colnames(combined_profiles_filt_0.5_association))]
+
+combined_for_test_0.5 <- get_profiles_for_test(combined_profiles_filt_0.5, org_list_to_use_0.5)
+
+combined_count_age_group_0.5 <- get_count_age_group(combined_for_test_0.5, metadata) #69 taxa
+
+# 1%
+combined_profiles_filt_1_association <- transform_tax_profiles(combined_profiles_filt_1 %>% 
+                                                                    tibble::rownames_to_column('org_list'),
+                                                                  metadata, 50)
+org_list_to_use_1 <- colnames(combined_profiles_filt_1_association)[grepl('__', colnames(combined_profiles_filt_1_association))]
+
+combined_for_test_1 <- get_profiles_for_test(combined_profiles_filt_1, org_list_to_use_1)
+
+combined_count_age_group_1 <- get_count_age_group(combined_for_test_1, metadata) #52 taxa
+
+# 2%
+combined_profiles_filt_2_association <- transform_tax_profiles(combined_profiles_filt_2 %>% 
+                                                                    tibble::rownames_to_column('org_list'),
+                                                                  metadata, 50)
+org_list_to_use_2 <- colnames(combined_profiles_filt_2_association)[grepl('__', colnames(combined_profiles_filt_2_association))]
+
+combined_for_test_2 <- get_profiles_for_test(combined_profiles_filt_2, org_list_to_use_2)
+
+combined_count_age_group_2 <- get_count_age_group(combined_for_test_2, metadata) #38 taxa
+
+```
+
+
+## Run CA Test
+```{r}
+# use all taxa that pass 0.1% threshold
+# check whether profiles is in the order of 100% or 1
+combined_ca_large_with_dir_0.01 <- run_cohran_armitage(combined_count_age_group_0.01, metadata)
+
+combined_ca_large_with_dir_0.05 <- run_cohran_armitage(combined_count_age_group_0.05, metadata)
+combined_ca_large_with_dir_0.1 <- run_cohran_armitage(combined_count_age_group_0.1, metadata)
+
+combined_ca_large_with_dir_0.5 <- run_cohran_armitage(combined_count_age_group_0.5, metadata)
+combined_ca_large_with_dir_1 <- run_cohran_armitage(combined_count_age_group_1, metadata)
+
+combined_ca_large_with_dir_2 <- run_cohran_armitage(combined_count_age_group_2, metadata)
+
+
+
+```
+
+# Get High Sensitivity Results 
+- significant in >= 2 methods and are of the same directions
+- take median p-adj values, beta from all cohorts
+```{r,warning=FALSE}
+# high sensitivity list
+high_sens_scores <- get_combined_scores(all_glm, sg90_cpe_glm, combined_ca_large_with_dir_0.1)
+high_sens_cons_scores <- get_cons_score(high_sens_scores)
+high_sens <- filter_same_dir(high_sens_cons_scores)
+high_sens_with_med_padj <- get_median_padj(
+  all_glm, sg90_cpe_glm, combined_ca_large_with_dir_0.1)
+
+# save all profiles glm with median padj
+all_med_glm <- #maaslin2_all_res_glm %>%
+  all_glm %>% 
+  dplyr::select(-padj) %>% 
+  left_join(high_sens_with_med_padj %>% dplyr::select(-n) %>% 
+              dplyr::rename(padj = 'padj_median'),
+            by = 'org_list')
+# write_tsv(all_med_glm, here('results_0.1', 'species_associations.tsv'))
+
+```
+
+# Combine Results - SuppFig3
+```{r,warning=FALSE}
+# get final significant species
+
+combined_scores <- rbind(
+   
+   all_glm %>% mutate(Group = 'All Cohorts\nEM') %>%
+      dplyr::select(org_list:padj, Group),
+   all_css_glm %>% mutate(Group = 'All Cohorts\nCSS') %>%
+   dplyr::select(org_list:padj, Group),
+   # maaslin2_all_res_css %>% mutate(Group = 'All Cohorts\nCSS') %>% 
+   #   dplyr::select(org_list:padj, Group),
+   ancombc_all_out_glm %>% mutate(Group = 'All Cohorts\nANCOM-BC') %>% 
+      dplyr::select(org_list:padj, Group),
+  maaslin2_all_res_glm %>% mutate(Group = 'All Cohorts\nTSS') %>%
+   dplyr::select(org_list:padj, Group),
+
+   # 
+   sg90_cpe_glm %>% mutate(Group = 'SG90 + CPE\nEM') %>%
+      dplyr::select(org_list:padj, Group),
+   sg90_cpe_css_glm %>% mutate(Group = 'SG90 + CPE\nCSS') %>%
+      dplyr::select(org_list:padj, Group),
+   # maaslin2_sg90_cpe_res_css %>% mutate(Group = 'SG90 + CPE\nCSS') %>%
+   #    dplyr::select(org_list:padj, Group),
+  ancombc_sg90_cpe_out_glm %>% mutate(Group = 'SG90 + CPE\nANCOM-BC') %>% 
+      dplyr::select(org_list:padj, Group),
+  maaslin2_sg90_cpe_res_glm %>% mutate(Group = 'SG90 + CPE\nTSS') %>%
+      dplyr::select(org_list:padj, Group),
+   # 
+   combined_ca_large_with_dir_0.05 %>% mutate(Group = 'Prevalence\n0.05%') %>% 
+      dplyr::select(org_list:padj, Group),
+   combined_ca_large_with_dir_0.1 %>% mutate(Group = 'Prevalence\n0.1%') %>%
+      dplyr::select(org_list:padj, Group),
+   combined_ca_large_with_dir_0.5 %>% mutate(Group = 'Prevalence\n0.5%') %>%
+      dplyr::select(org_list:padj, Group),
+   combined_ca_large_with_dir_1 %>% mutate(Group = 'Prevalence\n1%') %>% 
+      dplyr::select(org_list:padj, Group)
+   # combined_fisher_2 %>% mutate(Group = 'Prevalence\n2%') %>%
+   #    dplyr::select(org_list:padj, Group)
+   
+) 
+combined_scores <- combined_scores %>% 
+    # 0. remove stderror column
+    dplyr::select(-stderror) %>% 
+    # 1. filter only significant taxa
+    #filter(org_list %in% signif_taxa) %>% 
+    # 2. filter pval < 0.05
+    filter(pval < 0.05) %>% 
+    # 3. make long to plot
+    pivot_longer(-c('org_list', 'Group')) %>% 
+    # 4. remove space, _ from org_list
+    mutate(org_list = str_replace_all(org_list, '_', ' '))
+
+
+# get no of signif taxa per Group
+combined_scores %>% 
+  filter(name == 'padj', value < 0.05) %>% 
+  dplyr::count(Group)
+
+# get beta only
+combined_scores_beta <- combined_scores %>% filter(name == 'betaestimate') %>% 
+  pivot_wider(names_from = 'Group', values_from = 'value') %>% 
+  dplyr::select(-name) %>% 
+  pivot_longer(-org_list, names_to = 'Group') %>% 
+  mutate(value = as.factor(sign(value)),
+         org_list = factor(org_list, levels = rev(sort(unique(combined_scores$org_list)))),
+         # Group = factor(Group, levels = c('Original\nNo SPMP',
+         #                                  'Original\nWith Old SPMP',
+         #                                  'Original\nFIML',
+         #                                  'With CPE\nFIML',
+         #                                  'Fisher')))
+         Group = factor(Group, levels = unique(combined_scores$Group)))
+
+# get significant taxa only >= 1 method
+combined_scores_padj <- combined_scores %>% 
+  filter(name == 'padj', value < 0.05) %>% 
+  dplyr::select(-value)
+
+## get consistency score
+score_table <- get_cons_score(combined_scores)
+  
+  # filter score >= 0.5
+score_filter <- score_table %>% 
+  filter(Score >= 0.5)
+
+methods_heatmap <- combined_scores_beta %>% 
+    # filter taxa w/ 2 out of 3 from previous analysis
+    filter(org_list %in% high_sens$org_list) %>%
+    ggplot(aes(x = Group, y = org_list, fill = value)) + 
+    geom_tile() + 
+    geom_tile(colour = 'black', linewidth = 0.3, show.legend = F, alpha = 0.5) +
+    geom_text(data = combined_scores_padj %>% 
+                filter(org_list %in% high_sens$org_list),
+              aes(x = Group, y = org_list, label = 'X'), size = 4,
+              color = 'white', inherit.aes = F) +
+    scale_fill_manual(values = c('blue', 'red'), na.value = 'white',
+                      labels = c('Negative', 'Positive', NA),
+                      na.translate=F) +
+    scale_x_discrete(expand = c(0, 0)) + 
+    scale_y_discrete(expand = c(0, 0)) +
+    theme_bw() + 
+    coord_fixed(ratio=0.265) +
+    labs(fill = 'Direction') + 
+    # scale_x_discrete(labels = c('SG90 + CPE', 'SG90 + CPE', 'SG90 + CPE', 'SG90 + CPE',
+    #                             'All Cohorts', 'All Cohorts', 'All Cohorts', 'All Cohorts',
+    #                             'All Cohorts', 'All Cohorts', 'All Cohorts', 'All Cohorts')) +
+    theme(axis.text.y = element_text(face = 'italic', size = 11,
+                                     margin = margin(r=0),
+                                     hjust = 1.05),
+          axis.text.x = element_blank(),
+          axis.title = element_blank(), 
+          plot.background = element_blank(), 
+          panel.border = element_blank(), 
+          panel.grid = element_blank(), 
+          text = element_text(family = 'Arial'), 
+          legend.position = 'none', 
+          axis.ticks = element_blank(),
+          #plot.margin=grid::unit(c(0,0,0,0), "mm"))
+          plot.margin=margin(0, 0, 0, 0, 'cm'),
+          panel.spacing = unit(0, 'cm'))
+  
+methods_heatmap
+
+# get wide version
+combined_table_sign_mat <- score_table %>% 
+  filter(org_list %in% high_sens$org_list) %>% 
+    tibble::column_to_rownames('org_list')
+
+# get significant results per method
+colSums(combined_table_sign_mat != 0)
+```
+
+## Use bar annotation to annotate x axis labels
+
+```{r,warning=FALSE}
+sg90_cpe_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[1], alpha=0.5 ))
+sg90_cpe_textgrob <- text_grob(x=1, y=1, label='SG90 + CPE', size=10)
+
+with_cpe_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[2], alpha=0.5 ))
+with_cpe_textgrob <- text_grob(x=1, y=1, label='All Cohorts', size=10)
+
+tss_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[3], alpha=0.5 ))
+tss_textgrob <- text_grob(x=1, y=1, label='TSS', size=10)
+
+css_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[4], alpha=0.5 ))
+css_textgrob <- text_grob(x=1, y=1, label='CSS', size=10)
+
+em_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[10], alpha=0.5 ))
+em_textgrob <- text_grob(x=1, y=1, label='EM', size=10)
+
+ancombc_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[6], alpha=0.5 ))
+ancombc_textgrob <- text_grob(x=1, y=1, label='ANCOM\nBC', size=10)
+
+maaslin2_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[7], alpha=0.5 ))
+maaslin2_textgrob <- text_grob(x=1, y=1, label='Maaslin2', size=9)
+
+prevalence_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[8], alpha=0.5 ))
+prevalence_textgrob <- text_grob(x=1, y=1, label = 'Prevalence', size=10)
+
+cohort_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[9], alpha=0.5 ))
+cohort_textgrob <- text_grob(x=1, y=1, label = 'Cohort', size=10)
+
+norm_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[5], alpha=0.5 ))
+norm_textgrob <- text_grob(x=1, y=1, label = 'Normalization', size=10)
+
+analysis_grob <- rectGrob(x=1, y=1, gp=gpar( fill=rainbow(11)[11], alpha=0.5 ))
+analysis_textgrob <- text_grob(x=1, y=1, label = 'Analysis\ Methods', size=10)
+
+thresh0.05_textgrob <- text_grob(x=1, y=1, label = '0.05%', size=10)
+thresh0.1_textgrob <- text_grob(x=1, y=1, label = '0.1%', size=10)
+thresh0.5_textgrob <- text_grob(x=1, y=1, label = '0.5%', size=10)
+thresh1_textgrob <- text_grob(x=1, y=1, label = '1%', size=10)
+thresh2_textgrob <- text_grob(x=1, y=1, label = '2%', size=10)
+
+methods_heatmap_box <- methods_heatmap + 
+  coord_cartesian(y = range(seq_along(rownames(combined_table_sign_mat))), clip = 'off') + 
+  theme(plot.margin = unit(c(0.015, 0, 0.1, 0), units="npc")) +
+  
+  # 1st layer - Identifiers
+  #annotation_custom(grob = cohort_grob, xmin=-2.6, xmax=-0.55, ymin=-1.5, ymax=-0.3) +
+  annotation_custom(grob = cohort_textgrob, xmin=-1, xmax=0, ymin=-1.5, ymax=-0.3) +
+
+  # 1st layer - Cohorts
+  annotation_custom(grob = with_cpe_grob, xmin=-1.5, xmax=2.5, ymin=-1.5, ymax=-0.3) +
+  annotation_custom(grob = with_cpe_textgrob, xmin=-1.5, xmax=2.5, ymin=-1.5, ymax=-0.3) +
+
+  annotation_custom(grob = sg90_cpe_grob, xmin=2.5, xmax=6.5, ymin=-1.5, ymax=-0.3) +
+  annotation_custom(grob = sg90_cpe_textgrob, xmin=2.5, xmax=6.5, ymin=-1.5, ymax=-0.3) +
+  
+  annotation_custom(grob = with_cpe_grob, xmin=6.5, xmax=10.5, ymin=-1.5, ymax=-0.3) +
+  annotation_custom(grob = with_cpe_textgrob, xmin=6.5, xmax=10.5, ymin=-1.5, ymax=-0.3) +
+
+  # 2nd layer - Norm
+  #annotation_custom(grob = norm_grob, xmin=-2.6, xmax=-0.55, ymin=-2.8, ymax=-1.6) +
+  annotation_custom(grob = norm_textgrob, xmin=-1, xmax=0, ymin=-2.8, ymax=-1.6) +
+
+  # 2nd layer - SG90 + CPE
+  annotation_custom(grob = tss_grob, xmin = 0, xmax = 1, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = tss_textgrob, xmin = 0, xmax = 1, ymin = -2.8, ymax = -1.6) +
+  
+  annotation_custom(grob = css_grob, xmin = 1, xmax = 2, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = css_textgrob, xmin = 1, xmax = 2, ymin = -2.8, ymax = -1.6) +
+  
+  annotation_custom(grob = ancombc_grob, xmin = 2, xmax = 3, ymin = -4.75, ymax = -2.25) +
+  annotation_custom(grob = ancombc_textgrob, xmin = 2, xmax = 3, ymin = -4.75, ymax = -2.25) +
+  
+  annotation_custom(grob = tss_grob, xmin = 3, xmax = 4, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = tss_textgrob, xmin = 3, xmax = 4, ymin = -2.8, ymax = -1.6) +
+  
+  # 2nd layer - All cohorts
+  annotation_custom(grob = tss_grob, xmin = 4, xmax = 5, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = tss_textgrob, xmin = 4, xmax = 5, ymin = -2.8, ymax = -1.6) +
+  
+  annotation_custom(grob = css_grob, xmin = 5, xmax = 6, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = css_textgrob, xmin = 5, xmax = 6, ymin = -2.8, ymax = -1.6) +
+  
+  annotation_custom(grob = ancombc_grob, xmin = 6, xmax = 7, ymin = -4.75, ymax = -2.25) +
+  annotation_custom(grob = ancombc_textgrob, xmin = 6, xmax = 7, ymin = -4.75, ymax = -2.25) +
+  
+  annotation_custom(grob = tss_grob, xmin = 7, xmax = 8, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = tss_textgrob, xmin = 7, xmax = 8, ymin = -2.8, ymax = -1.6) +
+  
+  # 2nd layer - thresholds
+  annotation_custom(grob = thresh0.05_textgrob, xmin = 8, xmax = 9, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = thresh0.1_textgrob, xmin = 9, xmax = 10, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = thresh0.5_textgrob, xmin = 10, xmax = 11, ymin = -2.8, ymax = -1.6) +
+  annotation_custom(grob = thresh1_textgrob, xmin = 11, xmax = 12, ymin = -2.8, ymax = -1.6) +
+  #annotation_custom(grob = thresh2_textgrob, xmin = 11, xmax = 12, ymin = -2.8, ymax = -1.6) +
+  
+  # 3rd layer - Analysis
+  #annotation_custom(grob = analysis_grob, xmin=-2.6, xmax=-0.55, ymin=-4.1, ymax=-2.9) +
+  annotation_custom(grob = analysis_textgrob, xmin=-1.1, xmax=-0.1, ymin=-4.1, ymax=-2.9) +
+
+  # 3rd layer - SG90 + CPE
+  annotation_custom(grob = em_grob, xmin = 0, xmax = 1, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = em_textgrob, xmin = 0, xmax = 1, ymin = -4.1, ymax = -2.9) +
+  
+  annotation_custom(grob = em_grob, xmin = 1, xmax = 2, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = em_textgrob, xmin = 1, xmax = 2, ymin = -4.1, ymax = -2.9) +
+  
+  # annotation_custom(grob = ancombc_grob, xmin = 2, xmax = 3, ymin = -4.1, ymax = -2.9) +
+  # annotation_custom(grob = ancombc_textgrob, xmin = 2, xmax = 3, ymin = -4.1, ymax = -2.9) +
+  
+  annotation_custom(grob = maaslin2_grob, xmin = 3, xmax = 4, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = maaslin2_textgrob, xmin = 3, xmax = 4, ymin = -4.1, ymax = -2.9) +
+  
+  # 3rd layer - All cohorts
+  annotation_custom(grob = em_grob, xmin = 4, xmax = 5, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = em_textgrob, xmin = 4, xmax = 5, ymin = -4.1, ymax = -2.9) +
+  
+  annotation_custom(grob = em_grob, xmin = 5, xmax = 6, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = em_textgrob, xmin = 5, xmax = 6, ymin = -4.1, ymax = -2.9) +
+  
+  # annotation_custom(grob = ancombc_grob, xmin = 6, xmax = 7, ymin = -4.1, ymax = -2.9) +
+  # annotation_custom(grob = ancombc_textgrob, xmin = 6, xmax = 7, ymin = -4.1, ymax = -2.9) +
+  
+  annotation_custom(grob = maaslin2_grob, xmin = 7, xmax = 8, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = maaslin2_textgrob, xmin = 7, xmax = 8, ymin = -4.1, ymax = -2.9) +
+  
+  # 3rd layer - Prevalence
+  annotation_custom(grob = prevalence_grob, xmin = 6.5, xmax = 10.5, ymin = -4.1, ymax = -2.9) +
+  annotation_custom(grob = prevalence_textgrob, xmin = 6.5, xmax = 10.5, ymin = -4.1, ymax = -2.9)
+  
+  
+methods_heatmap_box
+
+
+```
+
+## Add score
+```{r, warning=FALSE}
+score_heatmap <- score_table %>% 
+  filter(org_list %in% high_sens$org_list) %>% 
+    pivot_longer(-org_list) %>% 
+    filter(name == 'Score') %>% 
+    mutate(#org_list = factor(org_list, levels = rev(rownames(combined_table_sign_mat))),
+          org_list = factor(org_list, levels = rev(sort(high_sens$org_list))),   
+          value = round(value, 2),
+           ) %>% 
+    ggplot(aes(x = name, y = org_list)) + 
+    geom_tile(fill = NA, na.value = NA) + geom_text(aes(label = value), size=3.5,
+                                          family = "Arial") +
+    scale_x_discrete(expand = c(0, 0)) + 
+    scale_y_discrete(expand = c(0, 0)) +
+    theme_bw() + 
+    theme(axis.text.y = element_blank(),
+          axis.text.x = element_text(size = 10),
+          axis.title = element_blank(), 
+          plot.background = element_blank(), 
+          panel.border = element_blank(), 
+          panel.grid = element_blank(), 
+          text = element_text(family = 'Arial'), 
+          legend.position = 'none', 
+          axis.ticks = element_blank(), 
+          plot.margin = unit(c(0, 0, 0.07, 0), units="npc"))
+
+p <- ggarrange(methods_heatmap_box, NULL, score_heatmap,
+          widths = c(13, -0.05, 0.8), nrow=1)
+print(p)
+
+template_to_save(p, fname = "Supp_Fig3.png", height = 18, width=24) 
+
+```
+
+## Save editable ppt
+```{r, results='hide',warning=FALSE}
+suppfig3_dml <- rvg::dml(ggobj = p)
+officer::read_pptx() %>%
+  # add slide ----
+  officer::add_slide() %>%
+  # specify object and location of object ----
+  officer::ph_with(suppfig3_dml, officer::ph_location(width = 10, height = 7)) %>%
+  # export slide -----
+  base::print(target = paste0(editablepptfname, "Supp_Fig3.pptx"))
+```
+
+## Extras
+### QC to check difference in count due to thresholds
+```{r}
+#test <- rbind(combined_count_age_group_0.1 %>% pivot_longer(-org_list) %>% 
+              #     mutate(thresh = 'A'), 
+              # combined_count_age_group_2 %>% #pivot_longer(-org_list) %>% 
+#                  mutate(thresh = 'B'))
+# test %>% 
+#   pivot_wider(names_from= 'thresh', values_from= 'value') %>% 
+#     ggplot(aes(x = A, y = B)) + 
+#     geom_point() + 
+#   labs(x = 'Thresh = 0.1%', y = 'Thresh = 2%') +
+#     facet_wrap(~name, scales = 'free') + 
+#   theme_bw() + 
+#   theme(text = element_text(size = 18))
+
+#plot_desc(combined_count_age_group_0.1 %>% 
+#            filter(org_list %in% (combined_ca_large_with_dir_0.1 %>% 
+#                     filter(padj < 0.05) %>% 
+#                     pull(org_list))), metadata)
+```
+
+### Intersection of results
+```{r}
+# Reduce(intersect, list(combined_ca_large_with_dir_0.01 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.05 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.1 %>% filter(padj < 0.05) %>% pull(org_list)))
+# 
+# Reduce(intersect, list(combined_ca_large_with_dir_0.01 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.05 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.1 %>% filter(padj < 0.05) %>% pull(org_list),
+#        combined_ca_large_with_dir_0.5 %>% filter(padj < 0.05) %>% pull(org_list)))
+
+# Reduce(intersect, list(combined_ca_large_with_dir_0.01 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.05 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.1 %>% filter(padj < 0.05) %>% pull(org_list),
+#        combined_ca_large_with_dir_0.5 %>% filter(padj < 0.05) %>% pull(org_list),
+#        combined_ca_large_with_dir_1 %>% filter(padj < 0.05) %>% pull(org_list)))
+
+# Reduce(intersect, list(combined_ca_large_with_dir_0.01 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.05 %>% filter(padj < 0.05) %>% pull(org_list), 
+#           combined_ca_large_with_dir_0.1 %>% filter(padj < 0.05) %>% pull(org_list),
+#        combined_ca_large_with_dir_0.5 %>% filter(padj < 0.05) %>% pull(org_list),
+#        combined_ca_large_with_dir_1 %>% filter(padj < 0.05) %>% pull(org_list),
+#        combined_ca_large_with_dir_2 %>% filter(padj < 0.05) %>% pull(org_list)))
+
+```
+

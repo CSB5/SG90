@@ -1,0 +1,171 @@
+2024-06-19 11:04:20.065909 INFO::Writing function arguments to log file
+2024-06-19 11:04:20.068832 DEBUG::Function arguments
+2024-06-19 11:04:20.070378 DEBUG::Output folder: association_with_age
+2024-06-19 11:04:20.071417 DEBUG::Min Abundance: 0.000000
+2024-06-19 11:04:20.072627 DEBUG::Min Prevalence: 0.000000
+2024-06-19 11:04:20.075263 DEBUG::Normalization: NONE
+2024-06-19 11:04:20.076828 DEBUG::Transform: NONE
+2024-06-19 11:04:20.078003 DEBUG::Analysis method: LM
+2024-06-19 11:04:20.079053 DEBUG::Max significance: 0.250000
+2024-06-19 11:04:20.080174 DEBUG::Random effects:
+2024-06-19 11:04:20.081246 DEBUG::Fixed effects: Age,Gender,FBGlu,Tgly,TCHOL,HDL,BMI
+2024-06-19 11:04:20.082394 DEBUG::Correction method: BH
+2024-06-19 11:04:20.083521 DEBUG::Standardize: FALSE
+2024-06-19 11:04:20.084542 DEBUG::Cores: 1
+2024-06-19 11:04:20.085525 INFO::Verifying options selected are valid
+2024-06-19 11:04:20.087161 INFO::Determining format of input files
+2024-06-19 11:04:20.088717 INFO::Input format is data samples as rows and metadata samples as rows
+2024-06-19 11:04:20.092453 DEBUG::A total of 295 samples were found in both the data and metadata
+2024-06-19 11:04:20.094101 DEBUG::Reordering data/metadata to use same sample ordering
+2024-06-19 11:04:20.097568 INFO::Formula for fixed effects: expr ~  Age + Gender + FBGlu + Tgly + TCHOL + HDL + BMI
+2024-06-19 11:04:20.100367 INFO::Filter data based on min abundance and min prevalence
+2024-06-19 11:04:20.103123 INFO::Total samples in data: 295
+2024-06-19 11:04:20.105687 INFO::Min samples required with min abundance for a feature not to be filtered: 0.000000
+2024-06-19 11:04:20.10997 INFO::Total filtered features: 0
+2024-06-19 11:04:20.111862 INFO::Filtered feature names from abundance and prevalence filtering:
+2024-06-19 11:04:20.116734 INFO::Total filtered features with variance filtering: 0
+2024-06-19 11:04:20.119251 INFO::Filtered feature names from variance filtering:
+2024-06-19 11:04:20.121609 INFO::Running selected normalization method: NONE
+2024-06-19 11:04:20.124133 INFO::Bypass z-score application to metadata
+2024-06-19 11:04:20.126385 INFO::Running selected transform method: NONE
+2024-06-19 11:04:20.128475 INFO::Running selected analysis method: LM
+2024-06-19 11:04:20.130908 INFO::Fitting model to feature number 1, s__Acidaminococcus_unclassified
+2024-06-19 11:04:20.140084 INFO::Fitting model to feature number 2, s__Akkermansia_muciniphila
+2024-06-19 11:04:20.148886 INFO::Fitting model to feature number 3, s__Alistipes_finegoldii
+2024-06-19 11:04:20.157067 INFO::Fitting model to feature number 4, s__Alistipes_indistinctus
+2024-06-19 11:04:20.165437 INFO::Fitting model to feature number 5, s__Alistipes_onderdonkii
+2024-06-19 11:04:20.173009 INFO::Fitting model to feature number 6, s__Alistipes_putredinis
+2024-06-19 11:04:20.180473 INFO::Fitting model to feature number 7, s__Alistipes_senegalensis
+2024-06-19 11:04:20.189382 INFO::Fitting model to feature number 8, s__Alistipes_shahii
+2024-06-19 11:04:20.198921 INFO::Fitting model to feature number 9, s__Alistipes_unclassified
+2024-06-19 11:04:20.207804 INFO::Fitting model to feature number 10, s__Bacteroidales_bacterium_ph8
+2024-06-19 11:04:20.214233 INFO::Fitting model to feature number 11, s__Bacteroides_caccae
+2024-06-19 11:04:20.221596 INFO::Fitting model to feature number 12, s__Bacteroides_cellulosilyticus
+2024-06-19 11:04:20.22774 INFO::Fitting model to feature number 13, s__Bacteroides_clarus
+2024-06-19 11:04:20.234649 INFO::Fitting model to feature number 14, s__Bacteroides_dorei
+2024-06-19 11:04:20.240493 INFO::Fitting model to feature number 15, s__Bacteroides_eggerthii
+2024-06-19 11:04:20.245355 INFO::Fitting model to feature number 16, s__Bacteroides_finegoldii
+2024-06-19 11:04:20.25156 INFO::Fitting model to feature number 17, s__Bacteroides_fragilis
+2024-06-19 11:04:20.257367 INFO::Fitting model to feature number 18, s__Bacteroides_intestinalis
+2024-06-19 11:04:20.262069 INFO::Fitting model to feature number 19, s__Bacteroides_massiliensis
+2024-06-19 11:04:20.267921 INFO::Fitting model to feature number 20, s__Bacteroides_ovatus
+2024-06-19 11:04:20.274237 INFO::Fitting model to feature number 21, s__Bacteroides_plebeius
+2024-06-19 11:04:20.279857 INFO::Fitting model to feature number 22, s__Bacteroides_salyersiae
+2024-06-19 11:04:20.28458 INFO::Fitting model to feature number 23, s__Bacteroides_stercoris
+2024-06-19 11:04:20.289137 INFO::Fitting model to feature number 24, s__Bacteroides_thetaiotaomicron
+2024-06-19 11:04:20.294645 INFO::Fitting model to feature number 25, s__Bacteroides_uniformis
+2024-06-19 11:04:20.2994 INFO::Fitting model to feature number 26, s__Bacteroides_vulgatus
+2024-06-19 11:04:20.303817 INFO::Fitting model to feature number 27, s__Bacteroides_xylanisolvens
+2024-06-19 11:04:20.31001 INFO::Fitting model to feature number 28, s__Barnesiella_intestinihominis
+2024-06-19 11:04:20.315766 INFO::Fitting model to feature number 29, s__Bifidobacterium_adolescentis
+2024-06-19 11:04:20.320266 INFO::Fitting model to feature number 30, s__Bifidobacterium_bifidum
+2024-06-19 11:04:20.326198 INFO::Fitting model to feature number 31, s__Bifidobacterium_longum
+2024-06-19 11:04:20.330976 INFO::Fitting model to feature number 32, s__Bifidobacterium_pseudocatenulatum
+2024-06-19 11:04:20.336013 INFO::Fitting model to feature number 33, s__Bilophila_unclassified
+2024-06-19 11:04:20.341627 INFO::Fitting model to feature number 34, s__Clostridium_bolteae
+2024-06-19 11:04:20.347352 INFO::Fitting model to feature number 35, s__Collinsella_aerofaciens
+2024-06-19 11:04:20.353861 INFO::Fitting model to feature number 36, s__Coprococcus_comes
+2024-06-19 11:04:20.361569 INFO::Fitting model to feature number 37, s__Dorea_formicigenerans
+2024-06-19 11:04:20.366345 INFO::Fitting model to feature number 38, s__Dorea_longicatena
+2024-06-19 11:04:20.370599 INFO::Fitting model to feature number 39, s__Eggerthella_unclassified
+2024-06-19 11:04:20.375634 INFO::Fitting model to feature number 40, s__Escherichia_coli
+2024-06-19 11:04:20.379773 INFO::Fitting model to feature number 41, s__Escherichia_unclassified
+2024-06-19 11:04:20.38385 INFO::Fitting model to feature number 42, s__Eubacterium_eligens
+2024-06-19 11:04:20.3887 INFO::Fitting model to feature number 43, s__Eubacterium_hallii
+2024-06-19 11:04:20.394455 INFO::Fitting model to feature number 44, s__Eubacterium_rectale
+2024-06-19 11:04:20.398887 INFO::Fitting model to feature number 45, s__Faecalibacterium_prausnitzii
+2024-06-19 11:04:20.404163 INFO::Fitting model to feature number 46, s__Klebsiella_pneumoniae
+2024-06-19 11:04:20.409448 INFO::Fitting model to feature number 47, s__Megamonas_unclassified
+2024-06-19 11:04:20.413978 INFO::Fitting model to feature number 48, s__Megasphaera_unclassified
+2024-06-19 11:04:20.42018 INFO::Fitting model to feature number 49, s__Odoribacter_splanchnicus
+2024-06-19 11:04:20.42788 INFO::Fitting model to feature number 50, s__Oscillibacter_unclassified
+2024-06-19 11:04:20.434666 INFO::Fitting model to feature number 51, s__Parabacteroides_distasonis
+2024-06-19 11:04:20.443302 INFO::Fitting model to feature number 52, s__Parabacteroides_goldsteinii
+2024-06-19 11:04:20.448301 INFO::Fitting model to feature number 53, s__Parabacteroides_johnsonii
+2024-06-19 11:04:20.453963 INFO::Fitting model to feature number 54, s__Parabacteroides_merdae
+2024-06-19 11:04:20.459009 INFO::Fitting model to feature number 55, s__Parabacteroides_unclassified
+2024-06-19 11:04:20.464007 INFO::Fitting model to feature number 56, s__Phascolarctobacterium_succinatutens
+2024-06-19 11:04:20.468845 INFO::Fitting model to feature number 57, s__Prevotella_copri
+2024-06-19 11:04:20.473044 INFO::Fitting model to feature number 58, s__Roseburia_hominis
+2024-06-19 11:04:20.476973 INFO::Fitting model to feature number 59, s__Roseburia_intestinalis
+2024-06-19 11:04:20.480843 INFO::Fitting model to feature number 60, s__Roseburia_inulinivorans
+2024-06-19 11:04:20.484811 INFO::Fitting model to feature number 61, s__Ruminococcus_bromii
+2024-06-19 11:04:20.490249 INFO::Fitting model to feature number 62, s__Ruminococcus_gnavus
+2024-06-19 11:04:20.494522 INFO::Fitting model to feature number 63, s__Ruminococcus_obeum
+2024-06-19 11:04:20.499367 INFO::Fitting model to feature number 64, s__Ruminococcus_torques
+2024-06-19 11:04:20.505134 INFO::Fitting model to feature number 65, s__Streptococcus_parasanguinis
+2024-06-19 11:04:20.510352 INFO::Fitting model to feature number 66, s__Streptococcus_salivarius
+2024-06-19 11:04:20.516662 INFO::Fitting model to feature number 67, s__Subdoligranulum_unclassified
+2024-06-19 11:04:20.521452 INFO::Fitting model to feature number 68, s__Sutterella_wadsworthensis
+2024-06-19 11:04:20.527643 INFO::Fitting model to feature number 69, s__Veillonella_unclassified
+2024-06-19 11:04:20.559764 INFO::Counting total values for each feature
+2024-06-19 11:04:20.582408 INFO::Writing filtered data to file association_with_age/features/filtered_data.tsv
+2024-06-19 11:04:20.643123 INFO::Writing filtered, normalized data to file association_with_age/features/filtered_data_norm.tsv
+2024-06-19 11:04:20.697277 INFO::Writing filtered, normalized, transformed data to file association_with_age/features/filtered_data_norm_transformed.tsv
+2024-06-19 11:04:20.758108 WARNING::Deleting existing residuals file: association_with_age/fits/residuals.rds
+2024-06-19 11:04:20.76082 INFO::Writing residuals to file association_with_age/fits/residuals.rds
+2024-06-19 11:04:20.772808 WARNING::Deleting existing fitted file: association_with_age/fits/fitted.rds
+2024-06-19 11:04:20.776688 INFO::Writing fitted values to file association_with_age/fits/fitted.rds
+2024-06-19 11:04:20.787708 INFO::Writing all results to file (ordered by increasing q-values): association_with_age/all_results.tsv
+2024-06-19 11:04:20.80893 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): association_with_age/significant_results.tsv
+2024-06-19 11:04:20.814189 INFO::Writing heatmap of significant results to file: association_with_age/heatmap.pdf
+2024-06-19 11:04:20.899348 INFO::Writing association plots (one for each significant association) to output folder: association_with_age
+2024-06-19 11:04:20.902844 INFO::Plotting associations from most to least significant, grouped by metadata
+2024-06-19 11:04:20.904726 INFO::Plotting data for metadata number 1, Age
+2024-06-19 11:04:20.908097 INFO::Creating scatter plot for continuous data, Age vs s__Dorea_longicatena
+2024-06-19 11:04:21.110937 INFO::Creating scatter plot for continuous data, Age vs s__Eubacterium_hallii
+2024-06-19 11:04:21.301031 INFO::Creating scatter plot for continuous data, Age vs s__Ruminococcus_obeum
+2024-06-19 11:04:21.503279 INFO::Creating scatter plot for continuous data, Age vs s__Eggerthella_unclassified
+2024-06-19 11:04:21.725083 INFO::Creating scatter plot for continuous data, Age vs s__Collinsella_aerofaciens
+2024-06-19 11:04:21.920276 INFO::Creating scatter plot for continuous data, Age vs s__Bifidobacterium_bifidum
+2024-06-19 11:04:22.117406 INFO::Creating scatter plot for continuous data, Age vs s__Bifidobacterium_adolescentis
+2024-06-19 11:04:22.348147 INFO::Creating scatter plot for continuous data, Age vs s__Dorea_formicigenerans
+2024-06-19 11:04:22.813776 INFO::Creating scatter plot for continuous data, Age vs s__Bilophila_unclassified
+2024-06-19 11:04:23.180888 INFO::Creating scatter plot for continuous data, Age vs s__Bifidobacterium_pseudocatenulatum
+2024-06-19 11:04:23.452261 INFO::Creating scatter plot for continuous data, Age vs s__Faecalibacterium_prausnitzii
+2024-06-19 11:04:23.733245 INFO::Creating scatter plot for continuous data, Age vs s__Acidaminococcus_unclassified
+2024-06-19 11:04:23.978061 INFO::Creating scatter plot for continuous data, Age vs s__Alistipes_shahii
+2024-06-19 11:04:24.200558 INFO::Creating scatter plot for continuous data, Age vs s__Coprococcus_comes
+2024-06-19 11:04:24.419412 INFO::Creating scatter plot for continuous data, Age vs s__Megamonas_unclassified
+2024-06-19 11:04:24.615639 INFO::Creating scatter plot for continuous data, Age vs s__Ruminococcus_gnavus
+2024-06-19 11:04:24.820675 INFO::Creating scatter plot for continuous data, Age vs s__Ruminococcus_bromii
+2024-06-19 11:04:25.021454 INFO::Creating scatter plot for continuous data, Age vs s__Eubacterium_rectale
+2024-06-19 11:04:25.207717 INFO::Creating scatter plot for continuous data, Age vs s__Bacteroides_dorei
+2024-06-19 11:04:25.436134 INFO::Creating scatter plot for continuous data, Age vs s__Parabacteroides_johnsonii
+2024-06-19 11:04:25.622016 INFO::Creating scatter plot for continuous data, Age vs s__Roseburia_inulinivorans
+2024-06-19 11:04:25.816293 INFO::Creating scatter plot for continuous data, Age vs s__Alistipes_unclassified
+2024-06-19 11:04:26.003667 INFO::Creating scatter plot for continuous data, Age vs s__Bacteroides_xylanisolvens
+2024-06-19 11:04:26.194362 INFO::Creating scatter plot for continuous data, Age vs s__Parabacteroides_merdae
+2024-06-19 11:04:26.432803 INFO::Creating scatter plot for continuous data, Age vs s__Roseburia_intestinalis
+2024-06-19 11:04:26.62453 INFO::Creating scatter plot for continuous data, Age vs s__Bifidobacterium_longum
+2024-06-19 11:04:26.812888 INFO::Creating scatter plot for continuous data, Age vs s__Alistipes_indistinctus
+2024-06-19 11:04:27.005657 INFO::Creating scatter plot for continuous data, Age vs s__Bacteroides_massiliensis
+2024-06-19 11:04:27.189733 INFO::Creating scatter plot for continuous data, Age vs s__Alistipes_onderdonkii
+2024-06-19 11:04:27.398545 INFO::Creating scatter plot for continuous data, Age vs s__Oscillibacter_unclassified
+2024-06-19 11:04:29.921734 INFO::Plotting data for metadata number 2, Gender
+2024-06-19 11:04:29.924417 INFO::Creating boxplot for categorical data, Gender vs s__Faecalibacterium_prausnitzii
+2024-06-19 11:04:30.154659 INFO::Creating boxplot for categorical data, Gender vs s__Acidaminococcus_unclassified
+2024-06-19 11:04:30.504207 INFO::Creating boxplot for categorical data, Gender vs s__Alistipes_finegoldii
+2024-06-19 11:04:30.726878 INFO::Creating boxplot for categorical data, Gender vs s__Megasphaera_unclassified
+2024-06-19 11:04:30.962205 INFO::Creating boxplot for categorical data, Gender vs s__Eubacterium_rectale
+2024-06-19 11:04:31.152196 INFO::Creating boxplot for categorical data, Gender vs s__Bacteroides_cellulosilyticus
+2024-06-19 11:04:31.367888 INFO::Creating boxplot for categorical data, Gender vs s__Subdoligranulum_unclassified
+2024-06-19 11:04:33.086532 INFO::Plotting data for metadata number 3, Tgly
+2024-06-19 11:04:33.09038 INFO::Creating scatter plot for continuous data, Tgly vs s__Prevotella_copri
+2024-06-19 11:04:33.306891 INFO::Creating scatter plot for continuous data, Tgly vs s__Bacteroides_intestinalis
+2024-06-19 11:04:33.508449 INFO::Creating scatter plot for continuous data, Tgly vs s__Sutterella_wadsworthensis
+2024-06-19 11:04:34.647517 INFO::Plotting data for metadata number 4, FBGlu
+2024-06-19 11:04:34.651955 INFO::Creating scatter plot for continuous data, FBGlu vs s__Parabacteroides_goldsteinii
+2024-06-19 11:04:35.070735 INFO::Creating scatter plot for continuous data, FBGlu vs s__Bacteroides_fragilis
+2024-06-19 11:04:35.32334 INFO::Creating scatter plot for continuous data, FBGlu vs s__Clostridium_bolteae
+2024-06-19 11:04:36.414539 INFO::Plotting data for metadata number 5, HDL
+2024-06-19 11:04:36.416978 INFO::Creating scatter plot for continuous data, HDL vs s__Prevotella_copri
+2024-06-19 11:04:36.634522 INFO::Creating scatter plot for continuous data, HDL vs s__Alistipes_shahii
+2024-06-19 11:04:36.862443 INFO::Creating scatter plot for continuous data, HDL vs s__Alistipes_unclassified
+2024-06-19 11:04:38.122533 INFO::Plotting data for metadata number 6, BMI
+2024-06-19 11:04:38.125064 INFO::Creating scatter plot for continuous data, BMI vs s__Escherichia_coli
+2024-06-19 11:04:38.316593 INFO::Creating scatter plot for continuous data, BMI vs s__Escherichia_unclassified
+2024-06-19 11:04:38.999558 INFO::Plotting data for metadata number 7, TCHOL
+2024-06-19 11:04:39.002211 INFO::Creating scatter plot for continuous data, TCHOL vs s__Alistipes_shahii
+2024-06-19 11:04:39.208654 INFO::Creating scatter plot for continuous data, TCHOL vs s__Collinsella_aerofaciens
+2024-06-19 11:04:39.451716 INFO::Creating scatter plot for continuous data, TCHOL vs s__Alistipes_indistinctus

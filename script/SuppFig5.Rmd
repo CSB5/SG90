@@ -1,0 +1,262 @@
+---
+title: "SuppFig5"
+output: html_document
+date: '2024-04-17'
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pacman::p_load(tidyverse, here)
+```
+
+# Validation with other cohorts
+## Plot Age Distribution - SuppFig 5B
+```{r}
+# get age per library
+load(here('data', 'other_cohorts.RData'))
+combined_metadata <- rbind(asnicarf_metadata %>% dplyr::select(LibraryID, Age) %>% 
+                             mutate(Cohort = 'AsnicarF_2017'),
+                           yachida_metadata %>% dplyr::select(LibraryID, Age) %>% 
+                             mutate(Cohort = 'YachidaS_2019'),
+                           britol_metadata %>% dplyr::select(LibraryID, Age) %>% 
+                             mutate(Cohort = 'BritoIL_2016'),
+                           lld_metadata %>% dplyr::select(LibraryID, Age) %>% 
+                             mutate(Cohort = 'LLD_2016'),
+                           EMMetadata %>% 
+                             tibble::rownames_to_column('LibraryID') %>% 
+                             dplyr::select(LibraryID, Age) %>% 
+                             mutate(Cohort = 'ElderMet_2020'),
+                           metadata %>% dplyr::select(LibraryID, Age) %>% 
+                             mutate(Cohort = 'Current_study'),
+                           chinese_metadata %>% mutate(Cohort = 'XuWuZhu_2022')) %>% 
+  filter(!is.na(Age))
+
+combined_metadata %>%
+  mutate(Cohort = factor(Cohort, levels = c('Current_study', 'XuWuZhu_2022',
+                                            'YachidaS_2019', 'AsnicarF_2017',
+                                            'BritoIL_2016', 'ElderMet_2020',
+                                            'LLD_2016'))) %>% 
+  filter(Cohort %in% c('Current_study', 'LLD_2016')) %>% 
+  # get age group
+  mutate(AgeG = case_when(Age <= 40 ~ '21-40',
+                          Age > 40 & Age <= 60 ~ '41-60',
+                          Age > 60 & Age <= 70 ~ '61-70',
+                          Age > 70 & Age <= 80 ~ '71-80',
+                          Age > 80 & Age <= 90 ~ '81-90',
+                          Age > 90 ~ '> 90')) %>% 
+  mutate(AgeG = factor(AgeG, levels = c('21-40', '41-60', '61-70', '71-80',
+                                        '81-90', '> 90'))) %>% 
+  # ggplot(aes(x = Age)) +
+  # geom_histogram(bins = 10, color = "#000000", fill = "#0099F8") + 
+  # labs(y = 'Count') +
+  # facet_wrap(~Cohort,
+  #            scales = 'free_y',
+  #            ncol = 4) +
+  
+  dplyr::count(Cohort, AgeG) %>% 
+  ggplot(aes(x = n, y = AgeG, fill = AgeG)) +
+  geom_bar(stat = 'identity') + 
+  geom_text(aes(label = n), hjust = 1, size = 5) + 
+  labs(x = 'Count', y = 'Age Group') +
+  facet_wrap(~Cohort, scale = 'free_x', ncol = 4) +
+  theme(strip.background = element_rect(fill = 'white'))
+
+```
+
+
+## Plot Results - SuppFig 5A
+- sort based on our study first, add no of samples to each cohort, 
+- valid_res: obtained from 'Validation-Other-Cohorts.Rmd'
+```{r}
+valid_res <- read_tsv(here('results', 'Validation_other_cohorts.tsv'))
+
+# paste number of samples
+valid_res <- valid_res %>% 
+  mutate(orig_caseid_with_n = paste(orig_caseid, '\nn=', num_sub, sep = ''))
+
+valid_res_wide <- valid_res %>% 
+    # SG90 pval uses padj
+    mutate(pval = case_when(caseid == 'Original' ~ padj, 
+                            TRUE ~ pval)) %>% 
+    dplyr::select(org_list, pval, orig_caseid) %>% 
+    mutate(pval = case_when(pval > 0  ~ 1,
+                                 TRUE ~ 0)) %>% 
+    pivot_wider(names_from = 'orig_caseid', 
+                values_from = 'pval', 
+                values_fill =0) %>% 
+  tibble::column_to_rownames('org_list')
+
+# add count
+valid_res_wide <- cbind(valid_res_wide, freq = rowSums(valid_res_wide, na.rm = T))
+
+# remove western cohort that only has 1 significant result
+# valid_res_wide <- valid_res_wide %>% 
+#   filter(Current_study != 0 & freq != 1 | Current_study == 1 | Current_study == 0 & freq > 1 | Current_study == 0 & YachidaS_2019 == 1 | XuWuZhu_2022 == 1 & freq > 1)
+
+valid_res_wide <- valid_res_wide %>% 
+  filter(Current_study == 0 & freq > 1 | Current_study >= 1)
+
+# add categories
+valid_res_wide <- valid_res_wide %>% 
+  mutate(Category = case_when(Current_study == 1 & freq > 1 ~ 'Current Study\nOther Cohort(s)',
+                              Current_study == 1 & freq == 1 ~ 'Only Current Study',
+                              Current_study == 0 ~ 'Only Other Cohort(s)')) %>% 
+  # add freq on taxa name
+  tibble::rownames_to_column('org_list') %>% 
+  mutate(org_list_freq = paste(org_list, ' (', freq, ')', sep = ''))
+
+# sort based on our study then rowsum
+valid_res_wide <- valid_res_wide %>% 
+  arrange(Current_study, freq)
+
+# merge valid_res and valid_res_wide
+valid_res_for_plot <- valid_res %>% 
+  filter(org_list %in% valid_res_wide$org_list) %>% 
+           left_join(valid_res_wide %>% 
+                       dplyr::select(org_list, org_list_freq, Current_study, 
+                                     freq, Category), by = 'org_list') %>% 
+           left_join(valid_res_wide %>% 
+                       dplyr::count(Category)) %>% 
+           mutate(org_list = factor(org_list, levels = valid_res_wide$org_list),
+                  Category = paste(Category, n, sep = '\nn=')) %>% 
+           arrange(Current_study, freq.y) 
+
+#remove wester cohort result that only has 1 significant results
+#%>% 
+#   filter(freq.y != 1 & orig_caseid != 'Current_study' | orig_caseid == 'Current_study')
+
+# check different direction
+valid_res_diff_direction <- valid_res_for_plot %>% 
+    dplyr::select(org_list, betaestimate, pval, padj, orig_caseid, age_range,
+                  freq.y) %>% 
+    filter(org_list %in% c('Eubacterium eligens', 'Coprococcus catus', 
+                           'Alistipes indistinctus', 'Coprococcus comes', 
+                           'Bacteroides xylanisolvens', 
+                           'Parabacteroides merdae', 'Roseburia hominis')) %>% 
+  filter(pval < 0.05 | padj < 0.05)
+#write_tsv(valid_res_diff_direction, here('data', 'valid_other_cohorts_diff_direction.tsv'))
+
+# mark those with different directions 
+# don't need to mark if even tho they have different directions, but they have the same
+# directions in XuWuZhu
+marked_species <- c('Coprococcus catus', 'Bacteroides xylanisolvens',
+                    'Parabacteroides merdae', 'Roseburia hominis',
+                    'Haemophilus parainfluenzae', 'Bacteroides caccae',
+                    'Parabacteroides distasonis')
+valid_res_for_plot <- valid_res_for_plot %>% 
+  mutate(org_list_freq = case_when(org_list %in% marked_species ~ 
+                                     paste('*', org_list_freq, sep = ''),
+                                   TRUE ~ org_list_freq))
+
+# bold validated, bold & underline replicated results
+high_sens_results <- read.table(here('results', 'high_sens_results_with_chinese.txt'),
+                                header = T, sep = '\t')
+
+# if the species have different directions, they're no longer considered validated or replicated
+high_sens_results <- high_sens_results %>% 
+  mutate(Validation = case_when(org_list %in% marked_species ~ 'N',
+                                TRUE ~ Validation))
+valid_res_for_plot <- valid_res_for_plot %>% 
+  left_join(high_sens_results %>% 
+              dplyr::select(org_list, Validation, HighConf),
+            by = 'org_list') %>% 
+           mutate(label = case_when(
+             Validation == 'R' ~ paste('**', org_list_freq, '**', sep=''),
+             TRUE ~ org_list_freq)) %>% 
+              mutate(Validation = replace(Validation, is.na(Validation), 'N'))
+
+
+# rearrange y-axis based on frequency and whether it's replicated
+order <- valid_res_for_plot %>% 
+  mutate(Validation = factor(Validation, levels = c('R', 'V', 'N', NA))) %>% 
+  arrange(desc(Validation), freq.y) %>% 
+  pull(label) %>% unique()
+
+all_studies_plot <- 
+  ggplot(valid_res_for_plot, aes(y = label, x=orig_caseid_with_n)) +
+#    valid_res_for_plot,     
+    #aes(y = reorder(label, freq.y, decreasing= F), x=orig_caseid_with_n)) +
+  #geom_point(aes(color=betaestimate), size = 3) + 
+  geom_tile(aes(fill = betaestimate), color = 'black') +
+  # scale_size(range = c(0, 5),
+  #            limits = c(5, 100)) + 
+  labs(x = '', y = '') +
+  # scale_fill_gradientn(colours = c("darkblue", "yellow", "maroon"),
+  #                       limits = c(min(valid_res$betaestimate)+1,  max(valid_res$betaestimate)-5))+ 
+  scale_fill_gradient2(low = '#D55E00', mid = 'white', high = '#0072B2',
+                       limits = c(-25, 20))  +
+  scale_x_discrete(expand = c(0, 0)) +
+  labs(fill='Beta estimate', size='Prevalence %') +
+       theme_bw() +
+  geom_text(aes(label=padj_fill), size = 4, color = 'gray33') +
+    theme_bw() + 
+  theme(#axis.text.x = element_text(size=10, angle = 90),
+        axis.text.x = element_blank(), #element_text(angle=90, size = 7),
+        strip.text = element_text(size=12, face='bold'),
+        #axis.text.y = element_text(face='italic', size = 11),
+        legend.title = element_text(size=16),
+        legend.text = element_text(size=14),
+        strip.background = element_blank(),
+        panel.border = element_rect(colour = "black", fill = NA), 
+        axis.ticks = element_blank(),
+          #plot.margin=grid::unit(c(0,0,0,0), "mm"))
+          plot.margin=margin(0, 0, 0, 0, 'cm'),
+          panel.spacing = unit(0, 'cm'),
+        axis.text.y = element_markdown(face = 'italic', size = 12),
+        panel.grid.major = element_blank()) +
+  #facet_wrap(~subcont, scales = 'free_x', nrow = 1)
+  facet_grid(rows = vars(Category),
+             cols = vars(subcont), 
+             scales = 'free', space = 'free')
+all_studies_plot$data$label <- factor(all_studies_plot$data$label,
+                                                 order)
+all_studies_plot
+
+# editable ppt
+all_studies_res <- rvg::dml(ggobj = all_studies_plot)  
+# Write the document to a file
+
+officer::read_pptx() %>%
+  # add slide ----
+  officer::add_slide() %>%
+  # specify object and location of object ----
+  officer::ph_with(all_studies_res, ph_location(width = 10, height = 7)) %>%
+  # export slide -----
+  base::print(
+    target = here('figppts', 'SuppFig5.pptx')
+    )
+
+```
+
+# Fisher's test
+```{r}
+create_cont_table <- function(group_1, group_2, 
+                              class_a, class_b) {
+  cont_table <- data.frame('group_1' = c(group_1, class_a),
+                           'group_2' = c(group_2, class_b),
+                           row.names = c('class_a', 'class_b'),
+                           stringsAsFactors = F)
+  return(cont_table)
+}
+
+
+table_us_vs_all <- create_cont_table(23, 17, 22, 250 - 23 - 17 - 22)
+fisher_us_vs_all <- fisher.test(table_us_vs_all, alternative = 'greater')
+fisher_us_vs_all
+
+# ours vs asians (Chinese + Japanese)
+table_us_vs_asian <- create_cont_table(18, 10, 22, 125 + 35 - 18 - 10 - 22)
+fisher_us_vs_asian <- fisher.test(table_us_vs_asian, alternative = 'greater')
+fisher_us_vs_asian
+
+# ours vs western
+total_ours_vs_western <- Reduce(base::union, c(org_list_to_use_0.1, res_asnicarf$org_list, res_britol$org_list, res_em$org_list, res_lld$org_list)) # 214
+
+table_us_vs_west <- create_cont_table(12, 21, 28, 214 - 12 - 21 - 28)
+fisher_us_vs_west <- fisher.test(table_us_vs_west, alternative = 'greater')
+fisher_us_vs_west
+
+```
+

@@ -1,0 +1,1999 @@
+alpha,omega-9Z-octadecenedioate + coenzyme A + ATP  ->  omega-carboxy-(9Z)-octadec-9-enoyl-CoA + AMP + diphosphate
+alpha-linolenate + ATP + coenzyme A  ->  alpha-linolenoyl-CoA + AMP + diphosphate
+(15Z)-tetracosenoate + coenzyme A + ATP  ->  (15Z)-tetracosenoyl-CoA + AMP + diphosphate
+(2E)-hexadecenoate + coenzyme A + ATP  ->  (2E)-hexadec-2-enoyl-CoA + AMP + diphosphate
+(4E)-6-methylhept-4-enoate + coenzyme A + ATP  ->  (4E)-6-methylhept-4-enoyl-CoA + ADP + phosphate
+(5Z,8Z,11Z,14Z,17Z)-icosapentaenoate + ATP + coenzyme A  ->  (5Z,8Z,11Z,14Z,17Z)-icosapentaenoyl-CoA + AMP + diphosphate
+(6E)-9-methyldec-6-enoate + coenzyme A + ATP  ->  (6E)-9-methyldec-6-enoyl-CoA + ADP + phosphate
+(E)-8-methylnon-6-enoate + coenzyme A + ATP  ->  (E)-8-methylnon-6-enoyl-CoA + ADP + phosphate
+16-hydroxypalmitate + coenzyme A + ATP  ->  16-hydroxypalmitoyl-CoA + AMP + diphosphate
+18-hydroxyoleate + coenzyme A + ATP  ->  18-hydroxyoleoyl-CoA + AMP + diphosphate
+18-hydroxystearate + coenzyme A + ATP  ->  18-hydroxystearoyl-CoA + AMP + diphosphate
+7-methyloct-6-enoate + coenzyme A + ATP  ->  7-methyloct-6-enoyl-CoA + ADP + phosphate
+7-methyloctanoate + coenzyme A + ATP  ->  7-methyloctanoyl-CoA + ADP + phosphate
+8-methylnonanoate + coenzyme A + ATP  ->  8-methylnonanoyl-coA + ADP + phosphate
+9-methyldecanoate + coenzyme A + ATP  ->  9-methyldecanoyl-CoA + ADP + phosphate
+cis-vaccenate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  cis-vaccenoyl-CoA + AMP + diphosphate + H+
+a 2,3,4-saturated fatty acid + ATP + coenzyme A + H+  ->  a 2,3,4-saturated fatty acyl CoA + AMP + diphosphate + H+
+a 2-methyl branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 2-methyl branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a 3-methyl-branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 3-methyl-branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a long-chain 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a long-chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+a long-chain fatty acid + coenzyme A + ATP  ->  a long-chain fatty acyl-CoA + AMP + diphosphate
+an odd numbered straight chain 2,3,4-saturated fatty acid + ATP + coenzyme A  ->  an odd numbered straight chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+linoleate + coenzyme A + ATP  ->  linoleoyl-CoA + AMP + diphosphate
+oleate + coenzyme A + ATP  ->  oleoyl-CoA + AMP + diphosphate
+oleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  oleoyl-CoA + AMP + diphosphate + H+
+palmitate + coenzyme A + ATP  ->  palmitoyl-CoA + AMP + diphosphate
+palmitoleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  palmitoleoyl-CoA + AMP + diphosphate + H+
+pentadecanoate + coenzyme A + ATP  ->  pentadecanoyl-CoA + AMP + diphosphate
+phytenate + ATP + coenzyme A  ->  phytenoyl-CoA + AMP + diphosphate
+pristanate + coenzyme A + ATP  ->  pristanoyl-CoA + AMP + diphosphate
+stearate + coenzyme A + ATP  ->  stearoyl-CoA + AMP + diphosphate
+selenate + ATP + H+  ->  adenosine 5'-phosphoselenate + diphosphate
+sulfate + ATP + H+  <->  adenosine 5'-phosphosulfate + diphosphate
+adenosine 5'-phosphosulfate + ATP  ->  3'-phosphoadenylyl-sulfate + ADP + H+
+ATP + (polyphosphate)(n)  <->  ADP + (polyphosphate)(n+1)
+FMNH2 + NADP+  &larr;  FMN + NADPH + 2 H+
+L-arginine + H+  ->  agmatine + CO2
+L-arginine + H+  ->  agmatine + CO2
+agmatine + H2O  ->  ammonium + N-carbamoylputrescine
+L-arginine + H+  ->  agmatine + CO2
+agmatine + H2O  ->  ammonium + N-carbamoylputrescine
+L-alanine  <->  D-alanine
+L-homoserine + acetyl-CoA  <->  O-acetyl-L-homoserine + coenzyme A
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+chorismate + L-glutamine  ->  anthranilate + L-glutamate + pyruvate + H+
+N-(5-phosphoribosyl)-anthranilate + diphosphate  <->  anthranilate + 5-phospho-alpha-D-ribose 1-diphosphate
+N-(5-phosphoribosyl)-anthranilate  ->  1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate
+2 pyruvate + H+  ->  (S)-2-acetolactate + CO2
+pyruvate + 2-oxobutanoate + H+  ->  (S)-2-aceto-2-hydroxybutanoate + CO2
+(2R)-2,3-dihydroxy-3-methylbutanoate  ->  3-methyl-2-oxobutanoate + H2O
+(R)-2,3-dihydroxy-3-methylpentanoate  ->  (3S)-3-methyl-2-oxopentanoate + H2O
+L-isoleucine + 2-oxoglutarate  <->  L-glutamate + (3S)-3-methyl-2-oxopentanoate
+L-valine + 2-oxoglutarate  <->  L-glutamate + 3-methyl-2-oxobutanoate
+acetyl-CoA + 3-methyl-2-oxobutanoate + H2O  ->  (2S)-2-isopropylmalate + coenzyme A + H+
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+pyruvate + L-aspartate 4-semialdehyde  ->  (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + H2O + H+
+(S)-2,3,4,5-tetrahydrodipicolinate + NAD(P)+ + H2O  &larr;  (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + NAD(P)H + H+
+N-succinyl-L,L-2,6-diaminopimelate + H2O  ->  L,L-diaminopimelate + succinate
+L,L-diaminopimelate  <->  meso-diaminopimelate
+meso-diaminopimelate + H+  ->  L-lysine + CO2
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)butan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)butyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)heptan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)heptyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)hexan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)hexyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)nonan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)nonyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)octan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)octyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)pentan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)pentyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-(1H-indol-3-yl)ethan-1-imine + H2O  ->  (Z)-2-(1H-indol-3-yl)-1-thioacetohydroximate + pyruvate + ammonium + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-(4-hydroxyphenyl)ethan-1-imine + H2O  ->  (Z)-N-hydroxy-2-(4-hydroxyphenyl)acetimidothioate + pyruvate + ammonium + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-phenylethan-1-imine + H2O  ->  (Z)-2-phenyl-1-thioacetohydroximate + pyruvate + ammonium + H+
+S-(1-hydroxyhexan-3-yl)-L-cysteine + H2O  ->  3-sulfanylhexan-1-ol + pyruvate + ammonium
+S-(4-hydroxy-2-methylpentan-2-yl)-L-cysteine + H2O  ->  4-methyl-4-sulfanylpentan-2-ol + pyruvate + ammonium
+S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine + H2O  ->  2-methyl-3-sulfanylbutan-1-ol + pyruvate + ammonium
+S-(4-oxo-2-methylpentan-2-yl)-L-cysteine + H2O  ->  4-methyl-4-sulfanylpentan-2-one + pyruvate + ammonium
+S-(5-hydroxypentan-3-yl)-L-cysteine + H2O  ->  3-sulfanylpentan-1-ol + pyruvate + ammonium
+S-(6-hydroxy-4-methylhexan-4-yl)-L-cysteine + H2O  ->  3-methyl-3-sulfanylhexan-1-ol + pyruvate + ammonium
+S-benzyl-L-cysteine + H2O  ->  benzyl thiol + pyruvate + ammonium
+S-ethyl-L-cysteine + H2O  ->  ethanethiol + pyruvate + ammonium
+S-fenclorimyl-L-cysteine + H2O  ->  6-chloro-2-phenyl-4-sulfanylpyrimidine + pyruvate + ammonium
+an L-cysteine-S-conjugate + H2O  ->  a thiol + pyruvate + ammonium
+an S-alkyl-L-cysteine + H2O  ->  an alkyl-thiol + pyruvate + ammonium
+felinine + H2O  ->  3-methyl-3-sulfanylbutan-1-ol + pyruvate + ammonium
+L-cystathionine + H2O  ->  L-homocysteine + pyruvate + ammonium
+L-djenkolate + H2O  ->  S-(sulfanylmethyl)-L-cysteine + pyruvate + ammonium
+L-selenocystathionine + H2O  ->  seleno-L-homocysteine + pyruvate + ammonium
+L-homocysteine + a 5-methyltetrahydrofolate  ->  L-methionine + a tetrahydrofolate
+O-phospho-L-homoserine + H2O  ->  L-threonine + phosphate
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+L,L-diaminopimelate + 2-oxoglutarate  <->  (S)-2,3,4,5-tetrahydrodipicolinate + L-glutamate + H2O + H+
+meso-diaminopimelate + H+  ->  L-lysine + CO2
+O-phospho-L-serine + H2O  ->  L-serine + phosphate
+L(or D)-O-phosphoserine + H2O + H+  ->  D-or-L-serine + phosphate
+glycine + 5,10-methylene-tetrahydromethanopterin + H2O  <->  L-serine + tetrahydromethanopterin
+L-serine + a tetrahydrofolate  <->  glycine + a 5,10-methylenetetrahydrofolate + H2O
+tRNAGly + glycine + ATP  ->  glycyl-[tRNAGly] + AMP + diphosphate
+tRNAHis + L-histidine + ATP  ->  L-histidyl-[tRNAHis] + AMP + diphosphate
+tRNALys + L-lysine + ATP  ->  L-lysyl-[tRNALys] + AMP + diphosphate
+elongator tRNAMet + L-methionine + ATP  ->  L-methionyl-[elongator tRNAMet] + AMP + diphosphate
+initiator tRNAMet + L-methionine + ATP  ->  L-methionyl-[initiator tRNAMet] + AMP + diphosphate
+tRNAPhe + L-phenylalanine + ATP  ->  L-phenylalanyl-[tRNAPhe] + AMP + diphosphate
+tRNAPhe + L-tyrosine + ATP  ->  L-tyrosyl-[tRNAPhe] + AMP + diphosphate
+tRNAsec + L-serine + ATP  ->  L-seryl-[tRNAsec] + AMP + diphosphate
+tRNAser + L-serine + ATP  ->  L-seryl-[tRNAser] + AMP + diphosphate
+tRNAThr + L-serine + ATP  ->  L-seryl-[tRNAThr] + AMP + diphosphate
+tRNAThr + L-threonine + ATP  ->  L-threonyl-[tRNAThr] + AMP + diphosphate
+tRNATrp + D-tryptophan + ATP  ->  D-tryptophanyl-[tRNATrp] + AMP + diphosphate
+tRNATrp + L-tryptophan + ATP  ->  AMP + L-tryptophanyl-[tRNATrp] + diphosphate
+tRNATyr + D-tyrosine + ATP  ->  D-tyrosyl-[tRNATyr] + AMP + diphosphate
+tRNATyr + L-tyrosine + ATP  ->  L-tyrosyl-[tRNATyr] + AMP + diphosphate
+tRNAasp + D-aspartate + ATP  ->  D-aspartyl-[tRNAasp] + AMP + diphosphate
+tRNAAsn + L-asparagine + ATP  ->  L-asparaginyl-[tRNAAsn] + AMP + diphosphate
+tRNAAla + glycine + ATP  ->  glycyl-[tRNAAla] + AMP + diphosphate
+tRNAAla + L-alanine + ATP  ->  L-alanyl-[tRNAAla] + AMP + diphosphate
+tRNAAla + L-serine + ATP  ->  seryl-[tRNAAla] + AMP + diphosphate
+tRNAVal + L-threonine + ATP  ->  L-threonyl-[tRNAVal] + AMP + diphosphate
+tRNAVal + L-valine + ATP  ->  L-valyl-[tRNAVal] + AMP + diphosphate
+tRNALeu + L-leucine + ATP  ->  L-leucyl-[tRNALeu] + AMP + diphosphate
+tRNALeu + L-norvaline + ATP  ->  L-norvalyl-[tRNALeu] + AMP + diphosphate
+tRNAIle + L-isoleucine + ATP  ->  L-isoleucyl-[tRNAIle] + AMP + diphosphate
+tRNAIle + L-valine + ATP  ->  L-valyl-[tRNAIle] + AMP + diphosphate
+tRNAglu + L-glutamate + ATP  ->  L-glutamyl-[tRNAGlu] + AMP + diphosphate
+tRNAGln + L-glutamine + ATP  ->  L-glutaminyl-[tRNAGln] + AMP + diphosphate
+tRNACys + L-cysteine + ATP  ->  L-cysteinyl-[tRNACys] + AMP + diphosphate
+tRNAPro + L-cysteine + ATP  ->  L-cysteinyl-[tRNAPro] + AMP + diphosphate
+tRNAArg + L-arginine + ATP  ->  L-arginyl-[tRNAArg] + AMP + diphosphate
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+chorismate  <->  isochorismate
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+pyruvate + L-aspartate 4-semialdehyde  ->  (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + H2O + H+
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+(R)-3,4-dihydroxyphenylglycol + NAD+  &larr;  3,4-dihydroxyphenylglycolaldehyde + NADH + H+
+(R)-butane-1,3-diol + NAD+  ->  (R)-3-hydroxybutanal + NADH + H+
+(R)-mevalonate + NAD+  &larr;  (R)-mevaldate + NADH + H+
+(indol-3-yl)glycol + NAD+  &larr;  (2R)-2-hydroxy-2-(indol-3-yl)acetaldehyde + NADH + H+
+2-methylbutanol + NAD+  &larr;  2-methylbutanal + NADH + H+
+2-phenylethanol + NAD+  <->  phenylacetaldehyde + NADH + H+
+3-methoxy-4-hydroxyphenylglycol + NAD+  <->  3-methoxy-4-hydroxyphenylglycolaldehyde + NADH + H+
+3-methylbutanol + NAD+  <->  3-methylbutanal + NADH + H+
+4-tyrosol + NAD+  &larr;  (4-hydroxyphenyl)acetaldehyde + NADH + H+
+5-hydroxytryptophol + NAD+  &larr;  5-hydroxyindole acetaldehyde + NADH + H+
+a primary alcohol + NAD+  <->  an aldehyde + NADH + H+
+a secondary alcohol + NAD+  <->  a ketone + NADH + H+
+ethanol + NAD+  <->  acetaldehyde + NADH + H+
+isobutanol + NAD+  <->  isobutanal + NADH + H+
+methionol + NAD+  &larr;  3-(methylsulfanyl)propanal + NADH + H+
+phytol + NAD+  ->  phytenal + NADH + H+
+propan-1-ol + NAD+  &larr;  1-propanal + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-erythrose 4-phosphate + D-xylulose 5-phosphate  <->  beta-D-fructofuranose 6-phosphate + D-glyceraldehyde 3-phosphate
+D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate  <->  D-ribose 5-phosphate + D-xylulose 5-phosphate
+D-ribose 5-phosphate  <->  D-ribulose 5-phosphate
+beta-D-fructofuranose 1,6-bisphosphate + H2O  ->  beta-D-fructofuranose 6-phosphate + phosphate
+D-erythrose 4-phosphate  <->  D-threose 4-phosphate
+D-ribulose 5-phosphate  <->  D-xylulose 5-phosphate
+alpha-D-glucopyranose 1-phosphate  <->  D-glucopyranose 6-phosphate
+UDP-alpha-D-glucose + 2 NAD+ + H2O  ->  UDP-alpha-D-glucuronate + 2 NADH + 3 H+
+D-mannopyranose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+alpha-D-mannose 1-phosphate + GTP + H+  ->  GDP-alpha-D-mannose + diphosphate
+GDP-alpha-D-mannose  ->  GDP-4-dehydro-alpha-D-rhamnose + H2O
+UDP-alpha-D-glucose  <->  UDP-alpha-D-galactose
+UDP-alpha-D-glucose + 2 NAD+ + H2O  ->  UDP-alpha-D-glucuronate + 2 NADH + 3 H+
+alpha-D-GlcNAc-PP-Und  ->  alpha-D-GalNAc-PP-Und
+UDP-2-acetamido-2,3-dideoxy-3-{[(3R)-3-hydroxyhexadecanoyl]amino}-alpha-D-glucopyranose + H2O  ->  UDP-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxyacyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxyacyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxydecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxymyristoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxymyristoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxydodecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxyhexanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxy-hexadecanoyl]-alpha-D-glucosamine + acetate
+UDP-2-N,3-O-bis[(3R)-3-hydroxyacyl]-alpha-D-glucosamine + H2O  ->  a lipid X + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine + H2O  ->  lipid X (Brucella) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxy-16-methylhexadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (P. gingivalis) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxyoctadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (H. pylori) + UMP + 2 H+
+UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (E. coli) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (P. putida) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxytetradecanoyl]-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (Vibrio cholerae serogroup O1 El Tor) + UMP + 2 H+
+a lipid X + UDP-2-N,3-O-bis[(3R)-3-hydroxyacyl]-alpha-D-glucosamine  ->  a lipid A disaccharide + UDP + H+
+lipid X (Brucella) + UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine  ->  dephospho-lipid IVA (Brucella) + UDP + H+
+lipid X (E. coli) + UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (E. coli) + UDP + H+
+lipid X (H. pylori) + UDP-2-N-[(3R)-3-hydroxyoctadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (H. pylori) + UDP + H+
+lipid X (P. gingivalis) + UDP-2-N-[(3R)-3-hydroxy-15-methylhexadecanoyl]-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (P. gingivalis) + UDP + H+
+lipid X (P. putida) + UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (P. putida) + UDP + H+
+UDP-2-N-[(3R)-3-hydroxytetradecanoyl]-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + lipid X (Vibrio cholerae serogroup O1 El Tor)  ->  lipid A disaccharide (Vibrio cholerae serogroup O1 El Tor) + UDP + H+
+a lipid A disaccharide + ATP  ->  a lipid IVA + ADP + H+
+dephospho-lipid IVA (Brucella) + ATP  ->  lipid IVA (Brucella) + ADP + H+
+lipid A disaccharide (E. coli) + ATP  ->  lipid IVA (E. coli) + ADP + H+
+lipid A disaccharide (H. pylori) + ATP  ->  lipid IVA (H. pylori) + ADP + H+
+lipid A disaccharide (P. gingivalis) + ATP  ->  lipid IVA (P. gingivalis) + ADP + H+
+lipid A disaccharide (Vibrio cholerae serogroup O1 El Tor) + ATP  ->  lipid IVA (Vibrio cholerae serogroup O1 El Tor) + ADP + H+
+lipid A disaccharide (P. putida) + ATP  ->  lipid IVA (P. putida) + ADP + H+
+UDP-4-deoxy-4-formamido-beta-L-arabinopyranose + di-trans,octa-cis-undecaprenyl phosphate  ->  4-deoxy-4-formamido-alpha-L-arabinopyranosyl ditrans,octacis-undecaprenyl phosphate + UDP
+4-amino-4-deoxy-alpha-L-arabinopyranosyl ditrans,octacis-undecaprenyl phosphate + alpha-D-Kdo-(2->4)-alpha-D-Kdo-(2->6)-lipid A (E. coli)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-[P4'-alpha-L-ara4N]-lipid A (E. coli) + di-trans,octa-cis-undecaprenyl phosphate
+4-amino-4-deoxy-alpha-L-arabinopyranosyl ditrans,octacis-undecaprenyl phosphate[periplasm] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (E. coli)[periplasm]  ->  4'-alpha-L-Ara4N-alpha-Kdo-(2->4)-alpha-KDO-(2->6)-lipid IVA[periplasm] + di-trans,octa-cis-undecaprenyl phosphate[periplasm]
+4-amino-4-deoxy-alpha-L-arabinopyranosyl ditrans,octacis-undecaprenyl phosphate[periplasm] + lipid IVA (E. coli)[periplasm]  ->  lipid IIA[periplasm] + di-trans,octa-cis-undecaprenyl phosphate[periplasm]
+aldehydo-D-arabinose 5-phosphate  <->  D-ribulose 5-phosphate
+D-arabinofuranose 5-phosphate + phosphoenolpyruvate + H2O  ->  3-deoxy-D-manno-octulosonate 8-phosphate + phosphate
+3-deoxy-alpha-D-manno-2-octulosonate + CTP  ->  CMP-3-deoxy-beta-D-manno-octulosonate + diphosphate
+UDP-2-acetamido-2,3-dideoxy-3-{[(3R)-3-hydroxyhexadecanoyl]amino}-alpha-D-glucopyranose + H2O  ->  UDP-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxyacyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxyacyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxydecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxymyristoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxymyristoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxydodecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxyhexanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxy-hexadecanoyl]-alpha-D-glucosamine + acetate
+UDP-2-N,3-O-bis[(3R)-3-hydroxyacyl]-alpha-D-glucosamine + H2O  ->  a lipid X + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine + H2O  ->  lipid X (Brucella) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxy-16-methylhexadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (P. gingivalis) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxyoctadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (H. pylori) + UMP + 2 H+
+UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (E. coli) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (P. putida) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxytetradecanoyl]-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (Vibrio cholerae serogroup O1 El Tor) + UMP + 2 H+
+a lipid X + UDP-2-N,3-O-bis[(3R)-3-hydroxyacyl]-alpha-D-glucosamine  ->  a lipid A disaccharide + UDP + H+
+lipid X (Brucella) + UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine  ->  dephospho-lipid IVA (Brucella) + UDP + H+
+lipid X (E. coli) + UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (E. coli) + UDP + H+
+lipid X (H. pylori) + UDP-2-N-[(3R)-3-hydroxyoctadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (H. pylori) + UDP + H+
+lipid X (P. gingivalis) + UDP-2-N-[(3R)-3-hydroxy-15-methylhexadecanoyl]-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (P. gingivalis) + UDP + H+
+lipid X (P. putida) + UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (P. putida) + UDP + H+
+UDP-2-N-[(3R)-3-hydroxytetradecanoyl]-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + lipid X (Vibrio cholerae serogroup O1 El Tor)  ->  lipid A disaccharide (Vibrio cholerae serogroup O1 El Tor) + UDP + H+
+a lipid A disaccharide + ATP  ->  a lipid IVA + ADP + H+
+dephospho-lipid IVA (Brucella) + ATP  ->  lipid IVA (Brucella) + ADP + H+
+lipid A disaccharide (E. coli) + ATP  ->  lipid IVA (E. coli) + ADP + H+
+lipid A disaccharide (H. pylori) + ATP  ->  lipid IVA (H. pylori) + ADP + H+
+lipid A disaccharide (P. gingivalis) + ATP  ->  lipid IVA (P. gingivalis) + ADP + H+
+lipid A disaccharide (Vibrio cholerae serogroup O1 El Tor) + ATP  ->  lipid IVA (Vibrio cholerae serogroup O1 El Tor) + ADP + H+
+lipid A disaccharide (P. putida) + ATP  ->  lipid IVA (P. putida) + ADP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + a lipid IVA  ->  an alpha-Kdo-(2->6)-[lipid IVA] + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (Brucella)  ->  alpha-Kdo-(2->6)-lipid IVA (Brucella) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (E. coli)  ->  alpha-Kdo-(2->6)-lipid IVA (E. coli) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (H. pylori)  ->  alpha-Kdo-(2->6)-lipid IVA (H. pylori) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (P. gingivalis)  ->  alpha-Kdo-(2->6)-lipid IVA (P. gingivalis) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (Vibrio cholerae serogroup O1 El Tor)  ->  alpha-Kdo-(2->6)-lipid IVA (Vibrio cholerae serogroup O1 El Tor) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (P. putida)  ->  alpha-Kdo-(2->6)-lipid IVA (P. putida) + CMP + H+
+27-hydroxyoctacosanoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (Brucella)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(27-hydroxyoctacosanoyl)-lipid IVA (Brucella) + acyl-carrier protein
+dodecanoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (E. coli)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(lauroyl)-lipid IVA (E. coli) + acyl-carrier protein
+dodecanoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (P. putida)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(lauroyl)-lipid IVA (P. putida) + acyl-carrier protein
+fatty acyl-[acyl-carrier protein] + an alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-[lipid IVA]  ->  an alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(acyl)-[lipid IVA] + acyl-carrier protein
+myristoyl-[acp] + 4-O-phospho-alpha-Kdo-(2->6)-lipid IVA (Vibrio cholerae serogroup O1 El Tor)  ->  C14:0--phospho-alpha-Kdo-(2->6)-lipid IVA (Vibrio cholerae serogroup O1 El Tor) + acyl-carrier protein
+palmitoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (Brucella)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(palmitoyl)-lipid IVA (Brucella) + acyl-carrier protein
+palmitoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (P. gingivalis)  ->  P. gingivalis Kdo2-lipid A (penta-acylated, bis-phosphorylated) + acyl-carrier protein
+stearoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (H. pylori)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(octadecanoyl)-lipid IVA (H. pylori) + acyl-carrier protein
+alpha,omega-9Z-octadecenedioate + coenzyme A + ATP  ->  omega-carboxy-(9Z)-octadec-9-enoyl-CoA + AMP + diphosphate
+alpha-linolenate + ATP + coenzyme A  ->  alpha-linolenoyl-CoA + AMP + diphosphate
+(15Z)-tetracosenoate + coenzyme A + ATP  ->  (15Z)-tetracosenoyl-CoA + AMP + diphosphate
+(2E)-hexadecenoate + coenzyme A + ATP  ->  (2E)-hexadec-2-enoyl-CoA + AMP + diphosphate
+(4E)-6-methylhept-4-enoate + coenzyme A + ATP  ->  (4E)-6-methylhept-4-enoyl-CoA + ADP + phosphate
+(5Z,8Z,11Z,14Z,17Z)-icosapentaenoate + ATP + coenzyme A  ->  (5Z,8Z,11Z,14Z,17Z)-icosapentaenoyl-CoA + AMP + diphosphate
+(6E)-9-methyldec-6-enoate + coenzyme A + ATP  ->  (6E)-9-methyldec-6-enoyl-CoA + ADP + phosphate
+(E)-8-methylnon-6-enoate + coenzyme A + ATP  ->  (E)-8-methylnon-6-enoyl-CoA + ADP + phosphate
+16-hydroxypalmitate + coenzyme A + ATP  ->  16-hydroxypalmitoyl-CoA + AMP + diphosphate
+18-hydroxyoleate + coenzyme A + ATP  ->  18-hydroxyoleoyl-CoA + AMP + diphosphate
+18-hydroxystearate + coenzyme A + ATP  ->  18-hydroxystearoyl-CoA + AMP + diphosphate
+7-methyloct-6-enoate + coenzyme A + ATP  ->  7-methyloct-6-enoyl-CoA + ADP + phosphate
+7-methyloctanoate + coenzyme A + ATP  ->  7-methyloctanoyl-CoA + ADP + phosphate
+8-methylnonanoate + coenzyme A + ATP  ->  8-methylnonanoyl-coA + ADP + phosphate
+9-methyldecanoate + coenzyme A + ATP  ->  9-methyldecanoyl-CoA + ADP + phosphate
+cis-vaccenate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  cis-vaccenoyl-CoA + AMP + diphosphate + H+
+a 2,3,4-saturated fatty acid + ATP + coenzyme A + H+  ->  a 2,3,4-saturated fatty acyl CoA + AMP + diphosphate + H+
+a 2-methyl branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 2-methyl branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a 3-methyl-branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 3-methyl-branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a long-chain 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a long-chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+a long-chain fatty acid + coenzyme A + ATP  ->  a long-chain fatty acyl-CoA + AMP + diphosphate
+an odd numbered straight chain 2,3,4-saturated fatty acid + ATP + coenzyme A  ->  an odd numbered straight chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+linoleate + coenzyme A + ATP  ->  linoleoyl-CoA + AMP + diphosphate
+oleate + coenzyme A + ATP  ->  oleoyl-CoA + AMP + diphosphate
+oleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  oleoyl-CoA + AMP + diphosphate + H+
+palmitate + coenzyme A + ATP  ->  palmitoyl-CoA + AMP + diphosphate
+palmitoleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  palmitoleoyl-CoA + AMP + diphosphate + H+
+pentadecanoate + coenzyme A + ATP  ->  pentadecanoyl-CoA + AMP + diphosphate
+phytenate + ATP + coenzyme A  ->  phytenoyl-CoA + AMP + diphosphate
+pristanate + coenzyme A + ATP  ->  pristanoyl-CoA + AMP + diphosphate
+stearate + coenzyme A + ATP  ->  stearoyl-CoA + AMP + diphosphate
+ferulate + ATP + coenzyme A  ->  feruloyl-CoA + AMP + diphosphate
+L-cysteine + a [bis(guanylyl molybdopterin) cofactor chaperone]-L-cysteine  ->  L-alanine + a [bis(guanylyl molybdopterin) cofactor chaperone]-S-sulfanyl-L-cysteine
+L-cysteine + a [cytidylyl molybdenum cofactor chaperone]-cytidylyl molybdenum cofactor + a reduced two electron carrier  ->  L-alanine + a [cytidylyl molybdenum cofactor chaperone]-cytidylyl molybdenum cofactor (sulfo-dioxo) + an oxidized electron carrier + H2O
+L-cysteine + a [molybdopterin synthase sulfurtransferase]-L-cysteine  ->  L-alanine + a [molybdopterin synthase sulfurtransferase]-S-sulfanyl-L-cysteine
+L-cysteine + a [SufE sulfur-carrier protein]-L-cysteine  ->  L-alanine + a [SufE sulfur-carrier protein]-S-sulfanyl-L-cysteine
+L-cysteine + a [TusA]-L-cysteine  ->  L-alanine + a [TusA sulfur-carrier protein]-S-sulfanyl-L-cysteine
+L-cysteine + carboxy-adenylated-[ThiS sulfur-carrier protein] + a reduced two electron carrier  ->  L-alanine + thiocarboxylated-[ThiS sulfur-carrier protein] + AMP + an oxidized electron carrier + 2 H+
+L-cysteine + L-cysteine desulfurase  ->  L-alanine + S-sulfanyl-[L-cysteine desulfurase]
+L-cysteine + unsulfurated [sulfur carrier]  ->  L-alanine + sulfurated [sulfur carrier]
+L-cysteine + [cysteine desulfurase]-S-sulfanyl-[disordered-form scaffold protein] complex  ->  L-alanine + S-sulfanyl-[cysteine desulfurase]-S-sulfanyl-[disordered-form scaffold protein] complex
+L-cysteine + [ThiI sulfur-carrier protein]-L-cysteine  ->  L-alanine + [ThiI sulfur-carrier protein]-S-sulfanyl-L-cysteine
+L-aspartate + H+  ->  beta-alanine + CO2
+beta-alanine + (R)-pantoate + ATP  ->  (R)-pantothenate + AMP + diphosphate + H+
+(R)-pantothenate + ATP  ->  (R)-4'-phosphopantothenate + ADP + H+
+ATP + 4'-phosphopantetheine + H+  ->  3'-dephospho-CoA + diphosphate
+3'-dephospho-CoA + ATP  ->  coenzyme A + ADP + H+
+holo [AcpK acyl-carrier protein] + malonyl-CoA  ->  coenzyme A + malonyl-[AcpK acyl-carrier protein]
+holo [CorC acyl-carrier protein] + malonyl-CoA  ->  malonyl-[CorC acyl-carrier protein] + coenzyme A
+malonyl-CoA + holo [BryP acyl-carrier protein]  ->  coenzyme A + malonyl-[BryP acyl-carrier protein]
+malonyl-CoA + holo [BryU acyl-carrier protein]  ->  coenzyme A + malonyl-[BryU acyl-carrier protein]
+malonyl-CoA + holo [PedD acyl-carrier protein]  ->  coenzyme A + malonyl-[PedD acyl-carrier protein]
+malonyl-CoA + holo [PedN acyl-carrier protein]  ->  coenzyme A + malonyl-[PedN acyl-carrier protein]
+malonyl-CoA + acyl-carrier protein  ->  coenzyme A + malonyl-[acp]
+[MbtD non-ribosomal peptide synthase] + malonyl-CoA  ->  coenzyme A + malonyl-[MbtD non-ribosomal peptide synthase]
+acetyl-CoA + malonyl-[acp] + H+  ->  acetoacetyl-[acp] + coenzyme A + CO2
+holo [AcpK acyl-carrier protein] + malonyl-CoA  ->  coenzyme A + malonyl-[AcpK acyl-carrier protein]
+holo [CorC acyl-carrier protein] + malonyl-CoA  ->  malonyl-[CorC acyl-carrier protein] + coenzyme A
+malonyl-CoA + holo [BryP acyl-carrier protein]  ->  coenzyme A + malonyl-[BryP acyl-carrier protein]
+malonyl-CoA + holo [BryU acyl-carrier protein]  ->  coenzyme A + malonyl-[BryU acyl-carrier protein]
+malonyl-CoA + holo [PedD acyl-carrier protein]  ->  coenzyme A + malonyl-[PedD acyl-carrier protein]
+malonyl-CoA + holo [PedN acyl-carrier protein]  ->  coenzyme A + malonyl-[PedN acyl-carrier protein]
+malonyl-CoA + acyl-carrier protein  ->  coenzyme A + malonyl-[acp]
+[MbtD non-ribosomal peptide synthase] + malonyl-CoA  ->  coenzyme A + malonyl-[MbtD non-ribosomal peptide synthase]
+acetyl-CoA + malonyl-[acp] + H+  ->  acetoacetyl-[acp] + coenzyme A + CO2
+(3R)-3-hydroxy-12-methyltridecanoyl-[acp] + NADP+  &larr;  12-methyl-3-oxotridecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-13-methyltetradecanoyl-[acp] + NADP+  &larr;  13-methyl-3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-14-methylpentadecanoyl-[acp] + NADP+  &larr;  14-methyl-3-oxopentadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-15-methylhexadecanoyl-[acp] + NADP+  &larr;  15-methyl-3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-6-methylheptanoyl-[acp] + NADP+  &larr;  6-methyl-3-oxoheptanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-7-methyloctanoyl-[acp] + NADP+  &larr;  7-methyl-3-oxooctanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-8-methylnonanoyl-[acp] + NADP+  &larr;  8-methyl-3-oxononanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-9-methyldecanoyl-[acp] + NADP+  &larr;  9-methyl-3-oxodecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyacyl-[acyl-carrier protein] + NADP+  &larr;  3-oxoacyl-[acyl-carrier protein] + NADPH + H+
+(3R)-3-hydroxydecanoyl-[acp] + NADP+  &larr;  3-oxodecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxydocosanoyl-[acp] + NADP+  &larr;  3-oxodocosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxydocosanoyl-[acp] + NADP+  &larr;  3-oxodocosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyhexadecanoyl-[acp] + NADP+  &larr;  3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyhexanoyl-[acp] + NADP+  &larr;  3-oxohexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyicosanoyl-[acp] + NADP+  &larr;  3-oxoicosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyoctadecanoyl-[acp] + NADP+  &larr;  3-oxooctadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyoctanoyl-[acp] + NADP+  &larr;  3-oxooctanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxypentanoyl-[TcsA polyketide synthase] + NADP+  &larr;  3-oxopentanoyl-[TcsA polyketide synthase] + NADPH + H+
+(3R)-3-hydroxypimeloyl-[acp] + NADP+  &larr;  3-oxopimeloyl-[acp] + NADPH + H+
+(3R)-3-hydroxytetradecanoyl-[acp] + NADP+  &larr;  3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R,11Z)-3-hydroxyoctadec-11-enoyl-[acp] + NADP+  &larr;  (11Z)-3-oxooctadec-11-enoyl-[acp] + NADPH + H+
+(3R,12S)-3-hydroxy-12-methyltetradecanoyl-[acp] + NADP+  &larr;  (12S)-12-methyl-3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R,14S)-3-hydroxy-14-methylhexadecanoyl-[acp] + NADP+  &larr;  (14S)-14-methyl-3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R,5Z)-3-hydroxydodec-5-enoyl-[acp] + NADP+  &larr;  (5Z)-3-oxododec-5-enoyl-[acp] + NADPH + H+
+(3R,5Z)-3-hydroxy-tetradec-5-enoyl-[acp] + NADP+  &larr;  (5Z)-3-oxo-tetradec-5-enoyl-[acp] + NADPH + H+
+(3R,6S)-3-hydroxy-6-methyloctanoyl-[acp] + NADP+  &larr;  (6S)-6-methyl-3-oxooctanoyl-[acp] + NADPH + H+
+(3R,7Z)-3-hydroxytetradec-7-enoyl-[acp] + NADP+  &larr;  (7Z)-3-oxotetradec-7-enoyl-[acp] + NADPH + H+
+(3R,7Z,10Z,13Z,16Z,19Z)-3-hydroxydocosa-7,10,13,16,19-pentaenoyl-[acp] + NADP+  &larr;  (7Z,10Z,13Z,16Z,19Z)-3-oxodocosa-7,10,13,16,19-pentaenoyl-[acp] + NADPH + H+
+(3R,8S)-3-hydroxy-8-methyldecanoyl-[acp] + NADP+  &larr;  (8S)-8-methyl-3-oxodecanoyl-[acp] + NADPH + H+
+(3R,9Z)-3-hydroxyhexadec-9-enoyl-[acp] + NADP+  &larr;  (9Z)-3-oxohexadec-9-enoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyglutaryl-[acp] methyl ester + NADP+  &larr;  3-oxoglutaryl-[acp] methyl ester + NADPH + H+
+(3R)-3-hydroxypimeloyl-[acp] methyl ester + NADP+  &larr;  3-oxopimeloyl-[acp] methyl ester + NADPH + H+
+(3R,11Z)-3-hydroxy-icos-11-enoyl-[acp] + NADP+  &larr;  (11Z)-3-oxo-icos-11-enoyl-[acp] + NADPH + H+
+(3R,6Z)-3-hydroxyoctadec-6-enoyl-[acp] + NADP+  &larr;  (6Z)-3-oxooctadec-6-enoyl-[acp] + NADPH + H+
+(3R,7Z)-3-hydroxy-hexadec-7-enoyl-[acp] + NADP+  &larr;  (7Z)-3-oxo-hexadec-7-enoyl-[acp] + NADPH + H+
+(3R,9Z)-3-hydroxy-octadec-9-enoyl-[acp] + NADP+  &larr;  (9Z)-3-oxo-octadec-9-enoyl-[acp] + NADPH + H+
+(4S,3R)-3-hydroxy-4-methylhexanoyl-[acp] + NADP+  &larr;  (4S)-4-methyl-3-oxohhexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-10-methylundecanoyl-[acp] + NADP+  &larr;  1o-methyl-3-oxoundecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-11-methyldodecanoyl-[acp] + NADP+  &larr;  11-methyl-3-oxododecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-4-methylpentanoyl-[acp] + NADP+  &larr;  4-methyl-3-oxopentanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-5-methylhexanoyl-[acp] + NADP+  &larr;  5-methyl-3-oxohexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxybutanoyl-[acp] + NADP+  &larr;  acetoacetyl-[acp] + NADPH + H+
+(3R)-3-hydroxydodecanoyl-[acp] + NADP+  &larr;  3-oxododecanoyl-[acp] + NADPH + H+
+(3R,10S)-3-hydroxy-10-methyldodecanoyl-[acp] + NADP+  &larr;  (10S)-10-methyl-3-oxododecanoyl-[acp] + NADPH + H+
+(10S)-10-methyldodecanoyl-[acp] + NAD+  &larr;  (2E,10S)-10-methyldodec-2-enoyl-[acp] + NADH + H+
+(12S)-12-methyltetradecanoyl-[acp] + NAD+  &larr;  (2E,12S)-12-methyltetradec-2-enoyl-[acp] + NADH + H+
+(14S)-14-methylhexadecanoyl-[acp] + NAD+  &larr;  (2E,14S)-14-methylhexadec-2-enoyl-[acp] + NADH + H+
+(4S)-4-methylhexanoyl-[acp] + NAD+  &larr;  (2E,4S)-4-methylhex-2-enoyl-[acp] + NADH + H+
+(5Z)-dodec-5-enoyl-[acp] + NAD+  &larr;  (2E,5Z)-dodeca-3,5-dienoyl-[acp] + NADH + H+
+(5Z)-tetradec-5-enoyl-[acp] + NAD+  &larr;  (2E,5Z)-tetradeca-2,5-dienoyl-[acp] + NADH + H+
+(6S)-6-methyloctanoyl-[acp] + NAD+  &larr;  (2E,6S)-6-methyloct-2-enoyl-[acp] + NADH + H+
+(7Z)-tetradec-7-enoyl-[acp] + NAD+  &larr;  (2E,7Z)-tetradeca-2,7-dienoyl-[acp] + NADH + H+
+(7Z)-hexadec-7-enoyl-[acp] + NAD+  &larr;  (2E,7Z)-hexadeca-2,7-dienoyl-[acp] + NADH + H+
+(8S)-8-methyldecanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E,8S)-8-methyldec-2-enoyl-[acp] + NADH + H+
+10-methylundecanoyl-[acp] + NAD+  &larr;  (2E)-10-methylundec-2-enoyl-[acp] + NADH + H+
+11-methyldodecanoyl-[acp] + NAD+  &larr;  (2E)-11-methyldodec-2-enoyl-[acp] + NADH + H+
+12-methyltridecanoyl-[acp] + NAD+  &larr;  (2E)-12-methyltridec-2-enoyl-[acp] + NADH + H+
+13-methyltetradecanoyl-[acp] + NAD+  &larr;  (2E)-13-methyltetradec-2-enoyl-[acp] + NADH + H+
+14-methylpentadecanoyl-[acp] + NAD+  &larr;  (2E)-14-methylpentadec-2-enoyl-[acp] + NADH + H+
+15-methylhexadecanoyl-[acp] + NAD+  &larr;  (2E)-15-methylhexadec-2-enoyl-[acp] + NADH + H+
+2,3,4-saturated fatty acyl-[acp] + NAD+  &larr;  trans-2-enoyl-[acyl-carrier protein] + NADH + H+
+5-methylhexanoyl-[acp] + NAD+  &larr;  (2E)-4-methylpent-2-enoyl-[acp] + NADH + H+
+5-methylhexanoyl-[acp] + NAD+  &larr;  (2E)-5-methylhex-2-enoyl-[acp] + NADH + H+
+6-methylheptanoyl-[acp] + NAD+  &larr;  (2E)-6-methylhept-2-enoyl-[acp] + NADH + H+
+7-methyloctanoyl-[acp] + NAD+  &larr;  (2E)-7-methyloct-2-enoyl-[acp] + NADH + H+
+8-methylnonanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E)-8-methylnon-2-enoyl-[acp] + NADH + H+
+9-methyldecanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E)-9-methyldec-2-enoyl-[acp] + NADH + H+
+cis-vaccenoyl-[acp] + NAD+  &larr;  (2E,11Z)-octadeca-2,11-dienoyl-[acp] + NADH + H+
+acyl-[acyl-carrier protein] + NAD+  &larr;  trans-2-enoyl-[acyl-carrier protein] + NADH + H+
+arachidoyl-[acp] + NAD+  &larr;  (2E)-icos-2-enoyl-[acp] + NADH + H+
+behenoyl-[acp] + NAD+  ->  (2E)-docos-2-enoyl-[acp] + NADH + H+
+butanoyl-[acp] + NAD+  &larr;  (2E)-but-2-enoyl-[acp] + NADH + H+
+decanoyl-[acp] + NAD+  &larr;  (2E)-dec-2-enoyl-[acp] + NADH + H+
+dodecanoyl-[acp] + NAD+  &larr;  (2E)-dodec-2-enoyl-[acp] + NADH + H+
+glutaryl-[acp] methyl ester + NAD+  &larr;  (2E)-enoylglutaryl-[acp] methyl ester + NADH + H+
+gondoyl-[acp] + NAD+  &larr;  (2E,11Z)-icosa-2,11-dienoyl-[acp] + NADH + H+
+hexanoyl-[acp] + NAD+  &larr;  (2E)-hex-2-enoyl-[acp] + NADH + H+
+myristoyl-[acp] + NAD+  &larr;  (2E)-tetradec-2-enoyl-[acp] + NADH + H+
+octanoyl-[acp] + NAD+  &larr;  (2E)-oct-2-enoyl-[acp] + NADH + H+
+oleoyl-[acp] + NAD+  &larr;  (2E,9Z)-octadeca-2,9-dienoyl-[acp] + NADH + H+
+palmitoleoyl-[acp] + NAD+  &larr;  (2E,9Z)-hexadeca-2,9-dienoyl-[acp] + NADH + H+
+palmitoyl-[acp] + NAD+  &larr;  (2E)-hexadec-2-enoyl-[acp] + NADH + H+
+pimeloyl-[acp] + NAD+  &larr;  2-enoyl-pimeloyl-[acp] + NADH + H+
+pimeloyl-[acp] methyl ester + NAD+  &larr;  (2E)-enoylpimeloyl-[acp] methyl ester + NADH + H+
+stearoyl-[acp] + NAD+  &larr;  (2E)-octadec-2-enoyl-[acp] + NADH + H+
+(10S)-10-methyldodecanoyl-[acp] + malonyl-[acp] + H+  ->  (12S)-12-methyl-3-oxotetradecanoyl-[acp] + CO2 + acyl-carrier protein
+(12S)-12-methyltetradecanoyl-[acp] + malonyl-[acp] + H+  ->  (14S)-14-methyl-3-oxohexadecanoyl-[acp] + CO2 + acyl-carrier protein
+(3Z)-dec-3-enoyl-[acp] + malonyl-[acp] + H+  ->  (5Z)-3-oxododec-5-enoyl-[acp] + acyl-carrier protein + CO2
+(3Z)-dodec-3-enoyl-[acp] + malonyl-[acp] + H+  ->  (5Z)-3-oxo-tetradec-5-enoyl-[acp] + acyl-carrier protein + CO2
+(4S)-4-methylhexanoyl-[acp] + malonyl-[acp] + H+  ->  (6S)-6-methyl-3-oxooctanoyl-[acp] + CO2 + acyl-carrier protein
+(4Z)-hexadec-4-enoyl-[acp] + malonyl-[acp] + H+  ->  (6Z)-3-oxooctadec-6-enoyl-[acp] + acyl-carrier protein + CO2
+(5Z)-dodec-5-enoyl-[acp] + malonyl-[acp] + H+  ->  (7Z)-3-oxotetradec-7-enoyl-[acp] + acyl-carrier protein + CO2
+(5Z)-tetradec-5-enoyl-[acp] + malonyl-[acp] + H+  ->  (7Z)-3-oxo-hexadec-7-enoyl-[acp] + acyl-carrier protein + CO2
+(6S)-6-methyloctanoyl-[acp] + malonyl-[acp] + H+  ->  (8S)-8-methyl-3-oxodecanoyl-[acp] + CO2 + acyl-carrier protein
+(7Z)-tetradec-7-enoyl-[acp] + malonyl-[acp] + H+  ->  (9Z)-3-oxohexadec-9-enoyl-[acp] + acyl-carrier protein + CO2
+(7Z)-hexadec-7-enoyl-[acp] + malonyl-[acp] + H+  ->  (9Z)-3-oxo-octadec-9-enoyl-[acp] + acyl-carrier protein + CO2
+(8S)-8-methyldecanoyl-[acyl-carrier protein] + malonyl-[acp] + H+  ->  (10S)-10-methyl-3-oxododecanoyl-[acp] + CO2 + acyl-carrier protein
+10-methylundecanoyl-[acp] + malonyl-[acp] + H+  ->  12-methyl-3-oxotridecanoyl-[acp] + CO2 + acyl-carrier protein
+11-methyldodecanoyl-[acp] + malonyl-[acp] + H+  ->  13-methyl-3-oxotetradecanoyl-[acp] + CO2 + acyl-carrier protein
+12-methyltridecanoyl-[acp] + malonyl-[acp] + H+  ->  14-methyl-3-oxopentadecanoyl-[acp] + CO2 + acyl-carrier protein
+13-methyltetradecanoyl-[acp] + malonyl-[acp] + H+  ->  15-methyl-3-oxohexadecanoyl-[acp] + CO2 + acyl-carrier protein
+2,3,4-saturated fatty acyl-[acp] + malonyl-[acp] + H+  ->  3-oxoacyl-[acyl-carrier protein] + CO2 + acyl-carrier protein
+5-methylhexanoyl-[acp] + malonyl-[acp] + H+  ->  6-methyl-3-oxoheptanoyl-[acp] + CO2 + acyl-carrier protein
+5-methylhexanoyl-[acp] + malonyl-[acp] + H+  ->  7-methyl-3-oxooctanoyl-[acp] + CO2 + acyl-carrier protein
+6-methylheptanoyl-[acp] + malonyl-[acp] + H+  ->  8-methyl-3-oxononanoyl-[acp] + CO2 + acyl-carrier protein
+7-methyloctanoyl-[acp] + malonyl-[acp] + H+  ->  9-methyl-3-oxodecanoyl-[acp] + CO2 + acyl-carrier protein
+8-methylnonanoyl-[acyl-carrier protein] + malonyl-[acp] + H+  ->  1o-methyl-3-oxoundecanoyl-[acp] + CO2 + acyl-carrier protein
+9-methyldecanoyl-[acyl-carrier protein] + malonyl-[acp] + H+  ->  11-methyl-3-oxododecanoyl-[acp] + CO2 + acyl-carrier protein
+butanoyl-[acp] + malonyl-[acp] + H+  ->  3-oxohexanoyl-[acp] + CO2 + acyl-carrier protein
+decanoyl-[acp] + malonyl-[acp] + H+  ->  3-oxododecanoyl-[acp] + CO2 + acyl-carrier protein
+glutaryl-[acp] methyl ester + malonyl-[acp] + H+  ->  3-oxopimeloyl-[acp] methyl ester + CO2 + acyl-carrier protein
+hexanoyl-[acp] + malonyl-[acp] + H+  ->  3-oxooctanoyl-[acp] + CO2 + acyl-carrier protein
+malonyl-[acp] methyl ester + malonyl-[acp] + H+  ->  3-oxoglutaryl-[acp] methyl ester + CO2 + acyl-carrier protein
+myristoyl-[acp] + malonyl-[acp] + H+  ->  3-oxohexadecanoyl-[acp] + CO2 + acyl-carrier protein
+octanoyl-[acp] + malonyl-[acp] + H+  ->  3-oxodecanoyl-[acp] + CO2 + acyl-carrier protein
+oleoyl-[acp] + malonyl-[acp] + H+  ->  (11Z)-3-oxo-icos-11-enoyl-[acp] + acyl-carrier protein + CO2
+palmitoleoyl-[acp] + malonyl-[acp] + H+  ->  (11Z)-3-oxooctadec-11-enoyl-[acp] + CO2 + acyl-carrier protein
+alpha,omega-9Z-octadecenedioate + coenzyme A + ATP  ->  omega-carboxy-(9Z)-octadec-9-enoyl-CoA + AMP + diphosphate
+alpha-linolenate + ATP + coenzyme A  ->  alpha-linolenoyl-CoA + AMP + diphosphate
+(15Z)-tetracosenoate + coenzyme A + ATP  ->  (15Z)-tetracosenoyl-CoA + AMP + diphosphate
+(2E)-hexadecenoate + coenzyme A + ATP  ->  (2E)-hexadec-2-enoyl-CoA + AMP + diphosphate
+(4E)-6-methylhept-4-enoate + coenzyme A + ATP  ->  (4E)-6-methylhept-4-enoyl-CoA + ADP + phosphate
+(5Z,8Z,11Z,14Z,17Z)-icosapentaenoate + ATP + coenzyme A  ->  (5Z,8Z,11Z,14Z,17Z)-icosapentaenoyl-CoA + AMP + diphosphate
+(6E)-9-methyldec-6-enoate + coenzyme A + ATP  ->  (6E)-9-methyldec-6-enoyl-CoA + ADP + phosphate
+(E)-8-methylnon-6-enoate + coenzyme A + ATP  ->  (E)-8-methylnon-6-enoyl-CoA + ADP + phosphate
+16-hydroxypalmitate + coenzyme A + ATP  ->  16-hydroxypalmitoyl-CoA + AMP + diphosphate
+18-hydroxyoleate + coenzyme A + ATP  ->  18-hydroxyoleoyl-CoA + AMP + diphosphate
+18-hydroxystearate + coenzyme A + ATP  ->  18-hydroxystearoyl-CoA + AMP + diphosphate
+7-methyloct-6-enoate + coenzyme A + ATP  ->  7-methyloct-6-enoyl-CoA + ADP + phosphate
+7-methyloctanoate + coenzyme A + ATP  ->  7-methyloctanoyl-CoA + ADP + phosphate
+8-methylnonanoate + coenzyme A + ATP  ->  8-methylnonanoyl-coA + ADP + phosphate
+9-methyldecanoate + coenzyme A + ATP  ->  9-methyldecanoyl-CoA + ADP + phosphate
+cis-vaccenate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  cis-vaccenoyl-CoA + AMP + diphosphate + H+
+a 2,3,4-saturated fatty acid + ATP + coenzyme A + H+  ->  a 2,3,4-saturated fatty acyl CoA + AMP + diphosphate + H+
+a 2-methyl branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 2-methyl branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a 3-methyl-branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 3-methyl-branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a long-chain 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a long-chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+a long-chain fatty acid + coenzyme A + ATP  ->  a long-chain fatty acyl-CoA + AMP + diphosphate
+an odd numbered straight chain 2,3,4-saturated fatty acid + ATP + coenzyme A  ->  an odd numbered straight chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+linoleate + coenzyme A + ATP  ->  linoleoyl-CoA + AMP + diphosphate
+oleate + coenzyme A + ATP  ->  oleoyl-CoA + AMP + diphosphate
+oleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  oleoyl-CoA + AMP + diphosphate + H+
+palmitate + coenzyme A + ATP  ->  palmitoyl-CoA + AMP + diphosphate
+palmitoleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  palmitoleoyl-CoA + AMP + diphosphate + H+
+pentadecanoate + coenzyme A + ATP  ->  pentadecanoyl-CoA + AMP + diphosphate
+phytenate + ATP + coenzyme A  ->  phytenoyl-CoA + AMP + diphosphate
+pristanate + coenzyme A + ATP  ->  pristanoyl-CoA + AMP + diphosphate
+stearate + coenzyme A + ATP  ->  stearoyl-CoA + AMP + diphosphate
+ATP + a 1,2-diacyl-sn-glycerol  ->  a phosphatidate + ADP + H+
+a phosphatidylserine + H+  ->  a phosphatidylethanolamine + CO2
+a [biotin carboxyl-carrier protein]-L-lysine + ATP + biotin  ->  AMP + a [biotin carboxyl-carrier protein]-N6-biotinyl-L-lysine + diphosphate + H+
+a [biotin carboxyl-carrier-protein dimer]-N6-biotinyl-L-lysine + hydrogen carbonate + ATP  ->  a [carboxyl-carrier protein dimer]-N6-carboxybiotinyl-L-lysine + ADP + phosphate + H+
+alpha,omega-9Z-octadecenedioate + coenzyme A + ATP  ->  omega-carboxy-(9Z)-octadec-9-enoyl-CoA + AMP + diphosphate
+alpha-linolenate + ATP + coenzyme A  ->  alpha-linolenoyl-CoA + AMP + diphosphate
+(15Z)-tetracosenoate + coenzyme A + ATP  ->  (15Z)-tetracosenoyl-CoA + AMP + diphosphate
+(2E)-hexadecenoate + coenzyme A + ATP  ->  (2E)-hexadec-2-enoyl-CoA + AMP + diphosphate
+(4E)-6-methylhept-4-enoate + coenzyme A + ATP  ->  (4E)-6-methylhept-4-enoyl-CoA + ADP + phosphate
+(5Z,8Z,11Z,14Z,17Z)-icosapentaenoate + ATP + coenzyme A  ->  (5Z,8Z,11Z,14Z,17Z)-icosapentaenoyl-CoA + AMP + diphosphate
+(6E)-9-methyldec-6-enoate + coenzyme A + ATP  ->  (6E)-9-methyldec-6-enoyl-CoA + ADP + phosphate
+(E)-8-methylnon-6-enoate + coenzyme A + ATP  ->  (E)-8-methylnon-6-enoyl-CoA + ADP + phosphate
+16-hydroxypalmitate + coenzyme A + ATP  ->  16-hydroxypalmitoyl-CoA + AMP + diphosphate
+18-hydroxyoleate + coenzyme A + ATP  ->  18-hydroxyoleoyl-CoA + AMP + diphosphate
+18-hydroxystearate + coenzyme A + ATP  ->  18-hydroxystearoyl-CoA + AMP + diphosphate
+7-methyloct-6-enoate + coenzyme A + ATP  ->  7-methyloct-6-enoyl-CoA + ADP + phosphate
+7-methyloctanoate + coenzyme A + ATP  ->  7-methyloctanoyl-CoA + ADP + phosphate
+8-methylnonanoate + coenzyme A + ATP  ->  8-methylnonanoyl-coA + ADP + phosphate
+9-methyldecanoate + coenzyme A + ATP  ->  9-methyldecanoyl-CoA + ADP + phosphate
+cis-vaccenate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  cis-vaccenoyl-CoA + AMP + diphosphate + H+
+a 2,3,4-saturated fatty acid + ATP + coenzyme A + H+  ->  a 2,3,4-saturated fatty acyl CoA + AMP + diphosphate + H+
+a 2-methyl branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 2-methyl branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a 3-methyl-branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 3-methyl-branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a long-chain 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a long-chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+a long-chain fatty acid + coenzyme A + ATP  ->  a long-chain fatty acyl-CoA + AMP + diphosphate
+an odd numbered straight chain 2,3,4-saturated fatty acid + ATP + coenzyme A  ->  an odd numbered straight chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+linoleate + coenzyme A + ATP  ->  linoleoyl-CoA + AMP + diphosphate
+oleate + coenzyme A + ATP  ->  oleoyl-CoA + AMP + diphosphate
+oleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  oleoyl-CoA + AMP + diphosphate + H+
+palmitate + coenzyme A + ATP  ->  palmitoyl-CoA + AMP + diphosphate
+palmitoleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  palmitoleoyl-CoA + AMP + diphosphate + H+
+pentadecanoate + coenzyme A + ATP  ->  pentadecanoyl-CoA + AMP + diphosphate
+phytenate + ATP + coenzyme A  ->  phytenoyl-CoA + AMP + diphosphate
+pristanate + coenzyme A + ATP  ->  pristanoyl-CoA + AMP + diphosphate
+stearate + coenzyme A + ATP  ->  stearoyl-CoA + AMP + diphosphate
+aldehydo-D-arabinose 5-phosphate  <->  D-ribulose 5-phosphate
+D-arabinofuranose 5-phosphate + phosphoenolpyruvate + H2O  ->  3-deoxy-D-manno-octulosonate 8-phosphate + phosphate
+3-deoxy-alpha-D-manno-2-octulosonate + CTP  ->  CMP-3-deoxy-beta-D-manno-octulosonate + diphosphate
+UDP-2-acetamido-2,3-dideoxy-3-{[(3R)-3-hydroxyhexadecanoyl]amino}-alpha-D-glucopyranose + H2O  ->  UDP-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxyacyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxyacyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxydecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxymyristoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxymyristoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxydodecanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + acetate
+UDP-3-O-[(3R)-3-hydroxyhexanoyl]-N-acetyl-alpha-D-glucosamine + H2O  ->  UDP-3-O-[(3R)-3-hydroxy-hexadecanoyl]-alpha-D-glucosamine + acetate
+UDP-2-N,3-O-bis[(3R)-3-hydroxyacyl]-alpha-D-glucosamine + H2O  ->  a lipid X + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine + H2O  ->  lipid X (Brucella) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxy-16-methylhexadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (P. gingivalis) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxyoctadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (H. pylori) + UMP + 2 H+
+UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (E. coli) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (P. putida) + UMP + 2 H+
+UDP-2-N-[(3R)-3-hydroxytetradecanoyl]-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + H2O  ->  lipid X (Vibrio cholerae serogroup O1 El Tor) + UMP + 2 H+
+a lipid X + UDP-2-N,3-O-bis[(3R)-3-hydroxyacyl]-alpha-D-glucosamine  ->  a lipid A disaccharide + UDP + H+
+lipid X (Brucella) + UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-N-[(3R)-3-hydroxyhexanoyl]-alpha-3-amino-3-deoxy-D-glucosamine  ->  dephospho-lipid IVA (Brucella) + UDP + H+
+lipid X (E. coli) + UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (E. coli) + UDP + H+
+lipid X (H. pylori) + UDP-2-N-[(3R)-3-hydroxyoctadecanoyl]-3-O-[(3R)-3-hydroxyhexadecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (H. pylori) + UDP + H+
+lipid X (P. gingivalis) + UDP-2-N-[(3R)-3-hydroxy-15-methylhexadecanoyl]-3-O-[(3R)-3-hydroxy-13-methyltetradecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (P. gingivalis) + UDP + H+
+lipid X (P. putida) + UDP-2-N-[(3R)-3-hydroxydodecanoyl]-3-O-[(3R)-3-hydroxydecanoyl]-alpha-D-glucosamine  ->  lipid A disaccharide (P. putida) + UDP + H+
+UDP-2-N-[(3R)-3-hydroxytetradecanoyl]-3-O-[(3R)-3-hydroxydodecanoyl]-alpha-D-glucosamine + lipid X (Vibrio cholerae serogroup O1 El Tor)  ->  lipid A disaccharide (Vibrio cholerae serogroup O1 El Tor) + UDP + H+
+a lipid A disaccharide + ATP  ->  a lipid IVA + ADP + H+
+dephospho-lipid IVA (Brucella) + ATP  ->  lipid IVA (Brucella) + ADP + H+
+lipid A disaccharide (E. coli) + ATP  ->  lipid IVA (E. coli) + ADP + H+
+lipid A disaccharide (H. pylori) + ATP  ->  lipid IVA (H. pylori) + ADP + H+
+lipid A disaccharide (P. gingivalis) + ATP  ->  lipid IVA (P. gingivalis) + ADP + H+
+lipid A disaccharide (Vibrio cholerae serogroup O1 El Tor) + ATP  ->  lipid IVA (Vibrio cholerae serogroup O1 El Tor) + ADP + H+
+lipid A disaccharide (P. putida) + ATP  ->  lipid IVA (P. putida) + ADP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + a lipid IVA  ->  an alpha-Kdo-(2->6)-[lipid IVA] + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (Brucella)  ->  alpha-Kdo-(2->6)-lipid IVA (Brucella) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (E. coli)  ->  alpha-Kdo-(2->6)-lipid IVA (E. coli) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (H. pylori)  ->  alpha-Kdo-(2->6)-lipid IVA (H. pylori) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (P. gingivalis)  ->  alpha-Kdo-(2->6)-lipid IVA (P. gingivalis) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (Vibrio cholerae serogroup O1 El Tor)  ->  alpha-Kdo-(2->6)-lipid IVA (Vibrio cholerae serogroup O1 El Tor) + CMP + H+
+CMP-3-deoxy-beta-D-manno-octulosonate + lipid IVA (P. putida)  ->  alpha-Kdo-(2->6)-lipid IVA (P. putida) + CMP + H+
+27-hydroxyoctacosanoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (Brucella)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(27-hydroxyoctacosanoyl)-lipid IVA (Brucella) + acyl-carrier protein
+dodecanoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (E. coli)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(lauroyl)-lipid IVA (E. coli) + acyl-carrier protein
+dodecanoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (P. putida)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(lauroyl)-lipid IVA (P. putida) + acyl-carrier protein
+fatty acyl-[acyl-carrier protein] + an alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-[lipid IVA]  ->  an alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(acyl)-[lipid IVA] + acyl-carrier protein
+myristoyl-[acp] + 4-O-phospho-alpha-Kdo-(2->6)-lipid IVA (Vibrio cholerae serogroup O1 El Tor)  ->  C14:0--phospho-alpha-Kdo-(2->6)-lipid IVA (Vibrio cholerae serogroup O1 El Tor) + acyl-carrier protein
+palmitoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (Brucella)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(palmitoyl)-lipid IVA (Brucella) + acyl-carrier protein
+palmitoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (P. gingivalis)  ->  P. gingivalis Kdo2-lipid A (penta-acylated, bis-phosphorylated) + acyl-carrier protein
+stearoyl-[acp] + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid IVA (H. pylori)  ->  alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-(octadecanoyl)-lipid IVA (H. pylori) + acyl-carrier protein
+L-aspartate + L-citrulline + ATP  ->  L-arginino-succinate + AMP + diphosphate + H+
+O-ureido-L-homoserine + L-aspartate + ATP  ->  canavaninosuccinate + AMP + diphosphate + H+
+canavaninosuccinate  ->  L-canavanine + fumarate
+L-arginino-succinate  <->  L-arginine + fumarate
+ppGpp + H2O  ->  GDP + diphosphate
+pppGpp + H2O  ->  GTP + diphosphate
+ATP + GDP  ->  AMP + ppGpp + H+
+ATP + GTP  ->  pppGpp + AMP + H+
+5,6,7,8-tetrahydrofolate + NADP+  &larr;  7,8-dihydrofolate monoglutamate + NADPH + H+
+7,8-dihydrofolate monoglutamate + NADP+  &larr;  folate + NADPH + H+
+a 7,8-dihydrofolate + NADP+  &larr;  a folate + NADPH + H+
+a tetrahydrofolate + NADP+  &larr;  a 7,8-dihydrofolate + NADPH + H+
+glycine + 5,10-methylene-tetrahydromethanopterin + H2O  <->  L-serine + tetrahydromethanopterin
+L-serine + a tetrahydrofolate  <->  glycine + a 5,10-methylenetetrahydrofolate + H2O
+a 5,10-methylenetetrahydrofolate + dUMP  ->  dTMP + a 7,8-dihydrofolate
+dUMP + 5,10-methylene-tetrahydromethanopterin  ->  dTMP + 7,8-dihydromethanopterin
+(3R)-3-hydroxy-12-methyltridecanoyl-[acp] + NADP+  &larr;  12-methyl-3-oxotridecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-13-methyltetradecanoyl-[acp] + NADP+  &larr;  13-methyl-3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-14-methylpentadecanoyl-[acp] + NADP+  &larr;  14-methyl-3-oxopentadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-15-methylhexadecanoyl-[acp] + NADP+  &larr;  15-methyl-3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-6-methylheptanoyl-[acp] + NADP+  &larr;  6-methyl-3-oxoheptanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-7-methyloctanoyl-[acp] + NADP+  &larr;  7-methyl-3-oxooctanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-8-methylnonanoyl-[acp] + NADP+  &larr;  8-methyl-3-oxononanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-9-methyldecanoyl-[acp] + NADP+  &larr;  9-methyl-3-oxodecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyacyl-[acyl-carrier protein] + NADP+  &larr;  3-oxoacyl-[acyl-carrier protein] + NADPH + H+
+(3R)-3-hydroxydecanoyl-[acp] + NADP+  &larr;  3-oxodecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxydocosanoyl-[acp] + NADP+  &larr;  3-oxodocosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxydocosanoyl-[acp] + NADP+  &larr;  3-oxodocosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyhexadecanoyl-[acp] + NADP+  &larr;  3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyhexanoyl-[acp] + NADP+  &larr;  3-oxohexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyicosanoyl-[acp] + NADP+  &larr;  3-oxoicosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyoctadecanoyl-[acp] + NADP+  &larr;  3-oxooctadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyoctanoyl-[acp] + NADP+  &larr;  3-oxooctanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxypentanoyl-[TcsA polyketide synthase] + NADP+  &larr;  3-oxopentanoyl-[TcsA polyketide synthase] + NADPH + H+
+(3R)-3-hydroxypimeloyl-[acp] + NADP+  &larr;  3-oxopimeloyl-[acp] + NADPH + H+
+(3R)-3-hydroxytetradecanoyl-[acp] + NADP+  &larr;  3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R,11Z)-3-hydroxyoctadec-11-enoyl-[acp] + NADP+  &larr;  (11Z)-3-oxooctadec-11-enoyl-[acp] + NADPH + H+
+(3R,12S)-3-hydroxy-12-methyltetradecanoyl-[acp] + NADP+  &larr;  (12S)-12-methyl-3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R,14S)-3-hydroxy-14-methylhexadecanoyl-[acp] + NADP+  &larr;  (14S)-14-methyl-3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R,5Z)-3-hydroxydodec-5-enoyl-[acp] + NADP+  &larr;  (5Z)-3-oxododec-5-enoyl-[acp] + NADPH + H+
+(3R,5Z)-3-hydroxy-tetradec-5-enoyl-[acp] + NADP+  &larr;  (5Z)-3-oxo-tetradec-5-enoyl-[acp] + NADPH + H+
+(3R,6S)-3-hydroxy-6-methyloctanoyl-[acp] + NADP+  &larr;  (6S)-6-methyl-3-oxooctanoyl-[acp] + NADPH + H+
+(3R,7Z)-3-hydroxytetradec-7-enoyl-[acp] + NADP+  &larr;  (7Z)-3-oxotetradec-7-enoyl-[acp] + NADPH + H+
+(3R,7Z,10Z,13Z,16Z,19Z)-3-hydroxydocosa-7,10,13,16,19-pentaenoyl-[acp] + NADP+  &larr;  (7Z,10Z,13Z,16Z,19Z)-3-oxodocosa-7,10,13,16,19-pentaenoyl-[acp] + NADPH + H+
+(3R,8S)-3-hydroxy-8-methyldecanoyl-[acp] + NADP+  &larr;  (8S)-8-methyl-3-oxodecanoyl-[acp] + NADPH + H+
+(3R,9Z)-3-hydroxyhexadec-9-enoyl-[acp] + NADP+  &larr;  (9Z)-3-oxohexadec-9-enoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyglutaryl-[acp] methyl ester + NADP+  &larr;  3-oxoglutaryl-[acp] methyl ester + NADPH + H+
+(3R)-3-hydroxypimeloyl-[acp] methyl ester + NADP+  &larr;  3-oxopimeloyl-[acp] methyl ester + NADPH + H+
+(3R,11Z)-3-hydroxy-icos-11-enoyl-[acp] + NADP+  &larr;  (11Z)-3-oxo-icos-11-enoyl-[acp] + NADPH + H+
+(3R,6Z)-3-hydroxyoctadec-6-enoyl-[acp] + NADP+  &larr;  (6Z)-3-oxooctadec-6-enoyl-[acp] + NADPH + H+
+(3R,7Z)-3-hydroxy-hexadec-7-enoyl-[acp] + NADP+  &larr;  (7Z)-3-oxo-hexadec-7-enoyl-[acp] + NADPH + H+
+(3R,9Z)-3-hydroxy-octadec-9-enoyl-[acp] + NADP+  &larr;  (9Z)-3-oxo-octadec-9-enoyl-[acp] + NADPH + H+
+(4S,3R)-3-hydroxy-4-methylhexanoyl-[acp] + NADP+  &larr;  (4S)-4-methyl-3-oxohhexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-10-methylundecanoyl-[acp] + NADP+  &larr;  1o-methyl-3-oxoundecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-11-methyldodecanoyl-[acp] + NADP+  &larr;  11-methyl-3-oxododecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-4-methylpentanoyl-[acp] + NADP+  &larr;  4-methyl-3-oxopentanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-5-methylhexanoyl-[acp] + NADP+  &larr;  5-methyl-3-oxohexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxybutanoyl-[acp] + NADP+  &larr;  acetoacetyl-[acp] + NADPH + H+
+(3R)-3-hydroxydodecanoyl-[acp] + NADP+  &larr;  3-oxododecanoyl-[acp] + NADPH + H+
+(3R,10S)-3-hydroxy-10-methyldodecanoyl-[acp] + NADP+  &larr;  (10S)-10-methyl-3-oxododecanoyl-[acp] + NADPH + H+
+(10S)-10-methyldodecanoyl-[acp] + NAD+  &larr;  (2E,10S)-10-methyldodec-2-enoyl-[acp] + NADH + H+
+(12S)-12-methyltetradecanoyl-[acp] + NAD+  &larr;  (2E,12S)-12-methyltetradec-2-enoyl-[acp] + NADH + H+
+(14S)-14-methylhexadecanoyl-[acp] + NAD+  &larr;  (2E,14S)-14-methylhexadec-2-enoyl-[acp] + NADH + H+
+(4S)-4-methylhexanoyl-[acp] + NAD+  &larr;  (2E,4S)-4-methylhex-2-enoyl-[acp] + NADH + H+
+(5Z)-dodec-5-enoyl-[acp] + NAD+  &larr;  (2E,5Z)-dodeca-3,5-dienoyl-[acp] + NADH + H+
+(5Z)-tetradec-5-enoyl-[acp] + NAD+  &larr;  (2E,5Z)-tetradeca-2,5-dienoyl-[acp] + NADH + H+
+(6S)-6-methyloctanoyl-[acp] + NAD+  &larr;  (2E,6S)-6-methyloct-2-enoyl-[acp] + NADH + H+
+(7Z)-tetradec-7-enoyl-[acp] + NAD+  &larr;  (2E,7Z)-tetradeca-2,7-dienoyl-[acp] + NADH + H+
+(7Z)-hexadec-7-enoyl-[acp] + NAD+  &larr;  (2E,7Z)-hexadeca-2,7-dienoyl-[acp] + NADH + H+
+(8S)-8-methyldecanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E,8S)-8-methyldec-2-enoyl-[acp] + NADH + H+
+10-methylundecanoyl-[acp] + NAD+  &larr;  (2E)-10-methylundec-2-enoyl-[acp] + NADH + H+
+11-methyldodecanoyl-[acp] + NAD+  &larr;  (2E)-11-methyldodec-2-enoyl-[acp] + NADH + H+
+12-methyltridecanoyl-[acp] + NAD+  &larr;  (2E)-12-methyltridec-2-enoyl-[acp] + NADH + H+
+13-methyltetradecanoyl-[acp] + NAD+  &larr;  (2E)-13-methyltetradec-2-enoyl-[acp] + NADH + H+
+14-methylpentadecanoyl-[acp] + NAD+  &larr;  (2E)-14-methylpentadec-2-enoyl-[acp] + NADH + H+
+15-methylhexadecanoyl-[acp] + NAD+  &larr;  (2E)-15-methylhexadec-2-enoyl-[acp] + NADH + H+
+2,3,4-saturated fatty acyl-[acp] + NAD+  &larr;  trans-2-enoyl-[acyl-carrier protein] + NADH + H+
+5-methylhexanoyl-[acp] + NAD+  &larr;  (2E)-4-methylpent-2-enoyl-[acp] + NADH + H+
+5-methylhexanoyl-[acp] + NAD+  &larr;  (2E)-5-methylhex-2-enoyl-[acp] + NADH + H+
+6-methylheptanoyl-[acp] + NAD+  &larr;  (2E)-6-methylhept-2-enoyl-[acp] + NADH + H+
+7-methyloctanoyl-[acp] + NAD+  &larr;  (2E)-7-methyloct-2-enoyl-[acp] + NADH + H+
+8-methylnonanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E)-8-methylnon-2-enoyl-[acp] + NADH + H+
+9-methyldecanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E)-9-methyldec-2-enoyl-[acp] + NADH + H+
+cis-vaccenoyl-[acp] + NAD+  &larr;  (2E,11Z)-octadeca-2,11-dienoyl-[acp] + NADH + H+
+acyl-[acyl-carrier protein] + NAD+  &larr;  trans-2-enoyl-[acyl-carrier protein] + NADH + H+
+arachidoyl-[acp] + NAD+  &larr;  (2E)-icos-2-enoyl-[acp] + NADH + H+
+behenoyl-[acp] + NAD+  ->  (2E)-docos-2-enoyl-[acp] + NADH + H+
+butanoyl-[acp] + NAD+  &larr;  (2E)-but-2-enoyl-[acp] + NADH + H+
+decanoyl-[acp] + NAD+  &larr;  (2E)-dec-2-enoyl-[acp] + NADH + H+
+dodecanoyl-[acp] + NAD+  &larr;  (2E)-dodec-2-enoyl-[acp] + NADH + H+
+glutaryl-[acp] methyl ester + NAD+  &larr;  (2E)-enoylglutaryl-[acp] methyl ester + NADH + H+
+gondoyl-[acp] + NAD+  &larr;  (2E,11Z)-icosa-2,11-dienoyl-[acp] + NADH + H+
+hexanoyl-[acp] + NAD+  &larr;  (2E)-hex-2-enoyl-[acp] + NADH + H+
+myristoyl-[acp] + NAD+  &larr;  (2E)-tetradec-2-enoyl-[acp] + NADH + H+
+octanoyl-[acp] + NAD+  &larr;  (2E)-oct-2-enoyl-[acp] + NADH + H+
+oleoyl-[acp] + NAD+  &larr;  (2E,9Z)-octadeca-2,9-dienoyl-[acp] + NADH + H+
+palmitoleoyl-[acp] + NAD+  &larr;  (2E,9Z)-hexadeca-2,9-dienoyl-[acp] + NADH + H+
+palmitoyl-[acp] + NAD+  &larr;  (2E)-hexadec-2-enoyl-[acp] + NADH + H+
+pimeloyl-[acp] + NAD+  &larr;  2-enoyl-pimeloyl-[acp] + NADH + H+
+pimeloyl-[acp] methyl ester + NAD+  &larr;  (2E)-enoylpimeloyl-[acp] methyl ester + NADH + H+
+stearoyl-[acp] + NAD+  &larr;  (2E)-octadec-2-enoyl-[acp] + NADH + H+
+pimeloyl-CoA + L-alanine + H+  ->  CO2 + coenzyme A + (8S)-8-amino-7-oxononanoate
+pimeloyl-[acp] + L-alanine + H+  ->  (8S)-8-amino-7-oxononanoate + CO2 + acyl-carrier protein
+pimeloyl-CoA + L-alanine + H+  ->  CO2 + coenzyme A + (8S)-8-amino-7-oxononanoate
+pimeloyl-[acp] + L-alanine + H+  ->  (8S)-8-amino-7-oxononanoate + CO2 + acyl-carrier protein
+pimeloyl-CoA + L-alanine + H+  ->  CO2 + coenzyme A + (8S)-8-amino-7-oxononanoate
+pimeloyl-[acp] + L-alanine + H+  ->  (8S)-8-amino-7-oxononanoate + CO2 + acyl-carrier protein
+2 pyruvate + H+  ->  (S)-2-acetolactate + CO2
+pyruvate + 2-oxobutanoate + H+  ->  (S)-2-aceto-2-hydroxybutanoate + CO2
+geranyl diphosphate + 3-methylbut-3-en-1-yl diphosphate  ->  (2E,6E)-farnesyl diphosphate + diphosphate
+(2E,6E)-farnesyl diphosphate + 5 3-methylbut-3-en-1-yl diphosphate  ->  all-trans-octaprenyl diphosphate + 5 diphosphate
+(2E,6E)-farnesyl diphosphate + 8 3-methylbut-3-en-1-yl diphosphate  ->  di-trans,octa-cis-undecaprenyl diphosphate + 8 diphosphate
+di-trans,octa-cis-undecaprenyl diphosphate + H2O  ->  di-trans,octa-cis-undecaprenyl phosphate + phosphate + H+
+pyruvate + D-glyceraldehyde 3-phosphate + H+  ->  1-deoxy-D-xylulose 5-phosphate + CO2
+2-C-methyl-D-erythritol 4-phosphate + NADP+  <->  1-deoxy-D-xylulose 5-phosphate + NADPH + H+
+4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol + ATP  ->  2-phospho-4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol + ADP + H+
+2-phospho-4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol  ->  2-C-methyl-D-erythritol-2,4-cyclodiphosphate + CMP
+(E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + oxidized flavodoxin + H2O + H+  &larr;  2-C-methyl-D-erythritol-2,4-cyclodiphosphate + reduced flavodoxin
+3-methylbut-3-en-1-yl diphosphate + 2 oxidized ferredoxin [iron-sulfur] cluster + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + 2 reduced ferredoxin [iron-sulfur] cluster + 2 H+
+3-methylbut-3-en-1-yl diphosphate + oxidized flavodoxin + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + reduced flavodoxin
+prenyl diphosphate + 2 oxidized ferredoxin [iron-sulfur] cluster + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + 2 reduced ferredoxin [iron-sulfur] cluster + 2 H+
+prenyl diphosphate + oxidized flavodoxin + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + reduced flavodoxin
+3-methylbut-3-en-1-yl diphosphate  <->  prenyl diphosphate
+geranyl diphosphate + 3-methylbut-3-en-1-yl diphosphate  ->  (2E,6E)-farnesyl diphosphate + diphosphate
+di-trans,octa-cis-undecaprenyl diphosphate + H2O  ->  di-trans,octa-cis-undecaprenyl phosphate + phosphate + H+
+S-ribosyl-L-homocysteine  ->  L-homocysteine + autoinducer 2
+S-ribosyl-L-homocysteine  ->  L-homocysteine + autoinducer 2
+2'-deoxyadenosine + phosphate  <->  adenine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyguanosine + phosphate  <->  guanine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyinosine + phosphate  <->  hypoxanthine + 2-deoxy-alpha-D-ribose 1-phosphate
+5'-chloro-5'-deoxyadenosine + phosphate  <->  adenine + 5-chloro-5-deoxyribose 1-phosphate
+5'-deoxy-5'-fluoroadenosine + phosphate  <->  adenine + 5-fluoro-5-deoxy-D-ribose 1-phosphate
+a purine 2'-deoxyribonucleoside + phosphate  <->  a purine base + 2-deoxy-alpha-D-ribose 1-phosphate
+a purine ribonucleoside + arsenate  <->  a purine base + ribose-1-arsenate
+a purine ribonucleoside + phosphate  <->  a purine base + alpha-D-ribose-1-phosphate
+adenosine + phosphate  <->  adenine + alpha-D-ribose-1-phosphate
+guanosine + phosphate  <->  guanine + alpha-D-ribose-1-phosphate
+inosine + phosphate  <->  hypoxanthine + alpha-D-ribose-1-phosphate
+xanthosine + phosphate  <->  xanthine + alpha-D-ribose-1-phosphate
+ATP + 2-methylbutanoate + coenzyme A  ->  AMP + (2S)-2-methylbutanoyl-CoA + diphosphate
+ATP + 3-methylbutanoate + coenzyme A  ->  AMP + 3-methylbutanoyl-CoA + diphosphate
+ATP + isobutanoate + coenzyme A  ->  AMP + isobutanoyl-CoA + diphosphate
+coenzyme A + acetate + ATP  <->  acetyl-CoA + AMP + diphosphate
+GTP + H2O  ->  formate + 7,8-dihydroneopterin 3'-triphosphate + H+
+7,8-dihydroneopterin 3'-triphosphate + H2O  ->  6-carboxy-5,6,7,8-tetrahydropterin + acetaldehyde + triphosphate + H+
+6-carboxy-5,6,7,8-tetrahydropterin + H+  ->  7-carboxy-7-deazaguanine + ammonium
+sirohydrochlorin + Fe2+  ->  siroheme + 2 H+
+pyruvate + coenzyme A + 2 oxidized ferredoxin [iron-sulfur] cluster  <->  acetyl-CoA + CO2 + 2 reduced ferredoxin [iron-sulfur] cluster + H+
+pyruvate + coenzyme A + oxidized flavodoxin + H+  <->  acetyl-CoA + CO2 + reduced flavodoxin
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+geranyl diphosphate + 3-methylbut-3-en-1-yl diphosphate  ->  (2E,6E)-farnesyl diphosphate + diphosphate
+(R)-3,4-dihydroxyphenylglycol + NAD+  &larr;  3,4-dihydroxyphenylglycolaldehyde + NADH + H+
+(R)-butane-1,3-diol + NAD+  ->  (R)-3-hydroxybutanal + NADH + H+
+(R)-mevalonate + NAD+  &larr;  (R)-mevaldate + NADH + H+
+(indol-3-yl)glycol + NAD+  &larr;  (2R)-2-hydroxy-2-(indol-3-yl)acetaldehyde + NADH + H+
+2-methylbutanol + NAD+  &larr;  2-methylbutanal + NADH + H+
+2-phenylethanol + NAD+  <->  phenylacetaldehyde + NADH + H+
+3-methoxy-4-hydroxyphenylglycol + NAD+  <->  3-methoxy-4-hydroxyphenylglycolaldehyde + NADH + H+
+3-methylbutanol + NAD+  <->  3-methylbutanal + NADH + H+
+4-tyrosol + NAD+  &larr;  (4-hydroxyphenyl)acetaldehyde + NADH + H+
+5-hydroxytryptophol + NAD+  &larr;  5-hydroxyindole acetaldehyde + NADH + H+
+a primary alcohol + NAD+  <->  an aldehyde + NADH + H+
+a secondary alcohol + NAD+  <->  a ketone + NADH + H+
+ethanol + NAD+  <->  acetaldehyde + NADH + H+
+isobutanol + NAD+  <->  isobutanal + NADH + H+
+methionol + NAD+  &larr;  3-(methylsulfanyl)propanal + NADH + H+
+phytol + NAD+  ->  phytenal + NADH + H+
+propan-1-ol + NAD+  &larr;  1-propanal + NADH + H+
+ATP + 2-methylbutanoate + coenzyme A  ->  AMP + (2S)-2-methylbutanoyl-CoA + diphosphate
+ATP + 3-methylbutanoate + coenzyme A  ->  AMP + 3-methylbutanoyl-CoA + diphosphate
+ATP + isobutanoate + coenzyme A  ->  AMP + isobutanoyl-CoA + diphosphate
+coenzyme A + acetate + ATP  <->  acetyl-CoA + AMP + diphosphate
+ATP + 2-methylbutanoate + coenzyme A  ->  AMP + (2S)-2-methylbutanoyl-CoA + diphosphate
+ATP + 3-methylbutanoate + coenzyme A  ->  AMP + 3-methylbutanoyl-CoA + diphosphate
+ATP + isobutanoate + coenzyme A  ->  AMP + isobutanoyl-CoA + diphosphate
+coenzyme A + acetate + ATP  <->  acetyl-CoA + AMP + diphosphate
+ATP + 2-methylbutanoate + coenzyme A  ->  AMP + (2S)-2-methylbutanoyl-CoA + diphosphate
+ATP + 3-methylbutanoate + coenzyme A  ->  AMP + 3-methylbutanoyl-CoA + diphosphate
+ATP + isobutanoate + coenzyme A  ->  AMP + isobutanoyl-CoA + diphosphate
+coenzyme A + acetate + ATP  <->  acetyl-CoA + AMP + diphosphate
+glycerol + ATP  <->  sn-glycerol 3-phosphate + ADP + H+
+glycerol + ATP  <->  sn-glycerol 3-phosphate + ADP + H+
+(R)-propane-1,2-diol + NAD+  &larr;  (R)-lactaldehyde + NADH + H+
+(S)-propane-1,2-diol + NAD+  <->  (S)-lactaldehyde + NADH + H+
+ethylene glycol + NAD+  <->  glycolaldehyde + NADH + H+
+(R)-propane-1,2-diol + NAD+  &larr;  (R)-lactaldehyde + NADH + H+
+(S)-propane-1,2-diol + NAD+  <->  (S)-lactaldehyde + NADH + H+
+ethylene glycol + NAD+  <->  glycolaldehyde + NADH + H+
+(R)-S-lactoylglutathione + H2O  ->  (R)-lactate + glutathione + H+
+S-(2-hydroxyacyl)glutathione + H2O  ->  a 2-hydroxy carboxylate + glutathione + H+
+(R)-S-lactoylglutathione + H2O  ->  (R)-lactate + glutathione + H+
+S-(2-hydroxyacyl)glutathione + H2O  ->  a 2-hydroxy carboxylate + glutathione + H+
+(R)-S-lactoylglutathione + H2O  ->  (R)-lactate + glutathione + H+
+S-(2-hydroxyacyl)glutathione + H2O  ->  a 2-hydroxy carboxylate + glutathione + H+
+L-glutamate + NAD(P)+ + H2O  <->  2-oxoglutarate + ammonium + NAD(P)H + H+
+L-glutamate + H+  ->  4-aminobutanoate + CO2
+aldehydo-N-glycolylneuraminate  ->  N-glycolyl-D-mannosamine + pyruvate
+aceneuramate  ->  N-acetyl-D-mannosamine + pyruvate
+N-acetyl-D-mannosamine + ATP  ->  N-acetyl-D-mannosamine 6-phosphate + ADP + H+
+an N-acyl-D-mannosamine + ATP  =  an N-acyl-alpha-D-mannosamine 6-phosphate + ADP + H+
+D-glucosamine 6-phosphate + H2O  <->  beta-D-fructofuranose 6-phosphate + ammonium
+ATP + 2-methylbutanoate + coenzyme A  ->  AMP + (2S)-2-methylbutanoyl-CoA + diphosphate
+ATP + 3-methylbutanoate + coenzyme A  ->  AMP + 3-methylbutanoyl-CoA + diphosphate
+ATP + isobutanoate + coenzyme A  ->  AMP + isobutanoyl-CoA + diphosphate
+coenzyme A + acetate + ATP  <->  acetyl-CoA + AMP + diphosphate
+a [2-oxoglutarate dehydrogenase E2 protein] N6-dihydrolipoyl-L-lysine + NAD+  ->  a [2-oxoglutarate dehydrogenase E2 protein] N6-lipoyl-L-lysine + NADH + H+
+a [glycine-cleavage complex H protein] N6-dihydrolipoyl-L-lysine + NAD+  <->  a [glycine-cleavage complex H protein] N6-[(R)-lipoyl]-L-lysine + NADH + H+
+a [lipoyl-carrier protein]-N6-[(R)-dihydrolipoyl]-L-lysine + NAD+  ->  a [lipoyl-carrier protein]-N6-[(R)-lipoyl]-L-lysine + NADH + H+
+a [pyruvate dehydrogenase E2 protein] N6-dihydrolipoyl-L-lysine + NAD+  ->  a [pyruvate dehydrogenase E2 protein] N6-lipoyl-L-lysine + NADH + H+
+an [apo BCAA dehydrogenase E2 protein] N6-dihydrolipoyl-L-lysine + NAD+  <->  a [BCAA dehydrogenase E2 protein] N6-lipoyl-L-lysine + NADH + H+
+acetyl-CoA + phosphate  <->  acetyl phosphate + coenzyme A
+aldehydo-N-glycolylneuraminate  ->  N-glycolyl-D-mannosamine + pyruvate
+aceneuramate  ->  N-acetyl-D-mannosamine + pyruvate
+N-acetyl-D-mannosamine + ATP  ->  N-acetyl-D-mannosamine 6-phosphate + ADP + H+
+an N-acyl-D-mannosamine + ATP  =  an N-acyl-alpha-D-mannosamine 6-phosphate + ADP + H+
+D-glucosamine 6-phosphate + H2O  <->  beta-D-fructofuranose 6-phosphate + ammonium
+ATP + beta-D-fructofuranose 6-phosphate  ->  ADP + beta-D-fructofuranose 1,6-bisphosphate + H+
+beta-D-fructofuranose 1,6-bisphosphate + H2O  ->  beta-D-fructofuranose 6-phosphate + phosphate
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+acetyl-CoA + formate  <->  coenzyme A + pyruvate
+propanoyl-CoA + formate  <->  coenzyme A + 2-oxobutanoate
+acetyl-CoA + phosphate  <->  acetyl phosphate + coenzyme A
+(R)-3,4-dihydroxyphenylglycol + NAD+  &larr;  3,4-dihydroxyphenylglycolaldehyde + NADH + H+
+(R)-butane-1,3-diol + NAD+  ->  (R)-3-hydroxybutanal + NADH + H+
+(R)-mevalonate + NAD+  &larr;  (R)-mevaldate + NADH + H+
+(indol-3-yl)glycol + NAD+  &larr;  (2R)-2-hydroxy-2-(indol-3-yl)acetaldehyde + NADH + H+
+2-methylbutanol + NAD+  &larr;  2-methylbutanal + NADH + H+
+2-phenylethanol + NAD+  <->  phenylacetaldehyde + NADH + H+
+3-methoxy-4-hydroxyphenylglycol + NAD+  <->  3-methoxy-4-hydroxyphenylglycolaldehyde + NADH + H+
+3-methylbutanol + NAD+  <->  3-methylbutanal + NADH + H+
+4-tyrosol + NAD+  &larr;  (4-hydroxyphenyl)acetaldehyde + NADH + H+
+5-hydroxytryptophol + NAD+  &larr;  5-hydroxyindole acetaldehyde + NADH + H+
+a primary alcohol + NAD+  <->  an aldehyde + NADH + H+
+a secondary alcohol + NAD+  <->  a ketone + NADH + H+
+ethanol + NAD+  <->  acetaldehyde + NADH + H+
+isobutanol + NAD+  <->  isobutanal + NADH + H+
+methionol + NAD+  &larr;  3-(methylsulfanyl)propanal + NADH + H+
+phytol + NAD+  ->  phytenal + NADH + H+
+propan-1-ol + NAD+  &larr;  1-propanal + NADH + H+
+4-(N-(S-cysteinylglycylacetyl)amino) phenylarsonous acid + H2O  ->  4-(N-(S-cysteinylacetyl)amino)phenylarsonous acid + glycine
+a dipeptide + H2O  ->  2 a proteinogenic amino acid
+glycyl-L-asparagine + H2O  ->  glycine + L-asparagine
+glycyl-L-aspartate + H2O  ->  glycine + L-aspartate
+glycyl-L-glutamate + H2O  ->  glycine + L-glutamate
+glycyl-L-glutamine + H2O  ->  glycine + L-glutamine
+glycyl-L-methionine + H2O  ->  glycine + L-methionine
+glycyl-L-proline + H2O  ->  glycine + L-proline
+L-alanyl-glycine + H2O  ->  L-alanine + glycine
+L-alanyl-L-aspartate + H2O  ->  L-alanine + L-aspartate
+L-alanyl-L-glutamate + H2O  ->  L-alanine + L-glutamate
+L-alanyl-L-glutamine + H2O  ->  L-alanine + L-glutamine
+L-alanyl-L-histidine + H2O  ->  L-alanine + L-histidine
+L-alanyl-L-leucine + H2O  ->  L-alanine + L-leucine
+L-alanyl-L-threonine + H2O  ->  L-alanine + L-threonine
+L-cysteinylglycine + H2O  ->  L-cysteine + glycine
+L-methionyl-L-alanine dipeptide + H2O  ->  L-methionine + L-alanine
+alpha,omega-9Z-octadecenedioate + coenzyme A + ATP  ->  omega-carboxy-(9Z)-octadec-9-enoyl-CoA + AMP + diphosphate
+alpha-linolenate + ATP + coenzyme A  ->  alpha-linolenoyl-CoA + AMP + diphosphate
+(15Z)-tetracosenoate + coenzyme A + ATP  ->  (15Z)-tetracosenoyl-CoA + AMP + diphosphate
+(2E)-hexadecenoate + coenzyme A + ATP  ->  (2E)-hexadec-2-enoyl-CoA + AMP + diphosphate
+(4E)-6-methylhept-4-enoate + coenzyme A + ATP  ->  (4E)-6-methylhept-4-enoyl-CoA + ADP + phosphate
+(5Z,8Z,11Z,14Z,17Z)-icosapentaenoate + ATP + coenzyme A  ->  (5Z,8Z,11Z,14Z,17Z)-icosapentaenoyl-CoA + AMP + diphosphate
+(6E)-9-methyldec-6-enoate + coenzyme A + ATP  ->  (6E)-9-methyldec-6-enoyl-CoA + ADP + phosphate
+(E)-8-methylnon-6-enoate + coenzyme A + ATP  ->  (E)-8-methylnon-6-enoyl-CoA + ADP + phosphate
+16-hydroxypalmitate + coenzyme A + ATP  ->  16-hydroxypalmitoyl-CoA + AMP + diphosphate
+18-hydroxyoleate + coenzyme A + ATP  ->  18-hydroxyoleoyl-CoA + AMP + diphosphate
+18-hydroxystearate + coenzyme A + ATP  ->  18-hydroxystearoyl-CoA + AMP + diphosphate
+7-methyloct-6-enoate + coenzyme A + ATP  ->  7-methyloct-6-enoyl-CoA + ADP + phosphate
+7-methyloctanoate + coenzyme A + ATP  ->  7-methyloctanoyl-CoA + ADP + phosphate
+8-methylnonanoate + coenzyme A + ATP  ->  8-methylnonanoyl-coA + ADP + phosphate
+9-methyldecanoate + coenzyme A + ATP  ->  9-methyldecanoyl-CoA + ADP + phosphate
+cis-vaccenate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  cis-vaccenoyl-CoA + AMP + diphosphate + H+
+a 2,3,4-saturated fatty acid + ATP + coenzyme A + H+  ->  a 2,3,4-saturated fatty acyl CoA + AMP + diphosphate + H+
+a 2-methyl branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 2-methyl branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a 3-methyl-branched 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a 3-methyl-branched 2,3,4-saturated fatty acyl-CoA + AMP + diphosphate
+a long-chain 2,3,4-saturated fatty acid + coenzyme A + ATP  ->  a long-chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+a long-chain fatty acid + coenzyme A + ATP  ->  a long-chain fatty acyl-CoA + AMP + diphosphate
+an odd numbered straight chain 2,3,4-saturated fatty acid + ATP + coenzyme A  ->  an odd numbered straight chain 2,3,4-saturated fatty acyl CoA + AMP + diphosphate
+linoleate + coenzyme A + ATP  ->  linoleoyl-CoA + AMP + diphosphate
+oleate + coenzyme A + ATP  ->  oleoyl-CoA + AMP + diphosphate
+oleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  oleoyl-CoA + AMP + diphosphate + H+
+palmitate + coenzyme A + ATP  ->  palmitoyl-CoA + AMP + diphosphate
+palmitoleate[periplasm] + ATP + coenzyme A + H+[periplasm]  ->  palmitoleoyl-CoA + AMP + diphosphate + H+
+pentadecanoate + coenzyme A + ATP  ->  pentadecanoyl-CoA + AMP + diphosphate
+phytenate + ATP + coenzyme A  ->  phytenoyl-CoA + AMP + diphosphate
+pristanate + coenzyme A + ATP  ->  pristanoyl-CoA + AMP + diphosphate
+stearate + coenzyme A + ATP  ->  stearoyl-CoA + AMP + diphosphate
+2'-deoxyadenosine + phosphate  <->  adenine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyguanosine + phosphate  <->  guanine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyinosine + phosphate  <->  hypoxanthine + 2-deoxy-alpha-D-ribose 1-phosphate
+5'-chloro-5'-deoxyadenosine + phosphate  <->  adenine + 5-chloro-5-deoxyribose 1-phosphate
+5'-deoxy-5'-fluoroadenosine + phosphate  <->  adenine + 5-fluoro-5-deoxy-D-ribose 1-phosphate
+a purine 2'-deoxyribonucleoside + phosphate  <->  a purine base + 2-deoxy-alpha-D-ribose 1-phosphate
+a purine ribonucleoside + arsenate  <->  a purine base + ribose-1-arsenate
+a purine ribonucleoside + phosphate  <->  a purine base + alpha-D-ribose-1-phosphate
+adenosine + phosphate  <->  adenine + alpha-D-ribose-1-phosphate
+guanosine + phosphate  <->  guanine + alpha-D-ribose-1-phosphate
+inosine + phosphate  <->  hypoxanthine + alpha-D-ribose-1-phosphate
+xanthosine + phosphate  <->  xanthine + alpha-D-ribose-1-phosphate
+2-deoxy-D-ribose 5-phosphate  <->  D-glyceraldehyde 3-phosphate + acetaldehyde
+L-alanyl-D-glutamate  <->  L-alanyl-L-glutamate
+4-(N-(S-cysteinylglycylacetyl)amino) phenylarsonous acid + H2O  ->  4-(N-(S-cysteinylacetyl)amino)phenylarsonous acid + glycine
+a dipeptide + H2O  ->  2 a proteinogenic amino acid
+glycyl-L-asparagine + H2O  ->  glycine + L-asparagine
+glycyl-L-aspartate + H2O  ->  glycine + L-aspartate
+glycyl-L-glutamate + H2O  ->  glycine + L-glutamate
+glycyl-L-glutamine + H2O  ->  glycine + L-glutamine
+glycyl-L-methionine + H2O  ->  glycine + L-methionine
+glycyl-L-proline + H2O  ->  glycine + L-proline
+L-alanyl-glycine + H2O  ->  L-alanine + glycine
+L-alanyl-L-aspartate + H2O  ->  L-alanine + L-aspartate
+L-alanyl-L-glutamate + H2O  ->  L-alanine + L-glutamate
+L-alanyl-L-glutamine + H2O  ->  L-alanine + L-glutamine
+L-alanyl-L-histidine + H2O  ->  L-alanine + L-histidine
+L-alanyl-L-leucine + H2O  ->  L-alanine + L-leucine
+L-alanyl-L-threonine + H2O  ->  L-alanine + L-threonine
+L-cysteinylglycine + H2O  ->  L-cysteine + glycine
+L-methionyl-L-alanine dipeptide + H2O  ->  L-methionine + L-alanine
+L-glutamate + H+  ->  4-aminobutanoate + CO2
+a lipid II[periplasm] + H2O[periplasm]  ->  an Und-PP-[beta-D-GlcNAc-(1->4)]-N-acetylmuramyl-(tetrapeptide)[periplasm] + D-alanine[periplasm]
+a nascent peptidoglycan (E. faeciums) + a peptidoglycan internal segment (E. faecium, tetrapeptide) + H+  ->  a peptidoglycan with D,D cross-links (Enterococcus faecium) + D-alanine
+a nascent peptidoglycan with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine) pentapeptide[periplasm] + H2O[periplasm]  ->  a nascent peptidoglycan with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanine) tetrapeptide[periplasm] + D-alanine[periplasm]
+a peptidoglycan internal segment with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanine) tetrapeptide + a nascent peptidoglycan with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine) pentapeptide  ->  a nascent peptidoglycan with D,D cross-links (meso-diaminopimelate containing) + D-alanine
+L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine[periplasm] + H2O[periplasm]  <->  L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanine[periplasm] + D-alanine[periplasm]
+Nalpha,N&epsilon;-diacetyl-lysyl-D-alanyl-D-alanine[periplasm] + H2O[periplasm]  <->  Nalpha,N&epsilon;-diacetyl-lysyl-D-alanine[periplasm] + D-alanine[periplasm]
+N-acetyl-muramoyl-(L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine) + H2O  <->  N-acetyl-muramoyl-(L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanine) + D-alanine
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala[periplasm] + H2O[periplasm]  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala[periplasm] + D-alanine[periplasm]
+Und-PP-[beta-D-GlcNAc-(1->4)]-MurNAc-L-Ala-&gamma;-D-iGln-(6-N-beta-D-Asn)-L-Lys-D-Ala-D-Ala[out] + H2O[out]  ->  Und-PP-[beta-D-GlcNAc-(1->4)]-MurNAc-L-Ala-&gamma;-D-iGln-(6-N-beta-D-Asn)-L-Lys-D-Ala[out] + D-alanine[out]
+Und-PP-[beta-D-GlcNAc-(1->4)]-MurNAc-L-Ala-&gamma;-D-iGln-L-Lys-D-Ala-D-Ala + H2O  ->  Und-PP-beta-D-GlcNAc-(1->4)-MurNAc-L-Ala-&gamma;-D-iGln-L-Lys-D-Ala + D-alanine
+undecaprenyl-diphospho-{[N-acetyl-beta-glucosaminyl-(1->4)]-N-acetylmuramoyl-L-alanyl-D-glutamyl-L-lysyl-(Gly5)-D-alanyl-D-alanine}(n+1) + a peptidoglycan internal segment (S. aureus)  ->  a peptidoglycan with D,D cross-link (S. aureus) + D-alanine
+2'-deoxyadenosine + phosphate  <->  adenine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyguanosine + phosphate  <->  guanine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyinosine + phosphate  <->  hypoxanthine + 2-deoxy-alpha-D-ribose 1-phosphate
+5'-chloro-5'-deoxyadenosine + phosphate  <->  adenine + 5-chloro-5-deoxyribose 1-phosphate
+5'-deoxy-5'-fluoroadenosine + phosphate  <->  adenine + 5-fluoro-5-deoxy-D-ribose 1-phosphate
+a purine 2'-deoxyribonucleoside + phosphate  <->  a purine base + 2-deoxy-alpha-D-ribose 1-phosphate
+a purine ribonucleoside + arsenate  <->  a purine base + ribose-1-arsenate
+a purine ribonucleoside + phosphate  <->  a purine base + alpha-D-ribose-1-phosphate
+adenosine + phosphate  <->  adenine + alpha-D-ribose-1-phosphate
+guanosine + phosphate  <->  guanine + alpha-D-ribose-1-phosphate
+inosine + phosphate  <->  hypoxanthine + alpha-D-ribose-1-phosphate
+xanthosine + phosphate  <->  xanthine + alpha-D-ribose-1-phosphate
+2 superoxide + 2 H+  ->  hydrogen peroxide + dioxygen
+2 superoxide + 2 H+  ->  hydrogen peroxide + dioxygen
+alpha-D-galactopyranose + ATP  <->  alpha-D-galactose 1-phosphate + ADP + H+
+UDP-alpha-D-glucose  <->  UDP-alpha-D-galactose
+nitrite[out] + 6 reduced c-type cytochrome[out] + 8 H+[out]  ->  ammonium[out] + 6 oxidized c-type cytochrome[out] + 2 H2O[out]
+nitrite[periplasm] + 6 reduced [NrfB protein][periplasm] + 8 H+[periplasm]  ->  6 oxidized [NrfB protein][periplasm] + ammonium[periplasm] + 2 H2O[periplasm]
+2 a menaquinol[membrane] + 4 H+[in] + dioxygen[in]  ->  2 a menaquinone[membrane] + 4 H+[out] + 2 H2O[in]
+2 a ubiquinol[inner membrane] + dioxygen + 4 H+  ->  2 a ubiquinone[inner membrane] + 4 H+[periplasm] + 2 H2O
+2 an electron-transfer quinol[inner membrane] + 4 H+ + dioxygen  ->  2 an electron-transfer quinone[inner membrane] + 4 H+[periplasm] + 2 H2O
+2 menaquinol-9[membrane] + 4 H+[in] + dioxygen[in]  ->  2 menaquinone-9[membrane] + 4 H+[out] + 2 H2O[in]
+2 a menaquinol[membrane] + 4 H+[in] + dioxygen[in]  ->  2 a menaquinone[membrane] + 4 H+[out] + 2 H2O[in]
+2 a ubiquinol[inner membrane] + dioxygen + 4 H+  ->  2 a ubiquinone[inner membrane] + 4 H+[periplasm] + 2 H2O
+2 an electron-transfer quinol[inner membrane] + 4 H+ + dioxygen  ->  2 an electron-transfer quinone[inner membrane] + 4 H+[periplasm] + 2 H2O
+2 menaquinol-9[membrane] + 4 H+[in] + dioxygen[in]  ->  2 menaquinone-9[membrane] + 4 H+[out] + 2 H2O[in]
+fumarate[in] + a menaquinol[membrane]  <->  succinate[in] + a menaquinone[membrane]
+succinate + a plastoquinone[inner membrane]  ->  fumarate + a plastoquinol[inner membrane]
+succinate + a plastoquinone[thylakoid membrane]  ->  fumarate + a plastoquinol[thylakoid membrane]
+succinate + ubiquinone-6[inner membrane]  ->  fumarate + ubiquinol-6[inner membrane]
+succinate[in] + a ubiquinone[membrane]  ->  fumarate[in] + a ubiquinol[membrane]
+succinate[in] + an electron-transfer quinone[membrane]  <->  fumarate[in] + an electron-transfer quinol[membrane]
+succinate[in] + caldariellaquinone[membrane]  ->  fumarate[in] + caldariellaquinol[membrane]
+succinate[in] + menaquinone-9[membrane]  ->  fumarate[in] + menaquinol-9[membrane]
+succinate[mitochondrial lumen] + a rhodoquinone[mitochondrial inner membrane]  &larr;  fumarate[mitochondrial lumen] + a rhodoquinol[mitochondrial inner membrane]
+2 a menaquinol[membrane] + 4 H+[in] + dioxygen[in]  ->  2 a menaquinone[membrane] + 4 H+[out] + 2 H2O[in]
+2 a ubiquinol[inner membrane] + dioxygen + 4 H+  ->  2 a ubiquinone[inner membrane] + 4 H+[periplasm] + 2 H2O
+2 an electron-transfer quinol[inner membrane] + 4 H+ + dioxygen  ->  2 an electron-transfer quinone[inner membrane] + 4 H+[periplasm] + 2 H2O
+2 menaquinol-9[membrane] + 4 H+[in] + dioxygen[in]  ->  2 menaquinone-9[membrane] + 4 H+[out] + 2 H2O[in]
+fumarate[in] + a menaquinol[membrane]  <->  succinate[in] + a menaquinone[membrane]
+succinate + a plastoquinone[inner membrane]  ->  fumarate + a plastoquinol[inner membrane]
+succinate + a plastoquinone[thylakoid membrane]  ->  fumarate + a plastoquinol[thylakoid membrane]
+succinate + ubiquinone-6[inner membrane]  ->  fumarate + ubiquinol-6[inner membrane]
+succinate[in] + a ubiquinone[membrane]  ->  fumarate[in] + a ubiquinol[membrane]
+succinate[in] + an electron-transfer quinone[membrane]  <->  fumarate[in] + an electron-transfer quinol[membrane]
+succinate[in] + caldariellaquinone[membrane]  ->  fumarate[in] + caldariellaquinol[membrane]
+succinate[in] + menaquinone-9[membrane]  ->  fumarate[in] + menaquinol-9[membrane]
+succinate[mitochondrial lumen] + a rhodoquinone[mitochondrial inner membrane]  &larr;  fumarate[mitochondrial lumen] + a rhodoquinol[mitochondrial inner membrane]
+6-phospho D-glucono-1,5-lactone + H2O  ->  D-gluconate 6-phosphate + H+
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+(S)-malate + NAD+  <->  oxaloacetate + NADH + H+
+ATP + beta-D-fructofuranose 6-phosphate  ->  ADP + beta-D-fructofuranose 1,6-bisphosphate + H+
+beta-D-fructofuranose 1,6-bisphosphate + H2O  ->  beta-D-fructofuranose 6-phosphate + phosphate
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+alpha-D-glucose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+ATP + beta-D-fructofuranose 6-phosphate  ->  ADP + beta-D-fructofuranose 1,6-bisphosphate + H+
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+alpha-D-glucose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+L-aspartate + 2-oxoglutarate  <->  oxaloacetate + L-glutamate
+L-aspartate + 2-oxoglutarate  <->  oxaloacetate + L-glutamate
+L-cysteate + 2-oxoglutarate  <->  3-sulfopyruvate + L-glutamate
+L-phenylalanine + 2-oxoglutarate  <->  3-phenyl-2-oxopropanoate + L-glutamate
+L-tryptophan + 2-oxoglutarate  <->  (indol-3-yl)pyruvate + L-glutamate
+L-tyrosine + 2-oxoglutarate  <->  3-(4-hydroxyphenyl)pyruvate + L-glutamate
+(S)-malate + NAD+  <->  oxaloacetate + NADH + H+
+6-phospho D-glucono-1,5-lactone + H2O  ->  D-gluconate 6-phosphate + H+
+D-gluconate 6-phosphate + NADP+  ->  D-ribulose 5-phosphate + CO2 + NADPH
+D-ribose 5-phosphate  <->  D-ribulose 5-phosphate
+D-erythrose 4-phosphate  <->  D-threose 4-phosphate
+D-ribulose 5-phosphate  <->  D-xylulose 5-phosphate
+D-erythrose 4-phosphate + D-xylulose 5-phosphate  <->  beta-D-fructofuranose 6-phosphate + D-glyceraldehyde 3-phosphate
+D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate  <->  D-ribose 5-phosphate + D-xylulose 5-phosphate
+D-ribose 5-phosphate  <->  D-ribulose 5-phosphate
+D-erythrose 4-phosphate + D-xylulose 5-phosphate  <->  beta-D-fructofuranose 6-phosphate + D-glyceraldehyde 3-phosphate
+D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate  <->  D-ribose 5-phosphate + D-xylulose 5-phosphate
+D-glucopyranose 6-phosphate + NADP+  ->  6-phospho D-glucono-1,5-lactone + NADPH + H+
+6-phospho D-glucono-1,5-lactone + H2O  ->  D-gluconate 6-phosphate + H+
+D-gluconate 6-phosphate + NADP+  ->  D-ribulose 5-phosphate + CO2 + NADPH
+D-erythrose 4-phosphate + D-xylulose 5-phosphate  <->  beta-D-fructofuranose 6-phosphate + D-glyceraldehyde 3-phosphate
+D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate  <->  D-ribose 5-phosphate + D-xylulose 5-phosphate
+L-aspartate + 2-oxoglutarate  <->  oxaloacetate + L-glutamate
+L-aspartate + 2-oxoglutarate  <->  oxaloacetate + L-glutamate
+L-cysteate + 2-oxoglutarate  <->  3-sulfopyruvate + L-glutamate
+L-phenylalanine + 2-oxoglutarate  <->  3-phenyl-2-oxopropanoate + L-glutamate
+L-tryptophan + 2-oxoglutarate  <->  (indol-3-yl)pyruvate + L-glutamate
+L-tyrosine + 2-oxoglutarate  <->  3-(4-hydroxyphenyl)pyruvate + L-glutamate
+(S)-malate + NADP+  ->  pyruvate + CO2 + NADPH
+pyruvate + ATP + phosphate  <->  phosphoenolpyruvate + AMP + diphosphate + H+
+oxaloacetate + ATP  <->  CO2 + phosphoenolpyruvate + ADP
+(S)-malate + NADP+  ->  pyruvate + CO2 + NADPH
+pyruvate + ATP + phosphate  <->  phosphoenolpyruvate + AMP + diphosphate + H+
+2-phosphoglycolate[periplasm] + H2O[periplasm]  ->  glycolate[periplasm] + phosphate[periplasm]
+glycine + 5,10-methylene-tetrahydromethanopterin + H2O  <->  L-serine + tetrahydromethanopterin
+L-serine + a tetrahydrofolate  <->  glycine + a 5,10-methylenetetrahydrofolate + H2O
+D-threo-isocitrate + NADP+  <->  2-oxoglutarate + CO2 + NADPH
+2-oxoglutarate + coenzyme A + 2 oxidized ferredoxin [iron-sulfur] cluster  <->  succinyl-CoA + CO2 + 2 reduced ferredoxin [iron-sulfur] cluster + H+
+fumarate[in] + a menaquinol[membrane]  <->  succinate[in] + a menaquinone[membrane]
+succinate + a plastoquinone[inner membrane]  ->  fumarate + a plastoquinol[inner membrane]
+succinate + a plastoquinone[thylakoid membrane]  ->  fumarate + a plastoquinol[thylakoid membrane]
+succinate + ubiquinone-6[inner membrane]  ->  fumarate + ubiquinol-6[inner membrane]
+succinate[in] + a ubiquinone[membrane]  ->  fumarate[in] + a ubiquinol[membrane]
+succinate[in] + an electron-transfer quinone[membrane]  <->  fumarate[in] + an electron-transfer quinol[membrane]
+succinate[in] + caldariellaquinone[membrane]  ->  fumarate[in] + caldariellaquinol[membrane]
+succinate[in] + menaquinone-9[membrane]  ->  fumarate[in] + menaquinol-9[membrane]
+succinate[mitochondrial lumen] + a rhodoquinone[mitochondrial inner membrane]  &larr;  fumarate[mitochondrial lumen] + a rhodoquinol[mitochondrial inner membrane]
+(S)-malate  <->  fumarate + H2O
+(S)-malate + NAD+  <->  oxaloacetate + NADH + H+
+ATP + H2O + 3 H+[in]  <->  ADP + phosphate + 4 H+[out]
+D-glucopyranose 6-phosphate + NADP+  ->  6-phospho D-glucono-1,5-lactone + NADPH + H+
+(3S)-3,4-dihydroxybutanoyl-CoA  <->  4-hydroxycrotonyl-CoA + H2O
+(3S)-3-hydroxy-2-propylpentanoyl-CoA  <->  (2E)-2-propylpent-2-enoyl-CoA + H2O
+(3S)-3-hydroxy-homoplatensic-CoA  <->  homoplatensic-4-enyl-CoA + H2O
+(3S)-hydroxyadipyl-CoA  <->  (2E)-5-carboxy-2-pentenoyl-CoA + H2O
+(3S,11Z)-3-hydroxyhexadec-11-enoyl-CoA  <->  (2E,11Z)-hexadec-2,11-dienoyl-CoA + H2O
+(3S,6Z,9Z,12Z,15Z,18Z)-3-hydroxytetracosapentaenoyl-CoA  <->  (2E,6Z,9Z,12Z,15Z,18Z)-tetracosahexaenoyl-CoA + H2O
+(3S,6Z,9Z,12Z,15Z,18Z,21Z)-3-hydroxytetracosahexaenoyl-CoA  <->  (2E,6Z,9Z,12Z,15Z,18Z,21Z)-tetracosaheptaenoyl-CoA + H2O
+(S)-3-hydroxy-(11Z)-octadecenoyl-CoA  <->  (2E,11Z)-octadec-2,11-enoyl-CoA + H2O
+(S)-3-hydroxy-(5Z)-tetradecenoyl-CoA  <->  (2E,5Z)-tetradec-2,5-enoyl-CoA + H2O
+(S)-3-hydroxy-(7Z)-hexadecenoyl-CoA  <->  (2E,7Z)-hexadec-2,7-dienoyl-CoA + H2O
+(S)-3-hydroxy-(7Z)-tetradecenoyl-CoA  <->  (2E,7Z)-tetradec-2,7-enoyl-CoA + H2O
+(S)-3-hydroxy-(9Z)-hexadecenoyl-CoA  <->  (2E,9Z)-hexadec-2,9-enoyl-CoA + H2O
+(S)-3-hydroxy-(9Z)-octadecenoyl-CoA  <->  (2E,9Z)-octadec-2,9-enoyl-CoA + H2O
+(S)-3-hydroxy-3-phenylpropanoyl-CoA  <->  (E)-cinnamoyl-CoA + H2O
+(S)-3-hydroxyhexadecanoyl-CoA  <->  (2E)-hexadec-2-enoyl-CoA + H2O
+(S)-3-hydroxytetradecanoyl-CoA  <->  (2E)-tetradec-2-enoyl-CoA + H2O
+3-hydroxyisovaleryl-CoA  <->  (E)-2-methylcrotonoyl-CoA + H2O
+a (3S)-3-hydroxy-2-methylacyl-CoA  <->  a (2E)-2-methyl-2-enoyl-CoA + H2O
+a 2,3,4-saturated (3R)-3-hydroxyacyl-CoA  <->  a (2Z)-2-enoyl-CoA + H2O
+a 2,3,4-saturated (3S)-3-hydroxyacyl-CoA  <->  a (2E)-2-enoyl-CoA + H2O
+a long-chain (3S)-3-hydroxy-2-methylacyl-CoA  <->  a long-chain (2E)-2-methyl-2-enoyl-CoA + H2O
+a long-chain (3S)-3-hydroxyacyl-CoA  <->  a long-chain (2E)-2-enoyl-CoA + H2O
+a medium-chain (3S)-3-hydroxy-2-methylacyl-CoA  <->  a medium-chain (2E)-2-methyl-2-enoyl-CoA + H2O
+a short-chain (3S)-3-hydroxy-2-methylacyl-CoA  <->  a short-chain (2E)-2-methyl-2-enoyl-CoA + H2O
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+fumarate[in] + a menaquinol[membrane]  <->  succinate[in] + a menaquinone[membrane]
+succinate + a plastoquinone[inner membrane]  ->  fumarate + a plastoquinol[inner membrane]
+succinate + a plastoquinone[thylakoid membrane]  ->  fumarate + a plastoquinol[thylakoid membrane]
+succinate + ubiquinone-6[inner membrane]  ->  fumarate + ubiquinol-6[inner membrane]
+succinate[in] + a ubiquinone[membrane]  ->  fumarate[in] + a ubiquinol[membrane]
+succinate[in] + an electron-transfer quinone[membrane]  <->  fumarate[in] + an electron-transfer quinol[membrane]
+succinate[in] + caldariellaquinone[membrane]  ->  fumarate[in] + caldariellaquinol[membrane]
+succinate[in] + menaquinone-9[membrane]  ->  fumarate[in] + menaquinol-9[membrane]
+succinate[mitochondrial lumen] + a rhodoquinone[mitochondrial inner membrane]  &larr;  fumarate[mitochondrial lumen] + a rhodoquinol[mitochondrial inner membrane]
+(S)-malate  <->  fumarate + H2O
+(S)-malate + NAD+  <->  oxaloacetate + NADH + H+
+a (1->4)-beta-D-xylan oligosaccharide + n H2O  ->  n beta-D-xylopyranose
+N,N',N''-triacetylchitotriose + H2O  ->  N,N'-diacetylchitobiose + N-acetyl-D-glucosamine
+N,N'-diacetylchitobiose + H2O  ->  2 N-acetyl-D-glucosamine
+N-acetyl-beta-D-glucosamine-1,6-anhydro-N-acetyl-beta-D-muramate + H2O  ->  N-acetyl-D-glucosamine + 1,6-anhydro-N-acetyl-beta-D-muramate
+N-acetyl-beta-D-glucosaminyl-(1 -> 4)-N-acetyl-beta-D-muramate + H2O  ->  N-acetyl-D-glucosamine + N-acetyl-D-muramate
+a peptidoglycan (L. plantarum)[out] + H2O[out]  ->  a peptidoglycan with N-acetyl-beta-D-glucosamine at the reducing end (L. plantarum)[out] + a peptidoglycan with N-acetylmuramoyl-pentadepsipeptide at the non-reducing end (L. plantarum)[out]
+a peptidoglycan + H2O  ->  a peptidoglycan with N-acetyl-beta-D-glucosamine at the reducing end + a peptidoglycan with N-acetylmuramoyl-pentapeptide at the non-reducing end
+an N-acetyl-beta-D-hexosaminide + H2O  ->  an N-acetyl-beta-D-hexosamine + an alcohol
+[1,4-(N-acetyl-beta-D-glucosaminyl)]n + H2O  ->  [1,4-(N-acetyl-beta-D-glucosaminyl)](n-1) + N-acetyl-D-glucosamine
+{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-N-Asn-[protein] + 4 H2O  ->  Man3(GlcNAc)2-[protein] + 4 N-acetyl-beta-D-glucosamine
+(1,4-alpha-D-glucosyl)(n) + phosphate  ->  (1,4-alpha-D-glucosyl)(n-1) + alpha-D-glucopyranose 1-phosphate
+a debranched alpha-limit dextrin + n phosphate  ->  maltotriose + n alpha-D-glucopyranose 1-phosphate
+a debranched alpha-limit dextrin + n phosphate  ->  n alpha-D-glucopyranose 1-phosphate
+a glycogen + n phosphate  ->  an alpha-limit dextrin + n alpha-D-glucopyranose 1-phosphate
+a glycogen + phosphate  ->  maltotetraose + alpha-D-glucopyranose 1-phosphate
+a linear malto-oligosaccharide [(glucose)n] + phosphate  ->  a linear malto-oligosaccharide [(glucose)n-1] + alpha-D-glucopyranose 1-phosphate
+a maltodextrin(n) + phosphate  ->  a maltodextrin(n-1) + alpha-D-glucopyranose 1-phosphate
+maltoheptaose + phosphate  ->  maltohexaose + alpha-D-glucopyranose 1-phosphate
+maltohexaose + phosphate  ->  maltopentaose + alpha-D-glucopyranose 1-phosphate
+maltopentaose + phosphate  ->  maltotetraose + alpha-D-glucopyranose 1-phosphate
+maltotetraose + phosphate  ->  maltotriose + alpha-D-glucopyranose 1-phosphate
+SHG-glucosyln+1 + phosphate  ->  SHG-glucosyln + alpha-D-glucopyranose 1-phosphate
+[(1->4)-alpha-D-glucosyl]n + phosphate  ->  [(1->4)-alpha-D-glucosyl](n-1) + alpha-D-glucopyranose 1-phosphate
+a debranched alpha-limit dextrin + n H2O  ->  n D-glucopyranose
+{6-alpha-D-(1,4-alpha-D-glucano)-glucan}n + H2O  ->  {6-alpha-D-(1,4-alpha-D-glucano)-glucan}n-1 + D-glucopyranose
+alpha-D-glucopyranose 1-phosphate  <->  D-glucopyranose 6-phosphate
+(1,5-alpha-L-arabinofuranosyl)n + H2O  ->  alpha-L-arabinofuranose + (1,5-alpha-L-arabinofuranosyl)(n-1)
+p-nitrophenyl-alpha-L-arabinofuranoside + H2O  ->  4-nitrophenol + alpha-L-arabinofuranose + H+
+an alpha(1,5)-L-arabinan with alpha(1,2) and alpha(1,3) branching + H2O  ->  an alpha(1,5)-L-arabinan with alpha(1,3) branching + alpha-L-arabinofuranose
+an alpha(1,5)-L-arabinan with alpha(1,3) branching + H2O  ->  a (1,5)-alpha-L-arabinan + alpha-L-arabinofuranose
+a xyloglucan + n H2O  ->  n a xyloglucan oligosaccharide
+a xyloglucan + n H2O  ->  n XXFG xyloglucan oligosaccharide + n XLFG xyloglucan oligosaccharide + n XLXG xyloglucan oligosaccharide
+a fructan(n) + H2O  ->  beta-D-fructofuranose + a fructan(n-1)
+(1,5-alpha-L-arabinofuranosyl)n + H2O  ->  alpha-L-arabinofuranose + (1,5-alpha-L-arabinofuranosyl)(n-1)
+p-nitrophenyl-alpha-L-arabinofuranoside + H2O  ->  4-nitrophenol + alpha-L-arabinofuranose + H+
+an alpha(1,5)-L-arabinan with alpha(1,2) and alpha(1,3) branching + H2O  ->  an alpha(1,5)-L-arabinan with alpha(1,3) branching + alpha-L-arabinofuranose
+an alpha(1,5)-L-arabinan with alpha(1,3) branching + H2O  ->  a (1,5)-alpha-L-arabinan + alpha-L-arabinofuranose
+p-nitrophenyl-alpha-L-rhamnopyranoside + H2O  ->  4-nitrophenol + beta-L-rhamnopyranose + H+
+an alpha L-rhamnoside + H2O  ->  beta-L-rhamnopyranose + a non rhamnosylated rhamnosyl acceptor
+dioscin + 2 H2O  ->  2 L-rhamnopyranose + 3-O-beta-D-glucosyl-diosgenin
+hesperidin + H2O  ->  hesperitin-7-O-beta-D-glucoside + beta-L-rhamnopyranose
+linarin + H2O  ->  tilianin + beta-L-rhamnopyranose
+naringin + H2O  ->  prunin + beta-L-rhamnopyranose
+quercitrin + H2O  ->  quercetin + beta-L-rhamnopyranose
+rutin + H2O  ->  quercetin-3-O-beta-D-glucoside + beta-L-rhamnopyranose
+a beta-D-glucuronide + H2O  ->  D-glucopyranuronate + an alcohol
+luteolin 7-O-[beta-D-glucosyluronate-(1,2)-beta-D-glucosiduronate]-4'-O-beta-D-glucosiduronate + H2O  ->  luteolin 7-O-beta-D-diglucuronide + beta-D-glucuronate
+luteolin 7-O-beta-D-glucuronide + H2O  ->  luteolin + beta-D-glucuronate + H+
+(1,5-alpha-L-arabinofuranosyl)n + H2O  ->  alpha-L-arabinofuranose + (1,5-alpha-L-arabinofuranosyl)(n-1)
+p-nitrophenyl-alpha-L-arabinofuranoside + H2O  ->  4-nitrophenol + alpha-L-arabinofuranose + H+
+an alpha(1,5)-L-arabinan with alpha(1,2) and alpha(1,3) branching + H2O  ->  an alpha(1,5)-L-arabinan with alpha(1,3) branching + alpha-L-arabinofuranose
+an alpha(1,5)-L-arabinan with alpha(1,3) branching + H2O  ->  a (1,5)-alpha-L-arabinan + alpha-L-arabinofuranose
+a (1->4)-beta-D-xylan oligosaccharide + n H2O  ->  n beta-D-xylopyranose
+a type I plant arabinogalactan + n H2O  ->  n+1 (1->4)-beta-D-galactotetraose
+(1,5-alpha-L-arabinofuranosyl)n + H2O  ->  alpha-L-arabinofuranose + (1,5-alpha-L-arabinofuranosyl)(n-1)
+p-nitrophenyl-alpha-L-arabinofuranoside + H2O  ->  4-nitrophenol + alpha-L-arabinofuranose + H+
+an alpha(1,5)-L-arabinan with alpha(1,2) and alpha(1,3) branching + H2O  ->  an alpha(1,5)-L-arabinan with alpha(1,3) branching + alpha-L-arabinofuranose
+an alpha(1,5)-L-arabinan with alpha(1,3) branching + H2O  ->  a (1,5)-alpha-L-arabinan + alpha-L-arabinofuranose
+4-nitrophenyl-beta-D-galactoside + H2O  ->  4-nitrophenol + D-galactopyranose + H+
+a beta-D-galactoside + H2O  ->  a non galactosylated galactose acceptor + D-galactopyranose
+XLLG xyloglucan oligosaccharide + 2 H2O  ->  XXXG xyloglucan oligosaccharide + 2 D-galactopyranose
+XLXG xyloglucan oligosaccharide + H2O  ->  XXXG xyloglucan oligosaccharide + D-galactopyranose
+XXLG xyloglucan oligosaccharide + H2O  ->  XXXG xyloglucan oligosaccharide + D-galactopyranose
+a guanine37 in tRNA + S-adenosyl-L-methionine  ->  an N1-methylguanine37 in tRNA + S-adenosyl-L-homocysteine + H+
+guanine37 in tRNAPhe + S-adenosyl-L-methionine  ->  an N1-methylguanine37 in tRNAPhe + S-adenosyl-L-homocysteine + H+
+(L-threonylcarbamoyl)adenylate + an adenine37 in tRNA  ->  an N6-L-threonylcarbamoyladenine37 in tRNA + AMP + H+
+monocistronic tRNA precursor + H2O  ->  tRNA precursor with a 5' extension and a short 3' extension + tRNA fragment
+mutated tRNA + n H2O  ->  n a nucleoside 5'-monophosphate
+RNase II degradation substrate mRNA + n H2O  ->  n a nucleoside 5'-monophosphate
+RNase II poly-A substrate mRNA + n H2O  ->  RNase II substrate with no poly-A tail + n AMP
+tRNA precursor with a 5' extension and a long 3' trailer + H2O  ->  tRNA precursor with a 5' extension + a ribonucleoside 5'-monophosphate
+tRNA precursor with a 5' extension and a long 3' trailer + n H2O  ->  tRNA precursor with a 5' extension and a short 3' extension + n a nucleoside 5'-monophosphate
+tRNA precursor with a 5' extension and a short 3' extension + H2O  ->  tRNA precursor with a 5' extension and a short 3' extension + tRNA fragment
+tRNA precursor + H2O  ->  tRNA + a nucleoside 5'-monophosphate
+tRNA precursor with a 5' extension and a short 3' extension  ->  tRNA precursor with a 5' extension + a ribonucleoside 5'-monophosphate
+tRNA precursor with a short 3' extension  ->  uncharged tRNA + n a nucleoside 5'-monophosphate
+monocistronic tRNA precursor + H2O  ->  tRNA precursor with a 5' extension and a short 3' extension + tRNA fragment
+tRNA precursor with a 5' extension + H2O  ->  uncharged tRNA + tRNA fragment
+tRNA precursor with a 5' extension and a short 3' extension + H2O  ->  tRNA precursor with a short 3' extension + tRNA fragment
+a thiocarboxylated [SAMP] C-terminal glycine + a uridine34 in tRNA + ATP + H2O  ->  a [SAMP] C-terminal glycine + a 2-thiouridine34 in tRNA + AMP + diphosphate + 2 H+
+a uridine34 in tRNA + a [protein]-S-sulfanyl-L-cysteine + ATP + a reduced two electron carrier  ->  a 2-thiouridine34 in tRNA + a [protein]-L-cysteine + AMP + an oxidized electron carrier + diphosphate + H+
+a uridine34 in tRNA + a [tRNA-uridine 2-sulfurtransferase]-S-sulfanyl-L-cysteine + ATP + a reduced two electron carrier  ->  a 2-thiouridine34 in tRNA + a [tRNA-uridine 2-sulfurtransferase]-L-cysteine + AMP + an oxidized electron carrier + diphosphate + H+
+an N-terminal-L-methionyl-glycyl-[protein] + H2O  ->  an N-terminal glycyl-[protein] + L-methionine
+an N-terminal-L-methionyl-L-alanyl-[protein] + H2O  ->  an N-terminal L-alanyl-[protein] + L-methionine
+an N-terminal-L-methionyl-L-cysteinyl-[protein] + H2O  ->  an N-terminal L-cysteinyl-[protein] + L-methionine
+an N-terminal-L-methionyl-L-seryl-[protein] + H2O  ->  an N-terminal L-seryl-[protein] + L-methionine
+an N-terminal-L-methionyl-L-threonyl-[protein] + H2O  ->  an N-terminal L-threonyl-[protein] + L-methionine
+an N-terminal-L-methionyl-L-valyl-[protein] + H2O  ->  an N-terminal L-valyl-[protein] + L-methionine
+peptide with an N-terminal L-methionine + H2O  ->  L-methionine + peptide
+a [prolipoprotein]-S-1,2-diacyl-sn-glyceryl-L-cysteine + H2O  ->  an (S-diacyl-sn-glyceryl)-L-cysteinyl-[apolipoprotein] + a lipoprotein signal peptide
+L-leucyl-[tRNALeu] + an N-terminal arginyl-[protein]  ->  a [protein] N-terminal L-leucyl-L-arginine + tRNALeu + H+
+L-leucyl-[tRNALeu] + an N-terminal L-lysyl-[protein]  ->  a [protein] N-terminal L-leucyl-L-lysine + tRNALeu + H+
+L-phenylalanyl-[tRNAPhe] + an N-terminal arginyl-[protein]  ->  L-phenylalanyl-L-arginyl-[protein] + tRNAPhe + H+
+L-phenylalanyl-[tRNAPhe] + an N-terminal L-lysyl-[protein]  ->  L-phenylalanyl-L-lysyl-[protein] + tRNAPhe + H+
+L-glutamate + NAD(P)+ + H2O  <->  2-oxoglutarate + ammonium + NAD(P)H + H+
+2 L-glutamate + 2 oxidized ferredoxin [iron-sulfur] cluster  &larr;  2-oxoglutarate + L-glutamine + 2 reduced ferredoxin [iron-sulfur] cluster + 2 H+
+ammonium + L-glutamate + ATP  ->  L-glutamine + ADP + phosphate + H+
+alpha-D-glucose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+L-glutamine + beta-D-fructofuranose 6-phosphate  <->  L-glutamate + D-glucosamine 6-phosphate
+dTDP-alpha-D-glucose  ->  dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose + H2O
+dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose  ->  dTDP-4-dehydro-beta-L-rhamnose
+a 5,10-methylenetetrahydrofolate + dUMP  ->  dTMP + a 7,8-dihydrofolate
+dUMP + 5,10-methylene-tetrahydromethanopterin  ->  dTMP + 7,8-dihydromethanopterin
+ATP + cerotoyl-CoA + hydrogen carbonate  ->  2-carboxycerotoyl-CoA + ADP + phosphate + H+
+ATP + propanoyl-CoA + hydrogen carbonate  <->  (S)-methylmalonyl-CoA + ADP + phosphate + H+
+(R)-methylmalonyl-CoA  <->  succinyl-CoA
+L-threonine 3-O-phosphate + H+  ->  (R)-1-amino-2-propanol O-2-phosphate + CO2
+beta-nicotinate D-ribonucleotide + 2-methyladenine  ->  nicotinate + 2-methyladenine ribotide phosphate + H+
+beta-nicotinate D-ribonucleotide + 5,6-dimethylbenzimidazole  ->  alpha-ribazole 5'-phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-hydroxybenzimidazole  ->  5-hydroxybenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-methoxy-6-methylbenzimidazole  ->  5-methoxy-6-methylbenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-methoxybenzimidazole  ->  5-methoxybenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-methylbenzimidazole  ->  5-methylbenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + adenine  ->  nicotinate + adenine ribotide phosphate + H+
+beta-nicotinate D-ribonucleotide + benzimidazole  ->  benzimidazole ribotide phosphate + nicotinate + H+
+sirohydrochlorin + Co2+  ->  cobalt-sirohydrochlorin + 2 H+
+cobalt-precorrin-5B + S-adenosyl-L-methionine  ->  cobalt-precorrin-6A + S-adenosyl-L-homocysteine
+cobyrinate + 2 L-glutamine + 2 ATP + 2 H2O  ->  cob(II)yrinate a,c-diamide + 2 L-glutamate + 2 ADP + 2 phosphate + 2 H+
+adenosylcobinamide-GDP + alpha-ribazole  ->  GMP + adenosylcobalamin + H+
+adenosylcobinamide-GDP + alpha-ribazole 5'-phosphate  ->  GMP + adenosylcobalamin 5'-phosphate + H+
+adenosylcobinamide-GDP + 2-methyladenine ribotide phosphate  ->  GMP + Coalpha-[alpha-(2-methyladenin-9-yl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 4-methylphenyl ribotide phosphate  ->  GMP + 4-methylphenyl-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-hydroxybenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-hydroxybenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methoxy-6-methylbenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methoxy-6-methylbenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methoxybenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methoxybenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methylbenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methylbenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + adenine ribotide phosphate  ->  GMP + Coalpha-[alpha-(adenin-9-yl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + benzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(benzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + phenyl ribotide phosphate  ->  GMP + phenyl-Cobeta-adenosylcobamide 5'-phosphate + H+
+L-threonine 3-O-phosphate + H+  ->  (R)-1-amino-2-propanol O-2-phosphate + CO2
+precorrin-2 + S-adenosyl-L-methionine  ->  S-adenosyl-L-homocysteine + precorrin-3A + H+
+beta-nicotinate D-ribonucleotide + 2-methyladenine  ->  nicotinate + 2-methyladenine ribotide phosphate + H+
+beta-nicotinate D-ribonucleotide + 5,6-dimethylbenzimidazole  ->  alpha-ribazole 5'-phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-hydroxybenzimidazole  ->  5-hydroxybenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-methoxy-6-methylbenzimidazole  ->  5-methoxy-6-methylbenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-methoxybenzimidazole  ->  5-methoxybenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + 5-methylbenzimidazole  ->  5-methylbenzimidazole ribotide phosphate + nicotinate + H+
+beta-nicotinate D-ribonucleotide + adenine  ->  nicotinate + adenine ribotide phosphate + H+
+beta-nicotinate D-ribonucleotide + benzimidazole  ->  benzimidazole ribotide phosphate + nicotinate + H+
+adenosylcobinamide-GDP + alpha-ribazole  ->  GMP + adenosylcobalamin + H+
+adenosylcobinamide-GDP + alpha-ribazole 5'-phosphate  ->  GMP + adenosylcobalamin 5'-phosphate + H+
+adenosylcobinamide-GDP + 2-methyladenine ribotide phosphate  ->  GMP + Coalpha-[alpha-(2-methyladenin-9-yl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 4-methylphenyl ribotide phosphate  ->  GMP + 4-methylphenyl-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-hydroxybenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-hydroxybenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methoxy-6-methylbenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methoxy-6-methylbenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methoxybenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methoxybenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methylbenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methylbenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + adenine ribotide phosphate  ->  GMP + Coalpha-[alpha-(adenin-9-yl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + benzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(benzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + phenyl ribotide phosphate  ->  GMP + phenyl-Cobeta-adenosylcobamide 5'-phosphate + H+
+ammonium + L-glutamate + ATP  ->  L-glutamine + ADP + phosphate + H+
+L-aspartate + dioxygen  ->  2-iminosuccinate + hydrogen peroxide + H+
+2-iminosuccinate + glycerone phosphate  ->  quinolinate + phosphate + 2 H2O
+beta-nicotinate D-ribonucleotide + CO2 + diphosphate  &larr;  5-phospho-alpha-D-ribose 1-diphosphate + quinolinate + 2 H+
+beta-nicotinate D-ribonucleotide + ATP + H+  ->  nicotinate adenine dinucleotide + diphosphate
+ATP + nicotinate adenine dinucleotide + L-glutamine + H2O  ->  L-glutamate + AMP + NAD+ + diphosphate + H+
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+pyruvate + L-aspartate 4-semialdehyde  ->  (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + H2O + H+
+(S)-2,3,4,5-tetrahydrodipicolinate + NAD(P)+ + H2O  &larr;  (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + NAD(P)H + H+
+N-succinyl-L,L-2,6-diaminopimelate + H2O  ->  L,L-diaminopimelate + succinate
+L,L-diaminopimelate  <->  meso-diaminopimelate
+meso-diaminopimelate + H+  ->  L-lysine + CO2
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)butan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)butyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)heptan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)heptyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)hexan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)hexyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)nonan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)nonyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)octan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)octyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)pentan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)pentyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-(1H-indol-3-yl)ethan-1-imine + H2O  ->  (Z)-2-(1H-indol-3-yl)-1-thioacetohydroximate + pyruvate + ammonium + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-(4-hydroxyphenyl)ethan-1-imine + H2O  ->  (Z)-N-hydroxy-2-(4-hydroxyphenyl)acetimidothioate + pyruvate + ammonium + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-phenylethan-1-imine + H2O  ->  (Z)-2-phenyl-1-thioacetohydroximate + pyruvate + ammonium + H+
+S-(1-hydroxyhexan-3-yl)-L-cysteine + H2O  ->  3-sulfanylhexan-1-ol + pyruvate + ammonium
+S-(4-hydroxy-2-methylpentan-2-yl)-L-cysteine + H2O  ->  4-methyl-4-sulfanylpentan-2-ol + pyruvate + ammonium
+S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine + H2O  ->  2-methyl-3-sulfanylbutan-1-ol + pyruvate + ammonium
+S-(4-oxo-2-methylpentan-2-yl)-L-cysteine + H2O  ->  4-methyl-4-sulfanylpentan-2-one + pyruvate + ammonium
+S-(5-hydroxypentan-3-yl)-L-cysteine + H2O  ->  3-sulfanylpentan-1-ol + pyruvate + ammonium
+S-(6-hydroxy-4-methylhexan-4-yl)-L-cysteine + H2O  ->  3-methyl-3-sulfanylhexan-1-ol + pyruvate + ammonium
+S-benzyl-L-cysteine + H2O  ->  benzyl thiol + pyruvate + ammonium
+S-ethyl-L-cysteine + H2O  ->  ethanethiol + pyruvate + ammonium
+S-fenclorimyl-L-cysteine + H2O  ->  6-chloro-2-phenyl-4-sulfanylpyrimidine + pyruvate + ammonium
+an L-cysteine-S-conjugate + H2O  ->  a thiol + pyruvate + ammonium
+an S-alkyl-L-cysteine + H2O  ->  an alkyl-thiol + pyruvate + ammonium
+felinine + H2O  ->  3-methyl-3-sulfanylbutan-1-ol + pyruvate + ammonium
+L-cystathionine + H2O  ->  L-homocysteine + pyruvate + ammonium
+L-djenkolate + H2O  ->  S-(sulfanylmethyl)-L-cysteine + pyruvate + ammonium
+L-selenocystathionine + H2O  ->  seleno-L-homocysteine + pyruvate + ammonium
+L-homocysteine + a 5-methyltetrahydrofolate  ->  L-methionine + a tetrahydrofolate
+ATP + L-methionine + H2O  ->  S-adenosyl-L-methionine + phosphate + diphosphate
+O-phospho-L-homoserine + H2O  ->  L-threonine + phosphate
+selenate + ATP + H+  ->  adenosine 5'-phosphoselenate + diphosphate
+sulfate + ATP + H+  <->  adenosine 5'-phosphosulfate + diphosphate
+adenosine 5'-phosphosulfate + ATP  ->  3'-phosphoadenylyl-sulfate + ADP + H+
+(3R)-3-hydroxy-12-methyltridecanoyl-[acp] + NADP+  &larr;  12-methyl-3-oxotridecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-13-methyltetradecanoyl-[acp] + NADP+  &larr;  13-methyl-3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-14-methylpentadecanoyl-[acp] + NADP+  &larr;  14-methyl-3-oxopentadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-15-methylhexadecanoyl-[acp] + NADP+  &larr;  15-methyl-3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-6-methylheptanoyl-[acp] + NADP+  &larr;  6-methyl-3-oxoheptanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-7-methyloctanoyl-[acp] + NADP+  &larr;  7-methyl-3-oxooctanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-8-methylnonanoyl-[acp] + NADP+  &larr;  8-methyl-3-oxononanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-9-methyldecanoyl-[acp] + NADP+  &larr;  9-methyl-3-oxodecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyacyl-[acyl-carrier protein] + NADP+  &larr;  3-oxoacyl-[acyl-carrier protein] + NADPH + H+
+(3R)-3-hydroxydecanoyl-[acp] + NADP+  &larr;  3-oxodecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxydocosanoyl-[acp] + NADP+  &larr;  3-oxodocosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxydocosanoyl-[acp] + NADP+  &larr;  3-oxodocosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyhexadecanoyl-[acp] + NADP+  &larr;  3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyhexanoyl-[acp] + NADP+  &larr;  3-oxohexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyicosanoyl-[acp] + NADP+  &larr;  3-oxoicosanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyoctadecanoyl-[acp] + NADP+  &larr;  3-oxooctadecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyoctanoyl-[acp] + NADP+  &larr;  3-oxooctanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxypentanoyl-[TcsA polyketide synthase] + NADP+  &larr;  3-oxopentanoyl-[TcsA polyketide synthase] + NADPH + H+
+(3R)-3-hydroxypimeloyl-[acp] + NADP+  &larr;  3-oxopimeloyl-[acp] + NADPH + H+
+(3R)-3-hydroxytetradecanoyl-[acp] + NADP+  &larr;  3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R,11Z)-3-hydroxyoctadec-11-enoyl-[acp] + NADP+  &larr;  (11Z)-3-oxooctadec-11-enoyl-[acp] + NADPH + H+
+(3R,12S)-3-hydroxy-12-methyltetradecanoyl-[acp] + NADP+  &larr;  (12S)-12-methyl-3-oxotetradecanoyl-[acp] + NADPH + H+
+(3R,14S)-3-hydroxy-14-methylhexadecanoyl-[acp] + NADP+  &larr;  (14S)-14-methyl-3-oxohexadecanoyl-[acp] + NADPH + H+
+(3R,5Z)-3-hydroxydodec-5-enoyl-[acp] + NADP+  &larr;  (5Z)-3-oxododec-5-enoyl-[acp] + NADPH + H+
+(3R,5Z)-3-hydroxy-tetradec-5-enoyl-[acp] + NADP+  &larr;  (5Z)-3-oxo-tetradec-5-enoyl-[acp] + NADPH + H+
+(3R,6S)-3-hydroxy-6-methyloctanoyl-[acp] + NADP+  &larr;  (6S)-6-methyl-3-oxooctanoyl-[acp] + NADPH + H+
+(3R,7Z)-3-hydroxytetradec-7-enoyl-[acp] + NADP+  &larr;  (7Z)-3-oxotetradec-7-enoyl-[acp] + NADPH + H+
+(3R,7Z,10Z,13Z,16Z,19Z)-3-hydroxydocosa-7,10,13,16,19-pentaenoyl-[acp] + NADP+  &larr;  (7Z,10Z,13Z,16Z,19Z)-3-oxodocosa-7,10,13,16,19-pentaenoyl-[acp] + NADPH + H+
+(3R,8S)-3-hydroxy-8-methyldecanoyl-[acp] + NADP+  &larr;  (8S)-8-methyl-3-oxodecanoyl-[acp] + NADPH + H+
+(3R,9Z)-3-hydroxyhexadec-9-enoyl-[acp] + NADP+  &larr;  (9Z)-3-oxohexadec-9-enoyl-[acp] + NADPH + H+
+(3R)-3-hydroxyglutaryl-[acp] methyl ester + NADP+  &larr;  3-oxoglutaryl-[acp] methyl ester + NADPH + H+
+(3R)-3-hydroxypimeloyl-[acp] methyl ester + NADP+  &larr;  3-oxopimeloyl-[acp] methyl ester + NADPH + H+
+(3R,11Z)-3-hydroxy-icos-11-enoyl-[acp] + NADP+  &larr;  (11Z)-3-oxo-icos-11-enoyl-[acp] + NADPH + H+
+(3R,6Z)-3-hydroxyoctadec-6-enoyl-[acp] + NADP+  &larr;  (6Z)-3-oxooctadec-6-enoyl-[acp] + NADPH + H+
+(3R,7Z)-3-hydroxy-hexadec-7-enoyl-[acp] + NADP+  &larr;  (7Z)-3-oxo-hexadec-7-enoyl-[acp] + NADPH + H+
+(3R,9Z)-3-hydroxy-octadec-9-enoyl-[acp] + NADP+  &larr;  (9Z)-3-oxo-octadec-9-enoyl-[acp] + NADPH + H+
+(4S,3R)-3-hydroxy-4-methylhexanoyl-[acp] + NADP+  &larr;  (4S)-4-methyl-3-oxohhexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-10-methylundecanoyl-[acp] + NADP+  &larr;  1o-methyl-3-oxoundecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-11-methyldodecanoyl-[acp] + NADP+  &larr;  11-methyl-3-oxododecanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-4-methylpentanoyl-[acp] + NADP+  &larr;  4-methyl-3-oxopentanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxy-5-methylhexanoyl-[acp] + NADP+  &larr;  5-methyl-3-oxohexanoyl-[acp] + NADPH + H+
+(3R)-3-hydroxybutanoyl-[acp] + NADP+  &larr;  acetoacetyl-[acp] + NADPH + H+
+(3R)-3-hydroxydodecanoyl-[acp] + NADP+  &larr;  3-oxododecanoyl-[acp] + NADPH + H+
+(3R,10S)-3-hydroxy-10-methyldodecanoyl-[acp] + NADP+  &larr;  (10S)-10-methyl-3-oxododecanoyl-[acp] + NADPH + H+
+(10S)-10-methyldodecanoyl-[acp] + NAD+  &larr;  (2E,10S)-10-methyldodec-2-enoyl-[acp] + NADH + H+
+(12S)-12-methyltetradecanoyl-[acp] + NAD+  &larr;  (2E,12S)-12-methyltetradec-2-enoyl-[acp] + NADH + H+
+(14S)-14-methylhexadecanoyl-[acp] + NAD+  &larr;  (2E,14S)-14-methylhexadec-2-enoyl-[acp] + NADH + H+
+(4S)-4-methylhexanoyl-[acp] + NAD+  &larr;  (2E,4S)-4-methylhex-2-enoyl-[acp] + NADH + H+
+(5Z)-dodec-5-enoyl-[acp] + NAD+  &larr;  (2E,5Z)-dodeca-3,5-dienoyl-[acp] + NADH + H+
+(5Z)-tetradec-5-enoyl-[acp] + NAD+  &larr;  (2E,5Z)-tetradeca-2,5-dienoyl-[acp] + NADH + H+
+(6S)-6-methyloctanoyl-[acp] + NAD+  &larr;  (2E,6S)-6-methyloct-2-enoyl-[acp] + NADH + H+
+(7Z)-tetradec-7-enoyl-[acp] + NAD+  &larr;  (2E,7Z)-tetradeca-2,7-dienoyl-[acp] + NADH + H+
+(7Z)-hexadec-7-enoyl-[acp] + NAD+  &larr;  (2E,7Z)-hexadeca-2,7-dienoyl-[acp] + NADH + H+
+(8S)-8-methyldecanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E,8S)-8-methyldec-2-enoyl-[acp] + NADH + H+
+10-methylundecanoyl-[acp] + NAD+  &larr;  (2E)-10-methylundec-2-enoyl-[acp] + NADH + H+
+11-methyldodecanoyl-[acp] + NAD+  &larr;  (2E)-11-methyldodec-2-enoyl-[acp] + NADH + H+
+12-methyltridecanoyl-[acp] + NAD+  &larr;  (2E)-12-methyltridec-2-enoyl-[acp] + NADH + H+
+13-methyltetradecanoyl-[acp] + NAD+  &larr;  (2E)-13-methyltetradec-2-enoyl-[acp] + NADH + H+
+14-methylpentadecanoyl-[acp] + NAD+  &larr;  (2E)-14-methylpentadec-2-enoyl-[acp] + NADH + H+
+15-methylhexadecanoyl-[acp] + NAD+  &larr;  (2E)-15-methylhexadec-2-enoyl-[acp] + NADH + H+
+2,3,4-saturated fatty acyl-[acp] + NAD+  &larr;  trans-2-enoyl-[acyl-carrier protein] + NADH + H+
+5-methylhexanoyl-[acp] + NAD+  &larr;  (2E)-4-methylpent-2-enoyl-[acp] + NADH + H+
+5-methylhexanoyl-[acp] + NAD+  &larr;  (2E)-5-methylhex-2-enoyl-[acp] + NADH + H+
+6-methylheptanoyl-[acp] + NAD+  &larr;  (2E)-6-methylhept-2-enoyl-[acp] + NADH + H+
+7-methyloctanoyl-[acp] + NAD+  &larr;  (2E)-7-methyloct-2-enoyl-[acp] + NADH + H+
+8-methylnonanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E)-8-methylnon-2-enoyl-[acp] + NADH + H+
+9-methyldecanoyl-[acyl-carrier protein] + NAD+  &larr;  (2E)-9-methyldec-2-enoyl-[acp] + NADH + H+
+cis-vaccenoyl-[acp] + NAD+  &larr;  (2E,11Z)-octadeca-2,11-dienoyl-[acp] + NADH + H+
+acyl-[acyl-carrier protein] + NAD+  &larr;  trans-2-enoyl-[acyl-carrier protein] + NADH + H+
+arachidoyl-[acp] + NAD+  &larr;  (2E)-icos-2-enoyl-[acp] + NADH + H+
+behenoyl-[acp] + NAD+  ->  (2E)-docos-2-enoyl-[acp] + NADH + H+
+butanoyl-[acp] + NAD+  &larr;  (2E)-but-2-enoyl-[acp] + NADH + H+
+decanoyl-[acp] + NAD+  &larr;  (2E)-dec-2-enoyl-[acp] + NADH + H+
+dodecanoyl-[acp] + NAD+  &larr;  (2E)-dodec-2-enoyl-[acp] + NADH + H+
+glutaryl-[acp] methyl ester + NAD+  &larr;  (2E)-enoylglutaryl-[acp] methyl ester + NADH + H+
+gondoyl-[acp] + NAD+  &larr;  (2E,11Z)-icosa-2,11-dienoyl-[acp] + NADH + H+
+hexanoyl-[acp] + NAD+  &larr;  (2E)-hex-2-enoyl-[acp] + NADH + H+
+myristoyl-[acp] + NAD+  &larr;  (2E)-tetradec-2-enoyl-[acp] + NADH + H+
+octanoyl-[acp] + NAD+  &larr;  (2E)-oct-2-enoyl-[acp] + NADH + H+
+oleoyl-[acp] + NAD+  &larr;  (2E,9Z)-octadeca-2,9-dienoyl-[acp] + NADH + H+
+palmitoleoyl-[acp] + NAD+  &larr;  (2E,9Z)-hexadeca-2,9-dienoyl-[acp] + NADH + H+
+palmitoyl-[acp] + NAD+  &larr;  (2E)-hexadec-2-enoyl-[acp] + NADH + H+
+pimeloyl-[acp] + NAD+  &larr;  2-enoyl-pimeloyl-[acp] + NADH + H+
+pimeloyl-[acp] methyl ester + NAD+  &larr;  (2E)-enoylpimeloyl-[acp] methyl ester + NADH + H+
+stearoyl-[acp] + NAD+  &larr;  (2E)-octadec-2-enoyl-[acp] + NADH + H+
+pimeloyl-CoA + L-alanine + H+  ->  CO2 + coenzyme A + (8S)-8-amino-7-oxononanoate
+pimeloyl-[acp] + L-alanine + H+  ->  (8S)-8-amino-7-oxononanoate + CO2 + acyl-carrier protein
+(8S)-8-amino-7-oxononanoate + S-adenosyl-L-methionine  <->  S-adenosyl-4-methylsulfanyl-2-oxobutanoate + (7R,8S)-diaminononanoate
+(7R,8S)-diaminononanoate + CO2 + ATP  ->  dethiobiotin + ADP + phosphate + 3 H+
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+acetyl-CoA + formate  <->  coenzyme A + pyruvate
+propanoyl-CoA + formate  <->  coenzyme A + 2-oxobutanoate
+(R)-3,4-dihydroxyphenylglycol + NAD+  &larr;  3,4-dihydroxyphenylglycolaldehyde + NADH + H+
+(R)-butane-1,3-diol + NAD+  ->  (R)-3-hydroxybutanal + NADH + H+
+(R)-mevalonate + NAD+  &larr;  (R)-mevaldate + NADH + H+
+(indol-3-yl)glycol + NAD+  &larr;  (2R)-2-hydroxy-2-(indol-3-yl)acetaldehyde + NADH + H+
+2-methylbutanol + NAD+  &larr;  2-methylbutanal + NADH + H+
+2-phenylethanol + NAD+  <->  phenylacetaldehyde + NADH + H+
+3-methoxy-4-hydroxyphenylglycol + NAD+  <->  3-methoxy-4-hydroxyphenylglycolaldehyde + NADH + H+
+3-methylbutanol + NAD+  <->  3-methylbutanal + NADH + H+
+4-tyrosol + NAD+  &larr;  (4-hydroxyphenyl)acetaldehyde + NADH + H+
+5-hydroxytryptophol + NAD+  &larr;  5-hydroxyindole acetaldehyde + NADH + H+
+a primary alcohol + NAD+  <->  an aldehyde + NADH + H+
+a secondary alcohol + NAD+  <->  a ketone + NADH + H+
+ethanol + NAD+  <->  acetaldehyde + NADH + H+
+isobutanol + NAD+  <->  isobutanal + NADH + H+
+methionol + NAD+  &larr;  3-(methylsulfanyl)propanal + NADH + H+
+phytol + NAD+  ->  phytenal + NADH + H+
+propan-1-ol + NAD+  &larr;  1-propanal + NADH + H+
+alpha-D-glucose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+ATP + beta-D-fructofuranose 6-phosphate  ->  ADP + beta-D-fructofuranose 1,6-bisphosphate + H+
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+2 ATP + L-glutamine + hydrogen carbonate + H2O  ->  L-glutamate + carbamoyl phosphate + 2 ADP + phosphate + 2 H+
+N-acetyl-L-glutamate + ATP  <->  N-acetylglutamyl-phosphate + ADP
+N-acetyl-L-glutamate 5-semialdehyde + NADP+ + phosphate  <->  N-acetylglutamyl-phosphate + NADPH + H+
+canavaninosuccinate  ->  L-canavanine + fumarate
+L-arginino-succinate  <->  L-arginine + fumarate
+5'-deoxyadenosine + H2O  ->  5-deoxy-D-ribose + adenine
+S-adenosyl-L-homocysteine + H2O  ->  S-ribosyl-L-homocysteine + adenine
+S-methyl-5'-thioadenosine + H2O  ->  5-(methylsulfanyl)-D-ribose + adenine
+S-ribosyl-L-homocysteine  ->  L-homocysteine + autoinducer 2
+L-homoserine + acetyl-CoA  <->  O-acetyl-L-homoserine + coenzyme A
+L-homocysteine + a 5-methyltetrahydrofolate  ->  L-methionine + a tetrahydrofolate
+1D-chiro-inositol + NAD+  <->  1-keto-D-chiro-inositol + NADH + H+
+scyllo-inosose  ->  3D-(3,5/4)-trihydroxycyclohexane-1,2-dione + H2O
+5-dehydro-2-deoxy-D-gluconate + ATP  ->  5-dehydro-2-deoxy-D-gluconate 6-phosphate + ADP + H+
+N-acetyl-D-glucosamine + ATP  ->  N-acetyl-D-glucosamine 6-phosphate + ADP + H+
+D-glucosamine 6-phosphate + H2O  <->  beta-D-fructofuranose 6-phosphate + ammonium
+L-glutamate  <->  D-glutamate
+2 D-alanine + ATP  ->  D-alanyl-D-alanine + ADP + phosphate + H+
+ATP + D-alanine + D-methionine  ->  D-alanyl-D-methionine + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramate + NADP+  &larr;  UDP-N-acetyl-alpha-D-glucosamine-enolpyruvate + NADPH + H+
+L-alanine + UDP-N-acetyl-alpha-D-muramate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanine + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanine + D-glutamate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamate + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamate + meso-diaminopimelate + ATP  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysine + D-alanyl-D-alanine + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine + ADP + phosphate + H+
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + D-alanyl-D-alanine + ATP  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + ADP + phosphate + H+
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + D-alanyl-D-lactate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-lactate + ADP + phosphate + H+
+a UDP-N-acetylmuramoyl-pentapeptide + di-trans,octa-cis-undecaprenyl phosphate  ->  a lipid I + UMP
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-lactate + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Lac + UMP
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-L-Lys-D-Ala + UMP
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-L-Lys-D-Ala-D-Ala + UMP
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + UMP
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + trans,octacis-decaprenyl phosphate  ->  Dec-PP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + UMP
+UDP-N-acetyl-alpha-D-glucosamine + phosphoenolpyruvate  ->  UDP-N-acetyl-alpha-D-glucosamine-enolpyruvate + phosphate
+L-glutamate  <->  D-glutamate
+2 D-alanine + ATP  ->  D-alanyl-D-alanine + ADP + phosphate + H+
+ATP + D-alanine + D-methionine  ->  D-alanyl-D-methionine + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramate + NADP+  &larr;  UDP-N-acetyl-alpha-D-glucosamine-enolpyruvate + NADPH + H+
+L-alanine + UDP-N-acetyl-alpha-D-muramate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanine + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanine + D-glutamate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamate + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysine + D-alanyl-D-alanine + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine + ADP + phosphate + H+
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + D-alanyl-D-alanine + ATP  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + ADP + phosphate + H+
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + D-alanyl-D-lactate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-lactate + ADP + phosphate + H+
+a UDP-N-acetylmuramoyl-pentapeptide + di-trans,octa-cis-undecaprenyl phosphate  ->  a lipid I + UMP
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-lactate + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Lac + UMP
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-L-Lys-D-Ala + UMP
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-L-Lys-D-Ala-D-Ala + UMP
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + di-trans,octa-cis-undecaprenyl phosphate  ->  Und-PP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + UMP
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + trans,octacis-decaprenyl phosphate  ->  Dec-PP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + UMP
+a lipid II[periplasm] + H2O[periplasm]  ->  an Und-PP-[beta-D-GlcNAc-(1->4)]-N-acetylmuramyl-(tetrapeptide)[periplasm] + D-alanine[periplasm]
+a nascent peptidoglycan (E. faeciums) + a peptidoglycan internal segment (E. faecium, tetrapeptide) + H+  ->  a peptidoglycan with D,D cross-links (Enterococcus faecium) + D-alanine
+a nascent peptidoglycan with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine) pentapeptide[periplasm] + H2O[periplasm]  ->  a nascent peptidoglycan with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanine) tetrapeptide[periplasm] + D-alanine[periplasm]
+a peptidoglycan internal segment with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanine) tetrapeptide + a nascent peptidoglycan with (L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine) pentapeptide  ->  a nascent peptidoglycan with D,D cross-links (meso-diaminopimelate containing) + D-alanine
+L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine[periplasm] + H2O[periplasm]  <->  L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanine[periplasm] + D-alanine[periplasm]
+Nalpha,N&epsilon;-diacetyl-lysyl-D-alanyl-D-alanine[periplasm] + H2O[periplasm]  <->  Nalpha,N&epsilon;-diacetyl-lysyl-D-alanine[periplasm] + D-alanine[periplasm]
+N-acetyl-muramoyl-(L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine) + H2O  <->  N-acetyl-muramoyl-(L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanine) + D-alanine
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala[periplasm] + H2O[periplasm]  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala[periplasm] + D-alanine[periplasm]
+Und-PP-[beta-D-GlcNAc-(1->4)]-MurNAc-L-Ala-&gamma;-D-iGln-(6-N-beta-D-Asn)-L-Lys-D-Ala-D-Ala[out] + H2O[out]  ->  Und-PP-[beta-D-GlcNAc-(1->4)]-MurNAc-L-Ala-&gamma;-D-iGln-(6-N-beta-D-Asn)-L-Lys-D-Ala[out] + D-alanine[out]
+Und-PP-[beta-D-GlcNAc-(1->4)]-MurNAc-L-Ala-&gamma;-D-iGln-L-Lys-D-Ala-D-Ala + H2O  ->  Und-PP-beta-D-GlcNAc-(1->4)-MurNAc-L-Ala-&gamma;-D-iGln-L-Lys-D-Ala + D-alanine
+undecaprenyl-diphospho-{[N-acetyl-beta-glucosaminyl-(1->4)]-N-acetylmuramoyl-L-alanyl-D-glutamyl-L-lysyl-(Gly5)-D-alanyl-D-alanine}(n+1) + a peptidoglycan internal segment (S. aureus)  ->  a peptidoglycan with D,D cross-link (S. aureus) + D-alanine
+L-glutamate  <->  D-glutamate
+2 D-alanine + ATP  ->  D-alanyl-D-alanine + ADP + phosphate + H+
+ATP + D-alanine + D-methionine  ->  D-alanyl-D-methionine + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramate + NADP+  &larr;  UDP-N-acetyl-alpha-D-glucosamine-enolpyruvate + NADPH + H+
+L-alanine + UDP-N-acetyl-alpha-D-muramate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanine + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanine + D-glutamate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamate + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamate + meso-diaminopimelate + ATP  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + ADP + phosphate + H+
+UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysine + D-alanyl-D-alanine + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-L-lysyl-D-alanyl-D-alanine + ADP + phosphate + H+
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + D-alanyl-D-alanine + ATP  ->  UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP-D-Ala-D-Ala + ADP + phosphate + H+
+UDP-MurNAc-L-Ala-&gamma;-D-Glu-meso-DAP + D-alanyl-D-lactate + ATP  ->  UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-&gamma;-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-lactate + ADP + phosphate + H+
+beta-nicotinamide D-ribonucleotide + H2O  ->  1-(beta-D ribofuranosyl)nicotinamide + phosphate
+beta-nicotinate D-ribonucleotide + H2O  ->  beta-D-ribosylnicotinate + phosphate
+a ribonucleoside 5'-monophosphate + H2O  ->  a ribonucleoside + phosphate
+AMP + H2O  ->  adenosine + phosphate
+CMP + H2O  ->  cytidine + phosphate
+GMP + H2O  ->  guanosine + phosphate
+IMP + H2O  ->  inosine + phosphate
+UMP + H2O  ->  uridine + phosphate
+XMP + H2O  ->  xanthosine + phosphate
+IMP + NAD+ + H2O  <->  XMP + NADH + H+
+2'-deoxyadenosine + phosphate  <->  adenine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyguanosine + phosphate  <->  guanine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyinosine + phosphate  <->  hypoxanthine + 2-deoxy-alpha-D-ribose 1-phosphate
+5'-chloro-5'-deoxyadenosine + phosphate  <->  adenine + 5-chloro-5-deoxyribose 1-phosphate
+5'-deoxy-5'-fluoroadenosine + phosphate  <->  adenine + 5-fluoro-5-deoxy-D-ribose 1-phosphate
+a purine 2'-deoxyribonucleoside + phosphate  <->  a purine base + 2-deoxy-alpha-D-ribose 1-phosphate
+a purine ribonucleoside + arsenate  <->  a purine base + ribose-1-arsenate
+a purine ribonucleoside + phosphate  <->  a purine base + alpha-D-ribose-1-phosphate
+adenosine + phosphate  <->  adenine + alpha-D-ribose-1-phosphate
+guanosine + phosphate  <->  guanine + alpha-D-ribose-1-phosphate
+inosine + phosphate  <->  hypoxanthine + alpha-D-ribose-1-phosphate
+xanthosine + phosphate  <->  xanthine + alpha-D-ribose-1-phosphate
+pyruvate + coenzyme A + 2 oxidized ferredoxin [iron-sulfur] cluster  <->  acetyl-CoA + CO2 + 2 reduced ferredoxin [iron-sulfur] cluster + H+
+pyruvate + coenzyme A + oxidized flavodoxin + H+  <->  acetyl-CoA + CO2 + reduced flavodoxin
+acetyl-CoA + phosphate  <->  acetyl phosphate + coenzyme A
+acetyl-CoA + phosphate  <->  acetyl phosphate + coenzyme A
+pyruvate + coenzyme A + 2 oxidized ferredoxin [iron-sulfur] cluster  <->  acetyl-CoA + CO2 + 2 reduced ferredoxin [iron-sulfur] cluster + H+
+pyruvate + coenzyme A + oxidized flavodoxin + H+  <->  acetyl-CoA + CO2 + reduced flavodoxin
+acetyl-CoA + formate  <->  coenzyme A + pyruvate
+propanoyl-CoA + formate  <->  coenzyme A + 2-oxobutanoate
+acetyl-CoA + phosphate  <->  acetyl phosphate + coenzyme A
+acetyl-CoA + phosphate  <->  acetyl phosphate + coenzyme A
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+beta-D-fructofuranose 1,6-bisphosphate + H2O  ->  beta-D-fructofuranose 6-phosphate + phosphate
+alpha-D-glucose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+alpha-D-glucopyranose 1-phosphate  <->  D-glucopyranose 6-phosphate
+5-phospho-beta-D-ribosylamine + ATP + glycine  ->  ADP + N1-(5-phospho-beta-D-ribosyl)glycinamide + phosphate + H+
+an N10-formyltetrahydrofolate + N1-(5-phospho-beta-D-ribosyl)glycinamide  <->  a tetrahydrofolate + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + H+
+ATP + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + L-glutamine + H2O  ->  L-glutamate + ADP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine + phosphate + H+
+ATP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine  ->  ADP + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + phosphate + H+
+L-aspartate + IMP + GTP  ->  adenylosuccinate + GDP + phosphate + 2 H+
+2-amino-2'-deoxy-N6-[(2S)-succino]adenylate  ->  dZMP + fumarate
+5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole  ->  fumarate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+adenylosuccinate  ->  AMP + fumarate
+ATP + AMP  <->  2 ADP
+a purine ribonucleoside 5'-triphosphate + adenosylcobinamide  ->  adenosyl-cobinamide phosphate + a purine ribonucleoside 5'-diphosphate + H+
+adenosylcobinamide + ATP  ->  adenosyl-cobinamide phosphate + ADP + H+
+adenosylcobinamide + GTP  ->  adenosyl-cobinamide phosphate + GDP + H+
+adenosylcobinamide-GDP + alpha-ribazole  ->  GMP + adenosylcobalamin + H+
+adenosylcobinamide-GDP + alpha-ribazole 5'-phosphate  ->  GMP + adenosylcobalamin 5'-phosphate + H+
+adenosylcobinamide-GDP + 2-methyladenine ribotide phosphate  ->  GMP + Coalpha-[alpha-(2-methyladenin-9-yl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 4-methylphenyl ribotide phosphate  ->  GMP + 4-methylphenyl-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-hydroxybenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-hydroxybenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methoxy-6-methylbenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methoxy-6-methylbenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methoxybenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methoxybenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + 5-methylbenzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(5-methylbenzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + adenine ribotide phosphate  ->  GMP + Coalpha-[alpha-(adenin-9-yl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + benzimidazole ribotide phosphate  ->  GMP + Coalpha-[alpha-(benzimidazolyl)]-Cobeta-adenosylcobamide 5'-phosphate + H+
+adenosylcobinamide-GDP + phenyl ribotide phosphate  ->  GMP + phenyl-Cobeta-adenosylcobamide 5'-phosphate + H+
+ammonium + L-glutamate + ATP  ->  L-glutamine + ADP + phosphate + H+
+2 L-glutamate + 2 oxidized ferredoxin [iron-sulfur] cluster  &larr;  2-oxoglutarate + L-glutamine + 2 reduced ferredoxin [iron-sulfur] cluster + 2 H+
+alpha-D-glucopyranose 1-phosphate  <->  D-glucopyranose 6-phosphate
+alpha-D-glucose 6-phosphate  <->  beta-D-fructofuranose 6-phosphate
+beta-D-fructofuranose + ATP  ->  beta-D-fructofuranose 6-phosphate + ADP + H+
+ATP + D-sedoheptulose  ->  ADP + D-sedoheptulose 1-phosphate + H+
+beta-D-fructofuranose 1,6-bisphosphate + H2O  ->  beta-D-fructofuranose 6-phosphate + phosphate
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+(R)-3,4-dihydroxyphenylglycol + NAD+  &larr;  3,4-dihydroxyphenylglycolaldehyde + NADH + H+
+(R)-butane-1,3-diol + NAD+  ->  (R)-3-hydroxybutanal + NADH + H+
+(R)-mevalonate + NAD+  &larr;  (R)-mevaldate + NADH + H+
+(indol-3-yl)glycol + NAD+  &larr;  (2R)-2-hydroxy-2-(indol-3-yl)acetaldehyde + NADH + H+
+2-methylbutanol + NAD+  &larr;  2-methylbutanal + NADH + H+
+2-phenylethanol + NAD+  <->  phenylacetaldehyde + NADH + H+
+3-methoxy-4-hydroxyphenylglycol + NAD+  <->  3-methoxy-4-hydroxyphenylglycolaldehyde + NADH + H+
+3-methylbutanol + NAD+  <->  3-methylbutanal + NADH + H+
+4-tyrosol + NAD+  &larr;  (4-hydroxyphenyl)acetaldehyde + NADH + H+
+5-hydroxytryptophol + NAD+  &larr;  5-hydroxyindole acetaldehyde + NADH + H+
+a primary alcohol + NAD+  <->  an aldehyde + NADH + H+
+a secondary alcohol + NAD+  <->  a ketone + NADH + H+
+ethanol + NAD+  <->  acetaldehyde + NADH + H+
+isobutanol + NAD+  <->  isobutanal + NADH + H+
+methionol + NAD+  &larr;  3-(methylsulfanyl)propanal + NADH + H+
+phytol + NAD+  ->  phytenal + NADH + H+
+propan-1-ol + NAD+  &larr;  1-propanal + NADH + H+
+GDP-alpha-D-mannose  ->  GDP-4-dehydro-alpha-D-rhamnose + H2O
+3-[(3aS,4S,7aS)-7a-methyl-1,5-dioxo-octahydro-1H-inden-4-yl]propanoate + ATP + coenzyme A  ->  3-[(3aS,4S,7aS)-7a-methyl-1,5-dioxo-octahydro-1H-inden-4-yl]propanoyl-CoA + AMP + diphosphate
+GTP + H2O  ->  formate + 7,8-dihydroneopterin 3'-triphosphate + H+
+7,8-dihydromonapterin  ->  glycolaldehyde + 6-(hydroxymethyl)-7,8-dihydropterin
+D-erythro-7,8-dihydroneopterin  ->  glycolaldehyde + 6-(hydroxymethyl)-7,8-dihydropterin
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+chorismate + L-glutamine  ->  anthranilate + L-glutamate + pyruvate + H+
+N-(5-phosphoribosyl)-anthranilate + diphosphate  <->  anthranilate + 5-phospho-alpha-D-ribose 1-diphosphate
+N-(5-phosphoribosyl)-anthranilate  ->  1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate
+chorismate  <->  isochorismate
+1,4-dihydroxy-2-naphthoyl-CoA + H2O  ->  1,4-dihydroxy-2-naphthoate + coenzyme A + H+
+all-trans-nonaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-9 + diphosphate
+all-trans-decaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-10 + diphosphate
+all-trans-dodecaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-12 + diphosphate
+all-trans-heptaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-7 + diphosphate
+all-trans-hexaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-6 + diphosphate
+all-trans-octaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-8 + diphosphate
+all-trans-tridecaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-13 + diphosphate
+all-trans-undecaprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-11 + diphosphate
+an all-trans-polyisoprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + a 2-demethylmenaquinol + diphosphate
+geranylgeranyl diphosphate + 1,4-dihydroxy-2-naphthoate + H+  ->  CO2 + demethylmenaquinol-4 + diphosphate
+6-methoxy-2-all-trans-octaprenyl-1,4-benzoquinone + S-adenosyl-L-methionine  ->  3-methyl-6-methoxy-2-octaprenyl-1,4-benzoquinone + S-adenosyl-L-homocysteine + H+
+S-adenosyl-L-methionine + a 2-demethylmenaquinol  ->  S-adenosyl-L-homocysteine + a menaquinol + H+
+S-adenosyl-L-methionine + demethylmenaquinol-10  ->  S-adenosyl-L-homocysteine + menaquinol-10 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-11  ->  S-adenosyl-L-homocysteine + menaquinol-11 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-12  ->  S-adenosyl-L-homocysteine + menaquinol-12 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-13  ->  S-adenosyl-L-homocysteine + menaquinol-13 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-4  ->  S-adenosyl-L-homocysteine + menaquinol-4 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-6  ->  S-adenosyl-L-homocysteine + menaquinol-6 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-7  ->  S-adenosyl-L-homocysteine + menaquinol-7 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-8  ->  S-adenosyl-L-homocysteine + menaquinol-8 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-9  ->  S-adenosyl-L-homocysteine + menaquinol-9 + H+
+chorismate + L-glutamine  ->  4-amino-4-deoxychorismate + L-glutamate
+(7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate  ->  7,8-dihydropteroate + diphosphate
+5,6,7,8-tetrahydrofolate + NADP+  &larr;  7,8-dihydrofolate monoglutamate + NADPH + H+
+7,8-dihydrofolate monoglutamate + NADP+  &larr;  folate + NADPH + H+
+a 7,8-dihydrofolate + NADP+  &larr;  a folate + NADPH + H+
+a tetrahydrofolate + NADP+  &larr;  a 7,8-dihydrofolate + NADPH + H+
+geranyl diphosphate + 3-methylbut-3-en-1-yl diphosphate  ->  (2E,6E)-farnesyl diphosphate + diphosphate
+(2E,6E)-farnesyl diphosphate + 5 3-methylbut-3-en-1-yl diphosphate  ->  all-trans-octaprenyl diphosphate + 5 diphosphate
+3-(all-trans-decaprenyl)benzene-1,2-diol + S-adenosyl-L-methionine  ->  6-(all-trans-decaprenyl)-2-methoxy-phenol + S-adenosyl-L-homocysteine + H+
+3-(all-trans-heptaprenyl)benzene-1,2-diol + S-adenosyl-L-methionine  ->  2-methoxy-6-(all-trans-heptaprenyl)phenol + S-adenosyl-L-homocysteine + H+
+3-(all-trans-nonaprenyl)benzene-1,2-diol + S-adenosyl-L-methionine  ->  2-methoxy-6-(all-trans-nonaprenyl)phenol + S-adenosyl-L-homocysteine + H+
+3-(all-trans-octaprenyl)benzene-1,2-diol + S-adenosyl-L-methionine  ->  2-methoxy-6-(all-trans-octaprenyl)phenol + S-adenosyl-L-homocysteine + H+
+a 3-(all-trans-polyprenyl)benzene-1,2-diol + S-adenosyl-L-methionine  ->  a 2-methoxy-6-(all-trans-polyprenyl)phenol + S-adenosyl-L-homocysteine + H+
+3-methyl-2-oxobutanoate + 5,10-methylene-tetrahydromethanopterin + H2O  ->  2-dehydropantoate + tetrahydromethanopterin
+a 5,10-methylenetetrahydrofolate + 3-methyl-2-oxobutanoate + H2O  <->  2-dehydropantoate + a tetrahydrofolate
+beta-alanine + (R)-pantoate + ATP  ->  (R)-pantothenate + AMP + diphosphate + H+
+(R)-pantothenate + ATP  ->  (R)-4'-phosphopantothenate + ADP + H+
+ATP + 4'-phosphopantetheine + H+  ->  3'-dephospho-CoA + diphosphate
+3'-dephospho-CoA + ATP  ->  coenzyme A + ADP + H+
+(R)-pantothenate + ATP  ->  (R)-4'-phosphopantothenate + ADP + H+
+ATP + 4'-phosphopantetheine + H+  ->  3'-dephospho-CoA + diphosphate
+3'-dephospho-CoA + ATP  ->  coenzyme A + ADP + H+
+1D-myo-inositol 1-monophosphate + H2O  ->  myo-inositol + phosphate
+1D-myo-inositol 2-phosphate + H2O  ->  myo-inositol + phosphate
+1D-myo-inositol 3-monophosphate + H2O  ->  myo-inositol + phosphate
+1D-myo-inositol 4-monophosphate + H2O  ->  myo-inositol + phosphate
+1D-myo-inositol 5-monophosphate + H2O  ->  myo-inositol + phosphate
+1D-myo-inositol 6-monophosphate + H2O  ->  myo-inositol + phosphate
+a myo-inositol monophosphate + H2O  ->  myo-inositol + phosphate
+dTDP-alpha-D-glucose  ->  dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose + H2O
+dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose  ->  dTDP-4-dehydro-beta-L-rhamnose
+dTDP-beta-L-rhamnose + NADP+  &larr;  dTDP-4-dehydro-beta-L-rhamnose + NADPH + H+
+beta-L-rhamnopyranose  <->  keto-L-rhamnulose
+L-rhamnulofuranose + ATP  ->  L-rhamnulose 1-phosphate + ADP + H+
+L-rhamnulose 1-phosphate  <->  (S)-lactaldehyde + glycerone phosphate
+alpha-L-fucopyranose  <->  L-fuculose
+(R)-propane-1,2-diol + NAD+  &larr;  (R)-lactaldehyde + NADH + H+
+(S)-propane-1,2-diol + NAD+  <->  (S)-lactaldehyde + NADH + H+
+ethylene glycol + NAD+  <->  glycolaldehyde + NADH + H+
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+GMP + diphosphate  &larr;  guanine + 5-phospho-alpha-D-ribose 1-diphosphate
+IMP + diphosphate  &larr;  hypoxanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+IMP + NAD+ + H2O  <->  XMP + NADH + H+
+XMP + L-glutamine + ATP + H2O  ->  L-glutamate + GMP + AMP + diphosphate + 2 H+
+ATP + dZMP  ->  ADP + dZDP
+ATP + GMP  <->  ADP + GDP
+ATP + beta-D-fructofuranose 6-phosphate  ->  ADP + beta-D-fructofuranose 1,6-bisphosphate + H+
+beta-D-fructofuranose 1,6-bisphosphate + H2O  ->  beta-D-fructofuranose 6-phosphate + phosphate
+beta-D-fructofuranose 1,6-bisphosphate  <->  glycerone phosphate + D-glyceraldehyde 3-phosphate
+beta-D-fructofuranose 1-phosphate  <->  glycerone phosphate + D-glyceraldehyde
+D-sedoheptulose 1,7-bisphosphate  <->  glycerone phosphate + D-erythrose 4-phosphate
+D-sedoheptulose 1-phosphate  <->  glycerone phosphate + D-erythrose
+D-glyceraldehyde 3-phosphate  <->  glycerone phosphate
+D-glyceraldehyde 3-phosphate + NAD+ + phosphate  <->  3-phospho-D-glyceroyl phosphate + NADH + H+
+3-phospho-D-glycerate + ATP  <->  3-phospho-D-glyceroyl phosphate + ADP
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  3-phospho-D-glycerate
+2-phospho-D-glycerate  <->  phosphoenolpyruvate + H2O
+pyruvate + ATP  &larr;  phosphoenolpyruvate + ADP + H+
+pyruvate + dATP  &larr;  phosphoenolpyruvate + dADP + H+
+pyruvate + dGTP  &larr;  phosphoenolpyruvate + dGDP + H+
+pyruvate + GTP  &larr;  phosphoenolpyruvate + GDP + H+
+a beta-D-glucuronide + H2O  ->  D-glucopyranuronate + an alcohol
+luteolin 7-O-[beta-D-glucosyluronate-(1,2)-beta-D-glucosiduronate]-4'-O-beta-D-glucosiduronate + H2O  ->  luteolin 7-O-beta-D-diglucuronide + beta-D-glucuronate
+luteolin 7-O-beta-D-glucuronide + H2O  ->  luteolin + beta-D-glucuronate + H+
+aldehydo-D-galacturonate  <->  D-tagaturonate
+aldehydo-D-glucuronate  <->  D-fructuronate
+D-mannonate  ->  2-dehydro-3-deoxy-D-gluconate + H2O
+D-altronate + NAD+  <->  D-tagaturonate + NADH + H+
+D-altronate  ->  2-dehydro-3-deoxy-D-gluconate + H2O
+2 ATP + L-glutamine + hydrogen carbonate + H2O  ->  L-glutamate + carbamoyl phosphate + 2 ADP + phosphate + 2 H+
+L-aspartate + carbamoyl phosphate  ->  N-carbamoyl-L-aspartate + phosphate + H+
+(S)-dihydroorotate + H2O  <->  N-carbamoyl-L-aspartate + H+
+orotidine 5'-phosphate + diphosphate  <->  5-phospho-alpha-D-ribose 1-diphosphate + orotate
+orotidine 5'-phosphate + H+  ->  UMP + CO2
+ATP + UTP + L-glutamine + H2O  ->  ADP + CTP + L-glutamate + phosphate + 2 H+
+5-phospho-beta-D-ribosylamine + L-glutamate + diphosphate  <->  5-phospho-alpha-D-ribose 1-diphosphate + L-glutamine + H2O
+5-phospho-beta-D-ribosylamine + ATP + glycine  ->  ADP + N1-(5-phospho-beta-D-ribosyl)glycinamide + phosphate + H+
+ATP + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + L-glutamine + H2O  ->  L-glutamate + ADP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine + phosphate + H+
+ATP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine  ->  ADP + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + phosphate + H+
+N5-carboxyaminoimidazole ribonucleotide  ->  5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate
+ATP + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate + L-aspartate  ->  ADP + 5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole + phosphate + H+
+2-amino-2'-deoxy-N6-[(2S)-succino]adenylate  ->  dZMP + fumarate
+5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole  ->  fumarate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+adenylosuccinate  ->  AMP + fumarate
+1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate  <->  ATP + 5-phospho-alpha-D-ribose 1-diphosphate
+1-(5-phospho-beta-D-ribosyl)-AMP + H2O  ->  1-(5-phospho-beta-D-ribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide
+1-(5-phospho-beta-D-ribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide  ->  phosphoribulosylformimino-AICAR-phosphate
+phosphoribulosylformimino-AICAR-phosphate + L-glutamine  ->  L-glutamate + D-erythro-1-(imidazol-4-yl)-glycerol 3-phosphate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide + H+
+IMP + H2O  <->  5-formamido-1-(5-phospho-D-ribosyl)-imidazole-4-carboxamide
+IMP + NAD+ + H2O  <->  XMP + NADH + H+
+XMP + L-glutamine + ATP + H2O  ->  L-glutamate + GMP + AMP + diphosphate + 2 H+
+ATP + dZMP  ->  ADP + dZDP
+ATP + GMP  <->  ADP + GDP
+L-aspartate + IMP + GTP  ->  adenylosuccinate + GDP + phosphate + 2 H+
+ATP + AMP  <->  2 ADP
+L-histidinol phosphate + 2-oxoglutarate  <->  3-(imidazol-4-yl)-2-oxopropyl phosphate + L-glutamate
+ATP + L-aspartate + ammonium  ->  AMP + L-asparagine + diphosphate + H+
+ATP + L-aspartate + L-glutamine + H2O  ->  AMP + L-asparagine + L-glutamate + diphosphate + H+
+L-glutamate + ATP  ->  &gamma;-L-glutamyl 5-phosphate + ADP
+L-glutamate 5-semialdehyde + NADP+ + phosphate  &larr;  &gamma;-L-glutamyl 5-phosphate + NADPH + H+
+L-aspartate + L-citrulline + ATP  ->  L-arginino-succinate + AMP + diphosphate + H+
+O-ureido-L-homoserine + L-aspartate + ATP  ->  canavaninosuccinate + AMP + diphosphate + H+
+canavaninosuccinate  ->  L-canavanine + fumarate
+L-arginino-succinate  <->  L-arginine + fumarate
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+O-phospho-L-homoserine + H2O  ->  L-threonine + phosphate
+2 pyruvate + H+  ->  (S)-2-acetolactate + CO2
+pyruvate + 2-oxobutanoate + H+  ->  (S)-2-aceto-2-hydroxybutanoate + CO2
+(2R)-2,3-dihydroxy-3-methylbutanoate  ->  3-methyl-2-oxobutanoate + H2O
+(R)-2,3-dihydroxy-3-methylpentanoate  ->  (3S)-3-methyl-2-oxopentanoate + H2O
+L-isoleucine + 2-oxoglutarate  <->  L-glutamate + (3S)-3-methyl-2-oxopentanoate
+L-valine + 2-oxoglutarate  <->  L-glutamate + 3-methyl-2-oxobutanoate
+selenate + ATP + H+  ->  adenosine 5'-phosphoselenate + diphosphate
+sulfate + ATP + H+  <->  adenosine 5'-phosphosulfate + diphosphate
+adenosine 5'-phosphosulfate + ATP  ->  3'-phosphoadenylyl-sulfate + ADP + H+
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+L-homoserine + acetyl-CoA  <->  O-acetyl-L-homoserine + coenzyme A
+L-homocysteine + a 5-methyltetrahydrofolate  ->  L-methionine + a tetrahydrofolate
+L-homocysteine + a 5-methyltetrahydrofolate  ->  L-methionine + a tetrahydrofolate
+ATP + L-methionine + H2O  ->  S-adenosyl-L-methionine + phosphate + diphosphate
+ATP + cerotoyl-CoA + hydrogen carbonate  ->  2-carboxycerotoyl-CoA + ADP + phosphate + H+
+ATP + propanoyl-CoA + hydrogen carbonate  <->  (S)-methylmalonyl-CoA + ADP + phosphate + H+
+(R)-methylmalonyl-CoA  <->  succinyl-CoA
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+O-phospho-L-homoserine + H2O  ->  L-threonine + phosphate
+L-threonine 3-O-phosphate + H+  ->  (R)-1-amino-2-propanol O-2-phosphate + CO2
+2 pyruvate + H+  ->  (S)-2-acetolactate + CO2
+pyruvate + 2-oxobutanoate + H+  ->  (S)-2-aceto-2-hydroxybutanoate + CO2
+(2R)-2,3-dihydroxy-3-methylbutanoate  ->  3-methyl-2-oxobutanoate + H2O
+(R)-2,3-dihydroxy-3-methylpentanoate  ->  (3S)-3-methyl-2-oxopentanoate + H2O
+L-isoleucine + 2-oxoglutarate  <->  L-glutamate + (3S)-3-methyl-2-oxopentanoate
+L-valine + 2-oxoglutarate  <->  L-glutamate + 3-methyl-2-oxobutanoate
+glycine + acetyl-CoA  <->  L-2-amino-3-oxobutanoate + coenzyme A
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+chorismate + L-glutamine  ->  anthranilate + L-glutamate + pyruvate + H+
+N-(5-phosphoribosyl)-anthranilate + diphosphate  <->  anthranilate + 5-phospho-alpha-D-ribose 1-diphosphate
+N-(5-phosphoribosyl)-anthranilate  ->  1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate
+3-deoxy-D-arabino-heptulosonate 7-phosphate  ->  3-dehydroquinate + phosphate
+3-dehydroquinate  <->  3-dehydroshikimate + H2O
+shikimate + NADP+  &larr;  3-dehydroshikimate + NADPH + H+
+shikimate + ATP  ->  shikimate 3-phosphate + ADP + H+
+shikimate 3-phosphate + phosphoenolpyruvate  <->  5-enolpyruvoyl-shikimate 3-phosphate + phosphate
+5-enolpyruvoyl-shikimate 3-phosphate  ->  chorismate + phosphate
+6-methoxy-2-all-trans-octaprenyl-1,4-benzoquinone + S-adenosyl-L-methionine  ->  3-methyl-6-methoxy-2-octaprenyl-1,4-benzoquinone + S-adenosyl-L-homocysteine + H+
+S-adenosyl-L-methionine + a 2-demethylmenaquinol  ->  S-adenosyl-L-homocysteine + a menaquinol + H+
+S-adenosyl-L-methionine + demethylmenaquinol-10  ->  S-adenosyl-L-homocysteine + menaquinol-10 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-11  ->  S-adenosyl-L-homocysteine + menaquinol-11 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-12  ->  S-adenosyl-L-homocysteine + menaquinol-12 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-13  ->  S-adenosyl-L-homocysteine + menaquinol-13 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-4  ->  S-adenosyl-L-homocysteine + menaquinol-4 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-6  ->  S-adenosyl-L-homocysteine + menaquinol-6 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-7  ->  S-adenosyl-L-homocysteine + menaquinol-7 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-8  ->  S-adenosyl-L-homocysteine + menaquinol-8 + H+
+S-adenosyl-L-methionine + demethylmenaquinol-9  ->  S-adenosyl-L-homocysteine + menaquinol-9 + H+
+a beta-D-glucuronide + H2O  ->  D-glucopyranuronate + an alcohol
+luteolin 7-O-[beta-D-glucosyluronate-(1,2)-beta-D-glucosiduronate]-4'-O-beta-D-glucosiduronate + H2O  ->  luteolin 7-O-beta-D-diglucuronide + beta-D-glucuronate
+luteolin 7-O-beta-D-glucuronide + H2O  ->  luteolin + beta-D-glucuronate + H+
+5-dehydro-4-deoxy-D-glucuronate  <->  3-deoxy-D-glycero-2,5-hexodiulosonate
+2-dehydro-3-deoxy-D-gluconate + NAD+  <->  3-deoxy-D-glycero-2,5-hexodiulosonate + NADH + H+
+D-glycerate + ATP  ->  2-phospho-D-glycerate + ADP + H+
+aldehydo-D-galacturonate  <->  D-tagaturonate
+aldehydo-D-glucuronate  <->  D-fructuronate
+D-altronate + NAD+  <->  D-tagaturonate + NADH + H+
+D-altronate  ->  2-dehydro-3-deoxy-D-gluconate + H2O
+D-mannonate  ->  2-dehydro-3-deoxy-D-gluconate + H2O
+beta-nicotinate D-ribonucleotide + CO2 + diphosphate  &larr;  5-phospho-alpha-D-ribose 1-diphosphate + quinolinate + 2 H+
+beta-nicotinate D-ribonucleotide + ATP + H+  ->  nicotinate adenine dinucleotide + diphosphate
+ATP + nicotinate adenine dinucleotide + L-glutamine + H2O  ->  L-glutamate + AMP + NAD+ + diphosphate + H+
+a [histone]-N6-acetyl-L-lysine + NAD+ + H2O  ->  a [histone]-L-lysine + 2''-O-acetyl-ADP-ribose + nicotinamide
+a [protein]-N6-acetyl-L-lysine + NAD+ + H2O  ->  a [protein]-L-lysine + 2''-O-acetyl-ADP-ribose + nicotinamide
+an [alpha-tubulin]-N6-acetyl-L-lysine + NAD+ + H2O  ->  an [alpha-tubuline]-L-lysine + 2''-O-acetyl-ADP-ribose + nicotinamide
+nicotinate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O  ->  beta-nicotinate D-ribonucleotide + ADP + diphosphate + phosphate
+beta-nicotinate D-ribonucleotide + CO2 + diphosphate  &larr;  5-phospho-alpha-D-ribose 1-diphosphate + quinolinate + 2 H+
+alpha-D-galactopyranose  <->  D-tagatopyranose
+beta-L-arabinopyranose  <->  L-ribulose
+L-ribulose 5-phosphate  <->  D-xylulose 5-phosphate
+D-xylulose + ATP  ->  D-xylulose 5-phosphate + ADP + H+
+GMP + diphosphate  &larr;  guanine + 5-phospho-alpha-D-ribose 1-diphosphate
+IMP + diphosphate  &larr;  hypoxanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+2'-deoxyadenosine + phosphate  <->  adenine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyguanosine + phosphate  <->  guanine + 2-deoxy-alpha-D-ribose 1-phosphate
+2'-deoxyinosine + phosphate  <->  hypoxanthine + 2-deoxy-alpha-D-ribose 1-phosphate
+5'-chloro-5'-deoxyadenosine + phosphate  <->  adenine + 5-chloro-5-deoxyribose 1-phosphate
+5'-deoxy-5'-fluoroadenosine + phosphate  <->  adenine + 5-fluoro-5-deoxy-D-ribose 1-phosphate
+a purine 2'-deoxyribonucleoside + phosphate  <->  a purine base + 2-deoxy-alpha-D-ribose 1-phosphate
+a purine ribonucleoside + arsenate  <->  a purine base + ribose-1-arsenate
+a purine ribonucleoside + phosphate  <->  a purine base + alpha-D-ribose-1-phosphate
+adenosine + phosphate  <->  adenine + alpha-D-ribose-1-phosphate
+guanosine + phosphate  <->  guanine + alpha-D-ribose-1-phosphate
+inosine + phosphate  <->  hypoxanthine + alpha-D-ribose-1-phosphate
+xanthosine + phosphate  <->  xanthine + alpha-D-ribose-1-phosphate
+2-amino-2'-deoxy-N6-[(2S)-succino]adenylate  ->  dZMP + fumarate
+5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole  ->  fumarate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+adenylosuccinate  ->  AMP + fumarate
+ATP + AMP  <->  2 ADP
+IMP + NAD+ + H2O  <->  XMP + NADH + H+
+ATP + dZMP  ->  ADP + dZDP
+ATP + GMP  <->  ADP + GDP
+5-phospho-beta-D-ribosylamine + L-glutamate + diphosphate  <->  5-phospho-alpha-D-ribose 1-diphosphate + L-glutamine + H2O
+5-phospho-beta-D-ribosylamine + ATP + glycine  ->  ADP + N1-(5-phospho-beta-D-ribosyl)glycinamide + phosphate + H+
+an N10-formyltetrahydrofolate + N1-(5-phospho-beta-D-ribosyl)glycinamide  <->  a tetrahydrofolate + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + H+
+ATP + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + L-glutamine + H2O  ->  L-glutamate + ADP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine + phosphate + H+
+ATP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine  ->  ADP + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + phosphate + H+
+ATP + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate + L-aspartate  ->  ADP + 5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole + phosphate + H+
+2-amino-2'-deoxy-N6-[(2S)-succino]adenylate  ->  dZMP + fumarate
+5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole  ->  fumarate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+adenylosuccinate  ->  AMP + fumarate
+IMP + H2O  <->  5-formamido-1-(5-phospho-D-ribosyl)-imidazole-4-carboxamide
+IMP + NAD+ + H2O  <->  XMP + NADH + H+
+XMP + L-glutamine + ATP + H2O  ->  L-glutamate + GMP + AMP + diphosphate + 2 H+
+ATP + dZMP  ->  ADP + dZDP
+ATP + GMP  <->  ADP + GDP
+L-aspartate + IMP + GTP  ->  adenylosuccinate + GDP + phosphate + 2 H+
+ATP + AMP  <->  2 ADP
+5-phospho-beta-D-ribosylamine + ATP + glycine  ->  ADP + N1-(5-phospho-beta-D-ribosyl)glycinamide + phosphate + H+
+ATP + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + L-glutamine + H2O  ->  L-glutamate + ADP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine + phosphate + H+
+ATP + 2-(formamido)-N1-(5-phospho-beta-D-ribosyl)acetamidine  ->  ADP + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + phosphate + H+
+N5-carboxyaminoimidazole ribonucleotide  ->  5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate
+ATP + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate + L-aspartate  ->  ADP + 5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole + phosphate + H+
+2-amino-2'-deoxy-N6-[(2S)-succino]adenylate  ->  dZMP + fumarate
+5'-phosphoribosyl-4-(N-succinocarboxamide)-5-aminoimidazole  ->  fumarate + 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+adenylosuccinate  ->  AMP + fumarate
+IMP + H2O  <->  5-formamido-1-(5-phospho-D-ribosyl)-imidazole-4-carboxamide
+L-aspartate + IMP + GTP  ->  adenylosuccinate + GDP + phosphate + 2 H+
+ATP + AMP  <->  2 ADP
+IMP + NAD+ + H2O  <->  XMP + NADH + H+
+XMP + L-glutamine + ATP + H2O  ->  L-glutamate + GMP + AMP + diphosphate + 2 H+
+ATP + dZMP  ->  ADP + dZDP
+ATP + GMP  <->  ADP + GDP
+ATP + 4-deoxypyridoxine  ->  ADP + 4-deoxypyridoxine 5'-phosphate + H+
+ATP + pyridoxamine  ->  ADP + pyridoxamine 5'-phosphate + H+
+ATP + pyridoxine  ->  ADP + pyridoxine 5'-phosphate + H+
+pyridoxal + ATP  ->  ADP + pyridoxal 5'-phosphate + H+
+pyruvate + D-glyceraldehyde 3-phosphate + H+  ->  1-deoxy-D-xylulose 5-phosphate + CO2
+4-phospho-D-erythronate + NAD+  ->  (3R)-3-hydroxy-2-oxo-4 phosphooxybutanoate + NADH + H+
+pyridoxamine 5'-phosphate + dioxygen + H2O  ->  ammonium + hydrogen peroxide + pyridoxal 5'-phosphate
+pyridoxine 5'-phosphate + dioxygen  ->  hydrogen peroxide + pyridoxal 5'-phosphate
+2 ATP + L-glutamine + hydrogen carbonate + H2O  ->  L-glutamate + carbamoyl phosphate + 2 ADP + phosphate + 2 H+
+L-aspartate + carbamoyl phosphate  ->  N-carbamoyl-L-aspartate + phosphate + H+
+(S)-dihydroorotate + H2O  <->  N-carbamoyl-L-aspartate + H+
+orotidine 5'-phosphate + diphosphate  <->  5-phospho-alpha-D-ribose 1-diphosphate + orotate
+orotidine 5'-phosphate + H+  ->  UMP + CO2
+ATP + UTP + L-glutamine + H2O  ->  ADP + CTP + L-glutamate + phosphate + 2 H+
+a 5,10-methylenetetrahydrofolate + dUMP  ->  dTMP + a 7,8-dihydrofolate
+dUMP + 5,10-methylene-tetrahydromethanopterin  ->  dTMP + 7,8-dihydromethanopterin
+a 5,10-methylenetetrahydrofolate + dUMP  ->  dTMP + a 7,8-dihydrofolate
+dUMP + 5,10-methylene-tetrahydromethanopterin  ->  dTMP + 7,8-dihydromethanopterin
+2'-deoxycytidine + H+ + H2O  ->  2'-deoxyuridine + ammonium
+cytidine + H+ + H2O  ->  uridine + ammonium
+cytidine + ATP  ->  CMP + ADP + H+
+cytidine + GTP  ->  CMP + GDP + H+
+uridine + ATP  ->  UMP + ADP + H+
+uridine + GTP  ->  UMP + GDP + H+
+ATP + UTP + L-glutamine + H2O  ->  ADP + CTP + L-glutamate + phosphate + 2 H+
+2 ATP + L-glutamine + hydrogen carbonate + H2O  ->  L-glutamate + carbamoyl phosphate + 2 ADP + phosphate + 2 H+
+L-aspartate + carbamoyl phosphate  ->  N-carbamoyl-L-aspartate + phosphate + H+
+(S)-dihydroorotate + H2O  <->  N-carbamoyl-L-aspartate + H+
+orotidine 5'-phosphate + diphosphate  <->  5-phospho-alpha-D-ribose 1-diphosphate + orotate
+orotidine 5'-phosphate + H+  ->  UMP + CO2
+ATP + UTP + L-glutamine + H2O  ->  ADP + CTP + L-glutamate + phosphate + 2 H+
+L-aspartate + ATP  ->  L-aspartyl-4-phosphate + ADP
+L-aspartate 4-semialdehyde + NADP+ + phosphate  <->  L-aspartyl-4-phosphate + NADPH + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)butan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)butyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)heptan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)heptyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)hexan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)hexyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)nonan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)nonyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)octan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)octyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-omega-(methylsulfanyl)pentan-1-imine + H2O  ->  (Z)-omega-(methylsulfanyl)pentyl-thiohydroximate + pyruvate + ammonium
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-(1H-indol-3-yl)ethan-1-imine + H2O  ->  (Z)-2-(1H-indol-3-yl)-1-thioacetohydroximate + pyruvate + ammonium + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-(4-hydroxyphenyl)ethan-1-imine + H2O  ->  (Z)-N-hydroxy-2-(4-hydroxyphenyl)acetimidothioate + pyruvate + ammonium + H+
+(Z)-1-(L-cystein-S-yl)-N-hydroxy-2-phenylethan-1-imine + H2O  ->  (Z)-2-phenyl-1-thioacetohydroximate + pyruvate + ammonium + H+
+S-(1-hydroxyhexan-3-yl)-L-cysteine + H2O  ->  3-sulfanylhexan-1-ol + pyruvate + ammonium
+S-(4-hydroxy-2-methylpentan-2-yl)-L-cysteine + H2O  ->  4-methyl-4-sulfanylpentan-2-ol + pyruvate + ammonium
+S-(4-hydroxy-3-methylbutan-2-yl)-L-cysteine + H2O  ->  2-methyl-3-sulfanylbutan-1-ol + pyruvate + ammonium
+S-(4-oxo-2-methylpentan-2-yl)-L-cysteine + H2O  ->  4-methyl-4-sulfanylpentan-2-one + pyruvate + ammonium
+S-(5-hydroxypentan-3-yl)-L-cysteine + H2O  ->  3-sulfanylpentan-1-ol + pyruvate + ammonium
+S-(6-hydroxy-4-methylhexan-4-yl)-L-cysteine + H2O  ->  3-methyl-3-sulfanylhexan-1-ol + pyruvate + ammonium
+S-benzyl-L-cysteine + H2O  ->  benzyl thiol + pyruvate + ammonium
+S-ethyl-L-cysteine + H2O  ->  ethanethiol + pyruvate + ammonium
+S-fenclorimyl-L-cysteine + H2O  ->  6-chloro-2-phenyl-4-sulfanylpyrimidine + pyruvate + ammonium
+an L-cysteine-S-conjugate + H2O  ->  a thiol + pyruvate + ammonium
+an S-alkyl-L-cysteine + H2O  ->  an alkyl-thiol + pyruvate + ammonium
+felinine + H2O  ->  3-methyl-3-sulfanylbutan-1-ol + pyruvate + ammonium
+L-cystathionine + H2O  ->  L-homocysteine + pyruvate + ammonium
+L-djenkolate + H2O  ->  S-(sulfanylmethyl)-L-cysteine + pyruvate + ammonium
+L-selenocystathionine + H2O  ->  seleno-L-homocysteine + pyruvate + ammonium
+L-homocysteine + a 5-methyltetrahydrofolate  ->  L-methionine + a tetrahydrofolate
+ATP + L-methionine + H2O  ->  S-adenosyl-L-methionine + phosphate + diphosphate
+selenate + ATP + H+  ->  adenosine 5'-phosphoselenate + diphosphate
+sulfate + ATP + H+  <->  adenosine 5'-phosphosulfate + diphosphate
+O-phospho-L-serine + H2O  ->  L-serine + phosphate
+L(or D)-O-phosphoserine + H2O + H+  ->  D-or-L-serine + phosphate
+adenosine 5'-phosphosulfate + ATP  ->  3'-phosphoadenylyl-sulfate + ADP + H+
+O-acetyl-L-serine + hydrogen selenide  ->  L-selenocysteine + acetate + H+
+O-acetyl-L-serine + hydrogen sulfide  ->  L-cysteine + acetate + H+
+GTP + H2O  ->  formate + 7,8-dihydroneopterin 3'-triphosphate + H+
+chorismate + L-glutamine  ->  4-amino-4-deoxychorismate + L-glutamate
+7,8-dihydromonapterin  ->  glycolaldehyde + 6-(hydroxymethyl)-7,8-dihydropterin
+D-erythro-7,8-dihydroneopterin  ->  glycolaldehyde + 6-(hydroxymethyl)-7,8-dihydropterin
+(7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate  ->  7,8-dihydropteroate + diphosphate
+5,6,7,8-tetrahydrofolate + NADP+  &larr;  7,8-dihydrofolate monoglutamate + NADPH + H+
+7,8-dihydrofolate monoglutamate + NADP+  &larr;  folate + NADPH + H+
+a 7,8-dihydrofolate + NADP+  &larr;  a folate + NADPH + H+
+a tetrahydrofolate + NADP+  &larr;  a 7,8-dihydrofolate + NADPH + H+
+chorismate + L-glutamine  ->  4-amino-4-deoxychorismate + L-glutamate
+a 5,10-methenyltetrahydrofolate + H2O  <->  an N10-formyltetrahydrofolate + H+
+an N10-formyltetrahydrofolate + N1-(5-phospho-beta-D-ribosyl)glycinamide  <->  a tetrahydrofolate + N2-formyl-N1-(5-phospho-beta-D-ribosyl)glycinamide + H+
+7,8-dihydromonapterin  ->  glycolaldehyde + 6-(hydroxymethyl)-7,8-dihydropterin
+D-erythro-7,8-dihydroneopterin  ->  glycolaldehyde + 6-(hydroxymethyl)-7,8-dihydropterin
+(7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate  ->  7,8-dihydropteroate + diphosphate
+5,6,7,8-tetrahydrofolate + NADP+  &larr;  7,8-dihydrofolate monoglutamate + NADPH + H+
+7,8-dihydrofolate monoglutamate + NADP+  &larr;  folate + NADPH + H+
+a 7,8-dihydrofolate + NADP+  &larr;  a folate + NADPH + H+
+a tetrahydrofolate + NADP+  &larr;  a 7,8-dihydrofolate + NADPH + H+
+pyruvate + D-glyceraldehyde 3-phosphate + H+  ->  1-deoxy-D-xylulose 5-phosphate + CO2
+L-tyrosine + S-adenosyl-L-methionine + NADPH  ->  2-iminoacetate + 4-methylphenol + 5'-deoxyadenosine + L-methionine + NADP+ + H+
+1-deoxy-D-xylulose 5-phosphate + 2-iminoacetate + thiocarboxylated-[ThiS sulfur-carrier protein]  ->  2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + [ThiS sulfur-carrier protein] + 2 H2O
+2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + 2 H+  ->  thiamine phosphate + CO2 + diphosphate
+2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + 2 H+  ->  thiamine phosphate + CO2 + diphosphate
+4-methyl-5-(2-phosphooxyethyl)thiazole + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H+  ->  thiamine phosphate + diphosphate
+thiamine phosphate + ATP  ->  ADP + thiamine diphosphate
+pyruvate + D-glyceraldehyde 3-phosphate + H+  ->  1-deoxy-D-xylulose 5-phosphate + CO2
+1-deoxy-D-xylulose 5-phosphate + 2-iminoacetate + thiocarboxylated-[ThiS sulfur-carrier protein]  ->  2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + [ThiS sulfur-carrier protein] + 2 H2O
+2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + 2 H+  ->  thiamine phosphate + CO2 + diphosphate
+2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + 2 H+  ->  thiamine phosphate + CO2 + diphosphate
+4-methyl-5-(2-phosphooxyethyl)thiazole + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H+  ->  thiamine phosphate + diphosphate
+thiamine phosphate + ATP  ->  ADP + thiamine diphosphate
+alpha-D-glucopyranose 1-phosphate  <->  D-glucopyranose 6-phosphate
+UDP-alpha-D-glucose + 2 NAD+ + H2O  ->  UDP-alpha-D-glucuronate + 2 NADH + 3 H+
+UDP-alpha-D-glucose  <->  UDP-alpha-D-galactose
+L-glutamine + beta-D-fructofuranose 6-phosphate  <->  L-glutamate + D-glucosamine 6-phosphate
+UDP-N-acetyl-alpha-D-glucosamine  <->  UDP-N-acetyl-alpha-D-mannosamine
+UDP-N-acetyl-alpha-D-glucosamine  ->  UDP-2-acetamido-2,6-dideoxy-alpha-D-xylo-hex-4-ulose + H2O
+UDP-N-acetyl-alpha-D-glucosamine  ->  UDP-2-acetamido-2,6-dideoxy-beta-L-arabino-hex-4-ulose + H2O
+2-C-methyl-D-erythritol 4-phosphate + NADP+  <->  1-deoxy-D-xylulose 5-phosphate + NADPH + H+
+4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol + ATP  ->  2-phospho-4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol + ADP + H+
+2-phospho-4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol  ->  2-C-methyl-D-erythritol-2,4-cyclodiphosphate + CMP
+(E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + oxidized flavodoxin + H2O + H+  &larr;  2-C-methyl-D-erythritol-2,4-cyclodiphosphate + reduced flavodoxin
+3-methylbut-3-en-1-yl diphosphate + 2 oxidized ferredoxin [iron-sulfur] cluster + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + 2 reduced ferredoxin [iron-sulfur] cluster + 2 H+
+3-methylbut-3-en-1-yl diphosphate + oxidized flavodoxin + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + reduced flavodoxin
+prenyl diphosphate + 2 oxidized ferredoxin [iron-sulfur] cluster + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + 2 reduced ferredoxin [iron-sulfur] cluster + 2 H+
+prenyl diphosphate + oxidized flavodoxin + H2O  &larr;  (E)-4-hydroxy-3-methylbut-2-en-1-yl diphosphate + reduced flavodoxin
+3-methylbut-3-en-1-yl diphosphate  <->  prenyl diphosphate
+geranyl diphosphate + 3-methylbut-3-en-1-yl diphosphate  ->  (2E,6E)-farnesyl diphosphate + diphosphate
+ATP + 4-amino-2-methyl-5-pyrimidinemethanol  ->  ADP + 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + H+
+2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + 2 H+  ->  thiamine phosphate + CO2 + diphosphate
+2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + 2 H+  ->  thiamine phosphate + CO2 + diphosphate
+4-methyl-5-(2-phosphooxyethyl)thiazole + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H+  ->  thiamine phosphate + diphosphate
+thiamine phosphate + ATP  ->  ADP + thiamine diphosphate
+UDP-alpha-D-glucose  <->  UDP-alpha-D-galactose
+UDP-alpha-D-glucose + 2 NAD+ + H2O  ->  UDP-alpha-D-glucuronate + 2 NADH + 3 H+
