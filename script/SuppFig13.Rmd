@@ -1,0 +1,86 @@
+---
+title: "SuppFig13"
+output: html_document
+date: '2023-06-08'
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggpubr)
+```
+
+## Load read count files
+```{r}
+sg90_cpe_minimap2 <- read_tsv(here('data', 'sg90_cpe_minimap2.tsv'))
+
+# update SG90 age
+metadata <- read.csv(here('data', 'metadata.csv'))
+sg90_cpe_minimap2 <- sg90_cpe_minimap2 %>% 
+  dplyr::select(-Age) %>% 
+  left_join(metadata %>% dplyr::select(LibraryID, Age), by = 'LibraryID')
+```
+
+## Plot corrplot
+```{r}
+sg90_cpe_minimap2 <- sg90_cpe_minimap2 %>% 
+  mutate(microbial_biomass = fq_readcount/human_reads)
+
+# remove outliers
+q1 <- quantile(sg90_cpe_minimap2$microbial_biomass, .25)
+q3 <- quantile(sg90_cpe_minimap2$microbial_biomass, .75)
+iqr <- IQR(sg90_cpe_minimap2$microbial_biomass)
+sg90_cpe_minimap2_no_outliers <- subset(sg90_cpe_minimap2,
+                                        sg90_cpe_minimap2$microbial_biomass > (q1 - 1.5*iqr) &
+                        (sg90_cpe_minimap2$microbial_biomass) < (q3 + 1.5*iqr))
+
+trend_plot <- sg90_cpe_minimap2_no_outliers %>% 
+  unique() %>% 
+  na.omit() %>% 
+  ggplot(aes(x = Age, y=microbial_biomass)) + 
+  geom_point() +
+  geom_smooth(method = 'lm') + 
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  labs(y = 'Microbial read : Human read') + 
+  stat_cor(method = 'spearman', cor.coef.name = 'rho') + 
+  theme_bw() +
+  theme(
+      #panel.grid.major = element_blank(),
+      #panel.grid.minor = element_blank(),
+      plot.title = element_text(
+        color = "black",
+        size = 14,
+        hjust = 0.5,
+        face = 'bold'
+      ),
+      axis.title = element_text(face='bold', size=16),
+      axis.title.x = element_text(size = 14),
+      axis.title.y = element_text(size = 14),
+      axis.text.x = element_text(
+        size = 14
+      ),
+      axis.text.y = element_text(size = 14),
+      text = element_text(family = 'Arial'))
+print(trend_plot)
+
+template_to_save(trend_plot, 'Supp_Fig13.png', 15,15)
+```
+
+### Plot in editable ppt
+```{r}
+library(officer)
+trend_dml <- rvg::dml(ggobj = trend_plot)  
+# Write the document to a file
+
+officer::read_pptx() %>%
+  # add slide ----
+  officer::add_slide() %>%
+  # specify object and location of object ----
+  officer::ph_with(trend_dml, ph_location(width = 8, height = 4.5)) %>%
+  # export slide -----
+  base::print(here("figppts", "Supp_Fig13.pptx")
+  )
+
+```
+

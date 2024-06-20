@@ -1,0 +1,445 @@
+---
+title: "Figure 3 - Gene pathway"
+author: "Aarthi Ravikrishnan"
+date: "2024-05-11"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+pacman::p_load(plyr, tidyverse, ggrepel, here)
+
+rm(list = ls())
+conflicted::conflict_prefer('here', 'here')
+conflicted::conflict_prefer('dplyr', 'rename')
+conflicted::conflict_prefer('dplyr', 'filter')
+```
+#Setup parameters
+```{r setupparam}
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_dplyr::filter <- 50
+figsfoldername <- paste0("figs", "_", species_thr)
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results", "_", species_thr)
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script','utils_Fig1.R'))
+source(here('script','fig_plot.R'))
+source(here('script','utils_Fig3.R'))
+```
+
+# load data
+```{r}
+metadata <- read.csv(here(resultsfoldername,'metadata_with_updated_age.csv'), sep=',') %>% 
+  dplyr::select(-X)
+
+cpe_relab <- read_tsv(here('data', 'cpe_genefamilies.relab.tsv')) %>% 
+  dplyr::rename(Index = 'UniRef90')
+
+# get data for individual pathway
+fourab_cpe <- cpe_relab %>% 
+  dplyr::filter(Group == '4ab') %>% 
+  dplyr::select(-Group)
+
+pyr_cpe <- cpe_relab %>% 
+  dplyr::filter(Group == 'Pyr') %>% 
+  dplyr::select(-Group)
+
+glu_cpe <- cpe_relab %>% 
+  dplyr::filter(Group == 'Glu') %>% 
+  dplyr::select(-Group)
+
+lys_cpe <- cpe_relab %>% 
+  dplyr::filter(Group == 'Lys') %>% 
+  dplyr::select(-Group)
+
+```
+
+
+# Boxplots of genes
+## 4 aminobutyrate pathway
+```{r 4ab}
+fourab_data <-
+  read.table(
+    file = here('data','gene_counts', '4ab_genes.csv'),
+    sep = ",",
+    header = TRUE) %>% 
+  left_join(fourab_cpe, by = 'Index') %>% 
+  replace(is.na(.), 0) %>% 
+  tibble::column_to_rownames('Index')
+
+fourab_data <- as.matrix((fourab_data))
+fourab_data  <- fourab_data * 10^6 #IN CPM
+
+fourab_mapping_table <- read.table(here('data','gene_counts','4ab_uniref90_ko_individual.txt'),
+           sep='\t', col.names=c('UniRef90','KIDS','GeneName'))
+fourab_mapping_table <- fourab_mapping_table[-1,]
+mdf <- reshape2::melt(fourab_data)
+colnames(mdf) <- c('UniRef90', 'LibraryID', 'value')
+
+mdf <- mdf %>% left_join(fourab_mapping_table, by='UniRef90')
+mdf <- mdf %>% right_join(metadata %>% 
+                            dplyr::filter(Cohort %in% c('SG90')), 
+                          by = 'LibraryID')
+# , 'CRE')),
+#                           by='LibraryID') 
+
+req_mdf <- mdf[mdf$value !=0,]
+
+# Gene plots
+genes <-list(unique(req_mdf$geneids) %>% as.character())
+
+req_mdf <- req_mdf %>%  dplyr::rename('geneids' = 'GeneName')
+wantedabfH <- dplyr::filter(req_mdf, geneids=='abfH')
+abfH_box <- makegeneboxplot(wantedabfH, 2.25, 'abfH',5)
+print(abfH_box)
+template_to_save(abfH_box, 'abfH_box_plot.png', width = 30, height = 18)
+makeedtiableppt(abfH_box, 'abfH_box_plot.pptx', width = 4, height =3)
+abfhglm <- summary (glm(wantedabfH$value~ wantedabfH$Age, data=wantedabfH))
+
+wantedabfT <- dplyr::filter(req_mdf, geneids=='abfT')
+abfT_box <- makegeneboxplot(wantedabfT, 1.2, 'abfT',1)
+print(abfT_box)
+abfTglm <- summary (glm(wantedabfT$value~ wantedabfT$Age, data=wantedabfT))
+template_to_save(abfT_box, 'abfT_box_plot.png', width = 30, height = 18)
+
+wantedabfD <- dplyr::filter(req_mdf, geneids=='abfD')
+abfD_box <- makegeneboxplot(wantedabfD, 1.35, 'abfD',1)
+print(abfD_box)
+abfdglm <- summary (glm(wantedabfD$value~ wantedabfD$Age, data=wantedabfD))
+template_to_save(abfD_box, 'abfD_box_plot.png', width = 30, height = 18)
+
+allpval <- data.frame(geneids=character(), pvalues=numeric()) %>% add_row(geneids='abfH', pvalues=abfhglm$coefficients[8])%>% add_row(geneids='abfT', pvalues=abfTglm$coefficients[8])%>% add_row(geneids='abfD', pvalues=abfdglm$coefficients[8])
+write.table(allpval, file=here(resultsfoldername, 'pval_4ab_pathway.csv'), append=TRUE, sep=',', col.names = FALSE)
+
+# Cumulative of all genes
+p_meds <- ddply(req_mdf, .(AgeG), dplyr::summarise, med = round(median(value),3))
+agegroupplot <- ggplot(data=req_mdf, aes(x=AgeG, y=value, fill=AgeG)) +
+  geom_boxplot(outlier.shape = NA) + scale_fill_manual(values=c("#a50023", "#f47d4a", "#fed98a", "#add39f", '#6da5cb', "#354a99")) +
+  # geom_text_repel(data = p_meds, aes(x = AgeG, y = med, label = med), 
+  #                 size = 6,vjust = -0.5, fontface='bold') + 
+  geom_text(data=p_meds, aes(x=AgeG, y=med, label=round(med,2)),
+              position = position_identity(), vjust=-0.5 , fontface='bold',
+            size = 6) +
+  theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold", size = 25),
+    strip.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust=0.5,size=25),
+    strip.background = element_rect(fill = "grey90"),
+    legend.position = "none",
+    legend.text = element_text(size=13),
+    legend.title = element_text(size=15),
+    axis.text.x = element_text(size = 24, color = "black"),
+    axis.text.y = element_text(size = 24, color = "black")
+  ) + ylab('Normalised counts (CPM)') + ggtitle("4 aminobutyrate pathway") + xlab("") +  labs(fill="Group") 
+
+print(agegroupplot)
+
+ylim1 <-boxplot.stats(req_mdf$value)$stats[c(1, 5)]
+limonaxis = ylim1 *1.8
+aminobut_age_gp <- agegroupplot +  coord_cartesian(ylim = limonaxis)
+print(aminobut_age_gp)
+template_to_save(aminobut_age_gp, 'aminobut_age_plot.png', width = 25, height = 16)
+allglm <-summary (glm(value~ Age, data=req_mdf))
+allglm$coefficients[8]
+```
+
+
+## Pyr pathway
+
+```{r pyruvate}
+pyr_data <-
+  read.table(
+    file = here('data','gene_counts', 'pyr_genes.csv'),
+    sep = ",",
+    header = TRUE) %>% 
+  left_join(pyr_cpe, by = 'Index') %>% 
+  replace(is.na(.), 0) %>% 
+  tibble::column_to_rownames('Index')
+
+pyr_data <- as.matrix((pyr_data))
+pyr_data  <- pyr_data * 10^6 #IN CPM
+
+pyr_mapping_table <- read.table(here('data','gene_counts','pyr_uniref90_ko_individual.txt'), sep='\t', col.names=c('UniRef90','KIDS','geneids'))
+pyr_mapping_table <- pyr_mapping_table[-1,]
+pyr_mdf_initial <- reshape2::melt(pyr_data)
+colnames(pyr_mdf_initial) <- c('Uniref', 'libID', 'value')
+
+pyr_mdf_initial <- reshape2::melt(pyr_data)
+colnames(pyr_mdf_initial) <- c('UniRef90', 'LibraryID', 'value')
+
+pyr_mdf_initial <- pyr_mdf_initial %>% left_join(pyr_mapping_table, by='UniRef90')
+pyr_mdf_initial <- pyr_mdf_initial %>% 
+  right_join(metadata,
+             # %>% 
+             #   dplyr::filter(Cohort %in% c('SG90', 'CRE')), 
+             by='LibraryID') 
+
+pyr_mdf <- pyr_mdf_initial[pyr_mdf_initial$value !=0,]
+
+# Gene plots
+genes <-list(unique(pyr_mdf$geneids) %>% as.character())
+wantedthl <- dplyr::filter(pyr_mdf, geneids %in% c('thl') )
+thl_box <- makegeneboxplot(wantedthl, 1.5, 'thl', 5)
+template_to_save(thl_box, 'thl_box_plot.png', width = 30, height = 18)
+print(thl_box)
+thlglm <- summary (glm(value~ Age, data=wantedthl))
+
+wantedhbd <- dplyr::filter(pyr_mdf, geneids %in% c('hbd') )
+hdb_box <- makegeneboxplot(wantedhbd, 1.2, 'hbd',2)
+print(hdb_box)
+template_to_save(hdb_box, 'hdb_box_plot.png', width = 30, height = 18)
+hbdglm <- summary (glm(value~ Age, data=wantedhbd))
+
+wantedcro <- dplyr::filter(pyr_mdf, geneids %in% c('croR') )
+# add zeros for 71-80 and 91-100
+add_71_80 <- wantedcro %>% head(n =1)
+add_71_80$AgeG = '71-80'
+add_71_80$value = 0
+
+add_91_100 <- wantedcro %>% head(n =1)
+add_91_100$AgeG = '91-100'
+add_91_100$value = 0
+
+wantedcro <- rbind(wantedcro, add_71_80, add_91_100)
+
+cro_box <- makegeneboxplot(wantedcro, 1.25, 'croR', 0.5)
+print(cro_box)
+croglm <- summary (glm(wantedcro$value~ wantedcro$Age, data=wantedcro))
+template_to_save(cro_box, 'cro_box_plot.png', width = 30, height = 18)
+
+allpval <- data.frame(geneids=character(), pvalues=numeric()) %>% add_row(geneids='croR', pvalues=croglm$coefficients[8])%>% add_row(geneids='thl', pvalues=thlglm$coefficients[8])%>% add_row(geneids='hbd', pvalues=hbdglm$coefficients[8])
+write.csv(allpval, file=here(resultsfoldername,'pval_pyr_pathway.csv'))
+
+# Cumulative of all genes
+p_meds <- ddply(pyr_mdf, .(AgeG), dplyr::summarise, med = round(median(value),3))
+agegroupplot <- ggplot(data=pyr_mdf, aes(x=AgeG, y=value, fill=AgeG)) + geom_boxplot(outlier.shape = NA) + scale_fill_manual(values=c("#a50023", "#f47d4a", "#fed98a", "#add39f", '#6da5cb', "#354a99")) +
+  # geom_text_repel(data = p_meds, aes(x = AgeG, y = med, label = med), 
+  #                 size = 6,vjust = -0.5, fontface='bold') +
+  geom_text(data=p_meds, aes(x=AgeG, y=med, label=round(med,2)),
+              position = position_identity(), vjust=-0.5 , fontface='bold',
+            size = 6) +
+  theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold", size = 25),
+    strip.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust=0.5,size=25),
+    strip.background = element_rect(fill = "grey90"),
+    legend.position = "none",
+    legend.text = element_text(size=13),
+    legend.title = element_text(size=15),
+    axis.text.x = element_text(size = 24, color = "black"),
+    axis.text.y = element_text(size = 24, color = "black")
+  ) + ylab('Normalised counts (CPM)') + ggtitle("ACoA pathway") + xlab("") +  labs(fill="AgeG") 
+print(agegroupplot)
+ylim1 <-boxplot.stats(pyr_mdf$value)$stats[c(1, 5)]
+limonaxis = ylim1 *1.25
+pyr_age_gp <- agegroupplot +  coord_cartesian(ylim = limonaxis)
+print(pyr_age_gp)
+template_to_save(pyr_age_gp, 'pyr_age_plot.png', width = 25, height = 16)
+
+pyr_glm <-summary (glm(value~ Age, data=pyr_mdf))
+pyr_glm$coefficients[8]
+```
+
+## Glu pathway
+
+```{r glutarate}
+glu_data <-
+  read.table(
+    file = here('data','gene_counts', 'glu_genes.csv'),
+    sep = ",",
+    header = TRUE) %>% 
+  left_join(glu_cpe, by = 'Index') %>% 
+  replace(is.na(.), 0) %>% 
+  tibble::column_to_rownames('Index')
+
+glu_data <- as.matrix((glu_data))
+glu_data  <- glu_data * 10^6 #IN CPM
+
+glu_mapping_table <- read.table(here('data','gene_counts','glutarate_uniref90_ko_individual.txt'), sep='\t', col.names=c('UniRef90','KIDS','geneids'))
+glu_mapping_table <- glu_mapping_table[-1,]
+glu_mdf_initial <- reshape2::melt(glu_data)
+colnames(glu_mdf_initial) <- c('UniRef90', 'LibraryID', 'value')
+
+glu_mdf_initial <- glu_mdf_initial %>% left_join(glu_mapping_table, by='UniRef90')
+glu_mdf_initial <- glu_mdf_initial %>% 
+  right_join(metadata %>% 
+               dplyr::filter(Cohort %in% c('SG90', 'CRE')), by='LibraryID') 
+
+glu_mdf <- glu_mdf_initial[glu_mdf_initial$value !=0,]
+wantedgctAB = dplyr::filter(glu_mdf, geneids %in% c('gctA', 'gctB') )
+gct_box <- makegeneboxplot(wantedgctAB, 1.5, 'gctAB',1)
+print(gct_box)
+template_to_save(gct_box, 'gct_box.png', width = 30, height = 18)
+gctabglm <- summary (glm(wantedgctAB$value~ wantedgctAB$Age, data=wantedgctAB))
+
+wantedgcdAB = dplyr::filter(glu_mdf, geneids %in% c('gcdA', 'gcdB') )
+gcdab_box <- makegeneboxplot(wantedgcdAB, 10, 'gcdAB',5)
+print(gcdab_box)
+template_to_save(gcdab_box, 'gcdab_box.png', width = 30, height = 18)
+gcdabglm <- summary (glm(wantedgcdAB$value~ wantedgcdAB$Age, data=wantedgcdAB))
+
+wantedhgdABC = dplyr::filter(glu_mdf, geneids %in% c('hgdA', 'hgdB', 'hgdC') )
+hgdABc_box <- makegeneboxplot(wantedhgdABC, 2.5, 'hgcoAdABC', 5)
+print(hgdABc_box)
+template_to_save(hgdABc_box, 'hgdABc_box.png', width = 30, height = 18)
+hgdabcglm <- summary (glm(wantedhgdABC$value~ wantedhgdABC$Age, data=wantedhgdABC))
+
+allpval <- data.frame(geneids=character(), pvalues=numeric()) %>% add_row(geneids='gctAB', pvalues=gctabglm$coefficients[8])%>% 
+          add_row(geneids='gcdAB', pvalues=gcdabglm$coefficients[8])%>% 
+          add_row(geneids='hgdABC', pvalues=hgdabcglm$coefficients[8])
+write.table(allpval, here(resultsfoldername,'pval_glu_pathway.csv'), append=TRUE, sep=',', col.names = FALSE)
+
+# Cumulative of all genes
+p_meds <- ddply(glu_mdf, .(AgeG), dplyr::summarise, med = round(median(value),3))
+agegroupplot <- ggplot(data=glu_mdf, aes(x=AgeG, y=value, fill=AgeG)) + geom_boxplot(outlier.shape = NA) + scale_fill_manual(values=c("#a50023", "#f47d4a", "#fed98a", "#add39f", '#6da5cb', "#354a99")) +
+  # geom_text_repel(data = p_meds, aes(x = AgeG, y = med, label = med), 
+  #                 size = 6,vjust = -0.5, fontface='bold') +
+  geom_text(data=p_meds, aes(x=AgeG, y=med, label=round(med,2)),
+              position = position_identity(), vjust=-0.5 , fontface='bold',
+            size = 6) +
+  theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold", size = 25),
+    strip.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust=0.5,size=25),
+    strip.background = element_rect(fill = "grey90"),
+    legend.position = "none",
+    legend.text = element_text(size=13),
+    legend.title = element_text(size=15),
+    axis.text.x = element_text(size = 24, color = "black"),
+    axis.text.y = element_text(size = 24, color = "black")
+  ) + ylab('Normalised counts (CPM)') + ggtitle("Glutarate pathway") + xlab("") +  labs(fill="AgeG") 
+
+print(agegroupplot)
+ylim1 <-boxplot.stats(glu_mdf$value)$stats[c(1, 5)]
+limonaxis = ylim1 *1.35
+glu_age_gp <- agegroupplot +  coord_cartesian(ylim = limonaxis)
+print(glu_age_gp)
+template_to_save(glu_age_gp, 'glu_age_plot.png', width = 25, height = 16)
+
+glu_glm <-summary (glm(value~ Age, data=glu_mdf))
+glu_glm$coefficients[8]
+
+
+```
+## Lysine pathway
+
+```{r lysine}
+lys_data <-
+  read.table(
+    file = here('data','gene_counts', 'lys_genes.csv'),
+    sep = ",",
+    header = TRUE) %>% 
+  left_join(lys_cpe, by = 'Index') %>% 
+  replace(is.na(.), 0) %>% 
+  tibble::column_to_rownames('Index')
+
+lys_data <- as.matrix((lys_data))
+lys_data  <- lys_data * 10^6 #IN CPM
+
+
+lys_mapping_table <- read.table(here('data','gene_counts','lysine_uniref90_ko_individual.txt'), sep='\t', col.names=c('UniRef90','KIDS','geneids'))
+lys_mapping_table <- lys_mapping_table[-1,]
+lys_mdf_initial <- reshape2::melt(lys_data)
+colnames(lys_mdf_initial) <- c('UniRef90', 'LibraryID', 'value')
+
+lys_mdf_initial <- lys_mdf_initial %>% left_join(lys_mapping_table, by='UniRef90')
+lys_mdf_initial <- lys_mdf_initial %>% 
+  right_join(metadata, by  = 'LibraryID')
+# %>% 
+#                dplyr::filter(Cohort %in% c('SG90')), by = 'LibraryID')
+#, 'CRE')), by='LibraryID') 
+
+lys_mdf <- lys_mdf_initial[lys_mdf_initial$value !=0,]
+
+wantedkamA<- dplyr::filter(lys_mdf, geneids %in% c('kamA') ) #dplyr::filter(lys_mdf, geneids %in% c('kamA') )
+kamA_box <- makegeneboxplot(wantedkamA, 1.25, 'kamA',5)
+print(kamA_box)
+template_to_save(kamA_box, 'kamA_box.png', width = 30, height = 18)
+kamaglm <- summary (glm(wantedkamA$value~ wantedkamA$Age, data=wantedkamA))
+
+wantedkamDE <-dplyr::filter(lys_mdf, geneids %in% c('kamD', 'kamE') )
+kamDE_box <- makegeneboxplot(wantedkamDE, 1, 'kamDE',1)
+print(kamDE_box)
+kamdeglm <-summary (glm(wantedkamDE$value~ wantedkamDE$Age, data=wantedkamDE))
+template_to_save(kamDE_box, 'kamDE_box.png', width = 30, height = 18)
+
+wantedkce <-dplyr::filter(lys_mdf, geneids %in% c('kce') )
+kce_box <- makegeneboxplot(wantedkce, 1.25, 'kce', 2)
+print(kce_box)
+template_to_save(kce_box, 'kce_box.png', width = 30, height = 18)
+kceglm <-summary (glm(wantedkce$value~ wantedkce$Age, data=wantedkce))
+
+wantedkal <- dplyr::filter(lys_mdf, geneids %in% c('kal') )
+# add 0 for 21-40 if only using SG90 + CPE
+wantedkal_2140 <- wantedkal[1, ]
+wantedkal_2140$value <- 0
+wantedkal_2140$AgeG <- '21-40'
+kal_box <- makegeneboxplot(wantedkal %>% 
+                             add_row(wantedkal_2140), 2.5, 'kal', 5)
+print(kal_box)
+template_to_save(kal_box, 'kal_box.png', width = 30, height = 18)
+kalglm <-summary (glm(wantedkal$value~ wantedkal$Age, data=wantedkal))
+
+wantedkdd <-dplyr::filter(lys_mdf , geneids %in% c('kdd') )
+kdd_box <- makegeneboxplot(wantedkdd , 1.5, 'kdd', 2)
+print(kdd_box)
+template_to_save(kdd_box, 'kdd_box.png', width = 30, height = 18)
+kddglm <-summary (glm(wantedkdd$value~ wantedkdd$Age, data=wantedkdd))
+
+allpval <- data.frame(geneids=character(), pvalues=numeric()) %>% add_row(geneids='kamA', pvalues=kamaglm$coefficients[8])%>% 
+          add_row(geneids='kce', pvalues=kceglm$coefficients[8])%>% add_row(geneids='kal', pvalues=kalglm$coefficients[8]) %>% add_row(geneids='kdd', pvalues=kddglm$coefficients[8]) %>% 
+          add_row(geneids='kamDE', pvalues=kamdeglm$coefficients[8])
+write.table(allpval, here(resultsfoldername,'pval_lys_pathway.csv'), append=TRUE, sep=',', col.names = FALSE)
+
+# Cumulative of all genes
+p_meds <- ddply(lys_mdf, .(AgeG), dplyr::summarise, med = round(median(value),3))
+agegroupplot <- ggplot(data=lys_mdf, aes(x=AgeG, y=value, fill=AgeG)) + geom_boxplot(outlier.shape = NA) + scale_fill_manual(values=c("#a50023", "#f47d4a", "#fed98a", "#add39f", '#6da5cb', "#354a99")) +
+  # geom_text_repel(data = p_meds, aes(x = AgeG, y = med, label = med), 
+  #                 size = 6,vjust = -0.5, fontface='bold') +
+  geom_text(data=p_meds, aes(x=AgeG, y=med, label=round(med,2)),
+              position = position_identity(), vjust=-0.5 , fontface='bold',
+            size = 6) +
+  theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold", size = 25),
+    strip.text = element_text(face = "bold", size = 13),
+    plot.title = element_text(face = "bold", hjust=0.5,size=25),
+    strip.background = element_rect(fill = "grey90"),
+    legend.position = "none",
+    legend.text = element_text(size=13),
+    legend.title = element_text(size=15),
+    axis.text.x = element_text(size = 24, color = "black"),
+    axis.text.y = element_text(size = 24, color = "black")
+  ) + ylab('Normalised counts (CPM)') + ggtitle("Lysine pathway") + xlab("") +  labs(fill="AgeG") 
+
+print(agegroupplot)
+ylim1 <-boxplot.stats(lys_mdf$value)$stats[c(1, 5)]
+limonaxis = ylim1 *2.5
+lys_age_gp <- agegroupplot +  coord_cartesian(ylim = limonaxis)
+print(lys_age_gp)
+template_to_save(lys_age_gp, 'lys_age_plot.png', width = 25, height = 16)
+
+lys_glm <-summary (glm(value~ Age, data=lys_mdf))
+lys_glm$coefficients[8]
+
+```
+

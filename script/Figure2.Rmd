@@ -1,0 +1,182 @@
+---
+title: "Figure2"
+output: html_document
+date: '2024-05-21'
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+```
+
+## Load pathway results
+
+```{r}
+pathway_all <- read.table(here('results_0.1', 'lefse_results_renamed_withCRE.txt'),
+                          sep = '\t', quote = '') %>% 
+  dplyr::rename('pathway'='V1', 'p_val'='V5', 'log_highest_mean'='V2','age_group'='V3',
+         'log_LDA_score' = 'V4') %>% 
+  # filter only significant results
+  filter(age_group != '')
+
+# clean pathway names
+pathway_all_clean <- pathway_all %>% 
+  separate(pathway, c('pid', 'pathway'), sep = ': ') %>% 
+  dplyr::select(-pid) %>% 
+  mutate(pathway = str_remove(pathway, 'superpathway of '))
+```
+
+## Categorize pathway
+```{r}
+lipid <- read.table(here('results_0.1', 'lipidmetabolism_trim.txt'),
+                          sep = '\t', quote = '') %>% 
+  dplyr::rename('pathway'='V1', 'p_val'='V5', 'log_highest_mean'='V2','age_group'='V3',
+         'log_LDA_score' = 'V4')
+vit <- read.table(here('results_0.1', 'vitaminandenergy_trim.txt'),
+                          sep = '\t', quote = '') %>% 
+  dplyr::rename('pathway'='V1', 'p_val'='V5', 'log_highest_mean'='V2','age_group'='V3',
+         'log_LDA_score' = 'V4')
+aminoacid <- read.table(here('results_0.1', 'aminoacid_trim.txt'),
+                          sep = '\t', quote = '') %>% 
+  dplyr::rename('pathway'='V1', 'p_val'='V5', 'log_highest_mean'='V2','age_group'='V3',
+         'log_LDA_score' = 'V4')
+sugar <- read.table(here('results_0.1', 'sugarmetabolism_trim.txt'),
+                          sep = '\t', quote = '') %>% 
+  dplyr::rename('pathway'='V1', 'p_val'='V5', 'log_highest_mean'='V2','age_group'='V3',
+         'log_LDA_score' = 'V4')
+combined <- rbind(lipid %>% mutate(Group = 'Lipid'),
+                  vit %>% mutate(Group = 'Vit'),
+                  aminoacid %>% mutate(Group = 'AminoAcid'),
+                  sugar %>% mutate(Group = 'Sugar'))
+pathway_all_clean <- pathway_all_clean %>% 
+  mutate(Group = case_when(pathway %in% lipid$pathway ~ 'Lipid',
+                           pathway %in% vit$pathway ~ 'Vitamin',
+                           pathway %in% aminoacid$pathway ~ 'AminoAcid',
+                           pathway %in% sugar$pathway ~ 'Sugar',
+                           TRUE ~ 'Z'))
+```
+
+## helper functions
+```{r}
+capitalize_first <- function(s) {
+  # Convert the first character to uppercase and concatenate with the rest of the string
+  if (nchar(s) > 0) {
+    paste0(toupper(substring(s, 1, 1)), substring(s, 2))
+  } else {
+    s  # If the string is empty, return it as is
+  }
+}
+
+remove_after_parenthesis <- function(s) {
+  ifelse(substr(s, 1, 1) == '(', s, sub("\\(.*$", "", s))
+  
+}
+```
+
+
+## Plot results
+```{r}
+pathway_all_clean <- read_tsv('pathway_lefse.tsv') %>% 
+  rowwise() %>% 
+  mutate(pathway = capitalize_first(pathway)) %>% 
+  mutate(pathway = remove_after_parenthesis(pathway)) %>% 
+  mutate(pathway = case_when(pathway == 'TRNA charging' ~ 'tRNA charging',
+                             TRUE ~ pathway))
+
+pathway_order <- pathway_all_clean %>% 
+  group_by(age_group) %>% 
+  arrange(age_group, log_LDA_score)
+
+
+# combine using facet wrap
+pathway_plot <- pathway_all_clean %>% 
+  filter(Group %in% c('AminoAcid', 'Lipid', 'Sugar', 'Vitamin')) %>% 
+  mutate(Group = factor(Group, levels = c('Sugar', 'Lipid', 'Vitamin', 'AminoAcid'))) %>% 
+  ggplot(aes(y = pathway, x = log_LDA_score,
+             fill = age_group)) +
+  geom_bar(stat = 'identity', position = 'dodge', width = 0.9) +
+  # https://github.com/tidyverse/ggplot2/issues/2933 proportion for facet_wrap
+  #ggforce::facet_col(vars(Group) , scales = 'free', space = 'free',
+  facet_wrap(~Group, scales = 'free', 
+             labeller = as_labeller(c('AminoAcid' = 'Amino Acid Metabolism',
+                             'Sugar' = 'Sugar Metabolism',
+                             'Lipid' = 'Lipid Metabolism',
+                             'Vitamin' = 'Vitamin, Energy Metabolism & Cell Wall Biosynthesis'))) +
+  scale_fill_manual(values = c('21-40'= "#a50023",
+                               '41-60'= "#f47d4a",
+                               '61-70'= "#fed98a",
+                               '71-80'= "#add39f",
+                               '81-90'= '#6da5cb',
+                               '91-100'= "#354a99")) +
+    theme_minimal() +
+    theme(axis.text.y = element_text(size=12, face='bold'),
+          axis.title.y = element_blank(),
+        axis.title.x = element_text(size=14, face='bold'),
+        plot.title = element_text(size=14, face='bold'),
+        axis.text.x = element_text(size=12),
+        panel.grid = element_blank(),
+        axis.ticks.x = element_line(size = 1, colour = "black"),
+        legend.position = 'none',
+        strip.text = element_text(size = 14, face = 'bold'),
+        plot.background = element_rect(fill = "white", color = NA))+
+  scale_x_continuous(breaks=scales::pretty_breaks(n=8))
+
+pathway_plot
+pathway_plot$data$pathway <- factor(pathway_plot$data$pathway,
+                                    pathway_order$pathway)
+pathway_plot
+
+# change category for plot
+pathway_all_clean <- pathway_all_clean %>% 
+  mutate(Group = case_when(Group == 'AminoAcid' ~ 'Amino Acid Metabolism',
+                           Group == 'Sugar' ~ 'Sugar Metabolism',
+                           Group == 'Lipid' ~ 'Lipid Metabolism',
+                           Group == 'Vitamin' ~ 'Vitamin, Energy Metabolism & Cell Wall Biosynthesis'))
+
+plot_pathway <- function(group) {
+  pathway_group <- pathway_all_clean %>% 
+  filter(Group == group)
+  
+  # order pathway based on age group & score
+  pathway_order <- pathway_group %>% 
+  group_by(age_group) %>% 
+  arrange(age_group, log_LDA_score)
+
+  pathway_plot <-  pathway_group %>% 
+  ggplot(aes(y = pathway, x = log_LDA_score,
+             fill = age_group)) +
+  geom_bar(stat = 'identity', position = 'dodge', width = 0.9) +
+  scale_fill_manual(values = c('21-40'= "#a50023",
+                               '41-60'= "#f47d4a",
+                               '61-70'= "#fed98a",
+                               '71-80'= "#add39f",
+                               '81-90'= '#6da5cb',
+                               '91-100'= "#354a99")) +
+    ggtitle(group) +
+    labs(x = 'LDA Score (log 10)') +
+    theme_minimal() +
+    theme(axis.text.y = element_text(size=18, face='bold'),
+          axis.title.y = element_blank(),
+        axis.title.x = element_text(size=24, face='bold'),
+        plot.title = element_text(size=24, face='bold'),
+        axis.text.x = element_text(size=18),
+        panel.grid = element_blank(),
+        axis.ticks.x = element_line(size = 1, colour = "black"),
+        legend.position = 'none',
+        strip.text = element_text(size = 14, face = 'bold'),
+        plot.background = element_rect(fill = "white", color = NA))+
+  scale_x_continuous(breaks=scales::pretty_breaks(n=8))
+  pathway_plot$data$pathway <- factor(pathway_plot$data$pathway,
+                                      pathway_order$pathway)
+  print(pathway_plot)
+  
+}
+
+plot_pathway('Amino Acid Metabolism')
+plot_pathway('Lipid Metabolism')
+plot_pathway('Sugar Metabolism')
+plot_pathway('Vitamin, Energy Metabolism & Cell Wall Biosynthesis')
+
+```
+

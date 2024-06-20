@@ -1,0 +1,342 @@
+---
+title: "SG90-association"
+author: "Aarthi Ravikrishnan"
+output: pdf_document
+chunk_output_type: console
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+#rm(list=ls())
+pacman::p_load(tidyverse,
+               tibble,
+               GGally,
+               caret,
+               skimr,
+               readxl,
+               metagenomeSeq,
+               boot, mikropml, furrr,
+               reshape2, here)
+
+species_thr <- 0.1
+genus_thr <- 0.1
+hist_filter <- 50
+figsfoldername <- paste0("figs", "_", species_thr)
+dir.create(file.path(here(figsfoldername)))
+resultsfoldername <- paste0("results", "_", species_thr)
+dir.create(file.path(here(resultsfoldername)))
+editablepptfname <- "figppts"
+dir.create(file.path(here(editablepptfname)))
+source(here('script', 'utils_DA.R'))
+source(here('script', 'fig_plot.R'))
+
+```
+
+## Functions to use
+```{r}
+param_with_age_correction_grip_mat <- function(org_list_to_use, resultssum, fname){
+  pval <- NULL
+  org_list <- NULL
+  estimate <- NULL
+  stderror <- NULL
+  betaestimate <- NULL
+  stderror <- NULL
+  for (i in seq_along(1:length(resultssum)))
+  {
+    #print(paste0(org_list_to_use[i], ' ', resultssum[[i]][35]))
+    if ("x" %in% rownames(resultssum[[i]])){
+      pval <-
+        rbind(pval, resultssum[[i]]["x",][4])
+      org_list <- rbind(org_list, org_list_to_use[i])
+      betaestimate <-
+        rbind(betaestimate, resultssum[[i]]["x",][1])
+      stderror <-
+        rbind(stderror, resultssum[[i]]["x",][2])
+    }
+    else{
+      
+      print(org_list_to_use[i])}
+  }
+  
+  all_df <- data.frame(org_list, pval, betaestimate, stderror)
+  colnames(all_df) <- c('org_list', 'pval', 'betaestimate', 'stderror')
+  all_df <- all_df %>% 
+    # add confint
+    mutate(`2.5%` = betaestimate - 1.96 * stderror,
+           `97.5%` = betaestimate + 1.96 * stderror) %>% 
+    # clean species names
+    mutate(org_list = str_remove_all(org_list, 's__'),
+           org_list = str_replace_all(org_list, '_', ' '))
+  all_df$padj <- p.adjust(all_df$pval, 'fdr')
+  
+  #write.csv(all_df, fname, row.names = FALSE)
+  return(all_df)
+}
+
+plot_volcano_asscn <- function(species_results_merge){
+  # add color for significant results
+  species_results_merge <- species_results_merge %>% 
+    mutate(color = ifelse(padj < 0.05, 'red', 'grey'))
+  volcanoplot <- ggplot(species_results_merge, 
+                        aes(x = betaestimate, y = -log10(padj),
+                            col = color)) +
+    geom_point(size=4) +
+    geom_vline(
+      xintercept = c(0),
+      col = "black",
+      linetype = "solid",
+      size = 0.5
+    ) +
+    scale_color_manual(values = c('grey', 'red')) +
+    theme_bw() + theme(legend.position = "bottom") +
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          axis.title = element_text(face="bold", size=12),
+          axis.text.x = element_text(face="bold",size=14),
+          axis.text.y = element_text(face="bold",size=14),
+          axis.text = element_text(face="bold",size=14),
+          legend.position="none",
+          plot.title = element_text(hjust = 0.5, size=14),
+          legend.text = element_text(size=10)) +
+    geom_text_repel(
+      data = subset(species_results_merge, padj < 0.05 ), #Changed from ==2
+      aes(label = org_list), col = 'black',
+      size = 3,xlim=c(-45, 20),ylim=c(0,10),
+      box.padding = unit(0.75, "lines"),
+      point.padding = unit(0.35, "lines"), max.overlaps = 30, fontface = 'italic',nudge_x = .15,
+      nudge_y = .5
+    )+ geom_hline(
+      yintercept = -log10(0.05),
+      col = "black",
+      linetype = "dashed",
+      size = 0.5
+    ) + geom_hline(
+      yintercept = -log10(0.1),
+      col = "black",
+      linetype = "dashed",
+      size = 0.5
+    ) + scale_y_continuous(breaks = scales::pretty_breaks(5)) +
+    scale_x_continuous(breaks = scales::pretty_breaks(5)) +
+    labs(x= "\u03b2 coefficient", y= expression(paste(-log[10]," p-value")))
+  #print(volcanoplot)
+  return(volcanoplot)
+}
+```
+
+# Load profiles & metadata
+```{r}
+# Load data
+all_profiles_unadj <- read.csv(here('results_0.1', 'taxonomic_profiles_with_cre_filtered.csv')) %>% 
+  tibble::column_to_rownames('X') %>% 
+  replace(is.na(.), 0) 
+
+# metadata with clinical values and patient ID
+metadata <- read.csv(here('data', 'metadata_with_clinical_data.csv')) %>% 
+  dplyr::rename(LibraryID = 'Index')
+
+# metadata with imputed values, updated age for SG90
+metadata_updated_age <- read.csv(here('results_0.1', 'metadata_with_imputed_updatedage_allInfo.csv'))
+
+# remove sg90 samples with no date for blood collection - 18 samples
+no_blood_date <- read.csv(here('data', 'no_blood_date.csv'))
+names(no_blood_date) <- c('Patient.ID', 'Date')
+
+# get libraryid - 17 samples, 1 sample doesn't have a libraryID
+no_blood_date <- no_blood_date %>% 
+  mutate(Patient.ID = as.character(Patient.ID)) %>% 
+  left_join(metadata, by = 'Patient.ID') %>% 
+  dplyr::filter(!is.na(LibraryID))
+
+# update metadata with new sg90 age
+sg90_metadata <- metadata %>% dplyr::select(LibraryID, Cohort, HandgripL1, HandgripR1, GaitT1,
+                                            ALT, AST, FOL, VB12, HCY, FT4, TSH, HSCRP, sleep,
+                                            mmse, FBGlu, Tgly, TCHOL, HDL, LDL, BMI) %>%
+  filter(Cohort == 'SG90') %>% 
+  # metadata with new age
+  left_join(metadata_updated_age %>% dplyr::select(LibraryID, Age, Gender),
+            by = 'LibraryID')
+
+# remove no blood date
+sg90_metadata <- sg90_metadata %>% filter(!LibraryID %in% no_blood_date$LibraryID)
+
+# using new age data for SG90 but old metadata for T2D
+sg90_t2d_metadata <- rbind(sg90_metadata %>% dplyr::select(LibraryID, Age, Gender, Cohort,
+                                                           Tgly, FBGlu, TCHOL, HDL, LDL, BMI),
+                           metadata %>% filter(Cohort == 'T2D') %>% 
+                             dplyr::select(LibraryID, Age, Gender, Cohort, Tgly, 
+                                           FBGlu, TCHOL, HDL, LDL, BMI))
+
+```
+
+# For data where we have values in both SG90 & T2D - only SG90 & T2D cohorts using unadjusted profiles
+```{r}
+#all_profiles_adj_copy <- data.frame(all_profiles_unadj * 100) %>% tibble::rownames_to_column('org_list')
+all_profiles_unadj_copy <- data.frame(all_profiles_unadj*100) %>% tibble::rownames_to_column('org_list')
+names(all_profiles_unadj_copy) <- str_remove(names(all_profiles_unadj_copy), '[.]')
+sg90_t2d_profiles_unadj <- all_profiles_unadj_copy %>% dplyr::select(org_list, sg90_t2d_metadata %>% 
+                                                            pull(LibraryID)) %>% 
+  tibble::column_to_rownames('org_list')
+
+# remove profiles with all zeros
+sg90_t2d_profiles_unadj <- sg90_t2d_profiles_unadj[rowSums(sg90_t2d_profiles_unadj) != 0, ]
+sg90_t2d_profiles_unadj <- sg90_t2d_profiles_unadj %>% tibble::rownames_to_column('org_list')
+
+# check count for each species
+rowSums((sg90_t2d_profiles_unadj %>% tibble::column_to_rownames('org_list')) != 0) %>% 
+    as.data.frame() %>% View()
+
+sg90_t2d_data_unadj <- transform_tax_profiles(sg90_t2d_profiles_unadj, 
+                                        sg90_t2d_metadata,
+                                        10)
+
+#sg90_t2d_data_unadj <- sg90_data
+org_list_to_use <- names(sg90_t2d_data_unadj)[grepl('s__', names(sg90_t2d_data_unadj))]
+#Triglycerides with age correction
+tgly_withagecorrection <- lapply(sg90_t2d_data_unadj[,org_list_to_use],function(x)coefficients (summary (glm(sg90_t2d_data_unadj$Tgly ~ x + sg90_t2d_data_unadj$Age + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$HDL + 
+                                                                                                               #sg90_t2d_data_unadj$LDL + 
+                                                                                                               sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+tgly_withage <- param_with_age_correction_grip_mat(org_list_to_use, tgly_withagecorrection,  here('results_0.1', 'section3','tgly_age_correction.csv'))
+
+tgly_volc <- plot_volcano_asscn(tgly_withage)
+
+#Triglycerides without age correction
+tgly_withoutagecorrection <- lapply(sg90_t2d_data_unadj[,org_list_to_use],function(x)coefficients (summary (glm(sg90_t2d_data_unadj$Tgly ~ x + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$HDL + sg90_t2d_data_unadj$LDL + sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+tgly_woage <- param_with_age_correction_grip_mat(org_list_to_use,
+                                                 tgly_withoutagecorrection,
+                                                 here('results_0.1', 'section3','tgly_woage_correction.csv'))
+
+
+# Fasting blood glucose with age correction
+fb_withagecorrection <- lapply(sg90_t2d_data_unadj[,org_list_to_use],function(x)coefficients
+                               (summary (glm(sg90_t2d_data_unadj$FBGlu ~ x + sg90_t2d_data_unadj$Age + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$HDL + 
+                                               #sg90_t2d_data_unadj$LDL + 
+                                               sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender,data = sg90_t2d_data_unadj))))
+fb_withage <- param_with_age_correction_grip_mat(org_list_to_use, fb_withagecorrection,  here('results_0.1', 'section3','fb_withage_correction1.csv'))
+
+fb_volc <- plot_volcano_asscn(fb_withage)
+# Fasting blood glucose without age correction
+fb_woagecorrection <- lapply(sg90_t2d_data_unadj[,org_list_to_use],function(x)coefficients
+                             (summary (glm(sg90_t2d_data_unadj$FBGlu ~ x + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$HDL + sg90_t2d_data_unadj$LDL + sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender,data = sg90_t2d_data_unadj))))
+fb_woage <- param_with_age_correction_grip_mat(org_list_to_use, fb_woagecorrection,  here('results_0.1', 'section3','fb_woage_correction.csv'))
+fb_volc_woage <- plot_volcano_asscn(fb_woage)
+
+#Total cholesterol with age correction
+tchol_withagecorrection <-
+  lapply(sg90_t2d_data_unadj[,org_list_to_use], function(x)coefficients (summary (glm(sg90_t2d_data_unadj$TCHOL ~ x + sg90_t2d_data_unadj$Age + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$HDL + 
+                                                                                        #sg90_t2d_data_unadj$LDL + 
+                                                                                        sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+tchol_withage <- param_with_age_correction_grip_mat(org_list_to_use, tchol_withagecorrection,  here('results_0.1', 'section3','tchol_withage_correction1.csv'))
+tchol_volc <- plot_volcano_asscn(tchol_withage)
+
+#Total cholesterol without age correction
+tchol_withoutagecorrection <-
+  lapply(sg90_t2d_data_unadj[,org_list_to_use], function(x)coefficients (summary (glm(sg90_t2d_data_unadj$TCHOL ~ x + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$HDL + sg90_t2d_data_unadj$LDL + sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+tchol_woage <- param_with_age_correction_grip_mat(org_list_to_use, tchol_withoutagecorrection,  here('results_0.1', 'section3','tchol_woage_correction1.csv'))
+
+
+#HDL with age correction
+hdl_withagecorrection <- lapply(sg90_t2d_data_unadj[, org_list_to_use], function(x)coefficients (summary (glm(sg90_t2d_data_unadj$HDL ~ x + sg90_t2d_data_unadj$Age + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$TCHOL + 
+                                                                                                                #sg90_t2d_data_unadj$LDL + 
+                                                                                                                sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+hdl_withage <- param_with_age_correction_grip_mat(org_list_to_use, hdl_withagecorrection,  here('results_0.1', 'section3','hdl_withage_correction1.csv'))
+
+hdl_volc <- plot_volcano_asscn(hdl_withage)
+
+#HDL without age correction
+hdl_withoutagecorrection <- lapply(sg90_t2d_data_unadj[, org_list_to_use], function(x)coefficients (summary (glm(sg90_t2d_data_unadj$HDL ~ x  + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$LDL + sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+hdl_withoutage <- param_with_age_correction_grip_mat(org_list_to_use, hdl_withoutagecorrection,  here('results_0.1', 'section3','hdl_withoutage_correction1.csv'))
+
+#LDL with age correction
+ldl_withagecorrection <- lapply(sg90_t2d_data_unadj[, org_list_to_use], function(x)coefficients (summary (glm(sg90_t2d_data_unadj$LDL ~ x + sg90_t2d_data_unadj$Age + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$HDL + sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+ldl_withage <- param_with_age_correction_grip_mat(org_list_to_use, ldl_withagecorrection,  here('results_0.1', 'section3','ldl_withage_correction1.csv'))
+
+ldl_volc <- plot_volcano_asscn(ldl_withage)
+#LDL without age correction
+ldl_withoutagecorrection <- lapply(sg90_t2d_data_unadj[, org_list_to_use], function(x)coefficients (summary (glm(sg90_t2d_data_unadj$LDL ~ x + sg90_t2d_data_unadj$FBGlu + sg90_t2d_data_unadj$Tgly + sg90_t2d_data_unadj$TCHOL + sg90_t2d_data_unadj$HDL + sg90_t2d_data_unadj$BMI + sg90_t2d_data_unadj$Gender, data=sg90_t2d_data_unadj))))
+ldl_withoutage <- param_with_age_correction_grip_mat(org_list_to_use, ldl_withoutagecorrection,  here('results_0.1', 'section3','ldl_withoutage_correction1.csv'))
+
+```
+
+# SG90 only
+## Load data
+```{r}
+sg90_profiles <- data.frame(all_profiles_unadj*100) %>% 
+  dplyr::select(sg90_metadata %>% pull(LibraryID))
+
+sg90_profiles_filt <- sg90_profiles[rowSums(sg90_profiles) != 0, ]
+
+## renormalize to 100%
+sg90_profiles_filt <- data.frame(apply(sg90_profiles_filt, 2, function(x) x/sum(x)) * 100) %>% 
+  tibble::rownames_to_column('org_list')
+
+sg90_data <- transform_tax_profiles(sg90_profiles_filt, sg90_metadata, 10)
+
+
+```
+
+## Blood markers
+```{r}
+org_list_to_use <- names(sg90_data)[grepl('s__', names(sg90_data))]
+
+#HSCRP without age correction
+HSCRP_Age_gender_ALT_AST_others2_woage <-
+  lapply(sg90_data[, org_list_to_use], function(x)          coefficients(summary(glm(sg90_data$HSCRP ~ x + sg90_data$ALT + sg90_data$AST + sg90_data$FBGlu +  sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + 
+                                                                                       #sg90_data$LDL + 
+                                                                                       sg90_data$BMI + sg90_data$Gender, data = sg90_data))))
+hscrp_woage <- param_with_age_correction_grip_mat(org_list_to_use, HSCRP_Age_gender_ALT_AST_others2_woage, here('results_0.1', 'section3','HSCRP_without_age_correction1.csv'))
+
+#HSCRP with age correction
+HSCRP_Age_gender_ALT_AST_others2_withage <-
+  lapply(sg90_data[, org_list_to_use]*100, function(x)          coefficients(summary(glm(sg90_data$HSCRP ~ x + sg90_data$Age + sg90_data$ALT + sg90_data$AST + sg90_data$FBGlu +  sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + 
+                                                                                           #sg90_data$LDL + 
+                                                                                           sg90_data$BMI + sg90_data$Gender, data = sg90_data))))
+
+hscrp_withage <- param_with_age_correction_grip_mat(org_list_to_use, HSCRP_Age_gender_ALT_AST_others2_withage, here('results_0.1', 'section3','HSCRP_with_age_correction1.csv'))
+hscrp_volc <- plot_volcano_asscn(hscrp_withage)
+
+#ALT without age correction
+ALT_Age_gender_HSCRP_AST_woagecorrection <- lapply(sg90_data[,org_list_to_use], function(x)coefficients (summary (glm(sg90_data$ALT~ x + sg90_data$HSCRP + sg90_data$AST + sg90_data$FBGlu + sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + sg90_data$LDL + sg90_data$BMI + sg90_data$Gender, data=sg90_data))))
+alt_woage <- param_with_age_correction_grip_mat(org_list_to_use, ALT_Age_gender_HSCRP_AST_woagecorrection,  here('results_0.1', 'section3','ALT_without_age_correction1.csv'))
+
+#ALT with age correction
+ALT_Age_gender_HSCRP_AST_withagecorrection <- lapply(sg90_data[,org_list_to_use], function(x)coefficients (summary (glm(sg90_data$ALT~ x + sg90_data$HSCRP + sg90_data$Age+ sg90_data$AST + sg90_data$FBGlu + sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + 
+                                                                                                                          #sg90_data$LDL +
+                                                                                                                          sg90_data$BMI + sg90_data$Gender, data=sg90_data))))
+alt_withage <- param_with_age_correction_grip_mat(org_list_to_use, ALT_Age_gender_HSCRP_AST_withagecorrection,  here('results_0.1', 'section3','ALT_with_age_correction1.csv'))
+alt_volc <- plot_volcano_asscn(alt_withage)
+
+#AST without age correction
+AST_Age_gender_HSCRP_AST_woagecorrection <- lapply(sg90_data[,org_list_to_use], function(x)coefficients (summary (glm(sg90_data$AST~ x + sg90_data$HSCRP + sg90_data$ALT +  sg90_data$FBGlu + sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + 
+                                                                                                                        #sg90_data$LDL + 
+                                                                                                                        sg90_data$BMI + sg90_data$Gender, data=sg90_data))))
+ast_woage <- param_with_age_correction_grip_mat(org_list_to_use, AST_Age_gender_HSCRP_AST_woagecorrection,  here('results_0.1', 'section3','AST_without_age_correction1.csv'))
+
+#AST with age correction
+AST_Age_gender_HSCRP_AST_withagecorrection <- lapply(sg90_data[,org_list_to_use], function(x)coefficients (summary (glm(sg90_data$AST~ x + sg90_data$Age + sg90_data$HSCRP + sg90_data$ALT +  sg90_data$FBGlu + sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + 
+                                                                                                                          #sg90_data$LDL +
+                                                                                                                          sg90_data$BMI + sg90_data$Gender, data=sg90_data))))
+ast_withage <- param_with_age_correction_grip_mat(org_list_to_use, AST_Age_gender_HSCRP_AST_withagecorrection,  here('results_0.1', 'section3','AST_with_age_correction1.csv'))
+ast_volc <- plot_volcano_asscn(ast_withage)
+
+# Vitamin B
+vitaminb_withoutagecorrection <- lapply(sg90_data[,org_list_to_use], function(x)coefficients (summary (glm(sg90_data$VB12 ~ x + sg90_data$HSCRP+ sg90_data$ALT +  sg90_data$FBGlu + sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + sg90_data$LDL + sg90_data$BMI + sg90_data$Gender, data=sg90_data))))
+vitaminbwoagecorr_woage <- param_with_age_correction_grip_mat(org_list_to_use, vitaminb_withoutagecorrection,  here('results_0.1', 'section3','vitb_without_age_correction.csv'))
+
+vitaminb_withagecorrection <- lapply(sg90_data[,org_list_to_use], function(x)coefficients (summary (glm(sg90_data$VB12 ~ x + sg90_data$Age + sg90_data$HSCRP+ sg90_data$ALT +  sg90_data$FBGlu + sg90_data$Tgly + sg90_data$TCHOL + sg90_data$HDL + 
+                                                                                                          #sg90_data$LDL +
+                                                                                                          sg90_data$BMI + sg90_data$Gender, data=sg90_data))))
+vitaminbwithagecorr <- param_with_age_correction_grip_mat(org_list_to_use, vitaminb_withagecorrection,  here('results_0.1', 'section3','VitaminB_with_age_correction.csv'))
+vitb_volc <- plot_volcano_asscn(vitaminbwithagecorr)
+
+```
+
+### Plot editable ppt
+```{r}
+fig4_ppts <- list(fb_volc, tchol_volc, ast_volc, hscrp_volc, vitb_volc,
+                  hdl_volc, ldl_volc, tgly_volc, alt_volc)
+makeedtiableppt_manyobj(fig4_ppts,
+                        fname = 'Fig4.pptx', 
+                        width = 4.5, height = 3.5)
+
+```
+
